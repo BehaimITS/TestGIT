@@ -620,4 +620,147 @@
       <type href="../../ae.schema#string"/>
     </attributes>
   </schema:ClassType>
+  <schema:ClassType xmi:id="P_CRM" name="P_CRM">
+    <attributes name="CRM_ID" isKey="true" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="LKUP_STATUS_ID" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="LKUP_STATE_ID" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="LKUP_CRM_STATUS_ID" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="MEMBER_ID" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="LKUP_CRM_TYPE_ID" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="NAME" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="EMAIL_ADDRESS" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="ZIP_CODE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="PHONE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="SUBJECT" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="PHONE_WORK" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="COMMENT_TEXT" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="PREFERRED_CONTACT_METHOD" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="CREATED_ON" isReadable="true" isWriteable="true">
+      <type href="adbmetadata.schema#adbDateTime"/>
+    </attributes>
+    <attributes name="CREATED_BY" isReadable="true" isWriteable="true">
+      <type href="adbmetadata.schema#adbDateTime"/>
+    </attributes>
+    <attributes name="UPDATED_ON" isReadable="true" isWriteable="true">
+      <type href="adbmetadata.schema#adbDateTime"/>
+    </attributes>
+    <attributes name="UPDATED_BY" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="TOPIC" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="ACCOUNT_NUMBER" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="FIRST_NAME" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="LAST_NAME" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="MIDDLE_INITIAL" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="TITLE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="SUFFIX" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="CRM_STATUS" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="EMAIL_FLAG" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="ADDRESS1" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="ADDRESS2" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="CITY" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="CONTACT_FLAG" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="SOURCE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="BILLING_ADDRESS1" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="BILLING_ADDRESS2" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="BILLING_CITY" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="BILLING_LKUP_STATE_ID" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="BILLING_ZIP_CODE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="EXTENSION" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="ADB_OPCODE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#i4"/>
+    </attributes>
+    <attributes name="ADB_TRACKINGID" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="ADB_SUBJECT" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="ADB_SEQUENCE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="ADB_SET_SEQUENCE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#i4"/>
+    </attributes>
+    <attributes name="ADB_TIMESTAMP" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="ADB_UPDATE_ALL" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#i4"/>
+    </attributes>
+    <attributes name="ADB_REF_OBJECT" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="ADB_AGENT_ID" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+  </schema:ClassType>
 </xmi:XMI>

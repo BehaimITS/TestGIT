@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:adadbmodel="http://xsd.tns.tibco.com/adadb/models/adadbmodel" xmlns:common="http://xsd.tns.tibco.com/amf/models/adapter/common" xmlns:gac="http://xsd.tns.tibco.com/amf/models/adapter/gac">
-  <adadbmodel:ADBAdapterConfiguration name="AdapterForDatabase" instanceId="AdapterForDatabase" services="#/9 #/11 #/13 #/15 #/17 #/19 #/21 #/23 #/25" reporting="#/4" logging="#/5" monitoring="#/6" transports="#/3 #/7 #/8" channels="#/10 #/12 #/14 #/16 #/18 #/20 #/22 #/24 #/26" vendor="16" runTimeConnection="#/1" convertOracleNumberToString="true" deployOperations="true">
+  <adadbmodel:ADBAdapterConfiguration name="AdapterForDatabase" instanceId="AdapterForDatabase" services="#/9 #/11 #/13 #/15 #/17 #/19 #/21 #/23 #/25 #/27" reporting="#/4" logging="#/5" monitoring="#/6" transports="#/3 #/7 #/8" channels="#/10 #/12 #/14 #/16 #/18 #/20 #/22 #/24 #/26 #/28" vendor="16" runTimeConnection="#/1" convertOracleNumberToString="true" deployOperations="true">
     <startup active="true" showBanner="true">
       <components active="true" componentName="ADBHawkDefault"/>
       <components active="true" componentName="ADBAgentJmsSession"/>
@@ -14,6 +14,7 @@
       <components active="true" componentName="BILL_NOTIFICATION_EMAILADDRESS"/>
       <components active="true" componentName="ASSISTANCE_PROGRAM_APP"/>
       <components active="true" componentName="BUDGET_BILL"/>
+      <components active="true" componentName="CRM"/>
     </startup>
     <hawk help="TIB/Adapter for ActiveDatabase MicroAgent" microAgentName="COM.TIBCO.adb.custom.%%Deployment%%.%%InstanceId%%" transport="#/3">
       <methods name="setDebugLevel" help="Sets the debug level for the agent (possible values 0-3)">
@@ -405,4 +406,47 @@
     <dbOperProperties isDefault="false" sourceTableSchema="SCOTT" sourceTable="BUDGET_BILL" publishingTableSchema="SCOTT" publishingTable="P_BUDGET_BILL" updateMode="Update" storageMode="Publish by Value" loopDetection="false" noTriggers="false" columnsToPublish="BUDGET_BILL_ID, ACCOUNT_NUMBER, CASE_TYPE, BUDGET_BILL_AMOUNT, CREATED_ON, SQUARE_FOOTAGE, HEAT, WATER_HEATER, RANGE, WASHING_MACHINE, DRYER, REFRIGERATOR, MONTHLY_GAS_USAGE, RESPONSE, RESPONSE_DATE, RESPONSE_DEADLINE, CURRENT_PAYMENT, PAYMENT_DATE, CRM_ID, MONTHLY_ELECTRIC_USAGE, SOURCE, USER_TYPE" columnsToFireUpdateTrigger="" userDefinedKey="BUDGET_BILL_ID" captureProType="Synchronous" streamsOutputQueue="ADB_BUDGET_BILL_OUT" streamsSchema="SCOTT" outputQPayloadType="ADB_BUDGET_BILL_OBJ" captureProName="ADB_BUDGET_BILL_CAP" dbInstanceID="DB11G" inputQueue="ADB_BUDGET_BILL_IN" dmlHandlerName="ADB_BUDGET_BILL_DM_HANDLE" applyProcessName="ADB_BUDGET_BILL_APPLY"/>
   </adadbmodel:ADBPublisher>
   <gac:ProducerChannel name="BUDGET_BILL" transportConfiguration="#/7" wireFormat="aeXml" destination="%%Domain%%.%%Deployment%%.eBiz.BD.Topic.Cust360.BudgetBill" endpointType="endpoint.JMSPublisher" channelType="jmsProducer"/>
+  <adadbmodel:ADBPublisher name="CRM" transportConfiguration="#/7" classReference="AESchemas/ae/ADB/AdapterForDatabase.schema#P_CRM" channel="#/28" transportType="jms" qualityOfService="ae.sessions.jmssession" publishingTable="P_CRM" sourceTable="CRM" streamsOutputQueue="ADB_CRM_OUT" streamsSchema="SCOTT" outputQPayloadType="ADB_CRM_OBJ" captureProName="ADB_CRM_CAP" dbInstanceID="DB11G" inputQueue="ADB_CRM_IN" dmlHandlerName="ADB_CRM_DM_HANDLE" applyProcessName="ADB_CRM_APPLY" pubFlag="0">
+    <dbOptions/>
+    <columnsToPublish>CRM_ID</columnsToPublish>
+    <columnsToPublish>LKUP_STATUS_ID</columnsToPublish>
+    <columnsToPublish>LKUP_STATE_ID</columnsToPublish>
+    <columnsToPublish>LKUP_CRM_STATUS_ID</columnsToPublish>
+    <columnsToPublish>MEMBER_ID</columnsToPublish>
+    <columnsToPublish>LKUP_CRM_TYPE_ID</columnsToPublish>
+    <columnsToPublish>NAME</columnsToPublish>
+    <columnsToPublish>EMAIL_ADDRESS</columnsToPublish>
+    <columnsToPublish>ZIP_CODE</columnsToPublish>
+    <columnsToPublish>PHONE</columnsToPublish>
+    <columnsToPublish>SUBJECT</columnsToPublish>
+    <columnsToPublish>PHONE_WORK</columnsToPublish>
+    <columnsToPublish>COMMENT_TEXT</columnsToPublish>
+    <columnsToPublish>PREFERRED_CONTACT_METHOD</columnsToPublish>
+    <columnsToPublish>CREATED_ON</columnsToPublish>
+    <columnsToPublish>CREATED_BY</columnsToPublish>
+    <columnsToPublish>UPDATED_ON</columnsToPublish>
+    <columnsToPublish>UPDATED_BY</columnsToPublish>
+    <columnsToPublish>TOPIC</columnsToPublish>
+    <columnsToPublish>ACCOUNT_NUMBER</columnsToPublish>
+    <columnsToPublish>FIRST_NAME</columnsToPublish>
+    <columnsToPublish>LAST_NAME</columnsToPublish>
+    <columnsToPublish>MIDDLE_INITIAL</columnsToPublish>
+    <columnsToPublish>TITLE</columnsToPublish>
+    <columnsToPublish>SUFFIX</columnsToPublish>
+    <columnsToPublish>CRM_STATUS</columnsToPublish>
+    <columnsToPublish>EMAIL_FLAG</columnsToPublish>
+    <columnsToPublish>ADDRESS1</columnsToPublish>
+    <columnsToPublish>ADDRESS2</columnsToPublish>
+    <columnsToPublish>CITY</columnsToPublish>
+    <columnsToPublish>CONTACT_FLAG</columnsToPublish>
+    <columnsToPublish>SOURCE</columnsToPublish>
+    <columnsToPublish>BILLING_ADDRESS1</columnsToPublish>
+    <columnsToPublish>BILLING_ADDRESS2</columnsToPublish>
+    <columnsToPublish>BILLING_CITY</columnsToPublish>
+    <columnsToPublish>BILLING_LKUP_STATE_ID</columnsToPublish>
+    <columnsToPublish>BILLING_ZIP_CODE</columnsToPublish>
+    <columnsToPublish>EXTENSION</columnsToPublish>
+    <dbOperProperties isDefault="false" sourceTableSchema="SCOTT" sourceTable="CRM" publishingTableSchema="SCOTT" publishingTable="P_CRM" updateMode="Update" storageMode="Publish by Value" loopDetection="false" noTriggers="false" columnsToPublish="CRM_ID, LKUP_STATUS_ID, LKUP_STATE_ID, LKUP_CRM_STATUS_ID, MEMBER_ID, LKUP_CRM_TYPE_ID, NAME, EMAIL_ADDRESS, ZIP_CODE, PHONE, SUBJECT, PHONE_WORK, COMMENT_TEXT, PREFERRED_CONTACT_METHOD, CREATED_ON, CREATED_BY, UPDATED_ON, UPDATED_BY, TOPIC, ACCOUNT_NUMBER, FIRST_NAME, LAST_NAME, MIDDLE_INITIAL, TITLE, SUFFIX, CRM_STATUS, EMAIL_FLAG, ADDRESS1, ADDRESS2, CITY, CONTACT_FLAG, SOURCE, BILLING_ADDRESS1, BILLING_ADDRESS2, BILLING_CITY, BILLING_LKUP_STATE_ID, BILLING_ZIP_CODE, EXTENSION" columnsToFireUpdateTrigger="" userDefinedKey="CRM_ID" captureProType="Synchronous" streamsOutputQueue="ADB_CRM_OUT" streamsSchema="SCOTT" outputQPayloadType="ADB_CRM_OBJ" captureProName="ADB_CRM_CAP" dbInstanceID="DB11G" inputQueue="ADB_CRM_IN" dmlHandlerName="ADB_CRM_DM_HANDLE" applyProcessName="ADB_CRM_APPLY"/>
+  </adadbmodel:ADBPublisher>
+  <gac:ProducerChannel name="CRM" transportConfiguration="#/7" wireFormat="aeXml" destination="%%Domain%%.%%Deployment%%.eBiz.BD.Topic.Cust360.Crm" endpointType="endpoint.JMSPublisher" channelType="jmsProducer"/>
 </xmi:XMI>
