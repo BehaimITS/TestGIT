@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:adadbmodel="http://xsd.tns.tibco.com/adadb/models/adadbmodel" xmlns:common="http://xsd.tns.tibco.com/amf/models/adapter/common" xmlns:gac="http://xsd.tns.tibco.com/amf/models/adapter/gac">
-  <adadbmodel:ADBAdapterConfiguration name="AdapterForDatabase" instanceId="AdapterForDatabase" services="#/9 #/11 #/13 #/15 #/17 #/19 #/21 #/23 #/25 #/27" reporting="#/4" logging="#/5" monitoring="#/6" transports="#/3 #/7 #/8" channels="#/10 #/12 #/14 #/16 #/18 #/20 #/22 #/24 #/26 #/28" vendor="16" runTimeConnection="#/1" convertOracleNumberToString="true" deployOperations="true">
+  <adadbmodel:ADBAdapterConfiguration name="AdapterForDatabase" instanceId="AdapterForDatabase" services="#/9 #/11 #/13 #/15 #/17 #/19 #/21 #/23 #/25 #/27 #/29" reporting="#/4" logging="#/5" monitoring="#/6" transports="#/3 #/7 #/8" channels="#/10 #/12 #/14 #/16 #/18 #/20 #/22 #/24 #/26 #/28 #/30" vendor="16" runTimeConnection="#/1" convertOracleNumberToString="true" deployOperations="true">
     <startup active="true" showBanner="true">
       <components active="true" componentName="ADBHawkDefault"/>
       <components active="true" componentName="ADBAgentJmsSession"/>
@@ -15,6 +15,7 @@
       <components active="true" componentName="ASSISTANCE_PROGRAM_APP"/>
       <components active="true" componentName="BUDGET_BILL"/>
       <components active="true" componentName="CRM"/>
+      <components active="true" componentName="MEMBER"/>
     </startup>
     <hawk help="TIB/Adapter for ActiveDatabase MicroAgent" microAgentName="COM.TIBCO.adb.custom.%%Deployment%%.%%InstanceId%%" transport="#/3">
       <methods name="setDebugLevel" help="Sets the debug level for the agent (possible values 0-3)">
@@ -449,4 +450,64 @@
     <dbOperProperties isDefault="false" sourceTableSchema="SCOTT" sourceTable="CRM" publishingTableSchema="SCOTT" publishingTable="P_CRM" updateMode="Update" storageMode="Publish by Value" loopDetection="false" noTriggers="false" columnsToPublish="CRM_ID, LKUP_STATUS_ID, LKUP_STATE_ID, LKUP_CRM_STATUS_ID, MEMBER_ID, LKUP_CRM_TYPE_ID, NAME, EMAIL_ADDRESS, ZIP_CODE, PHONE, SUBJECT, PHONE_WORK, COMMENT_TEXT, PREFERRED_CONTACT_METHOD, CREATED_ON, CREATED_BY, UPDATED_ON, UPDATED_BY, TOPIC, ACCOUNT_NUMBER, FIRST_NAME, LAST_NAME, MIDDLE_INITIAL, TITLE, SUFFIX, CRM_STATUS, EMAIL_FLAG, ADDRESS1, ADDRESS2, CITY, CONTACT_FLAG, SOURCE, BILLING_ADDRESS1, BILLING_ADDRESS2, BILLING_CITY, BILLING_LKUP_STATE_ID, BILLING_ZIP_CODE, EXTENSION" columnsToFireUpdateTrigger="" userDefinedKey="CRM_ID" captureProType="Synchronous" streamsOutputQueue="ADB_CRM_OUT" streamsSchema="SCOTT" outputQPayloadType="ADB_CRM_OBJ" captureProName="ADB_CRM_CAP" dbInstanceID="DB11G" inputQueue="ADB_CRM_IN" dmlHandlerName="ADB_CRM_DM_HANDLE" applyProcessName="ADB_CRM_APPLY"/>
   </adadbmodel:ADBPublisher>
   <gac:ProducerChannel name="CRM" transportConfiguration="#/7" wireFormat="aeXml" destination="%%Domain%%.%%Deployment%%.eBiz.BD.Topic.Cust360.Crm" endpointType="endpoint.JMSPublisher" channelType="jmsProducer"/>
+  <adadbmodel:ADBPublisher name="MEMBER" transportConfiguration="#/7" classReference="AESchemas/ae/ADB/AdapterForDatabase.schema#P_MEMBER" channel="#/30" transportType="jms" qualityOfService="ae.sessions.jmssession" publishingTable="P_MEMBER" sourceTable="MEMBER" streamsOutputQueue="ADB_MEMBER_OUT" streamsSchema="SCOTT" outputQPayloadType="ADB_MEMBER_OBJ" captureProName="ADB_MEMBER_CAP" dbInstanceID="DB11G" inputQueue="ADB_MEMBER_IN" dmlHandlerName="ADB_MEMBER_DM_HANDLE" applyProcessName="ADB_MEMBER_APPLY" pubFlag="0">
+    <dbOptions/>
+    <columnsToPublish>MEMBER_ID</columnsToPublish>
+    <columnsToPublish>PASSWORD</columnsToPublish>
+    <columnsToPublish>LKUP_STATUS_ID</columnsToPublish>
+    <columnsToPublish>LKUP_COMPANY_CODE_ID</columnsToPublish>
+    <columnsToPublish>CREATED_ON</columnsToPublish>
+    <columnsToPublish>REGISTERED_DATE</columnsToPublish>
+    <columnsToPublish>UPDATED_ON</columnsToPublish>
+    <columnsToPublish>FIRST_NAME</columnsToPublish>
+    <columnsToPublish>MIDDLE_INITIAL</columnsToPublish>
+    <columnsToPublish>LAST_NAME</columnsToPublish>
+    <columnsToPublish>USER_NAME</columnsToPublish>
+    <columnsToPublish>EMAIL_ADDRESS</columnsToPublish>
+    <columnsToPublish>TITLE</columnsToPublish>
+    <columnsToPublish>SUFFIX</columnsToPublish>
+    <columnsToPublish>ZIP_CODE</columnsToPublish>
+    <columnsToPublish>EMAILABLE</columnsToPublish>
+    <columnsToPublish>REGISTERED</columnsToPublish>
+    <columnsToPublish>USER_TYPE</columnsToPublish>
+    <columnsToPublish>CONTACT_MODE</columnsToPublish>
+    <columnsToPublish>DAYTIME_PHONE</columnsToPublish>
+    <columnsToPublish>EVENING_PHONE</columnsToPublish>
+    <columnsToPublish>FAX</columnsToPublish>
+    <columnsToPublish>PRIMARY_CONTACT_METHOD</columnsToPublish>
+    <columnsToPublish>SECONDARY_CONTACT_METHOD</columnsToPublish>
+    <columnsToPublish>SUBSCRIBED</columnsToPublish>
+    <columnsToPublish>UNIQUE_ID</columnsToPublish>
+    <columnsToPublish>EMAIL_VALIDATION</columnsToPublish>
+    <columnsToPublish>CSR_VALIDATION</columnsToPublish>
+    <columnsToPublish>EMAIL_VALIDATION_DATE</columnsToPublish>
+    <columnsToPublish>CSR_VALIDATION_DATE</columnsToPublish>
+    <columnsToPublish>LAST_ACTIVITY_DATE</columnsToPublish>
+    <columnsToPublish>NICKNAME</columnsToPublish>
+    <columnsToPublish>PRIMARY_ACCOUNT_IND</columnsToPublish>
+    <columnsToPublish>PRIOR_LAST_ACTIVITY_DATE</columnsToPublish>
+    <columnsToPublish>COURTESY_EMAIL_STATUS</columnsToPublish>
+    <columnsToPublish>PROMO_STATUS</columnsToPublish>
+    <columnsToPublish>SUMMER_BUDGET_BILL_STATUS</columnsToPublish>
+    <columnsToPublish>FALL_BUDGET_BILL_STATUS</columnsToPublish>
+    <columnsToPublish>NEXUS_PROMO_STATUS</columnsToPublish>
+    <columnsToPublish>COLTS_PROMO_STATUS</columnsToPublish>
+    <columnsToPublish>HOME_EFF_PROMO_STATUS</columnsToPublish>
+    <columnsToPublish>CHANGE_PW</columnsToPublish>
+    <columnsToPublish>EBILL_DECLINED_DATE</columnsToPublish>
+    <columnsToPublish>REGISTRATION_CONFIRMATION</columnsToPublish>
+    <columnsToPublish>REGISTRATION_CONFIRM_DATE</columnsToPublish>
+    <columnsToPublish>USER_PRIVILEGES</columnsToPublish>
+    <columnsToPublish>PROFILE_LOCKED</columnsToPublish>
+    <columnsToPublish>PROFILE_FIRST_NAME</columnsToPublish>
+    <columnsToPublish>PROFILE_LAST_NAME</columnsToPublish>
+    <columnsToPublish>COMMON_MEMBER_ID</columnsToPublish>
+    <columnsToPublish>LOGIN_ATTEMPTS</columnsToPublish>
+    <columnsToPublish>LOGIN_ATTEMPT_DATE</columnsToPublish>
+    <columnsToPublish>IS_NERC_USER</columnsToPublish>
+    <columnsToPublish>LAST_PASSWORD_UPD_DATE</columnsToPublish>
+    <columnsToPublish>DEFAULT_ACCOUNT</columnsToPublish>
+    <dbOperProperties isDefault="false" sourceTableSchema="SCOTT" sourceTable="MEMBER" publishingTableSchema="SCOTT" publishingTable="P_MEMBER" updateMode="Update" storageMode="Publish by Value" loopDetection="false" noTriggers="false" columnsToPublish="MEMBER_ID, PASSWORD, LKUP_STATUS_ID, LKUP_COMPANY_CODE_ID, CREATED_ON, REGISTERED_DATE, UPDATED_ON, FIRST_NAME, MIDDLE_INITIAL, LAST_NAME, USER_NAME, EMAIL_ADDRESS, TITLE, SUFFIX, ZIP_CODE, EMAILABLE, REGISTERED, USER_TYPE, CONTACT_MODE, DAYTIME_PHONE, EVENING_PHONE, FAX, PRIMARY_CONTACT_METHOD, SECONDARY_CONTACT_METHOD, SUBSCRIBED, UNIQUE_ID, EMAIL_VALIDATION, CSR_VALIDATION, EMAIL_VALIDATION_DATE, CSR_VALIDATION_DATE, LAST_ACTIVITY_DATE, NICKNAME, PRIMARY_ACCOUNT_IND, PRIOR_LAST_ACTIVITY_DATE, COURTESY_EMAIL_STATUS, PROMO_STATUS, SUMMER_BUDGET_BILL_STATUS, FALL_BUDGET_BILL_STATUS, NEXUS_PROMO_STATUS, COLTS_PROMO_STATUS, HOME_EFF_PROMO_STATUS, CHANGE_PW, EBILL_DECLINED_DATE, REGISTRATION_CONFIRMATION, REGISTRATION_CONFIRM_DATE, USER_PRIVILEGES, PROFILE_LOCKED, PROFILE_FIRST_NAME, PROFILE_LAST_NAME, COMMON_MEMBER_ID, LOGIN_ATTEMPTS, LOGIN_ATTEMPT_DATE, IS_NERC_USER, LAST_PASSWORD_UPD_DATE, DEFAULT_ACCOUNT" columnsToFireUpdateTrigger="" userDefinedKey="MEMBER_ID" captureProType="Synchronous" streamsOutputQueue="ADB_MEMBER_OUT" streamsSchema="SCOTT" outputQPayloadType="ADB_MEMBER_OBJ" captureProName="ADB_MEMBER_CAP" dbInstanceID="DB11G" inputQueue="ADB_MEMBER_IN" dmlHandlerName="ADB_MEMBER_DM_HANDLE" applyProcessName="ADB_MEMBER_APPLY"/>
+  </adadbmodel:ADBPublisher>
+  <gac:ProducerChannel name="MEMBER" transportConfiguration="#/7" wireFormat="aeXml" destination="%%Domain%%.%%Deployment%%.eBiz.BD.Topic.Cust360.Member" endpointType="endpoint.JMSPublisher" channelType="jmsProducer"/>
 </xmi:XMI>
