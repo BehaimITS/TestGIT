@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:schema="http://xsd.tns.tibco.com/amf/models/adapter/schema">
+  <schema:Scalar xmi:id="any" name="any" dataTypeName="any"/>
+  <schema:Scalar xmi:id="assocList" name="assocList" dataTypeName="assocList"/>
+  <schema:Scalar xmi:id="binary" name="binary" dataTypeName="binary" javaClass="java.lang.Byte[]"/>
+  <schema:Scalar xmi:id="boolean" name="boolean" dataTypeName="boolean" javaClass="java.lang.Boolean"/>
+  <schema:Scalar xmi:id="char" name="char" dataTypeName="char" javaClass="java.lang.Character"/>
+  <schema:Scalar xmi:id="date" name="date" dataTypeName="date" javaClass="java.util.Date"/>
+  <schema:Scalar xmi:id="dateTime" name="dateTime" dataTypeName="dateTime" javaClass="java.util.Date"/>
+  <schema:Scalar xmi:id="i1" name="i1" dataTypeName="i1" javaClass="java.lang.Byte"/>
+  <schema:Scalar xmi:id="i2" name="i2" dataTypeName="i2" javaClass="java.lang.Short"/>
+  <schema:Scalar xmi:id="i4" name="i4" dataTypeName="i4" javaClass="java.lang.Integer"/>
+  <schema:Scalar xmi:id="i8" name="i8" dataTypeName="i8" javaClass="java.lang.Long"/>
+  <schema:Scalar xmi:id="interval" name="interval" dataTypeName="interval"/>
+  <schema:Scalar xmi:id="r4" name="r4" dataTypeName="r4" javaClass="java.lang.Float"/>
+  <schema:Scalar xmi:id="r8" name="r8" dataTypeName="r8" javaClass="java.lang.Double"/>
+  <schema:Scalar xmi:id="string" name="string" dataTypeName="string" javaClass="java.lang.String"/>
+  <schema:Scalar xmi:id="time" name="time" dataTypeName="time" javaClass="java.util.Date"/>
+  <schema:Scalar xmi:id="ui1" name="ui1" dataTypeName="ui1" javaClass="java.lang.Short"/>
+  <schema:Scalar xmi:id="ui2" name="ui2" dataTypeName="ui2" javaClass="java.lang.Integer"/>
+  <schema:Scalar xmi:id="ui4" name="ui4" dataTypeName="ui4" javaClass="java.lang.Long"/>
+  <schema:Scalar xmi:id="ui8" name="ui8" dataTypeName="ui8" javaClass="java.lang.Long"/>
+  <schema:Scalar xmi:id="void" name="void" dataTypeName="void"/>
+</xmi:XMI>

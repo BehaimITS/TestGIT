@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:schema="http://xsd.tns.tibco.com/amf/models/adapter/schema">
+  <schema:ClassType xmi:id="MBusinessDocument" name="MBusinessDocument" superclass="baseBusinessDocument">
+    <attributes name="DataSection" type="sequence[MDataSection]" isReadable="true" isWriteable="true"/>
+  </schema:ClassType>
+  <schema:ClassType xmi:id="MDataSection" name="MDataSection">
+    <attributes name="VerbCode" isReadable="true" isWriteable="true">
+      <type href="../ae.schema#i4"/>
+    </attributes>
+    <attributes name="Data" isReadable="true" isWriteable="true">
+      <type href="../ae.schema#any"/>
+    </attributes>
+  </schema:ClassType>
+  <schema:ClassType xmi:id="MAdvisoryDocument" name="MAdvisoryDocument" superclass="baseAdvisoryDocument">
+    <attributes name="Data" isReadable="true" isWriteable="true">
+      <type href="../ae.schema#any"/>
+    </attributes>
+  </schema:ClassType>
+  <schema:ClassType xmi:id="baseAdvisoryDocument" name="baseAdvisoryDocument">
+    <attributes name="ApplicationInstanceId" isReadable="true" isWriteable="true">
+      <type href="../ae.schema#string"/>
+    </attributes>
+    <attributes name="ReferenceId" isReadable="true" isWriteable="true">
+      <type href="../ae.schema#string"/>
+    </attributes>
+    <attributes name="Description" isReadable="true" isWriteable="true">
+      <type href="../ae.schema#string"/>
+    </attributes>
+    <attributes name="Class" isReadable="true" isWriteable="true">
+      <type href="../ae.schema#string"/>
+    </attributes>
+    <attributes name="Severity" isReadable="true" isWriteable="true">
+      <type href="../ae.schema#i4"/>
+    </attributes>
+    <attributes name="DateTimeStamp" isReadable="true" isWriteable="true">
+      <type href="../ae.schema#dateTime"/>
+    </attributes>
+    <attributes name="Subject" isReadable="true" isWriteable="true">
+      <type href="../ae.schema#string"/>
+    </attributes>
+    <attributes name="Name" isReadable="true" isWriteable="true">
+      <type href="../ae.schema#string"/>
+    </attributes>
+    <attributes name="ApplicationContext" isReadable="true" isWriteable="true">
+      <type href="../ae.schema#any"/>
+    </attributes>
+    <attributes name="Version" isReadable="true" isWriteable="true">
+      <type href="../ae.schema#i4"/>
+    </attributes>
+    <attributes name="Analysis" isReadable="true" isWriteable="true">
+      <type href="../ae.schema#string"/>
+    </attributes>
+    <attributes name="ApplicationId" isReadable="true" isWriteable="true">
+      <type href="../ae.schema#string"/>
+    </attributes>
+  </schema:ClassType>
+  <schema:ClassType xmi:id="aeAdvisoryDocument" name="aeAdvisoryDocument" superclass="baseAdvisoryDocument">
+    <attributes name="Data" isReadable="true" isWriteable="true">
+      <type href="../ae.schema#any"/>
+    </attributes>
+  </schema:ClassType>
+  <schema:ClassType xmi:id="baseBusinessDocument" name="baseBusinessDocument">
+    <attributes name="VerbCode" isReadable="true" isWriteable="true">
+      <type href="../ae.schema#i4"/>
+    </attributes>
+    <attributes name="ApplicationInstanceId" isReadable="true" isWriteable="true">
+      <type href="../ae.schema#string"/>
+    </attributes>
+    <attributes name="ReferenceId" isReadable="true" isWriteable="true">
+      <type href="../ae.schema#string"/>
+    </attributes>
+    <attributes name="Encrypted" isReadable="true" isWriteable="true">
+      <type href="../ae.schema#boolean"/>
+    </attributes>
+    <attributes name="DateTimeStamp" isReadable="true" isWriteable="true">
+      <type href="../ae.schema#dateTime"/>
+    </attributes>
+    <attributes name="ReplyAddress" isReadable="true" isWriteable="true">
+      <type href="../ae.schema#string"/>
+    </attributes>
+    <attributes name="LotEnd" isReadable="true" isWriteable="true">
+      <type href="../ae.schema#boolean"/>
+    </attributes>
+    <attributes name="LotId" isReadable="true" isWriteable="true">
+      <type href="../ae.schema#string"/>
+    </attributes>
+    <attributes name="ConfirmCode" isReadable="true" isWriteable="true">
+      <type href="../ae.schema#i4"/>
+    </attributes>
+    <attributes name="ComponentId" isReadable="true" isWriteable="true">
+      <type href="../ae.schema#string"/>
+    </attributes>
+    <attributes name="Name" isReadable="true" isWriteable="true">
+      <type href="../ae.schema#string"/>
+    </attributes>
+    <attributes name="ApplicationContext" isReadable="true" isWriteable="true">
+      <type href="../ae.schema#any"/>
+    </attributes>
+    <attributes name="Version" isReadable="true" isWriteable="true">
+      <type href="../ae.schema#i4"/>
+    </attributes>
+    <attributes name="LotItem" isReadable="true" isWriteable="true">
+      <type href="../ae.schema#i4"/>
+    </attributes>
+    <attributes name="ErrorAddress" isReadable="true" isWriteable="true">
+      <type href="../ae.schema#string"/>
+    </attributes>
+    <attributes name="ApplicationId" isReadable="true" isWriteable="true">
+      <type href="../ae.schema#string"/>
+    </attributes>
+  </schema:ClassType>
+  <schema:Sequence xmi:id="sequence[MDataSection]" name="sequence[MDataSection]" elementType="MDataSection"/>
+</xmi:XMI>
