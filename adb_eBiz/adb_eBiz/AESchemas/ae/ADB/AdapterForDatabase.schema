@@ -481,4 +481,48 @@
       <type href="../../ae.schema#string"/>
     </attributes>
   </schema:ClassType>
+  <schema:ClassType xmi:id="P_AMR_SCHEDULE_DATA" name="P_AMR_SCHEDULE_DATA">
+    <attributes name="MUNICIPALITY" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="CITY" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="STATE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="PROJECT_START_DATE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="BILL_MESSAGE_START_DATE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="ADB_OPCODE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#i4"/>
+    </attributes>
+    <attributes name="ADB_TRACKINGID" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="ADB_SUBJECT" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="ADB_SEQUENCE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="ADB_SET_SEQUENCE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#i4"/>
+    </attributes>
+    <attributes name="ADB_TIMESTAMP" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="ADB_UPDATE_ALL" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#i4"/>
+    </attributes>
+    <attributes name="ADB_REF_OBJECT" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="ADB_AGENT_ID" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+  </schema:ClassType>
 </xmi:XMI>

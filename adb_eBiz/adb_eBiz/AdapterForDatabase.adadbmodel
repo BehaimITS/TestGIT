@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:adadbmodel="http://xsd.tns.tibco.com/adadb/models/adadbmodel" xmlns:common="http://xsd.tns.tibco.com/amf/models/adapter/common" xmlns:gac="http://xsd.tns.tibco.com/amf/models/adapter/gac">
-  <adadbmodel:ADBAdapterConfiguration name="AdapterForDatabase" instanceId="AdapterForDatabase" services="#/9 #/11 #/13 #/15 #/17" reporting="#/4" logging="#/5" monitoring="#/6" transports="#/3 #/7 #/8" channels="#/10 #/12 #/14 #/16 #/18" vendor="16" runTimeConnection="#/1" convertOracleNumberToString="true" deployOperations="true">
+  <adadbmodel:ADBAdapterConfiguration name="AdapterForDatabase" instanceId="AdapterForDatabase" services="#/9 #/11 #/13 #/15 #/17 #/19" reporting="#/4" logging="#/5" monitoring="#/6" transports="#/3 #/7 #/8" channels="#/10 #/12 #/14 #/16 #/18 #/20" vendor="16" runTimeConnection="#/1" convertOracleNumberToString="true" deployOperations="true">
     <startup active="true" showBanner="true">
       <components active="true" componentName="ADBHawkDefault"/>
       <components active="true" componentName="ADBAgentJmsSession"/>
@@ -10,6 +10,7 @@
       <components active="true" componentName="ACH_CONSOLIDATED_PYMTS"/>
       <components active="true" componentName="SPEEDPAY_TRANSACTIONS"/>
       <components active="true" componentName="account_summary"/>
+      <components active="true" componentName="AMR_SCHEDULE_DATA"/>
     </startup>
     <hawk help="TIB/Adapter for ActiveDatabase MicroAgent" microAgentName="COM.TIBCO.adb.custom.%%Deployment%%.%%InstanceId%%" transport="#/3">
       <methods name="setDebugLevel" help="Sets the debug level for the agent (possible values 0-3)">
@@ -278,4 +279,14 @@
     <dbOperProperties isDefault="false" sourceTableSchema="SCOTT" sourceTable="ACCOUNT_SUMMARY" publishingTableSchema="SCOTT" publishingTable="P_ACCOUNT_SUMMARY" updateMode="Update" storageMode="Publish by Value" loopDetection="false" noTriggers="false" columnsToPublish="ACCOUNT_NUMBER, CURRENT_BALANCE, BUDGET_BILLING_STATUS, PIPP_BILLING_STATUS, LAST_STATEMENT_DATE, LAST_STATEMENT_AMOUNT, LAST_STATEMENT_DUE_DATE, LAST_PAYMENT_DATE, LAST_PAYMENT_AMOUNT, SERVICE_STREET, SERVICE_CITY, SERVICE_STATE, SERVICE_ZIP, BILLING_STREET, BILLING_CITY, BILLING_STATE, BILLING_ZIP, LAST_UPDATED, BUDGET_VARIANCE, ENROLLED_THIRD_PARTY_BILLING, ENROLLED_DIRECT_PAY, DIRECT_PAY_ACCOUNT_TYPE, DIRECT_PAY_ACCOUNT_NUMBER, DIRECT_PAY_INSTITUTION, ENROLLED_SUMMER_CYCLER, EMAIL_BILL_NOTIFICATION, RESPONSIBLE_PARTY_NAME, DRAFT_ROUTING_NUMBER, BUDGET_BALANCE, RESPONSIBLE_PARTY_STREET, RESPONSIBLE_PARTY_CITY, RESPONSIBLE_PARTY_STATE, RESPONSIBLE_PARTY_ZIP, RESPONSIBLE_PARTY_PHONE, RESPONSIBLE_PARTY_WORK_PHONE, GAS_TRANSPORT, ACTIVE" columnsToFireUpdateTrigger="" userDefinedKey="ACCOUNT_NUMBER" captureProType="Synchronous" streamsOutputQueue="ADB_ACCOUNT_SUMMARY_OUT" streamsSchema="SCOTT" outputQPayloadType="ADB_ACCOUNT_SUMMARY_OBJ" captureProName="ADB_ACCOUNT_SUMMARY_CAP" dbInstanceID="DB11G" inputQueue="ADB_ACCOUNT_SUMMARY_IN" dmlHandlerName="ADB_ACCOUNT_SUMMARY_DM_HANDLE" applyProcessName="ADB_ACCOUNT_SUMMARY_APPLY"/>
   </adadbmodel:ADBPublisher>
   <gac:ProducerChannel name="account_summary" transportConfiguration="#/7" wireFormat="aeXml" destination="%%Domain%%.%%Deployment%%.eBiz.BD.Topic.Cust360.AccountSummary" endpointType="endpoint.JMSPublisher" channelType="jmsProducer"/>
+  <adadbmodel:ADBPublisher name="AMR_SCHEDULE_DATA" transportConfiguration="#/7" classReference="AESchemas/ae/ADB/AdapterForDatabase.schema#P_AMR_SCHEDULE_DATA" channel="#/20" transportType="jms" qualityOfService="ae.sessions.jmssession" publishingTable="P_AMR_SCHEDULE_DATA" sourceTable="AMR_SCHEDULE_DATA" streamsOutputQueue="ADB_AMR_SCHEDULE_DATA_OUT" streamsSchema="SCOTT" outputQPayloadType="ADB_AMR_SCHEDULE_DATA_OBJ" captureProName="ADB_AMR_SCHEDULE_DATA_CAP" dbInstanceID="DB11G" inputQueue="ADB_AMR_SCHEDULE_DATA_IN" dmlHandlerName="ADB_AMR_SCHEDULE_DATA_DM_HANDLE" applyProcessName="ADB_AMR_SCHEDULE_DATA_APPLY" pubFlag="0">
+    <dbOptions/>
+    <columnsToPublish>MUNICIPALITY</columnsToPublish>
+    <columnsToPublish>CITY</columnsToPublish>
+    <columnsToPublish>STATE</columnsToPublish>
+    <columnsToPublish>PROJECT_START_DATE</columnsToPublish>
+    <columnsToPublish>BILL_MESSAGE_START_DATE</columnsToPublish>
+    <dbOperProperties isDefault="false" sourceTableSchema="SCOTT" sourceTable="AMR_SCHEDULE_DATA" publishingTableSchema="SCOTT" publishingTable="P_AMR_SCHEDULE_DATA" updateMode="Update" storageMode="Publish by Value" loopDetection="false" noTriggers="false" columnsToPublish="MUNICIPALITY, CITY, STATE, PROJECT_START_DATE, BILL_MESSAGE_START_DATE" columnsToFireUpdateTrigger="" userDefinedKey="" captureProType="Synchronous" streamsOutputQueue="ADB_AMR_SCHEDULE_DATA_OUT" streamsSchema="SCOTT" outputQPayloadType="ADB_AMR_SCHEDULE_DATA_OBJ" captureProName="ADB_AMR_SCHEDULE_DATA_CAP" dbInstanceID="DB11G" inputQueue="ADB_AMR_SCHEDULE_DATA_IN" dmlHandlerName="ADB_AMR_SCHEDULE_DATA_DM_HANDLE" applyProcessName="ADB_AMR_SCHEDULE_DATA_APPLY"/>
+  </adadbmodel:ADBPublisher>
+  <gac:ProducerChannel name="AMR_SCHEDULE_DATA" transportConfiguration="#/7" wireFormat="aeXml" destination="%%Domain%%.%%Deployment%%.eBiz.BD.Topic.Cust360.AmrScheduleData" endpointType="endpoint.JMSPublisher" channelType="jmsProducer"/>
 </xmi:XMI>
