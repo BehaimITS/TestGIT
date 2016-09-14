@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:adadbmodel="http://xsd.tns.tibco.com/adadb/models/adadbmodel" xmlns:common="http://xsd.tns.tibco.com/amf/models/adapter/common" xmlns:gac="http://xsd.tns.tibco.com/amf/models/adapter/gac">
-  <adadbmodel:ADBAdapterConfiguration name="AdapterForDatabase" instanceId="AdapterForDatabase" services="#/9 #/11 #/13" reporting="#/4" logging="#/5" monitoring="#/6" transports="#/3 #/7 #/8" channels="#/10 #/12 #/14" vendor="16" runTimeConnection="#/1" convertOracleNumberToString="true" deployOperations="true">
+  <adadbmodel:ADBAdapterConfiguration name="AdapterForDatabase" instanceId="AdapterForDatabase" services="#/9 #/11 #/13 #/15 #/17" reporting="#/4" logging="#/5" monitoring="#/6" transports="#/3 #/7 #/8" channels="#/10 #/12 #/14 #/16 #/18" vendor="16" runTimeConnection="#/1" convertOracleNumberToString="true" deployOperations="true">
     <startup active="true" showBanner="true">
       <components active="true" componentName="ADBHawkDefault"/>
       <components active="true" componentName="ADBAgentJmsSession"/>
@@ -8,6 +8,8 @@
       <components active="true" componentName="JMSTopic"/>
       <components active="true" componentName="ACH_PAYMENTS"/>
       <components active="true" componentName="ACH_CONSOLIDATED_PYMTS"/>
+      <components active="true" componentName="SPEEDPAY_TRANSACTIONS"/>
+      <components active="true" componentName="account_summary"/>
     </startup>
     <hawk help="TIB/Adapter for ActiveDatabase MicroAgent" microAgentName="COM.TIBCO.adb.custom.%%Deployment%%.%%InstanceId%%" transport="#/3">
       <methods name="setDebugLevel" help="Sets the debug level for the agent (possible values 0-3)">
@@ -207,4 +209,73 @@
     <dbOperProperties isDefault="false" sourceTableSchema="SCOTT" sourceTable="ACH_CONSOLIDATED_PYMTS" publishingTableSchema="SCOTT" publishingTable="P_ACH_CONSOLIDATED_PYMTS" updateMode="Update" storageMode="Publish by Value" loopDetection="false" noTriggers="false" columnsToPublish="ACH_CONSOLIDATED_PYMTS_ID, ACH_PAYMENTS_ID, COMPANY_CODE, CUSTOMER_CODE, PREMISE_CODE, CHECK_DIGIT, PAYMENT_AMOUNT" columnsToFireUpdateTrigger="" userDefinedKey="ACH_CONSOLIDATED_PYMTS_ID" captureProType="Synchronous" streamsOutputQueue="ADB_ACH_CONSOLIDATED_PYMTS_OUT" streamsSchema="SCOTT" outputQPayloadType="ADB_ACH_CONSOLIDATED_PYMTS_OBJ" captureProName="ADB_ACH_CONSOLIDATED_PYMTS_CAP" dbInstanceID="DB11G" inputQueue="ADB_ACH_CONSOLIDATED_PYMTS_IN" dmlHandlerName="ADB_ACH_CONSOLIDATED_PYMTS_DM_HANDLE" applyProcessName="ADB_ACH_CONSOLIDATED_PYMTS_APPLY"/>
   </adadbmodel:ADBPublisher>
   <gac:ProducerChannel name="ACH_CONSOLIDATED_PYMTS" transportConfiguration="#/7" wireFormat="aeXml" destination="%%Domain%%.%%Deployment%%.eBiz.BD.Topic.Cust360.AchConsolidatedPymts" endpointType="endpoint.JMSPublisher" channelType="jmsProducer"/>
+  <adadbmodel:ADBPublisher name="SPEEDPAY_TRANSACTIONS" transportConfiguration="#/7" classReference="AESchemas/ae/ADB/AdapterForDatabase.schema#P_SPEEDPAY_TRANSACTIONS" channel="#/16" transportType="jms" qualityOfService="ae.sessions.jmssession" publishingTable="P_SPEEDPAY_TRANSACTIONS" sourceTable="SPEEDPAY_TRANSACTIONS" streamsOutputQueue="ADB_SPEEDPAY_TRANSACTIONS_OUT" streamsSchema="SCOTT" outputQPayloadType="ADB_SPEEDPAY_TRANSACTIONS_OBJ" captureProName="ADB_SPEEDPAY_TRANSACTIONS_CAP" dbInstanceID="DB11G" inputQueue="ADB_SPEEDPAY_TRANSACTIONS_IN" dmlHandlerName="ADB_SPEEDPAY_TRANSACTIONS_DM_HANDLE" applyProcessName="ADB_SPEEDPAY_TRANSACTIONS_APPLY" pubFlag="0">
+    <dbOptions/>
+    <columnsToPublish>TRANS_ID</columnsToPublish>
+    <columnsToPublish>CREATED_ON</columnsToPublish>
+    <columnsToPublish>TRANS_CATEGORY</columnsToPublish>
+    <columnsToPublish>TRANS_AMOUNT</columnsToPublish>
+    <columnsToPublish>ACCOUNT_NUMBER</columnsToPublish>
+    <columnsToPublish>FIRST_NAME</columnsToPublish>
+    <columnsToPublish>LAST_NAME</columnsToPublish>
+    <columnsToPublish>EMAIL_ADDRESS</columnsToPublish>
+    <columnsToPublish>MEMBER_ID</columnsToPublish>
+    <columnsToPublish>CREDIT_CARD_NUMBER</columnsToPublish>
+    <columnsToPublish>CREDIT_CARD_NAME</columnsToPublish>
+    <columnsToPublish>CREDIT_CARD_TYPE</columnsToPublish>
+    <columnsToPublish>CREDIT_CARD_ZIP_CODE</columnsToPublish>
+    <columnsToPublish>CREDIT_CARD_EXPDATE</columnsToPublish>
+    <columnsToPublish>CONFIRM_NUM</columnsToPublish>
+    <columnsToPublish>SOURCE</columnsToPublish>
+    <columnsToPublish>PAYMENT_TYPE</columnsToPublish>
+    <columnsToPublish>PAYMENT_ID</columnsToPublish>
+    <columnsToPublish>PAYMENT_DATE</columnsToPublish>
+    <columnsToPublish>CANCELED_TYPE</columnsToPublish>
+    <columnsToPublish>CANCELED_DATE</columnsToPublish>
+    <columnsToPublish>MEMO_POST_FLAG</columnsToPublish>
+    <dbOperProperties isDefault="false" sourceTableSchema="SCOTT" sourceTable="SPEEDPAY_TRANSACTIONS" publishingTableSchema="SCOTT" publishingTable="P_SPEEDPAY_TRANSACTIONS" updateMode="Update" storageMode="Publish by Value" loopDetection="false" noTriggers="false" columnsToPublish="TRANS_ID, CREATED_ON, TRANS_CATEGORY, TRANS_AMOUNT, ACCOUNT_NUMBER, FIRST_NAME, LAST_NAME, EMAIL_ADDRESS, MEMBER_ID, CREDIT_CARD_NUMBER, CREDIT_CARD_NAME, CREDIT_CARD_TYPE, CREDIT_CARD_ZIP_CODE, CREDIT_CARD_EXPDATE, CONFIRM_NUM, SOURCE, PAYMENT_TYPE, PAYMENT_ID, PAYMENT_DATE, CANCELED_TYPE, CANCELED_DATE, MEMO_POST_FLAG" columnsToFireUpdateTrigger="" userDefinedKey="TRANS_ID" captureProType="Synchronous" streamsOutputQueue="ADB_SPEEDPAY_TRANSACTIONS_OUT" streamsSchema="SCOTT" outputQPayloadType="ADB_SPEEDPAY_TRANSACTIONS_OBJ" captureProName="ADB_SPEEDPAY_TRANSACTIONS_CAP" dbInstanceID="DB11G" inputQueue="ADB_SPEEDPAY_TRANSACTIONS_IN" dmlHandlerName="ADB_SPEEDPAY_TRANSACTIONS_DM_HANDLE" applyProcessName="ADB_SPEEDPAY_TRANSACTIONS_APPLY"/>
+  </adadbmodel:ADBPublisher>
+  <gac:ProducerChannel name="SPEEDPAY_TRANSACTIONS" transportConfiguration="#/7" wireFormat="aeXml" destination="%%Domain%%.%%Deployment%%.eBiz.BD.Topic.Cust360.SpeedpayTransactions" endpointType="endpoint.JMSPublisher" channelType="jmsProducer"/>
+  <adadbmodel:ADBPublisher name="account_summary" transportConfiguration="#/7" classReference="AESchemas/ae/ADB/AdapterForDatabase.schema#P_ACCOUNT_SUMMARY" channel="#/18" transportType="jms" qualityOfService="ae.sessions.jmssession" publishingTable="P_ACCOUNT_SUMMARY" sourceTable="ACCOUNT_SUMMARY" streamsOutputQueue="ADB_ACCOUNT_SUMMARY_OUT" streamsSchema="SCOTT" outputQPayloadType="ADB_ACCOUNT_SUMMARY_OBJ" captureProName="ADB_ACCOUNT_SUMMARY_CAP" dbInstanceID="DB11G" inputQueue="ADB_ACCOUNT_SUMMARY_IN" dmlHandlerName="ADB_ACCOUNT_SUMMARY_DM_HANDLE" applyProcessName="ADB_ACCOUNT_SUMMARY_APPLY" pubFlag="0">
+    <dbOptions/>
+    <columnsToPublish>ACCOUNT_NUMBER</columnsToPublish>
+    <columnsToPublish>CURRENT_BALANCE</columnsToPublish>
+    <columnsToPublish>BUDGET_BILLING_STATUS</columnsToPublish>
+    <columnsToPublish>PIPP_BILLING_STATUS</columnsToPublish>
+    <columnsToPublish>LAST_STATEMENT_DATE</columnsToPublish>
+    <columnsToPublish>LAST_STATEMENT_AMOUNT</columnsToPublish>
+    <columnsToPublish>LAST_STATEMENT_DUE_DATE</columnsToPublish>
+    <columnsToPublish>LAST_PAYMENT_DATE</columnsToPublish>
+    <columnsToPublish>LAST_PAYMENT_AMOUNT</columnsToPublish>
+    <columnsToPublish>SERVICE_STREET</columnsToPublish>
+    <columnsToPublish>SERVICE_CITY</columnsToPublish>
+    <columnsToPublish>SERVICE_STATE</columnsToPublish>
+    <columnsToPublish>SERVICE_ZIP</columnsToPublish>
+    <columnsToPublish>BILLING_STREET</columnsToPublish>
+    <columnsToPublish>BILLING_CITY</columnsToPublish>
+    <columnsToPublish>BILLING_STATE</columnsToPublish>
+    <columnsToPublish>BILLING_ZIP</columnsToPublish>
+    <columnsToPublish>LAST_UPDATED</columnsToPublish>
+    <columnsToPublish>BUDGET_VARIANCE</columnsToPublish>
+    <columnsToPublish>ENROLLED_THIRD_PARTY_BILLING</columnsToPublish>
+    <columnsToPublish>ENROLLED_DIRECT_PAY</columnsToPublish>
+    <columnsToPublish>DIRECT_PAY_ACCOUNT_TYPE</columnsToPublish>
+    <columnsToPublish>DIRECT_PAY_ACCOUNT_NUMBER</columnsToPublish>
+    <columnsToPublish>DIRECT_PAY_INSTITUTION</columnsToPublish>
+    <columnsToPublish>ENROLLED_SUMMER_CYCLER</columnsToPublish>
+    <columnsToPublish>EMAIL_BILL_NOTIFICATION</columnsToPublish>
+    <columnsToPublish>RESPONSIBLE_PARTY_NAME</columnsToPublish>
+    <columnsToPublish>DRAFT_ROUTING_NUMBER</columnsToPublish>
+    <columnsToPublish>BUDGET_BALANCE</columnsToPublish>
+    <columnsToPublish>RESPONSIBLE_PARTY_STREET</columnsToPublish>
+    <columnsToPublish>RESPONSIBLE_PARTY_CITY</columnsToPublish>
+    <columnsToPublish>RESPONSIBLE_PARTY_STATE</columnsToPublish>
+    <columnsToPublish>RESPONSIBLE_PARTY_ZIP</columnsToPublish>
+    <columnsToPublish>RESPONSIBLE_PARTY_PHONE</columnsToPublish>
+    <columnsToPublish>RESPONSIBLE_PARTY_WORK_PHONE</columnsToPublish>
+    <columnsToPublish>GAS_TRANSPORT</columnsToPublish>
+    <columnsToPublish>ACTIVE</columnsToPublish>
+    <dbOperProperties isDefault="false" sourceTableSchema="SCOTT" sourceTable="ACCOUNT_SUMMARY" publishingTableSchema="SCOTT" publishingTable="P_ACCOUNT_SUMMARY" updateMode="Update" storageMode="Publish by Value" loopDetection="false" noTriggers="false" columnsToPublish="ACCOUNT_NUMBER, CURRENT_BALANCE, BUDGET_BILLING_STATUS, PIPP_BILLING_STATUS, LAST_STATEMENT_DATE, LAST_STATEMENT_AMOUNT, LAST_STATEMENT_DUE_DATE, LAST_PAYMENT_DATE, LAST_PAYMENT_AMOUNT, SERVICE_STREET, SERVICE_CITY, SERVICE_STATE, SERVICE_ZIP, BILLING_STREET, BILLING_CITY, BILLING_STATE, BILLING_ZIP, LAST_UPDATED, BUDGET_VARIANCE, ENROLLED_THIRD_PARTY_BILLING, ENROLLED_DIRECT_PAY, DIRECT_PAY_ACCOUNT_TYPE, DIRECT_PAY_ACCOUNT_NUMBER, DIRECT_PAY_INSTITUTION, ENROLLED_SUMMER_CYCLER, EMAIL_BILL_NOTIFICATION, RESPONSIBLE_PARTY_NAME, DRAFT_ROUTING_NUMBER, BUDGET_BALANCE, RESPONSIBLE_PARTY_STREET, RESPONSIBLE_PARTY_CITY, RESPONSIBLE_PARTY_STATE, RESPONSIBLE_PARTY_ZIP, RESPONSIBLE_PARTY_PHONE, RESPONSIBLE_PARTY_WORK_PHONE, GAS_TRANSPORT, ACTIVE" columnsToFireUpdateTrigger="" userDefinedKey="ACCOUNT_NUMBER" captureProType="Synchronous" streamsOutputQueue="ADB_ACCOUNT_SUMMARY_OUT" streamsSchema="SCOTT" outputQPayloadType="ADB_ACCOUNT_SUMMARY_OBJ" captureProName="ADB_ACCOUNT_SUMMARY_CAP" dbInstanceID="DB11G" inputQueue="ADB_ACCOUNT_SUMMARY_IN" dmlHandlerName="ADB_ACCOUNT_SUMMARY_DM_HANDLE" applyProcessName="ADB_ACCOUNT_SUMMARY_APPLY"/>
+  </adadbmodel:ADBPublisher>
+  <gac:ProducerChannel name="account_summary" transportConfiguration="#/7" wireFormat="aeXml" destination="%%Domain%%.%%Deployment%%.eBiz.BD.Topic.Cust360.AccountSummary" endpointType="endpoint.JMSPublisher" channelType="jmsProducer"/>
 </xmi:XMI>
