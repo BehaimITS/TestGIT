@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:adadbmodel="http://xsd.tns.tibco.com/adadb/models/adadbmodel" xmlns:common="http://xsd.tns.tibco.com/amf/models/adapter/common" xmlns:gac="http://xsd.tns.tibco.com/amf/models/adapter/gac">
-  <adadbmodel:ADBAdapterConfiguration name="AdapterForDatabase" instanceId="AdapterForDatabase" services="#/9 #/11 #/13 #/15 #/17 #/19 #/21" reporting="#/4" logging="#/5" monitoring="#/6" transports="#/3 #/7 #/8" channels="#/10 #/12 #/14 #/16 #/18 #/20 #/22" vendor="16" runTimeConnection="#/1" convertOracleNumberToString="true" deployOperations="true">
+  <adadbmodel:ADBAdapterConfiguration name="AdapterForDatabase" instanceId="AdapterForDatabase" services="#/9 #/11 #/13 #/15 #/17 #/19 #/21 #/23 #/25" reporting="#/4" logging="#/5" monitoring="#/6" transports="#/3 #/7 #/8" channels="#/10 #/12 #/14 #/16 #/18 #/20 #/22 #/24 #/26" vendor="16" runTimeConnection="#/1" convertOracleNumberToString="true" deployOperations="true">
     <startup active="true" showBanner="true">
       <components active="true" componentName="ADBHawkDefault"/>
       <components active="true" componentName="ADBAgentJmsSession"/>
@@ -12,6 +12,8 @@
       <components active="true" componentName="account_summary"/>
       <components active="true" componentName="AMR_SCHEDULE_DATA"/>
       <components active="true" componentName="BILL_NOTIFICATION_EMAILADDRESS"/>
+      <components active="true" componentName="ASSISTANCE_PROGRAM_APP"/>
+      <components active="true" componentName="BUDGET_BILL"/>
     </startup>
     <hawk help="TIB/Adapter for ActiveDatabase MicroAgent" microAgentName="COM.TIBCO.adb.custom.%%Deployment%%.%%InstanceId%%" transport="#/3">
       <methods name="setDebugLevel" help="Sets the debug level for the agent (possible values 0-3)">
@@ -287,7 +289,7 @@
     <columnsToPublish>STATE</columnsToPublish>
     <columnsToPublish>PROJECT_START_DATE</columnsToPublish>
     <columnsToPublish>BILL_MESSAGE_START_DATE</columnsToPublish>
-    <dbOperProperties isDefault="false" sourceTableSchema="SCOTT" sourceTable="AMR_SCHEDULE_DATA" publishingTableSchema="SCOTT" publishingTable="P_AMR_SCHEDULE_DATA" updateMode="Update" storageMode="Publish by Value" loopDetection="false" noTriggers="false" columnsToPublish="MUNICIPALITY, CITY, STATE, PROJECT_START_DATE, BILL_MESSAGE_START_DATE" columnsToFireUpdateTrigger="" userDefinedKey="" captureProType="Synchronous" streamsOutputQueue="ADB_AMR_SCHEDULE_DATA_OUT" streamsSchema="SCOTT" outputQPayloadType="ADB_AMR_SCHEDULE_DATA_OBJ" captureProName="ADB_AMR_SCHEDULE_DATA_CAP" dbInstanceID="DB11G" inputQueue="ADB_AMR_SCHEDULE_DATA_IN" dmlHandlerName="ADB_AMR_SCHEDULE_DATA_DM_HANDLE" applyProcessName="ADB_AMR_SCHEDULE_DATA_APPLY"/>
+    <dbOperProperties isDefault="false" sourceTableSchema="SCOTT" sourceTable="AMR_SCHEDULE_DATA" publishingTableSchema="SCOTT" publishingTable="P_AMR_SCHEDULE_DATA" updateMode="Update" storageMode="Publish by Value" loopDetection="false" noTriggers="false" columnsToPublish="MUNICIPALITY, CITY, STATE, PROJECT_START_DATE, BILL_MESSAGE_START_DATE" columnsToFireUpdateTrigger="" userDefinedKey="CITY, MUNICIPALITY, PROJECT_START_DATE, STATE" captureProType="Synchronous" streamsOutputQueue="ADB_AMR_SCHEDULE_DATA_OUT" streamsSchema="SCOTT" outputQPayloadType="ADB_AMR_SCHEDULE_DATA_OBJ" captureProName="ADB_AMR_SCHEDULE_DATA_CAP" dbInstanceID="DB11G" inputQueue="ADB_AMR_SCHEDULE_DATA_IN" dmlHandlerName="ADB_AMR_SCHEDULE_DATA_DM_HANDLE" applyProcessName="ADB_AMR_SCHEDULE_DATA_APPLY"/>
   </adadbmodel:ADBPublisher>
   <gac:ProducerChannel name="AMR_SCHEDULE_DATA" transportConfiguration="#/7" wireFormat="aeXml" destination="%%Domain%%.%%Deployment%%.eBiz.BD.Topic.Cust360.AmrScheduleData" endpointType="endpoint.JMSPublisher" channelType="jmsProducer"/>
   <adadbmodel:ADBPublisher name="BILL_NOTIFICATION_EMAILADDRESS" transportConfiguration="#/7" classReference="AESchemas/ae/ADB/AdapterForDatabase.schema#P_BILL_NOTIFI_EMAIL" channel="#/22" transportType="jms" qualityOfService="ae.sessions.jmssession" publishingTable="P_BILL_NOTIFI_EMAIL" sourceTable="BILL_NOTIFICATION_EMAILADDRESS" streamsOutputQueue="ADB_BILL_NOTIFICATION_EMAILADDRESS_OUT" streamsSchema="SCOTT" outputQPayloadType="ADB_BILL_NOTIFICATION_EMAILADDRESS_OBJ" captureProName="ADB_BILL_NOTIFICATION_EMAILADDRESS_CAP" dbInstanceID="DB11G" inputQueue="ADB_BILL_NOTIFICATION_EMAILADDRESS_IN" dmlHandlerName="ADB_BILL_NOTIFICATION_EMAILADDRESS_DM_HANDLE" applyProcessName="ADB_BILL_NOTIFICATION_EMAILADDRESS_APPLY" pubFlag="0">
@@ -306,4 +308,101 @@
     <dbOperProperties isDefault="false" sourceTableSchema="SCOTT" sourceTable="BILL_NOTIFICATION_EMAILADDRESS" publishingTableSchema="SCOTT" publishingTable="P_BILL_NOTIFI_EMAIL" updateMode="Update" storageMode="Publish by Value" loopDetection="false" noTriggers="false" columnsToPublish="BILL_NOTIF_EMAIL_ID, BILL_NOTIF_ENROLLMENTS_ID, EMAIL_ADDRESS, START_DATE, START_DATE_SOURCE, START_DATE_CREATED_BY, END_DATE, END_DATE_SOURCE, END_DATE_CREATED_BY, TRANS_TYPE, CREATED_ON" columnsToFireUpdateTrigger="" userDefinedKey="BILL_NOTIF_EMAIL_ID" captureProType="Synchronous" streamsOutputQueue="ADB_BILL_NOTIFICATION_EMAILADDRESS_OUT" streamsSchema="SCOTT" outputQPayloadType="ADB_BILL_NOTIFICATION_EMAILADDRESS_OBJ" captureProName="ADB_BILL_NOTIFICATION_EMAILADDRESS_CAP" dbInstanceID="DB11G" inputQueue="ADB_BILL_NOTIFICATION_EMAILADDRESS_IN" dmlHandlerName="ADB_BILL_NOTIFICATION_EMAILADDRESS_DM_HANDLE" applyProcessName="ADB_BILL_NOTIFICATION_EMAILADDRESS_APPLY"/>
   </adadbmodel:ADBPublisher>
   <gac:ProducerChannel name="BILL_NOTIFICATION_EMAILADDRESS" transportConfiguration="#/7" wireFormat="aeXml" destination="%%Domain%%.%%Deployment%%.eBiz.BD.Topic.Cust360.BillNotifEmailaddress" endpointType="endpoint.JMSPublisher" channelType="jmsProducer"/>
+  <adadbmodel:ADBPublisher name="ASSISTANCE_PROGRAM_APP" transportConfiguration="#/7" classReference="AESchemas/ae/ADB/AdapterForDatabase.schema#P_ASSISTANCE_PROGRAM_APP" channel="#/24" transportType="jms" qualityOfService="ae.sessions.jmssession" publishingTable="P_ASSISTANCE_PROGRAM_APP" sourceTable="ASSISTANCE_PROGRAM_APP" streamsOutputQueue="ADB_ASSISTANCE_PROGRAM_APP_OUT" streamsSchema="SCOTT" outputQPayloadType="ADB_ASSISTANCE_PROGRAM_APP_OBJ" captureProName="ADB_ASSISTANCE_PROGRAM_APP_CAP" dbInstanceID="DB11G" inputQueue="ADB_ASSISTANCE_PROGRAM_APP_IN" dmlHandlerName="ADB_ASSISTANCE_PROGRAM_APP_DM_HANDLE" applyProcessName="ADB_ASSISTANCE_PROGRAM_APP_APPLY" pubFlag="0">
+    <dbOptions/>
+    <columnsToPublish>APPLICATION_ID</columnsToPublish>
+    <columnsToPublish>PROGRAM_ID</columnsToPublish>
+    <columnsToPublish>ACCOUNT_NUMBER</columnsToPublish>
+    <columnsToPublish>FIRST_NAME</columnsToPublish>
+    <columnsToPublish>LAST_NAME</columnsToPublish>
+    <columnsToPublish>MI</columnsToPublish>
+    <columnsToPublish>SERVICE_ADDRESS</columnsToPublish>
+    <columnsToPublish>CITY</columnsToPublish>
+    <columnsToPublish>STATE</columnsToPublish>
+    <columnsToPublish>ZIP</columnsToPublish>
+    <columnsToPublish>APPLICANT_NAME</columnsToPublish>
+    <columnsToPublish>CONTACT_PHONE</columnsToPublish>
+    <columnsToPublish>EMAIL</columnsToPublish>
+    <columnsToPublish>HOUSEHOLD_MEMBERS</columnsToPublish>
+    <columnsToPublish>EMPLOYED</columnsToPublish>
+    <columnsToPublish>NAME_EMPLOYEE_ONE</columnsToPublish>
+    <columnsToPublish>EMPLOYER_ONE</columnsToPublish>
+    <columnsToPublish>WORK_PHONE_ONE</columnsToPublish>
+    <columnsToPublish>GROSS_EARNINGS_ONE</columnsToPublish>
+    <columnsToPublish>EARNINGS_TYPE_ONE</columnsToPublish>
+    <columnsToPublish>NAME_EMPLOYEE_TWO</columnsToPublish>
+    <columnsToPublish>EMPLOYER_TWO</columnsToPublish>
+    <columnsToPublish>WORK_PHONE_TWO</columnsToPublish>
+    <columnsToPublish>GROSS_EARNINGS_TWO</columnsToPublish>
+    <columnsToPublish>EARNINGS_TYPE_TWO</columnsToPublish>
+    <columnsToPublish>NAME_EMPLOYEE_THREE</columnsToPublish>
+    <columnsToPublish>EMPLOYER_THREE</columnsToPublish>
+    <columnsToPublish>WORK_PHONE_THREE</columnsToPublish>
+    <columnsToPublish>GROSS_EARNINGS_THREE</columnsToPublish>
+    <columnsToPublish>EARNINGS_TYPE_THREE</columnsToPublish>
+    <columnsToPublish>TOTAL_EARNINGS</columnsToPublish>
+    <columnsToPublish>TOTAL_EARNINGS_TYPE</columnsToPublish>
+    <columnsToPublish>INCOME_POVERTY_LEVEL</columnsToPublish>
+    <columnsToPublish>DISCONNECT_STATUS</columnsToPublish>
+    <columnsToPublish>INACTIVE</columnsToPublish>
+    <columnsToPublish>DISCONNECT_DATE</columnsToPublish>
+    <columnsToPublish>BUDGET</columnsToPublish>
+    <columnsToPublish>UTILITY_BALANCE</columnsToPublish>
+    <columnsToPublish>OTHER_CHARGES</columnsToPublish>
+    <columnsToPublish>DOWN_PAYMENT</columnsToPublish>
+    <columnsToPublish>DOWN_PAYMENT_VIA</columnsToPublish>
+    <columnsToPublish>UNPAID_PLEDGES</columnsToPublish>
+    <columnsToPublish>AMOUNT_REQUESTED</columnsToPublish>
+    <columnsToPublish>REMAINING_BALANCE</columnsToPublish>
+    <columnsToPublish>PAYMENT_ARRANGE</columnsToPublish>
+    <columnsToPublish>BI_WEEKLY_INSTALL</columnsToPublish>
+    <columnsToPublish>BI_WEEKLY_DUE</columnsToPublish>
+    <columnsToPublish>SPECIAL_EXCEPTION</columnsToPublish>
+    <columnsToPublish>COMMENTS</columnsToPublish>
+    <columnsToPublish>STATUS</columnsToPublish>
+    <columnsToPublish>COMPLETED_BY</columnsToPublish>
+    <columnsToPublish>CREATED_ON</columnsToPublish>
+    <columnsToPublish>DENIAL_REASON</columnsToPublish>
+    <columnsToPublish>DENIED_BY</columnsToPublish>
+    <columnsToPublish>DENIED_ON</columnsToPublish>
+    <columnsToPublish>APPROVED_BY</columnsToPublish>
+    <columnsToPublish>APPROVED_ON</columnsToPublish>
+    <columnsToPublish>RESCIND_BY</columnsToPublish>
+    <columnsToPublish>RESCIND_ON</columnsToPublish>
+    <columnsToPublish>COMMENT_BALANCE</columnsToPublish>
+    <columnsToPublish>PAYMENT_PROCESSED</columnsToPublish>
+    <columnsToPublish>UPDATED_BY</columnsToPublish>
+    <columnsToPublish>APPLICATION_NUMBER</columnsToPublish>
+    <columnsToPublish>LKUP_DENIAL_TYPE_ID</columnsToPublish>
+    <columnsToPublish>UPDATED_ON</columnsToPublish>
+    <dbOperProperties isDefault="false" sourceTableSchema="SCOTT" sourceTable="ASSISTANCE_PROGRAM_APP" publishingTableSchema="SCOTT" publishingTable="P_ASSISTANCE_PROGRAM_APP" updateMode="Update" storageMode="Publish by Value" loopDetection="false" noTriggers="false" columnsToPublish="APPLICATION_ID, PROGRAM_ID, ACCOUNT_NUMBER, FIRST_NAME, LAST_NAME, MI, SERVICE_ADDRESS, CITY, STATE, ZIP, APPLICANT_NAME, CONTACT_PHONE, EMAIL, HOUSEHOLD_MEMBERS, EMPLOYED, NAME_EMPLOYEE_ONE, EMPLOYER_ONE, WORK_PHONE_ONE, GROSS_EARNINGS_ONE, EARNINGS_TYPE_ONE, NAME_EMPLOYEE_TWO, EMPLOYER_TWO, WORK_PHONE_TWO, GROSS_EARNINGS_TWO, EARNINGS_TYPE_TWO, NAME_EMPLOYEE_THREE, EMPLOYER_THREE, WORK_PHONE_THREE, GROSS_EARNINGS_THREE, EARNINGS_TYPE_THREE, TOTAL_EARNINGS, TOTAL_EARNINGS_TYPE, INCOME_POVERTY_LEVEL, DISCONNECT_STATUS, INACTIVE, DISCONNECT_DATE, BUDGET, UTILITY_BALANCE, OTHER_CHARGES, DOWN_PAYMENT, DOWN_PAYMENT_VIA, UNPAID_PLEDGES, AMOUNT_REQUESTED, REMAINING_BALANCE, PAYMENT_ARRANGE, BI_WEEKLY_INSTALL, BI_WEEKLY_DUE, SPECIAL_EXCEPTION, COMMENTS, STATUS, COMPLETED_BY, CREATED_ON, DENIAL_REASON, DENIED_BY, DENIED_ON, APPROVED_BY, APPROVED_ON, RESCIND_BY, RESCIND_ON, COMMENT_BALANCE, PAYMENT_PROCESSED, UPDATED_BY, APPLICATION_NUMBER, LKUP_DENIAL_TYPE_ID, UPDATED_ON" columnsToFireUpdateTrigger="" userDefinedKey="APPLICATION_ID" captureProType="Synchronous" streamsOutputQueue="ADB_ASSISTANCE_PROGRAM_APP_OUT" streamsSchema="SCOTT" outputQPayloadType="ADB_ASSISTANCE_PROGRAM_APP_OBJ" captureProName="ADB_ASSISTANCE_PROGRAM_APP_CAP" dbInstanceID="DB11G" inputQueue="ADB_ASSISTANCE_PROGRAM_APP_IN" dmlHandlerName="ADB_ASSISTANCE_PROGRAM_APP_DM_HANDLE" applyProcessName="ADB_ASSISTANCE_PROGRAM_APP_APPLY"/>
+  </adadbmodel:ADBPublisher>
+  <gac:ProducerChannel name="ASSISTANCE_PROGRAM_APP" transportConfiguration="#/7" wireFormat="aeXml" destination="%%Domain%%.%%Deployment%%.eBiz.BD.Topic.Cust360.AssistanceProgramApp" endpointType="endpoint.JMSPublisher" channelType="jmsProducer"/>
+  <adadbmodel:ADBPublisher name="BUDGET_BILL" transportConfiguration="#/7" classReference="AESchemas/ae/ADB/AdapterForDatabase.schema#P_BUDGET_BILL" channel="#/26" transportType="jms" qualityOfService="ae.sessions.jmssession" publishingTable="P_BUDGET_BILL" sourceTable="BUDGET_BILL" streamsOutputQueue="ADB_BUDGET_BILL_OUT" streamsSchema="SCOTT" outputQPayloadType="ADB_BUDGET_BILL_OBJ" captureProName="ADB_BUDGET_BILL_CAP" dbInstanceID="DB11G" inputQueue="ADB_BUDGET_BILL_IN" dmlHandlerName="ADB_BUDGET_BILL_DM_HANDLE" applyProcessName="ADB_BUDGET_BILL_APPLY" pubFlag="0">
+    <dbOptions/>
+    <columnsToPublish>BUDGET_BILL_ID</columnsToPublish>
+    <columnsToPublish>ACCOUNT_NUMBER</columnsToPublish>
+    <columnsToPublish>CASE_TYPE</columnsToPublish>
+    <columnsToPublish>BUDGET_BILL_AMOUNT</columnsToPublish>
+    <columnsToPublish>CREATED_ON</columnsToPublish>
+    <columnsToPublish>SQUARE_FOOTAGE</columnsToPublish>
+    <columnsToPublish>HEAT</columnsToPublish>
+    <columnsToPublish>WATER_HEATER</columnsToPublish>
+    <columnsToPublish>RANGE</columnsToPublish>
+    <columnsToPublish>WASHING_MACHINE</columnsToPublish>
+    <columnsToPublish>DRYER</columnsToPublish>
+    <columnsToPublish>REFRIGERATOR</columnsToPublish>
+    <columnsToPublish>MONTHLY_GAS_USAGE</columnsToPublish>
+    <columnsToPublish>RESPONSE</columnsToPublish>
+    <columnsToPublish>RESPONSE_DATE</columnsToPublish>
+    <columnsToPublish>RESPONSE_DEADLINE</columnsToPublish>
+    <columnsToPublish>CURRENT_PAYMENT</columnsToPublish>
+    <columnsToPublish>PAYMENT_DATE</columnsToPublish>
+    <columnsToPublish>CRM_ID</columnsToPublish>
+    <columnsToPublish>MONTHLY_ELECTRIC_USAGE</columnsToPublish>
+    <columnsToPublish>SOURCE</columnsToPublish>
+    <columnsToPublish>USER_TYPE</columnsToPublish>
+    <dbOperProperties isDefault="false" sourceTableSchema="SCOTT" sourceTable="BUDGET_BILL" publishingTableSchema="SCOTT" publishingTable="P_BUDGET_BILL" updateMode="Update" storageMode="Publish by Value" loopDetection="false" noTriggers="false" columnsToPublish="BUDGET_BILL_ID, ACCOUNT_NUMBER, CASE_TYPE, BUDGET_BILL_AMOUNT, CREATED_ON, SQUARE_FOOTAGE, HEAT, WATER_HEATER, RANGE, WASHING_MACHINE, DRYER, REFRIGERATOR, MONTHLY_GAS_USAGE, RESPONSE, RESPONSE_DATE, RESPONSE_DEADLINE, CURRENT_PAYMENT, PAYMENT_DATE, CRM_ID, MONTHLY_ELECTRIC_USAGE, SOURCE, USER_TYPE" columnsToFireUpdateTrigger="" userDefinedKey="BUDGET_BILL_ID" captureProType="Synchronous" streamsOutputQueue="ADB_BUDGET_BILL_OUT" streamsSchema="SCOTT" outputQPayloadType="ADB_BUDGET_BILL_OBJ" captureProName="ADB_BUDGET_BILL_CAP" dbInstanceID="DB11G" inputQueue="ADB_BUDGET_BILL_IN" dmlHandlerName="ADB_BUDGET_BILL_DM_HANDLE" applyProcessName="ADB_BUDGET_BILL_APPLY"/>
+  </adadbmodel:ADBPublisher>
+  <gac:ProducerChannel name="BUDGET_BILL" transportConfiguration="#/7" wireFormat="aeXml" destination="%%Domain%%.%%Deployment%%.eBiz.BD.Topic.Cust360.BudgetBill" endpointType="endpoint.JMSPublisher" channelType="jmsProducer"/>
 </xmi:XMI>

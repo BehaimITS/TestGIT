@@ -482,16 +482,16 @@
     </attributes>
   </schema:ClassType>
   <schema:ClassType xmi:id="P_AMR_SCHEDULE_DATA" name="P_AMR_SCHEDULE_DATA">
-    <attributes name="MUNICIPALITY" isReadable="true" isWriteable="true">
+    <attributes name="MUNICIPALITY" isKey="true" isReadable="true" isWriteable="true">
       <type href="../../ae.schema#string"/>
     </attributes>
-    <attributes name="CITY" isReadable="true" isWriteable="true">
+    <attributes name="CITY" isKey="true" isReadable="true" isWriteable="true">
       <type href="../../ae.schema#string"/>
     </attributes>
-    <attributes name="STATE" isReadable="true" isWriteable="true">
+    <attributes name="STATE" isKey="true" isReadable="true" isWriteable="true">
       <type href="../../ae.schema#string"/>
     </attributes>
-    <attributes name="PROJECT_START_DATE" isReadable="true" isWriteable="true">
+    <attributes name="PROJECT_START_DATE" isKey="true" isReadable="true" isWriteable="true">
       <type href="../../ae.schema#string"/>
     </attributes>
     <attributes name="BILL_MESSAGE_START_DATE" isReadable="true" isWriteable="true">
@@ -525,39 +525,72 @@
       <type href="../../ae.schema#string"/>
     </attributes>
   </schema:ClassType>
-  <schema:ClassType xmi:id="P_BILL_NOTIFI_EMAIL" name="P_BILL_NOTIFI_EMAIL">
-    <attributes name="BILL_NOTIF_EMAIL_ID" isKey="true" isReadable="true" isWriteable="true">
+  <schema:ClassType xmi:id="P_BUDGET_BILL" name="P_BUDGET_BILL">
+    <attributes name="BUDGET_BILL_ID" isKey="true" isReadable="true" isWriteable="true">
       <type href="../../ae.schema#string"/>
     </attributes>
-    <attributes name="BILL_NOTIF_ENROLLMENTS_ID" isReadable="true" isWriteable="true">
+    <attributes name="ACCOUNT_NUMBER" isReadable="true" isWriteable="true">
       <type href="../../ae.schema#string"/>
     </attributes>
-    <attributes name="EMAIL_ADDRESS" isReadable="true" isWriteable="true">
+    <attributes name="CASE_TYPE" isReadable="true" isWriteable="true">
       <type href="../../ae.schema#string"/>
     </attributes>
-    <attributes name="START_DATE" isReadable="true" isWriteable="true">
-      <type href="adbmetadata.schema#adbDateTime"/>
-    </attributes>
-    <attributes name="START_DATE_SOURCE" isReadable="true" isWriteable="true">
-      <type href="../../ae.schema#string"/>
-    </attributes>
-    <attributes name="START_DATE_CREATED_BY" isReadable="true" isWriteable="true">
-      <type href="../../ae.schema#string"/>
-    </attributes>
-    <attributes name="END_DATE" isReadable="true" isWriteable="true">
-      <type href="adbmetadata.schema#adbDateTime"/>
-    </attributes>
-    <attributes name="END_DATE_SOURCE" isReadable="true" isWriteable="true">
-      <type href="../../ae.schema#string"/>
-    </attributes>
-    <attributes name="END_DATE_CREATED_BY" isReadable="true" isWriteable="true">
-      <type href="../../ae.schema#string"/>
-    </attributes>
-    <attributes name="TRANS_TYPE" isReadable="true" isWriteable="true">
+    <attributes name="BUDGET_BILL_AMOUNT" isReadable="true" isWriteable="true">
       <type href="../../ae.schema#string"/>
     </attributes>
     <attributes name="CREATED_ON" isReadable="true" isWriteable="true">
       <type href="adbmetadata.schema#adbDateTime"/>
+    </attributes>
+    <attributes name="SQUARE_FOOTAGE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="HEAT" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="WATER_HEATER" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="RANGE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="WASHING_MACHINE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="DRYER" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="REFRIGERATOR" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="MONTHLY_GAS_USAGE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="RESPONSE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="RESPONSE_DATE" isReadable="true" isWriteable="true">
+      <type href="adbmetadata.schema#adbDateTime"/>
+    </attributes>
+    <attributes name="RESPONSE_DEADLINE" isReadable="true" isWriteable="true">
+      <type href="adbmetadata.schema#adbDateTime"/>
+    </attributes>
+    <attributes name="CURRENT_PAYMENT" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="PAYMENT_DATE" isReadable="true" isWriteable="true">
+      <type href="adbmetadata.schema#adbDateTime"/>
+    </attributes>
+    <attributes name="CRM_ID" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="MONTHLY_ELECTRIC_USAGE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="SOURCE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="USER_TYPE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
     </attributes>
     <attributes name="ADB_OPCODE" isReadable="true" isWriteable="true">
       <type href="../../ae.schema#i4"/>
