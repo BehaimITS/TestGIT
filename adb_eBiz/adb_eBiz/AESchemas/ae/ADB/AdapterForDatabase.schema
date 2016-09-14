@@ -525,4 +525,66 @@
       <type href="../../ae.schema#string"/>
     </attributes>
   </schema:ClassType>
+  <schema:ClassType xmi:id="P_BILL_NOTIFI_EMAIL" name="P_BILL_NOTIFI_EMAIL">
+    <attributes name="BILL_NOTIF_EMAIL_ID" isKey="true" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="BILL_NOTIF_ENROLLMENTS_ID" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="EMAIL_ADDRESS" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="START_DATE" isReadable="true" isWriteable="true">
+      <type href="adbmetadata.schema#adbDateTime"/>
+    </attributes>
+    <attributes name="START_DATE_SOURCE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="START_DATE_CREATED_BY" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="END_DATE" isReadable="true" isWriteable="true">
+      <type href="adbmetadata.schema#adbDateTime"/>
+    </attributes>
+    <attributes name="END_DATE_SOURCE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="END_DATE_CREATED_BY" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="TRANS_TYPE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="CREATED_ON" isReadable="true" isWriteable="true">
+      <type href="adbmetadata.schema#adbDateTime"/>
+    </attributes>
+    <attributes name="ADB_OPCODE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#i4"/>
+    </attributes>
+    <attributes name="ADB_TRACKINGID" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="ADB_SUBJECT" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="ADB_SEQUENCE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="ADB_SET_SEQUENCE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#i4"/>
+    </attributes>
+    <attributes name="ADB_TIMESTAMP" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="ADB_UPDATE_ALL" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#i4"/>
+    </attributes>
+    <attributes name="ADB_REF_OBJECT" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="ADB_AGENT_ID" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+  </schema:ClassType>
 </xmi:XMI>

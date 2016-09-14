@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:adadbmodel="http://xsd.tns.tibco.com/adadb/models/adadbmodel" xmlns:common="http://xsd.tns.tibco.com/amf/models/adapter/common" xmlns:gac="http://xsd.tns.tibco.com/amf/models/adapter/gac">
-  <adadbmodel:ADBAdapterConfiguration name="AdapterForDatabase" instanceId="AdapterForDatabase" services="#/9 #/11 #/13 #/15 #/17 #/19" reporting="#/4" logging="#/5" monitoring="#/6" transports="#/3 #/7 #/8" channels="#/10 #/12 #/14 #/16 #/18 #/20" vendor="16" runTimeConnection="#/1" convertOracleNumberToString="true" deployOperations="true">
+  <adadbmodel:ADBAdapterConfiguration name="AdapterForDatabase" instanceId="AdapterForDatabase" services="#/9 #/11 #/13 #/15 #/17 #/19 #/21" reporting="#/4" logging="#/5" monitoring="#/6" transports="#/3 #/7 #/8" channels="#/10 #/12 #/14 #/16 #/18 #/20 #/22" vendor="16" runTimeConnection="#/1" convertOracleNumberToString="true" deployOperations="true">
     <startup active="true" showBanner="true">
       <components active="true" componentName="ADBHawkDefault"/>
       <components active="true" componentName="ADBAgentJmsSession"/>
@@ -11,6 +11,7 @@
       <components active="true" componentName="SPEEDPAY_TRANSACTIONS"/>
       <components active="true" componentName="account_summary"/>
       <components active="true" componentName="AMR_SCHEDULE_DATA"/>
+      <components active="true" componentName="BILL_NOTIFICATION_EMAILADDRESS"/>
     </startup>
     <hawk help="TIB/Adapter for ActiveDatabase MicroAgent" microAgentName="COM.TIBCO.adb.custom.%%Deployment%%.%%InstanceId%%" transport="#/3">
       <methods name="setDebugLevel" help="Sets the debug level for the agent (possible values 0-3)">
@@ -289,4 +290,20 @@
     <dbOperProperties isDefault="false" sourceTableSchema="SCOTT" sourceTable="AMR_SCHEDULE_DATA" publishingTableSchema="SCOTT" publishingTable="P_AMR_SCHEDULE_DATA" updateMode="Update" storageMode="Publish by Value" loopDetection="false" noTriggers="false" columnsToPublish="MUNICIPALITY, CITY, STATE, PROJECT_START_DATE, BILL_MESSAGE_START_DATE" columnsToFireUpdateTrigger="" userDefinedKey="" captureProType="Synchronous" streamsOutputQueue="ADB_AMR_SCHEDULE_DATA_OUT" streamsSchema="SCOTT" outputQPayloadType="ADB_AMR_SCHEDULE_DATA_OBJ" captureProName="ADB_AMR_SCHEDULE_DATA_CAP" dbInstanceID="DB11G" inputQueue="ADB_AMR_SCHEDULE_DATA_IN" dmlHandlerName="ADB_AMR_SCHEDULE_DATA_DM_HANDLE" applyProcessName="ADB_AMR_SCHEDULE_DATA_APPLY"/>
   </adadbmodel:ADBPublisher>
   <gac:ProducerChannel name="AMR_SCHEDULE_DATA" transportConfiguration="#/7" wireFormat="aeXml" destination="%%Domain%%.%%Deployment%%.eBiz.BD.Topic.Cust360.AmrScheduleData" endpointType="endpoint.JMSPublisher" channelType="jmsProducer"/>
+  <adadbmodel:ADBPublisher name="BILL_NOTIFICATION_EMAILADDRESS" transportConfiguration="#/7" classReference="AESchemas/ae/ADB/AdapterForDatabase.schema#P_BILL_NOTIFI_EMAIL" channel="#/22" transportType="jms" qualityOfService="ae.sessions.jmssession" publishingTable="P_BILL_NOTIFI_EMAIL" sourceTable="BILL_NOTIFICATION_EMAILADDRESS" streamsOutputQueue="ADB_BILL_NOTIFICATION_EMAILADDRESS_OUT" streamsSchema="SCOTT" outputQPayloadType="ADB_BILL_NOTIFICATION_EMAILADDRESS_OBJ" captureProName="ADB_BILL_NOTIFICATION_EMAILADDRESS_CAP" dbInstanceID="DB11G" inputQueue="ADB_BILL_NOTIFICATION_EMAILADDRESS_IN" dmlHandlerName="ADB_BILL_NOTIFICATION_EMAILADDRESS_DM_HANDLE" applyProcessName="ADB_BILL_NOTIFICATION_EMAILADDRESS_APPLY" pubFlag="0">
+    <dbOptions/>
+    <columnsToPublish>BILL_NOTIF_EMAIL_ID</columnsToPublish>
+    <columnsToPublish>BILL_NOTIF_ENROLLMENTS_ID</columnsToPublish>
+    <columnsToPublish>EMAIL_ADDRESS</columnsToPublish>
+    <columnsToPublish>START_DATE</columnsToPublish>
+    <columnsToPublish>START_DATE_SOURCE</columnsToPublish>
+    <columnsToPublish>START_DATE_CREATED_BY</columnsToPublish>
+    <columnsToPublish>END_DATE</columnsToPublish>
+    <columnsToPublish>END_DATE_SOURCE</columnsToPublish>
+    <columnsToPublish>END_DATE_CREATED_BY</columnsToPublish>
+    <columnsToPublish>TRANS_TYPE</columnsToPublish>
+    <columnsToPublish>CREATED_ON</columnsToPublish>
+    <dbOperProperties isDefault="false" sourceTableSchema="SCOTT" sourceTable="BILL_NOTIFICATION_EMAILADDRESS" publishingTableSchema="SCOTT" publishingTable="P_BILL_NOTIFI_EMAIL" updateMode="Update" storageMode="Publish by Value" loopDetection="false" noTriggers="false" columnsToPublish="BILL_NOTIF_EMAIL_ID, BILL_NOTIF_ENROLLMENTS_ID, EMAIL_ADDRESS, START_DATE, START_DATE_SOURCE, START_DATE_CREATED_BY, END_DATE, END_DATE_SOURCE, END_DATE_CREATED_BY, TRANS_TYPE, CREATED_ON" columnsToFireUpdateTrigger="" userDefinedKey="BILL_NOTIF_EMAIL_ID" captureProType="Synchronous" streamsOutputQueue="ADB_BILL_NOTIFICATION_EMAILADDRESS_OUT" streamsSchema="SCOTT" outputQPayloadType="ADB_BILL_NOTIFICATION_EMAILADDRESS_OBJ" captureProName="ADB_BILL_NOTIFICATION_EMAILADDRESS_CAP" dbInstanceID="DB11G" inputQueue="ADB_BILL_NOTIFICATION_EMAILADDRESS_IN" dmlHandlerName="ADB_BILL_NOTIFICATION_EMAILADDRESS_DM_HANDLE" applyProcessName="ADB_BILL_NOTIFICATION_EMAILADDRESS_APPLY"/>
+  </adadbmodel:ADBPublisher>
+  <gac:ProducerChannel name="BILL_NOTIFICATION_EMAILADDRESS" transportConfiguration="#/7" wireFormat="aeXml" destination="%%Domain%%.%%Deployment%%.eBiz.BD.Topic.Cust360.BillNotifEmailaddress" endpointType="endpoint.JMSPublisher" channelType="jmsProducer"/>
 </xmi:XMI>
