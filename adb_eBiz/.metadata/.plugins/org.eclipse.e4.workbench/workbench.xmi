@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="ASCII"?>
 <application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:advanced="http://www.eclipse.org/ui/2010/UIModel/application/ui/advanced" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_jMHkIHrCEeaNe4y2FHlnFQ" elementId="org.eclipse.e4.legacy.ide.application" contributorURI="platform:/plugin/org.eclipse.ui.workbench" selectedElement="_jMHkIXrCEeaNe4y2FHlnFQ" bindingContexts="_jMINKHrCEeaNe4y2FHlnFQ">
-  <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;workbench>&#xD;&#xA;&lt;mruList>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;com.tibco.amf.adapter.gac.ui.GacEditor&quot; name=&quot;AdapterForDatabase.adadbmodel&quot; tooltip=&quot;adb_eBiz/AdapterForDatabase.adadbmodel&quot;>&#xD;&#xA;&lt;persistable path=&quot;/adb_eBiz/AdapterForDatabase.adadbmodel&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;com.tibco.amf.adapter.schema.ui.AESchemaEditor&quot; name=&quot;AdapterForDatabase.schema&quot; tooltip=&quot;adb_eBiz/AESchemas/ae/ADB/AdapterForDatabase.schema&quot;>&#xD;&#xA;&lt;persistable path=&quot;/adb_eBiz/AESchemas/ae/ADB/AdapterForDatabase.schema&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;com.tibco.amf.adapter.schema.ui.AESchemaEditor&quot; name=&quot;scalar.schema&quot; tooltip=&quot;adb_eBiz/AESchemas/ae/ADB/scalar.schema&quot;>&#xD;&#xA;&lt;persistable path=&quot;/adb_eBiz/AESchemas/ae/ADB/scalar.schema&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;com.tibco.amf.adapter.schema.ui.AESchemaEditor&quot; name=&quot;adbmetadata.schema&quot; tooltip=&quot;adb_eBiz/AESchemas/ae/ADB/adbmetadata.schema&quot;>&#xD;&#xA;&lt;persistable path=&quot;/adb_eBiz/AESchemas/ae/ADB/adbmetadata.schema&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;com.tibco.amf.adapter.adb.ui.connection.AdbRuntimeConnectionEditor&quot; name=&quot;AdapterForDatabase.sharedadbc&quot; tooltip=&quot;adb_eBiz/ADBConnections/AdapterForDatabase.sharedadbc&quot;>&#xD;&#xA;&lt;persistable path=&quot;/adb_eBiz/ADBConnections/AdapterForDatabase.sharedadbc&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;com.tibco.amf.adapter.adb.ui.connection.AdbRuntimeConnectionEditor&quot; name=&quot;eBiz_FedoraSQL.sharedadbc&quot; tooltip=&quot;adb_eBiz/ADBConnections/Templates/eBiz_FedoraSQL.sharedadbc&quot;>&#xD;&#xA;&lt;persistable path=&quot;/adb_eBiz/ADBConnections/Templates/eBiz_FedoraSQL.sharedadbc&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;com.tibco.bw.ui.manifestEditor&quot; name=&quot;MANIFEST.MF&quot; tooltip=&quot;adb_eBiz/META-INF/MANIFEST.MF&quot;>&#xD;&#xA;&lt;persistable path=&quot;/adb_eBiz/META-INF/MANIFEST.MF&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;/mruList>&#xD;&#xA;&lt;/workbench>"/>
+  <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;workbench>&#xD;&#xA;&lt;mruList>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;com.tibco.amf.adapter.adb.ui.AdbEditor&quot; name=&quot;AdapterForDatabase.adadbmodel&quot; tooltip=&quot;adb_eBiz/AdapterForDatabase.adadbmodel&quot;>&#xD;&#xA;&lt;persistable path=&quot;/adb_eBiz/AdapterForDatabase.adadbmodel&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;com.tibco.amf.adapter.adb.ui.connection.AdbRuntimeConnectionEditor&quot; name=&quot;eBiz_FedoraSQL.sharedadbc&quot; tooltip=&quot;adb_eBiz/ADBConnections/Templates/eBiz_FedoraSQL.sharedadbc&quot;>&#xD;&#xA;&lt;persistable path=&quot;/adb_eBiz/ADBConnections/Templates/eBiz_FedoraSQL.sharedadbc&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;com.tibco.amf.adapter.adb.ui.connection.AdbRuntimeConnectionEditor&quot; name=&quot;AdapterForDatabase.sharedadbc&quot; tooltip=&quot;adb_eBiz/ADBConnections/AdapterForDatabase.sharedadbc&quot;>&#xD;&#xA;&lt;persistable path=&quot;/adb_eBiz/ADBConnections/AdapterForDatabase.sharedadbc&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;com.tibco.amf.adapter.schema.ui.AESchemaEditor&quot; name=&quot;AdapterForDatabase.schema&quot; tooltip=&quot;adb_eBiz/AESchemas/ae/ADB/AdapterForDatabase.schema&quot;>&#xD;&#xA;&lt;persistable path=&quot;/adb_eBiz/AESchemas/ae/ADB/AdapterForDatabase.schema&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;com.tibco.amf.adapter.schema.ui.AESchemaEditor&quot; name=&quot;scalar.schema&quot; tooltip=&quot;adb_eBiz/AESchemas/ae/ADB/scalar.schema&quot;>&#xD;&#xA;&lt;persistable path=&quot;/adb_eBiz/AESchemas/ae/ADB/scalar.schema&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;com.tibco.amf.adapter.schema.ui.AESchemaEditor&quot; name=&quot;adbmetadata.schema&quot; tooltip=&quot;adb_eBiz/AESchemas/ae/ADB/adbmetadata.schema&quot;>&#xD;&#xA;&lt;persistable path=&quot;/adb_eBiz/AESchemas/ae/ADB/adbmetadata.schema&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;com.tibco.bw.ui.manifestEditor&quot; name=&quot;MANIFEST.MF&quot; tooltip=&quot;adb_eBiz/META-INF/MANIFEST.MF&quot;>&#xD;&#xA;&lt;persistable path=&quot;/adb_eBiz/META-INF/MANIFEST.MF&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;/mruList>&#xD;&#xA;&lt;/workbench>"/>
   <tags>activeSchemeId:org.eclipse.ui.defaultAcceleratorConfiguration</tags>
   <tags>ModelMigrationProcessor.001</tags>
   <children xsi:type="basic:TrimmedWindow" xmi:id="_jMHkIXrCEeaNe4y2FHlnFQ" elementId="IDEWindow" contributorURI="platform:/plugin/org.eclipse.ui.workbench" selectedElement="_jMHkInrCEeaNe4y2FHlnFQ" label="%trimmedwindow.label.eclipseSDK" x="960" y="0" width="960" height="1152">
     <persistedState key="coolBarVisible" value="true"/>
     <persistedState key="perspectiveBarVisible" value="true"/>
+    <persistedState key="workingSets" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;workingSets/>"/>
+    <persistedState key="aggregateWorkingSetId"/>
     <tags>topLevel</tags>
     <tags>shellMaximized</tags>
     <children xsi:type="basic:PartSashContainer" xmi:id="_jMHkInrCEeaNe4y2FHlnFQ" selectedElement="_jMHkI3rCEeaNe4y2FHlnFQ" horizontal="true">
@@ -40,10 +42,11 @@
           <tags>persp.actionSet:org.eclipse.debug.ui.launchActionSet</tags>
           <tags>persp.actionSet:org.eclipse.jdt.ui.JavaActionSet</tags>
           <tags>persp.actionSet:org.eclipse.jdt.ui.SearchActionSet</tags>
-          <children xsi:type="basic:PartSashContainer" xmi:id="_jMHkJXrCEeaNe4y2FHlnFQ" selectedElement="_jMHkLnrCEeaNe4y2FHlnFQ" horizontal="true">
-            <children xsi:type="basic:PartSashContainer" xmi:id="_jMHkJnrCEeaNe4y2FHlnFQ" containerData="2105" selectedElement="_jMHkKXrCEeaNe4y2FHlnFQ">
+          <children xsi:type="basic:PartSashContainer" xmi:id="_jMHkJXrCEeaNe4y2FHlnFQ" selectedElement="_jMHkJnrCEeaNe4y2FHlnFQ" horizontal="true">
+            <children xsi:type="basic:PartSashContainer" xmi:id="_jMHkJnrCEeaNe4y2FHlnFQ" containerData="2105" selectedElement="_jMHkJ3rCEeaNe4y2FHlnFQ">
               <children xsi:type="basic:PartStack" xmi:id="_jMHkJ3rCEeaNe4y2FHlnFQ" elementId="topLeft" containerData="6000" selectedElement="_jMHkKHrCEeaNe4y2FHlnFQ">
                 <tags>newtablook</tags>
+                <tags>active</tags>
                 <children xsi:type="advanced:Placeholder" xmi:id="_jMHkKHrCEeaNe4y2FHlnFQ" elementId="org.eclipse.ui.navigator.ProjectExplorer" ref="_jMHlUHrCEeaNe4y2FHlnFQ"/>
               </children>
               <children xsi:type="basic:PartStack" xmi:id="_jMHkKXrCEeaNe4y2FHlnFQ" elementId="bottomLeft" containerData="4000" selectedElement="_jMHkKnrCEeaNe4y2FHlnFQ">
@@ -54,13 +57,11 @@
                 <children xsi:type="advanced:Placeholder" xmi:id="_jMHkLXrCEeaNe4y2FHlnFQ" elementId="com.tibco.zion.fileexplorer.views.FileExplorerView" ref="_jMHlZHrCEeaNe4y2FHlnFQ"/>
               </children>
             </children>
-            <children xsi:type="basic:PartSashContainer" xmi:id="_jMHkLnrCEeaNe4y2FHlnFQ" containerData="7895" selectedElement="_jMHkMHrCEeaNe4y2FHlnFQ">
+            <children xsi:type="basic:PartSashContainer" xmi:id="_jMHkLnrCEeaNe4y2FHlnFQ" containerData="7895" selectedElement="_jMHkL3rCEeaNe4y2FHlnFQ">
               <children xsi:type="advanced:Placeholder" xmi:id="_jMHkL3rCEeaNe4y2FHlnFQ" elementId="org.eclipse.ui.editorss" containerData="6000" ref="_jMHlTHrCEeaNe4y2FHlnFQ"/>
-              <children xsi:type="basic:PartStack" xmi:id="_jMHkMHrCEeaNe4y2FHlnFQ" elementId="bottom" containerData="4000" selectedElement="_jMHkNHrCEeaNe4y2FHlnFQ">
+              <children xsi:type="basic:PartStack" xmi:id="_jMHkMHrCEeaNe4y2FHlnFQ" elementId="bottom" containerData="4000" selectedElement="_jMHkNXrCEeaNe4y2FHlnFQ">
                 <tags>newtablook</tags>
                 <tags>org.eclipse.e4.secondaryDataStack</tags>
-                <tags>active</tags>
-                <tags>noFocus</tags>
                 <children xsi:type="advanced:Placeholder" xmi:id="_jMHkMXrCEeaNe4y2FHlnFQ" elementId="org.eclipse.ui.views.PropertySheet" ref="_jMHla3rCEeaNe4y2FHlnFQ"/>
                 <children xsi:type="advanced:Placeholder" xmi:id="_jMHkMnrCEeaNe4y2FHlnFQ" elementId="org.eclipse.ui.views.ProblemView" ref="_jMHlbnrCEeaNe4y2FHlnFQ"/>
                 <children xsi:type="advanced:Placeholder" xmi:id="_jMHkM3rCEeaNe4y2FHlnFQ" elementId="com.tibco.zion.common.zionhelpview" ref="_jMHlcnrCEeaNe4y2FHlnFQ"/>
@@ -95,28 +96,18 @@
       <tags>categoryTag:Help</tags>
     </sharedElements>
     <sharedElements xsi:type="advanced:Area" xmi:id="_jMHlTHrCEeaNe4y2FHlnFQ" elementId="org.eclipse.ui.editorss" selectedElement="_jMHlTXrCEeaNe4y2FHlnFQ">
-      <children xsi:type="basic:PartStack" xmi:id="_jMHlTXrCEeaNe4y2FHlnFQ" elementId="org.eclipse.e4.primaryDataStack" selectedElement="_jMHlTnrCEeaNe4y2FHlnFQ">
+      <children xsi:type="basic:PartStack" xmi:id="_jMHlTXrCEeaNe4y2FHlnFQ" elementId="org.eclipse.e4.primaryDataStack">
         <tags>newtablook</tags>
         <tags>org.eclipse.e4.primaryDataStack</tags>
         <tags>EditorStack</tags>
-        <children xsi:type="basic:Part" xmi:id="_jMHlTnrCEeaNe4y2FHlnFQ" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="AdapterForDatabase.adadbmodel" iconURI="platform:/plugin/com.tibco.amf.adapter.adadb.ui/icons/adb_adapter_configuration.gif" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;com.tibco.amf.adapter.adb.ui.AdbEditor&quot; name=&quot;AdapterForDatabase.adadbmodel&quot; partName=&quot;AdapterForDatabase.adadbmodel&quot; title=&quot;AdapterForDatabase.adadbmodel&quot; tooltip=&quot;adb_eBiz/AdapterForDatabase.adadbmodel&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/adb_eBiz/AdapterForDatabase.adadbmodel&quot;/>&#xD;&#xA;&lt;/editor>"/>
-          <tags>Editor</tags>
-          <tags>com.tibco.amf.adapter.adb.ui.AdbEditor</tags>
-          <tags>removeOnHide</tags>
-        </children>
-        <children xsi:type="basic:Part" xmi:id="_jMHlT3rCEeaNe4y2FHlnFQ" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="AdapterForDatabase.schema" iconURI="platform:/plugin/com.tibco.amf.adapter.schema.ui/icons/full/obj16/AeSchema_Editor.gif" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;com.tibco.amf.adapter.schema.ui.AESchemaEditor&quot; name=&quot;AdapterForDatabase.schema&quot; partName=&quot;AdapterForDatabase.schema&quot; title=&quot;AdapterForDatabase.schema&quot; tooltip=&quot;adb_eBiz/AESchemas/ae/ADB/AdapterForDatabase.schema&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/adb_eBiz/AESchemas/ae/ADB/AdapterForDatabase.schema&quot;/>&#xD;&#xA;&lt;/editor>"/>
-          <tags>Editor</tags>
-          <tags>com.tibco.amf.adapter.schema.ui.AESchemaEditor</tags>
-          <tags>removeOnHide</tags>
-        </children>
       </children>
     </sharedElements>
     <sharedElements xsi:type="basic:Part" xmi:id="_jMHlUHrCEeaNe4y2FHlnFQ" elementId="org.eclipse.ui.navigator.ProjectExplorer" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Project Explorer" iconURI="platform:/plugin/org.eclipse.ui.navigator.resources/icons/full/eview16/resource_persp.gif" closeable="true">
       <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;view CommonNavigator.LINKING_ENABLED=&quot;0&quot; org.eclipse.ui.navigator.resources.workingSets.showTopLevelWorkingSets=&quot;0&quot;/>"/>
       <tags>View</tags>
       <tags>categoryTag:General</tags>
+      <tags>active</tags>
+      <tags>activeOnClose</tags>
       <menus xmi:id="_jMHlUXrCEeaNe4y2FHlnFQ" elementId="org.eclipse.ui.navigator.ProjectExplorer">
         <tags>ViewMenu</tags>
         <tags>menuContribution:menu</tags>
@@ -168,7 +159,7 @@
         <tags>popup:org.eclipse.ui.views.ProblemView</tags>
         <tags>popup:org.eclipse.ui.ide.MarkersView</tags>
       </menus>
-      <toolbar xmi:id="_jMHlcXrCEeaNe4y2FHlnFQ" elementId="org.eclipse.ui.views.ProblemView"/>
+      <toolbar xmi:id="_jMHlcXrCEeaNe4y2FHlnFQ" elementId="org.eclipse.ui.views.ProblemView" visible="false"/>
     </sharedElements>
     <sharedElements xsi:type="basic:Part" xmi:id="_jMHlcnrCEeaNe4y2FHlnFQ" elementId="com.tibco.zion.common.zionhelpview" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="BW Help" iconURI="platform:/plugin/com.tibco.zion.common/icons/help_16x16.png" closeable="true">
       <tags>View</tags>
@@ -178,7 +169,7 @@
       <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;view/>"/>
       <tags>View</tags>
       <tags>categoryTag:General</tags>
-      <tags>active</tags>
+      <tags>highlighted</tags>
       <menus xmi:id="_jMHldHrCEeaNe4y2FHlnFQ" elementId="org.eclipse.ui.console.ConsoleView">
         <tags>ViewMenu</tags>
         <tags>menuContribution:menu</tags>
@@ -199,7 +190,7 @@
         <tags>menuContribution:popup</tags>
         <tags>popup:adapterTraceConsole.#ContextMenu</tags>
       </menus>
-      <toolbar xmi:id="_jMHleXrCEeaNe4y2FHlnFQ" elementId="org.eclipse.ui.console.ConsoleView"/>
+      <toolbar xmi:id="_jMHleXrCEeaNe4y2FHlnFQ" elementId="org.eclipse.ui.console.ConsoleView" visible="false"/>
     </sharedElements>
     <sharedElements xsi:type="basic:Part" xmi:id="_jMILPnrCEeaNe4y2FHlnFQ" elementId="com.tibco.bw.core.design.admin.ui.DeploymentView" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Deployment Servers" iconURI="platform:/plugin/com.tibco.bw.core.design.admin/icons/bw6AdminDeploymentService_c3_16x16.png" closeable="true">
       <tags>View</tags>
@@ -213,7 +204,7 @@
         <tags>ViewMenu</tags>
         <tags>menuContribution:menu</tags>
       </menus>
-      <toolbar xmi:id="_jMILRXrCEeaNe4y2FHlnFQ" elementId="com.tibco.adapter.tool.app.explorer.view" visible="false"/>
+      <toolbar xmi:id="_jMILRXrCEeaNe4y2FHlnFQ" elementId="com.tibco.adapter.tool.app.explorer.view"/>
     </sharedElements>
     <trimBars xmi:id="_jMILTHrCEeaNe4y2FHlnFQ" elementId="org.eclipse.ui.main.toolbar" contributorURI="platform:/plugin/org.eclipse.ui.workbench">
       <children xsi:type="menu:ToolBar" xmi:id="_jMILTXrCEeaNe4y2FHlnFQ" elementId="group.file" toBeRendered="false">
@@ -222,40 +213,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_jMILT3rCEeaNe4y2FHlnFQ" elementId="org.eclipse.ui.workbench.file">
         <tags>Draggable</tags>
-        <children xsi:type="menu:DirectToolItem" xmi:id="_jMILUHrCEeaNe4y2FHlnFQ" elementId="new.group">
-          <tags>Opaque</tags>
-        </children>
-        <children xsi:type="menu:DirectToolItem" xmi:id="_jMILUXrCEeaNe4y2FHlnFQ" elementId="newWizardDropDown">
-          <tags>Opaque</tags>
-        </children>
-        <children xsi:type="menu:DirectToolItem" xmi:id="_jMILUnrCEeaNe4y2FHlnFQ" elementId="new.ext" visible="false">
-          <tags>Opaque</tags>
-        </children>
-        <children xsi:type="menu:DirectToolItem" xmi:id="_jMILU3rCEeaNe4y2FHlnFQ" elementId="save.group" visible="false">
-          <tags>Opaque</tags>
-        </children>
-        <children xsi:type="menu:DirectToolItem" xmi:id="_jMILVHrCEeaNe4y2FHlnFQ" elementId="save">
-          <tags>Opaque</tags>
-        </children>
-        <children xsi:type="menu:DirectToolItem" xmi:id="_jMILVXrCEeaNe4y2FHlnFQ" elementId="saveAll">
-          <tags>Opaque</tags>
-        </children>
-        <children xsi:type="menu:DirectToolItem" xmi:id="_jMILVnrCEeaNe4y2FHlnFQ" elementId="save.ext" visible="false">
-          <tags>Opaque</tags>
-        </children>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_jMILV3rCEeaNe4y2FHlnFQ" elementId="print" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" enabled="false" command="_jMJannrCEeaNe4y2FHlnFQ"/>
-        <children xsi:type="menu:DirectToolItem" xmi:id="_jMILWHrCEeaNe4y2FHlnFQ" elementId="print.ext" visible="false">
-          <tags>Opaque</tags>
-        </children>
-        <children xsi:type="menu:DirectToolItem" xmi:id="_jMILWXrCEeaNe4y2FHlnFQ" elementId="build.group">
-          <tags>Opaque</tags>
-        </children>
-        <children xsi:type="menu:DirectToolItem" xmi:id="_jMILWnrCEeaNe4y2FHlnFQ" elementId="build.ext" visible="false">
-          <tags>Opaque</tags>
-        </children>
-        <children xsi:type="menu:DirectToolItem" xmi:id="_jMILW3rCEeaNe4y2FHlnFQ" elementId="additions">
-          <tags>Opaque</tags>
-        </children>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_j6gutIPXEeaFO7wOTgVvNg" elementId="print" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" enabled="false" command="_jMJannrCEeaNe4y2FHlnFQ"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_jMILXHrCEeaNe4y2FHlnFQ" elementId="additions" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -263,63 +221,15 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_jMILinrCEeaNe4y2FHlnFQ" elementId="com.tibco.bw.core.design.process.editor.newprocessactionset">
         <tags>Draggable</tags>
-        <children xsi:type="menu:DirectToolItem" xmi:id="_jMILi3rCEeaNe4y2FHlnFQ" elementId="bwNewModuleWizards">
-          <tags>Opaque</tags>
-        </children>
-        <children xsi:type="menu:DirectToolItem" xmi:id="_jMILjHrCEeaNe4y2FHlnFQ" elementId="com.tibco.bw.core.design.project.NewApplicationModule">
-          <tags>Opaque</tags>
-        </children>
-        <children xsi:type="menu:DirectToolItem" xmi:id="_jMILjXrCEeaNe4y2FHlnFQ" elementId="com.tibco.bw.core.design.project.NewSharedModule.bwe">
-          <tags>Opaque</tags>
-        </children>
-        <children xsi:type="menu:DirectToolItem" xmi:id="_jMILjnrCEeaNe4y2FHlnFQ" elementId="com.tibco.zion.dc.action.NewApplication">
-          <tags>Opaque</tags>
-        </children>
-        <children xsi:type="menu:DirectToolItem" xmi:id="_jMILj3rCEeaNe4y2FHlnFQ" elementId="bwNewProcessWizards">
-          <tags>Opaque</tags>
-        </children>
-        <children xsi:type="menu:DirectToolItem" xmi:id="_jMILkHrCEeaNe4y2FHlnFQ" elementId="com.tibco.bw.core.design.process.editor.newprocessaction">
-          <tags>Opaque</tags>
-        </children>
-        <children xsi:type="menu:DirectToolItem" xmi:id="_jMILkXrCEeaNe4y2FHlnFQ" elementId="com.tibco.bw.core.design.process.editor.newsubprocessaction">
-          <tags>Opaque</tags>
-        </children>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_jMILknrCEeaNe4y2FHlnFQ" elementId="com.tibco.xpd.resources.ui.actionSet.enableFeature1">
         <tags>Draggable</tags>
-        <children xsi:type="menu:DirectToolItem" xmi:id="_jMILk3rCEeaNe4y2FHlnFQ" elementId="additions">
-          <tags>Opaque</tags>
-        </children>
-        <children xsi:type="menu:DirectToolItem" xmi:id="_jMILlHrCEeaNe4y2FHlnFQ" elementId="com.tibco.xpd.resources.ui.action.anableFeature1">
-          <tags>Opaque</tags>
-        </children>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_jMILlXrCEeaNe4y2FHlnFQ" elementId="org.eclipse.debug.ui.launchActionSet">
         <tags>Draggable</tags>
-        <children xsi:type="menu:DirectToolItem" xmi:id="_jMILlnrCEeaNe4y2FHlnFQ" elementId="debug">
-          <tags>Opaque</tags>
-        </children>
-        <children xsi:type="menu:DirectToolItem" xmi:id="_jMILl3rCEeaNe4y2FHlnFQ" elementId="org.eclipse.debug.internal.ui.actions.DebugDropDownAction">
-          <tags>Opaque</tags>
-        </children>
-        <children xsi:type="menu:DirectToolItem" xmi:id="_jMILmHrCEeaNe4y2FHlnFQ" elementId="org.eclipse.debug.internal.ui.actions.RunDropDownAction">
-          <tags>Opaque</tags>
-        </children>
-        <children xsi:type="menu:DirectToolItem" xmi:id="_jMILmXrCEeaNe4y2FHlnFQ" elementId="org.eclipse.ui.externaltools.ExternalToolMenuDelegateToolbar">
-          <tags>Opaque</tags>
-        </children>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_jMILmnrCEeaNe4y2FHlnFQ" elementId="org.eclipse.search.searchActionSet">
         <tags>Draggable</tags>
-        <children xsi:type="menu:DirectToolItem" xmi:id="_jMILm3rCEeaNe4y2FHlnFQ" elementId="Search">
-          <tags>Opaque</tags>
-        </children>
-        <children xsi:type="menu:DirectToolItem" xmi:id="_jMILnHrCEeaNe4y2FHlnFQ" elementId="openType">
-          <tags>Opaque</tags>
-        </children>
-        <children xsi:type="menu:DirectToolItem" xmi:id="_jMILnXrCEeaNe4y2FHlnFQ" elementId="org.eclipse.search.OpenSearchDialogPage">
-          <tags>Opaque</tags>
-        </children>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_jMILnnrCEeaNe4y2FHlnFQ" elementId="group.nav" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -327,36 +237,9 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_jMILoHrCEeaNe4y2FHlnFQ" elementId="org.eclipse.ui.workbench.navigate">
         <tags>Draggable</tags>
-        <children xsi:type="menu:DirectToolItem" xmi:id="_jMILoXrCEeaNe4y2FHlnFQ" elementId="history.group">
-          <tags>Opaque</tags>
-        </children>
-        <children xsi:type="menu:DirectToolItem" xmi:id="_jMILonrCEeaNe4y2FHlnFQ" elementId="group.application" visible="false">
-          <tags>Opaque</tags>
-        </children>
-        <children xsi:type="menu:DirectToolItem" xmi:id="_jMILo3rCEeaNe4y2FHlnFQ" elementId="backardHistory">
-          <tags>Opaque</tags>
-        </children>
-        <children xsi:type="menu:DirectToolItem" xmi:id="_jMILpHrCEeaNe4y2FHlnFQ" elementId="forwardHistory">
-          <tags>Opaque</tags>
-        </children>
-        <children xsi:type="menu:DirectToolItem" xmi:id="_jMILpXrCEeaNe4y2FHlnFQ" elementId="pin.group">
-          <tags>Opaque</tags>
-        </children>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_jMILpnrCEeaNe4y2FHlnFQ" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_jMJaGHrCEeaNe4y2FHlnFQ"/>
-        <children xsi:type="menu:DirectToolItem" xmi:id="_jMILp3rCEeaNe4y2FHlnFQ" elementId="org.eclipse.ui.edit.text.gotoNextAnnotation">
-          <tags>Opaque</tags>
-        </children>
-        <children xsi:type="menu:DirectToolItem" xmi:id="_jMILqHrCEeaNe4y2FHlnFQ" elementId="org.eclipse.ui.edit.text.gotoPreviousAnnotation">
-          <tags>Opaque</tags>
-        </children>
-        <children xsi:type="menu:DirectToolItem" xmi:id="_jMILqXrCEeaNe4y2FHlnFQ" elementId="org.eclipse.ui.edit.text.gotoLastEditPosition">
-          <tags>Opaque</tags>
-        </children>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_j6mOQoPXEeaFO7wOTgVvNg" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_jMJaGHrCEeaNe4y2FHlnFQ"/>
       </children>
-      <children xsi:type="menu:ToolBar" xmi:id="_jMILqnrCEeaNe4y2FHlnFQ" elementId="com.tibco.amf.adapter.adb.ui.AdbEditor">
-        <tags>Draggable</tags>
-      </children>
-      <children xsi:type="menu:ToolBar" xmi:id="_jMILq3rCEeaNe4y2FHlnFQ" elementId="com.tibco.amf.adapter.schema.ui.AESchemaEditor">
+      <children xsi:type="menu:ToolBar" xmi:id="_jMILqnrCEeaNe4y2FHlnFQ" elementId="com.tibco.amf.adapter.adb.ui.AdbEditor" visible="false">
         <tags>Draggable</tags>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_jMILrHrCEeaNe4y2FHlnFQ" elementId="group.editor" toBeRendered="false">
@@ -369,12 +252,6 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_jMILsHrCEeaNe4y2FHlnFQ" elementId="org.eclipse.ui.workbench.help">
         <tags>Draggable</tags>
-        <children xsi:type="menu:DirectToolItem" xmi:id="_jMILsXrCEeaNe4y2FHlnFQ" elementId="group.help">
-          <tags>Opaque</tags>
-        </children>
-        <children xsi:type="menu:DirectToolItem" xmi:id="_jMILsnrCEeaNe4y2FHlnFQ" elementId="group.application" visible="false">
-          <tags>Opaque</tags>
-        </children>
       </children>
       <children xsi:type="menu:ToolControl" xmi:id="_jMILs3rCEeaNe4y2FHlnFQ" elementId="PerspectiveSpacer" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.renderers.swt/org.eclipse.e4.ui.workbench.renderers.swt.LayoutModifierToolControl">
         <tags>stretch</tags>
@@ -1259,6 +1136,23 @@
     <tags>View</tags>
     <tags>categoryTag:Other</tags>
   </descriptors>
+  <trimContributions xmi:id="_2r10UF9tEeO-yojH_y4TJA" elementId="org.eclipse.ui.ide.application.trimcontribution.QuickAccess" contributorURI="platform:/plugin/org.eclipse.ui.ide.application" toBeRendered="false" parentId="org.eclipse.ui.main.toolbar" positionInParent="last">
+    <children xsi:type="menu:ToolControl" xmi:id="_76uUAF9tEeO-yojH_y4TJA" elementId="Spacer Glue" contributorURI="platform:/plugin/org.eclipse.ui.ide.application" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.renderers.swt/org.eclipse.e4.ui.workbench.renderers.swt.LayoutModifierToolControl">
+      <tags>glue</tags>
+      <tags>move_after:PerspectiveSpacer</tags>
+      <tags>SHOW_RESTORE_MENU</tags>
+    </children>
+    <children xsi:type="menu:ToolControl" xmi:id="_8tJPcF9tEeO-yojH_y4TJA" elementId="SearchField" contributorURI="platform:/plugin/org.eclipse.ui.ide.application" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.quickaccess.SearchField">
+      <tags>move_after:Spacer Glue</tags>
+      <tags>HIDEABLE</tags>
+      <tags>SHOW_RESTORE_MENU</tags>
+    </children>
+    <children xsi:type="menu:ToolControl" xmi:id="_9LgmcF9tEeO-yojH_y4TJA" elementId="Search-PS Glue" contributorURI="platform:/plugin/org.eclipse.ui.ide.application" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.renderers.swt/org.eclipse.e4.ui.workbench.renderers.swt.LayoutModifierToolControl">
+      <tags>glue</tags>
+      <tags>move_after:SearchField</tags>
+      <tags>SHOW_RESTORE_MENU</tags>
+    </children>
+  </trimContributions>
   <commands xmi:id="_jMI0SHrCEeaNe4y2FHlnFQ" elementId="org.eclipse.jdt.ui.correction.inlineLocal.assist" commandName="Quick Assist - Inline local variable" description="Invokes quick assist and selects 'Inline local variable'" category="_jMJccXrCEeaNe4y2FHlnFQ"/>
   <commands xmi:id="_jMI0SXrCEeaNe4y2FHlnFQ" elementId="com.tibco.bw.core.design.project.generateApplication" commandName="Generate Application Command" category="_jMJcdXrCEeaNe4y2FHlnFQ"/>
   <commands xmi:id="_jMI0SnrCEeaNe4y2FHlnFQ" elementId="org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.cutcolumn" commandName="Cut" category="_jMJcXXrCEeaNe4y2FHlnFQ"/>
