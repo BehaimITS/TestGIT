@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="com.tibco.adapter.tester.launcher.type">
+<stringAttribute key="ADAPTER_COMMAND_ARGUMENTS_ATTRIBUTE" value=""/>
+<stringAttribute key="ADAPTER_EXECUTABLE_ATTRIBUTE" value="C:\Opt\Tibco\adapter\adadb\7.2\bin\adbagent.exe"/>
+<stringAttribute key="ADAPTER_TRA_ATTRIBUTE" value="C:\Opt\Tibco\adapter\adadb\7.2\bin\adbagent.tra"/>
+<stringAttribute key="ADAPTER_XMI_RESOURCE_ATTRIBUTE" value="/adb_eBiz/AdapterForDatabase.adadbmodel"/>
+<stringAttribute key="GLOBAL_VARIABLES_TABLE_INPUT" value="MapKey=TIBHawkNetworkMapValue="/>
+<stringAttribute key="WORKING_DIR_ATTRIBUTE" value="C:\MOJE\Adapter\WorkingDirectory"/>
+<stringAttribute key="exeFileMapping" value="MapKey=TIBCO ActiveMatrix Adapter for Database 7.2.0.15 (adbagent.exe)MapValue=C:\Opt\Tibco\adapter\adadb\7.2\bin\adbagent.exe"/>
+<stringAttribute key="isTibco" value="true"/>
+<intAttribute key="selectedItem" value="0"/>
+<stringAttribute key="traFileMapping" value="MapKey=TIBCO ActiveMatrix Adapter for Database 7.2.0.15 (adbagent.exe)MapValue=C:\Opt\Tibco\adapter\adadb\7.2\bin\adbagent.tra"/>
+</launchConfiguration>

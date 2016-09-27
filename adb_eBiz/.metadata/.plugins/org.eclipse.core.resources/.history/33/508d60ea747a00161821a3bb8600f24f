@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="ASCII"?>
+<schema:ClassType xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:schema="http://xsd.tns.tibco.com/amf/models/adapter/schema" xmi:id="P_BILL_NOTIF_ENROLL" name="P_BILL_NOTIF_ENROLL">
+  <attributes name="BILL_NOTIF_ENROLLMENTS_ID" isKey="true" isReadable="true" isWriteable="true">
+    <type href="../../ae.schema#string"/>
+  </attributes>
+  <attributes name="ACCOUNT_NUMBER" isReadable="true" isWriteable="true">
+    <type href="../../ae.schema#string"/>
+  </attributes>
+  <attributes name="BILL_NOTIF_EMAIL_ID" isReadable="true" isWriteable="true">
+    <type href="../../ae.schema#string"/>
+  </attributes>
+  <attributes name="START_DATE" isReadable="true" isWriteable="true">
+    <type href="adbmetadata.schema#adbDateTime"/>
+  </attributes>
+  <attributes name="START_DATE_SOURCE" isReadable="true" isWriteable="true">
+    <type href="../../ae.schema#string"/>
+  </attributes>
+  <attributes name="START_DATE_CREATED_BY" isReadable="true" isWriteable="true">
+    <type href="../../ae.schema#string"/>
+  </attributes>
+  <attributes name="END_DATE" isReadable="true" isWriteable="true">
+    <type href="adbmetadata.schema#adbDateTime"/>
+  </attributes>
+  <attributes name="END_DATE_SOURCE" isReadable="true" isWriteable="true">
+    <type href="../../ae.schema#string"/>
+  </attributes>
+  <attributes name="END_DATE_CREATED_BY" isReadable="true" isWriteable="true">
+    <type href="../../ae.schema#string"/>
+  </attributes>
+  <attributes name="LKUP_END_DATE_REASON_ID" isReadable="true" isWriteable="true">
+    <type href="../../ae.schema#string"/>
+  </attributes>
+  <attributes name="LKUP_BILL_NOTIFICATION_TYPE_ID" isReadable="true" isWriteable="true">
+    <type href="../../ae.schema#string"/>
+  </attributes>
+  <attributes name="LKUP_BILL_NOTIF_STATUS_ID" isReadable="true" isWriteable="true">
+    <type href="../../ae.schema#string"/>
+  </attributes>
+  <attributes name="OFFER_SOURCE" isReadable="true" isWriteable="true">
+    <type href="../../ae.schema#string"/>
+  </attributes>
+  <attributes name="LKUP_PROMO_ID" isReadable="true" isWriteable="true">
+    <type href="../../ae.schema#string"/>
+  </attributes>
+  <attributes name="OFFER_LOCATION" isReadable="true" isWriteable="true">
+    <type href="../../ae.schema#string"/>
+  </attributes>
+  <attributes name="CREATED_ON" isReadable="true" isWriteable="true">
+    <type href="adbmetadata.schema#adbDateTime"/>
+  </attributes>
+  <attributes name="LAST_UPDATE" isReadable="true" isWriteable="true">
+    <type href="adbmetadata.schema#adbDateTime"/>
+  </attributes>
+  <attributes name="ADB_OPCODE" isReadable="true" isWriteable="true">
+    <type href="../../ae.schema#i4"/>
+  </attributes>
+  <attributes name="ADB_TRACKINGID" isReadable="true" isWriteable="true">
+    <type href="../../ae.schema#string"/>
+  </attributes>
+  <attributes name="ADB_SUBJECT" isReadable="true" isWriteable="true">
+    <type href="../../ae.schema#string"/>
+  </attributes>
+  <attributes name="ADB_SEQUENCE" isReadable="true" isWriteable="true">
+    <type href="../../ae.schema#string"/>
+  </attributes>
+  <attributes name="ADB_SET_SEQUENCE" isReadable="true" isWriteable="true">
+    <type href="../../ae.schema#i4"/>
+  </attributes>
+  <attributes name="ADB_TIMESTAMP" isReadable="true" isWriteable="true">
+    <type href="../../ae.schema#string"/>
+  </attributes>
+  <attributes name="ADB_UPDATE_ALL" isReadable="true" isWriteable="true">
+    <type href="../../ae.schema#i4"/>
+  </attributes>
+  <attributes name="ADB_REF_OBJECT" isReadable="true" isWriteable="true">
+    <type href="../../ae.schema#string"/>
+  </attributes>
+  <attributes name="ADB_AGENT_ID" isReadable="true" isWriteable="true">
+    <type href="../../ae.schema#string"/>
+  </attributes>
+</schema:ClassType>
