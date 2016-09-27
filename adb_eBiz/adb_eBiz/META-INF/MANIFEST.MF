@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-SymbolicName: adb_eBiz
+TIBCO-Adapter-ResourcePath: .tibcoadapter
+Bundle-ManifestVersion: 2
+Bundle-Vendor: TIBCO Software Inc.
+TIBCO-BW-ModuleSharedVariables: META-INF/module.msv
+Require-Capability: com.tibco.bw.model; filter:="(name=bwext)"
+TIBCO-BW-ConfigProfile: META-INF/default.substvar
+TIBCO-BW-Version: 6.3.3 V23 2016-08-10
+Bundle-Name: Adb_eBiz Module
+Bundle-Version: 1.0.0.qualifier
+TIBCO-BW-ApplicationModule: META-INF/module.bwm
+TIBCO-BW-JobSharedVariables: META-INF/module.jsv
+

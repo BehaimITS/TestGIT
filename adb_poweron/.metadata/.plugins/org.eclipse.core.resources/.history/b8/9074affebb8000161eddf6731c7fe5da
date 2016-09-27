@@ -1,0 +1,683 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:schema="http://xsd.tns.tibco.com/amf/models/adapter/schema">
+  <schema:ClassType xmi:id="P_PO_CALL_MV" name="P_PO_CALL_MV">
+    <attributes name="ID" isKey="true" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="TYPE_ID" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="SIMPLE_AREA_ID" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="ACCOUNT_NUMBER" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="ORIGINATING_NUMBER" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="DESCRIPTION" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="TIME_RECEIVED" isReadable="true" isWriteable="true">
+      <type href="adbmetadata.schema#adbDateTime"/>
+    </attributes>
+    <attributes name="RECEIVED_BY" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="RECEIVED_BY_ID" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="COMMENTS" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="STATUS" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="SCHEDULED_START_TIME" isReadable="true" isWriteable="true">
+      <type href="adbmetadata.schema#adbDateTime"/>
+    </attributes>
+    <attributes name="READ" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="INFORMATIVE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="PREDICT" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="NAME" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="LOCATION_DESC" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="CONTACT_NO" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="EMAIL" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="CALLBACK" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="DEMAND_SECTION_ID" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="PROCESSOR_STATUS_ID" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="INCIDENT_ID" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="LOCATING_RWO_DATASET_NAME" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="LOCATING_RWO_GIS_RWO_CODE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="LOCATING_RWO_GIS_RWO_ID1" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="LOCATING_RWO_GIS_RWO_ID2" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="LOCATING_RWO_GIS_RWO_ID3" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="X" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="Y" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="HANDLED_BY" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="ADB_OPCODE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#i4"/>
+    </attributes>
+    <attributes name="ADB_TRACKINGID" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="ADB_SUBJECT" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="ADB_SEQUENCE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="ADB_SET_SEQUENCE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#i4"/>
+    </attributes>
+    <attributes name="ADB_TIMESTAMP" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="ADB_UPDATE_ALL" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#i4"/>
+    </attributes>
+    <attributes name="ADB_REF_OBJECT" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="ADB_AGENT_ID" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+  </schema:ClassType>
+  <schema:ClassType xmi:id="P_PO_CUST_INTERR_DATA_MV" name="P_PO_CUST_INTERR_DATA_MV">
+    <attributes name="INCIDENT_ID" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="CUSTOMER_ID" isKey="true" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="DATE_OF_ACTION" isReadable="true" isWriteable="true">
+      <type href="adbmetadata.schema#adbDateTime"/>
+    </attributes>
+    <attributes name="ACTION" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="NETWORK_EVENT_ID" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="CUSTOMER_ACCOUNT" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="ADB_OPCODE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#i4"/>
+    </attributes>
+    <attributes name="ADB_TRACKINGID" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="ADB_SUBJECT" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="ADB_SEQUENCE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="ADB_SET_SEQUENCE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#i4"/>
+    </attributes>
+    <attributes name="ADB_TIMESTAMP" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="ADB_UPDATE_ALL" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#i4"/>
+    </attributes>
+    <attributes name="ADB_REF_OBJECT" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="ADB_AGENT_ID" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+  </schema:ClassType>
+  <schema:ClassType xmi:id="P_CIS_CUSTOMER_MV" name="P_CIS_CUSTOMER_MV">
+    <attributes name="ACCOUNT_NUMBER" isKey="true" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="CIS_ACCOUNT_NUMBER" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="LAST_NAME" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="FIRST_NAME" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="AREA_CODE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="PHONE_NUMBER" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="LOCATION_DESC" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="AREA_DESC" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="METER_ID" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="SOCIAL_SECURITY_NO" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="CUSTOMER_TYPE_ID" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="PREMISE_CODE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="SERVICE_NO" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="COMPANY_CODE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="CUSTOMER_CODE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="HOUSE_NUMBER" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="STREET" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="CUSTOMER_TYPE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="CITY" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="STATE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="ZIP" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="APARTMENT_NUMBER" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="HOUSE_NUMBER_ADDITION" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="STREET_DIR_PREFIX" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="STREET_DIR_SUFFIX" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="STREET_TYPE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="ADB_OPCODE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#i4"/>
+    </attributes>
+    <attributes name="ADB_TRACKINGID" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="ADB_SUBJECT" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="ADB_SEQUENCE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="ADB_SET_SEQUENCE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#i4"/>
+    </attributes>
+    <attributes name="ADB_TIMESTAMP" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="ADB_UPDATE_ALL" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#i4"/>
+    </attributes>
+    <attributes name="ADB_REF_OBJECT" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="ADB_AGENT_ID" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+  </schema:ClassType>
+  <schema:ClassType xmi:id="P_VN_OUTAGE_ALL_MV" name="P_VN_OUTAGE_ALL_MV">
+    <attributes name="INCIDENT_ID" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="ORDER_ID" isKey="true" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="INCIDENT_STATUS" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="CAUSE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="SUBCAUSE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="DISTRICT" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="SUBSTATION" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="CIRCUIT_ID" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="CI_SUSTAINED" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="CI_TRANSIENT" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="CI_SUSTAINED_TRANSIENT" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="CMI_SUSTAINED" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="CMI_TRANSIENT" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="CMI_SUSTAINED_TRANSIENT" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="DURATION_SUSTAINED" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="DURATION_TRANSIENT" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="DURATION_SUSTAINED_TRANSIENT" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="REPAIR_CATEGORY" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="REPAIR_ACTION" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="TRANSMISSION_EVENT" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="WORK_CLEARANCE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="MOMENTARY" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="ORDER_NUMBER" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="DISC_DEVICE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="FAILED_EQUIPMENT" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="COMMENTS" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="LOCATION" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="ORDER_TYPE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="STATUS" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="ETR" isReadable="true" isWriteable="true">
+      <type href="adbmetadata.schema#adbDateTime"/>
+    </attributes>
+    <attributes name="CREWS" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="DEVICE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="PRIORITY" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="INCIDENT" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="SPECIAL" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="FIRST_CALL_TIME" isReadable="true" isWriteable="true">
+      <type href="adbmetadata.schema#adbDateTime"/>
+    </attributes>
+    <attributes name="NUM_CALLS" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="OWNER_NAME" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="LAST_UPDATED_TIME" isReadable="true" isWriteable="true">
+      <type href="adbmetadata.schema#adbDateTime"/>
+    </attributes>
+    <attributes name="CREW_AREA" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="DISPATCHER_AREA_NAME" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="CUSTOMERS" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="OUTAGE_ONLY" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="READY_FOR_ARCHIVE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="START_TIME" isReadable="true" isWriteable="true">
+      <type href="adbmetadata.schema#adbDateTime"/>
+    </attributes>
+    <attributes name="MAJOR_EVENT" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="ADB_OPCODE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#i4"/>
+    </attributes>
+    <attributes name="ADB_TRACKINGID" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="ADB_SUBJECT" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="ADB_SEQUENCE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="ADB_SET_SEQUENCE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#i4"/>
+    </attributes>
+    <attributes name="ADB_TIMESTAMP" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="ADB_UPDATE_ALL" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#i4"/>
+    </attributes>
+    <attributes name="ADB_REF_OBJECT" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="ADB_AGENT_ID" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+  </schema:ClassType>
+  <schema:ClassType xmi:id="P_PO_DEENERGIZATION_MV" name="P_PO_DEENERGIZATION_MV">
+    <attributes name="ID" isKey="true" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="INCIDENT_ID" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="CUSTOMER_COUNT_A" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="CUSTOMER_COUNT_B" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="CUSTOMER_COUNT_C" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="CUSTOMER_COUNT_AB" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="CUSTOMER_COUNT_AC" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="CUSTOMER_COUNT_BC" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="CUSTOMER_COUNT_ABC" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="CUSTOMER_COUNT_TOTAL" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="USER_CUSTOMERS_COUNT" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="PHASES" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="TIME_DEENERGIZED" isReadable="true" isWriteable="true">
+      <type href="adbmetadata.schema#adbDateTime"/>
+    </attributes>
+    <attributes name="NETWORK_EVENT_ID" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="ADB_OPCODE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#i4"/>
+    </attributes>
+    <attributes name="ADB_TRACKINGID" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="ADB_SUBJECT" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="ADB_SEQUENCE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="ADB_SET_SEQUENCE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#i4"/>
+    </attributes>
+    <attributes name="ADB_TIMESTAMP" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="ADB_UPDATE_ALL" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#i4"/>
+    </attributes>
+    <attributes name="ADB_REF_OBJECT" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="ADB_AGENT_ID" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+  </schema:ClassType>
+  <schema:ClassType xmi:id="P_PO_RESTORATION_MV" name="P_PO_RESTORATION_MV">
+    <attributes name="ID" isKey="true" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="INCIDENT_ID" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="CUSTOMER_COUNT_A" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="CUSTOMER_COUNT_B" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="CUSTOMER_COUNT_C" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="CUSTOMER_COUNT_AB" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="CUSTOMER_COUNT_AC" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="CUSTOMER_COUNT_BC" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="CUSTOMER_COUNT_ABC" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="CUSTOMER_COUNT_TOT" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="PHASES" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="TIME_RESTORED" isReadable="true" isWriteable="true">
+      <type href="adbmetadata.schema#adbDateTime"/>
+    </attributes>
+    <attributes name="FULL_RESTORATION" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="USER_CUSTOMERS_RESTORED" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="USER_CUSTOMERS_REMAINING" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="NETWORK_EVENT_ID" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="CUSTOMERS_REMAINING" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="ADB_OPCODE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#i4"/>
+    </attributes>
+    <attributes name="ADB_TRACKINGID" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="ADB_SUBJECT" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="ADB_SEQUENCE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="ADB_SET_SEQUENCE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#i4"/>
+    </attributes>
+    <attributes name="ADB_TIMESTAMP" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="ADB_UPDATE_ALL" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#i4"/>
+    </attributes>
+    <attributes name="ADB_REF_OBJECT" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="ADB_AGENT_ID" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+  </schema:ClassType>
+  <schema:ClassType xmi:id="P_PO_CUSTOMER_TRANSFER_MV" name="P_PO_CUSTOMER_TRANSFER_MV">
+    <attributes name="ID" isKey="true" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="INCIDENT_ID" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="FROM_INCIDENT_ID" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="TO_INCIDENT_ID" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="NETWORK_EVENT_ID" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="PHASES" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="TIME_TRANSFERRED" isReadable="true" isWriteable="true">
+      <type href="adbmetadata.schema#adbDateTime"/>
+    </attributes>
+    <attributes name="FULL_RESTORATION" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="CUSTOMER_COUNT_A" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="CUSTOMER_COUNT_B" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="CUSTOMER_COUNT_C" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="CUSTOMER_COUNT_AB" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="CUSTOMER_COUNT_AC" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="CUSTOMER_COUNT_BC" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="CUSTOMER_COUNT_ABC" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="CUSTOMER_COUNT_TOTAL" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="USER_CUSTOMERS_COUNT" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="USER_CUSTOMERS_REMAINING" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="CUSTOMERS_REMAINING" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="ADB_OPCODE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#i4"/>
+    </attributes>
+    <attributes name="ADB_TRACKINGID" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="ADB_SUBJECT" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="ADB_SEQUENCE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="ADB_SET_SEQUENCE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#i4"/>
+    </attributes>
+    <attributes name="ADB_TIMESTAMP" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="ADB_UPDATE_ALL" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#i4"/>
+    </attributes>
+    <attributes name="ADB_REF_OBJECT" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="ADB_AGENT_ID" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+  </schema:ClassType>
+</xmi:XMI>

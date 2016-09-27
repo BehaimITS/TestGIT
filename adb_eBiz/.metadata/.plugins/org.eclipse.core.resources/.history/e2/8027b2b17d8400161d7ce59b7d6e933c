@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:adadbmodel="http://xsd.tns.tibco.com/adadb/models/adadbmodel" xmlns:common="http://xsd.tns.tibco.com/amf/models/adapter/common" xmlns:gac="http://xsd.tns.tibco.com/amf/models/adapter/gac">
+  <adadbmodel:ADBAdapterConfiguration name="AdapterForDatabase" instanceId="AdapterForDatabase" services="#/9 #/11 #/13 #/15 #/17 #/19 #/21" reporting="#/4" logging="#/5" monitoring="#/6" transports="#/3 #/7 #/8" channels="#/10 #/12 #/14 #/16 #/18 #/20 #/22" vendor="16" runTimeConnection="#/1" convertOracleNumberToString="true" deployOperations="true">
+    <startup active="true" showBanner="true">
+      <components active="true" componentName="ADBHawkDefault"/>
+      <components active="true" componentName="ADBAgentJmsSession"/>
+      <components active="true" componentName="ach_payments"/>
+      <components active="true" componentName="JMSTopic"/>
+      <components active="true" componentName="ach_consolidated_pymts"/>
+      <components active="true" componentName="speedpay_transaction"/>
+      <components active="true" componentName="account_summary"/>
+      <components active="true" componentName="amr_schedule_data"/>
+      <components active="true" componentName="bill_notification_enrollments"/>
+      <components active="true" componentName="bill_notification_emailaddress"/>
+    </startup>
+    <hawk help="TIB/Adapter for ActiveDatabase MicroAgent" microAgentName="COM.TIBCO.adb.custom.%%Deployment%%.%%InstanceId%%" transport="#/3">
+      <methods name="setDebugLevel" help="Sets the debug level for the agent (possible values 0-3)">
+        <inputParameters name="DebugLevel" help="The debug level" type="integer"/>
+      </methods>
+      <methods name="showConfiguration" help="Retrieve configuration information for the agent.">
+        <outputParameters name="VerboseInfo" help="Verbose flag information" type="string"/>
+        <outputParameters name="DebugLevelInfo" help="Debug level information" type="string"/>
+        <outputParameters name="PollIntervalInfo" help="Poll interval information" type="string"/>
+      </methods>
+      <methods name="terminateADBagent" help="Terminates the agent"/>
+      <methods name="toggleVerboseFlag" help="Toggles the value of the verbose flag."/>
+      <methods name="getEventQueueSize" help="Gets number of messages waiting in the event queue.">
+        <inputParameters name="Session" help="Specify subscriber or request/reply listener" type="string" valueChoices="Subscriber,RequestReply"/>
+        <outputParameters name="QueueCount" help="Number of events in the queue" type="integer"/>
+        <outputParameters name="QueueLimit" help="Maximum number of events in queue (0 = unlimited)" type="integer"/>
+      </methods>
+      <methods name="getActivityStatistics" help="Get statistics about the data handled by the adapter instance" index="Name">
+        <inputParameters name="Get Subtotal By" help="Get statistics by either service or operation" type="string" valueChoices="Service,Operation"/>
+        <outputParameters name="Name" help="Service Name" type="string"/>
+        <outputParameters name="Total" help="Total number of objects processed" type="integer"/>
+        <outputParameters name="Success" help="Total number of objects successfully processed" type="integer"/>
+        <outputParameters name="Failure" help="Total number of objects that caused an error during processing" type="integer"/>
+      </methods>
+      <methods name="getActivityStatisticsByService" help="Get statistics about the data handled by a particular adapter service" index="Operation">
+        <inputParameters name="Service Name" help="Name of which service to get the statistic for" type="string"/>
+        <outputParameters name="Operation" help="The type of operation this service provides" type="string"/>
+        <outputParameters name="SchemaName" help="Name of the top level schema processed by this service, or the subject of a request/response service" type="string"/>
+        <outputParameters name="Total" help="Total number of objects processed" type="integer"/>
+        <outputParameters name="Success" help="Total number of objects successfully processed" type="integer"/>
+        <outputParameters name="Failure" help="Total number of objects that caused an error during processing" type="integer"/>
+      </methods>
+      <methods name="getActivityStatisticsByOperation" help="Get statistics about one operation" index="ServiceName">
+        <inputParameters name="Operation" help="Name of the operation" type="string" valueChoices="fetch,insert,update,delete,request/reply,standard_operation,custom_operation"/>
+        <outputParameters name="ServiceName" help="Name of the Service" type="string"/>
+        <outputParameters name="Total" help="Total number of objects processed" type="integer"/>
+        <outputParameters name="Success" help="Total number of objects successfully processed" type="integer"/>
+        <outputParameters name="Failure" help="Total number of objects that caused an error during processing" type="integer"/>
+      </methods>
+      <methods name="getThreadStatistics" help="Get operation counts of the current threads" index="TaskType">
+        <outputParameters name="ThreadID" help="A unique identification of a particular thread" type="string"/>
+        <outputParameters name="ThreadType" help="A type that tells what part of the adapter this thread belongs to" type="string"/>
+        <outputParameters name="TaskType" help="Description of the tasks this thread processes" type="string"/>
+        <outputParameters name="TaskCount" help="Number of tasks processed by this thread" type="integer"/>
+      </methods>
+      <methods name="getQueueStatistics" help="Get statistics about current count of elements in any internal queue" index="QueueID">
+        <outputParameters name="QueueID" help="A unique identification of a particular queue" type="string"/>
+        <outputParameters name="QueueType" help="A type that will match this queue to a thread or connection" type="string"/>
+        <outputParameters name="QueueCount" help="Current number of elements in the queue" type="integer"/>
+        <outputParameters name="MaxQueueSize" help="Maximum number of elements that can be held in this queue" type="integer"/>
+      </methods>
+      <methods name="getConnectionStatistics" help="Return the state and statistics for all the curent connections used by the adapter" index="ConnectionID">
+        <outputParameters name="ConnectionID" help="A unique identification of a particular connection" type="string"/>
+        <outputParameters name="ConnectionType" help="Describe the purpose of this connection serves to the adapter" type="string"/>
+        <outputParameters name="State" help="Current state of the connection" type="string"/>
+        <outputParameters name="NumRetries" help="Total number of times this connection had been re-established" type="integer"/>
+        <outputParameters name="TotalNumOperations" help="Total number of operations processed by this connection" type="integer"/>
+        <outputParameters name="CurrentNumOperations" help="Total number of operations processed by this connection since the last reconnection" type="integer"/>
+      </methods>
+      <methods name="resetActivityStatistics" help="Reset all the counts for the activity statistics"/>
+      <methods name="resetThreadStatistics" help="Reset all the counts for the thread statistics"/>
+      <methods name="resetConnectionStatistics" help="Reset all the counts for the connection statistics"/>
+      <methods name="setPollingInterval" help="Set the polling interval setting">
+        <inputParameters name="PollingInterval" help="Polling interval in milliseconds" type="integer"/>
+      </methods>
+      <methods name="getPollingInterval" help="Get the current polling interval setting">
+        <outputParameters name="PollingInterval" help="Polling interval in milliseconds" type="integer"/>
+      </methods>
+      <methods name="setPollingBatchSize" help="Set the polling polling batch size setting">
+        <inputParameters name="PollingBatchSize" help="Polling batch size" type="integer"/>
+      </methods>
+      <methods name="getPollingBatchSize" help="Get the current polling batch size setting">
+        <outputParameters name="PollingBatchSize" help="Polling batch size" type="integer"/>
+      </methods>
+      <methods name="getPerfMonSetting" help="Get the setting of the perfMon option">
+        <outputParameters name="Setting" help="Value of PerfMon option" type="string"/>
+      </methods>
+    </hawk>
+    <metadata>
+      <loadUrl url="/AESchemas/ae/ADB/adbmetadata.aeschema"/>
+      <loadUrl url="/AESchemas/ae/ADB/AdapterForDatabase.schema"/>
+      <loadUrl url="/AESchemas/ae/ADB/AdapterForDatabase.aeschema"/>
+    </metadata>
+    <serviceOptions>
+      <allPublicationServices/>
+      <allSubscriptionServices/>
+      <allRequestResponseServices/>
+    </serviceOptions>
+    <adminOptions languageEncoding="ASCII" useTraceFile="" scriptFileName="%%ADBScriptFileDir%%\AdapterForDatabase.sql">
+      <substitutionBindings template="%%Domain%%.%%Deployment%%.adb.%%InstanceId%%.exit" propName="terminationSubjectorTopic"/>
+      <substitutionBindings template="%%Domain%%.%%Deployment%%.adb.%%InstanceId%%" propName="jmsDestinationPrefix"/>
+    </adminOptions>
+    <asOptions invocationThreadCount="32" connectionTimeout="30000"/>
+  </adadbmodel:ADBAdapterConfiguration>
+  <adadbmodel:ADBRuntimeConnection retryInterval="10000" retryAttempts="3" reconnectionAttemptsBeforeSuspend="1" adbConnectionConfiguration="ADBConnections/AdapterForDatabase.sharedadbc#/"/>
+  <adadbmodel:ADBRuntimeConnectionConfiguration>
+    <JDBCProperties/>
+    <password/>
+  </adadbmodel:ADBRuntimeConnectionConfiguration>
+  <common:RVConfiguration name="ADBHawkDefault">
+    <substitutionBindings template="%%TIBHawkService%%" propName="service"/>
+    <substitutionBindings template="%%TIBHawkNetwork%%" propName="network"/>
+    <substitutionBindings template="%%TIBHawkDaemon%%" propName="daemon"/>
+  </common:RVConfiguration>
+  <gac:Reporting name="adb_Reporting">
+    <sinks xsi:type="gac:FileSink" name="fileSink" fileLimit="30000" fileCount="3" appendMode="true">
+      <substitutionBindings template="%%DirTrace%%/%%Deployment%%.%%InstanceId%%.log" propName="fileName"/>
+      <roles name="infoRole"/>
+      <roles name="debugRole"/>
+      <roles name="errorRole"/>
+      <roles name="warnRole"/>
+    </sinks>
+    <sinks xsi:type="gac:StdioSink" name="stdioSink">
+      <roles name="infoRole"/>
+      <roles name="debugRole"/>
+      <roles name="errorRole"/>
+      <roles name="warnRole"/>
+    </sinks>
+  </gac:Reporting>
+  <gac:Logging name="adb_Logging" logDebugMessages="true">
+    <substitutionBindings template="%%DirTrace%%/%%Deployment%%.%%InstanceId%%.log" propName="logfileName"/>
+  </gac:Logging>
+  <gac:Monitoring name="adb_Monitoring" standardMicroAgentName="COM.TIBCO.ADAPTER.adb.%%Deployment%%.%%InstanceId%%" standardMicroAgentTimeout="10000" classMicroAgentName="COM.TIBCO.adb.%%Deployment%%.%%InstanceId%%" classMicroAgentTimeout="10000" defaultMicroAgentTransport="#/3">
+    <substitutionBindings template="%%HawkEnabled%%" propName="enableClassMicroAgent"/>
+    <substitutionBindings template="COM.TIBCO.ADAPTER.adb.%%Deployment%%.%%InstanceId%%" propName="standardMicroAgentName"/>
+    <substitutionBindings template="COM.TIBCO.adb.%%Deployment%%.%%InstanceId%%" propName="classMicroAgentName"/>
+  </gac:Monitoring>
+  <common:JMSConnectionConfiguration name="JMSTopic" useJNDI="false" factoryName="TopicConnectionFactory">
+    <substitutionBindings template="%%JmsProviderUrl%%" propName="providerURL"/>
+  </common:JMSConnectionConfiguration>
+  <common:JMSConnectionConfiguration name="ADBAgentJmsSession" useJNDI="false" providerURL="%%JmsProviderUrl%%" factoryName="TopicConnectionFactory"/>
+  <adadbmodel:ADBPublisher name="ach_payments" transportConfiguration="#/7" classReference="AESchemas/ae/ADB/AdapterForDatabase.schema#P_ACH_PAYMENTS" channel="#/10" transportType="jms" qualityOfService="ae.sessions.jmssession" publishingTable="P_ACH_PAYMENTS" sourceTable="ACH_PAYMENTS" streamsOutputQueue="ADB_ACH_PAYMENTS_OUT" streamsSchema="SCOTT" outputQPayloadType="ADB_ACH_PAYMENTS_OBJ" captureProName="ADB_ACH_PAYMENTS_CAP" dbInstanceID="DB11G" inputQueue="ADB_ACH_PAYMENTS_IN" dmlHandlerName="ADB_ACH_PAYMENTS_DM_HANDLE" applyProcessName="ADB_ACH_PAYMENTS_APPLY" pubFlag="0">
+    <dbOptions/>
+    <columnsToPublish>TRANSACTION_ID</columnsToPublish>
+    <columnsToPublish>MEMBER_ID</columnsToPublish>
+    <columnsToPublish>COMPANY_CODE</columnsToPublish>
+    <columnsToPublish>CUSTOMER_CODE</columnsToPublish>
+    <columnsToPublish>PREMISE_CODE</columnsToPublish>
+    <columnsToPublish>CHECK_DIGIT</columnsToPublish>
+    <columnsToPublish>CHECK_NAME</columnsToPublish>
+    <columnsToPublish>ACCOUNT_TYPE</columnsToPublish>
+    <columnsToPublish>ROUTING_NUMBER</columnsToPublish>
+    <columnsToPublish>ACCOUNT_NUMBER</columnsToPublish>
+    <columnsToPublish>PAYMENT_AMOUNT</columnsToPublish>
+    <columnsToPublish>CREATED_ON</columnsToPublish>
+    <columnsToPublish>SOURCE</columnsToPublish>
+    <columnsToPublish>CONFIRMATION_NUMBER</columnsToPublish>
+    <columnsToPublish>BANK_NAME</columnsToPublish>
+    <columnsToPublish>DP_CASE_NUMBER</columnsToPublish>
+    <columnsToPublish>PROCESSED_FLAG</columnsToPublish>
+    <columnsToPublish>FIRST_NAME</columnsToPublish>
+    <columnsToPublish>LAST_NAME</columnsToPublish>
+    <columnsToPublish>GENERAL_CUST_TYPE_ID</columnsToPublish>
+    <columnsToPublish>CHECK_FIRST_NAME</columnsToPublish>
+    <columnsToPublish>CHECK_MIDDLE_INITIAL</columnsToPublish>
+    <columnsToPublish>CONSOLIDATED_FLAG</columnsToPublish>
+    <columnsToPublish>PAYMENT_DATE</columnsToPublish>
+    <columnsToPublish>EMAIL_NOTIFICATION</columnsToPublish>
+    <columnsToPublish>ENTERED_BY</columnsToPublish>
+    <columnsToPublish>MEMO_POST_FLAG</columnsToPublish>
+    <columnsToPublish>CMT_KEY</columnsToPublish>
+    <columnsToPublish>SAVE_FUTURE_USE</columnsToPublish>
+    <dbOperProperties isDefault="false" sourceTableSchema="SCOTT" sourceTable="ACH_PAYMENTS" publishingTableSchema="SCOTT" publishingTable="P_ACH_PAYMENTS" updateMode="Update" storageMode="Publish by Value" loopDetection="false" noTriggers="false" columnsToPublish="TRANSACTION_ID, MEMBER_ID, COMPANY_CODE, CUSTOMER_CODE, PREMISE_CODE, CHECK_DIGIT, CHECK_NAME, ACCOUNT_TYPE, ROUTING_NUMBER, ACCOUNT_NUMBER, PAYMENT_AMOUNT, CREATED_ON, SOURCE, CONFIRMATION_NUMBER, BANK_NAME, DP_CASE_NUMBER, PROCESSED_FLAG, FIRST_NAME, LAST_NAME, GENERAL_CUST_TYPE_ID, CHECK_FIRST_NAME, CHECK_MIDDLE_INITIAL, CONSOLIDATED_FLAG, PAYMENT_DATE, EMAIL_NOTIFICATION, ENTERED_BY, MEMO_POST_FLAG, CMT_KEY, SAVE_FUTURE_USE" columnsToFireUpdateTrigger="" userDefinedKey="TRANSACTION_ID" captureProType="Synchronous" streamsOutputQueue="ADB_ACH_PAYMENTS_OUT" streamsSchema="SCOTT" outputQPayloadType="ADB_ACH_PAYMENTS_OBJ" captureProName="ADB_ACH_PAYMENTS_CAP" dbInstanceID="DB11G" inputQueue="ADB_ACH_PAYMENTS_IN" dmlHandlerName="ADB_ACH_PAYMENTS_DM_HANDLE" applyProcessName="ADB_ACH_PAYMENTS_APPLY"/>
+  </adadbmodel:ADBPublisher>
+  <gac:ProducerChannel name="ach_payments" transportConfiguration="#/7" wireFormat="aeXml" destination="%%Domain%%.%%Deployment%%.eBiz.BD.Topic.Cust360.AchPayments" endpointType="endpoint.JMSPublisher" channelType="jmsProducer"/>
+  <adadbmodel:ADBPublisher name="ach_consolidated_pymts" transportConfiguration="#/7" classReference="AESchemas/ae/ADB/AdapterForDatabase.schema#P_ACH_CONSOLIDATED_PYMTS" channel="#/12" transportType="jms" qualityOfService="ae.sessions.jmssession" publishingTable="P_ACH_CONSOLIDATED_PYMTS" sourceTable="ACH_CONSOLIDATED_PYMTS" streamsOutputQueue="ADB_ACH_CONSOLIDATED_PYMTS_OUT" streamsSchema="SCOTT" outputQPayloadType="ADB_ACH_CONSOLIDATED_PYMTS_OBJ" captureProName="ADB_ACH_CONSOLIDATED_PYMTS_CAP" dbInstanceID="DB11G" inputQueue="ADB_ACH_CONSOLIDATED_PYMTS_IN" dmlHandlerName="ADB_ACH_CONSOLIDATED_PYMTS_DM_HANDLE" applyProcessName="ADB_ACH_CONSOLIDATED_PYMTS_APPLY" pubFlag="0">
+    <dbOptions/>
+    <columnsToPublish>ACH_CONSOLIDATED_PYMTS_ID</columnsToPublish>
+    <columnsToPublish>ACH_PAYMENTS_ID</columnsToPublish>
+    <columnsToPublish>COMPANY_CODE</columnsToPublish>
+    <columnsToPublish>CUSTOMER_CODE</columnsToPublish>
+    <columnsToPublish>PREMISE_CODE</columnsToPublish>
+    <columnsToPublish>CHECK_DIGIT</columnsToPublish>
+    <columnsToPublish>PAYMENT_AMOUNT</columnsToPublish>
+    <dbOperProperties isDefault="false" sourceTableSchema="SCOTT" sourceTable="ACH_CONSOLIDATED_PYMTS" publishingTableSchema="SCOTT" publishingTable="P_ACH_CONSOLIDATED_PYMTS" updateMode="Update" storageMode="Publish by Value" loopDetection="false" noTriggers="false" columnsToPublish="ACH_CONSOLIDATED_PYMTS_ID, ACH_PAYMENTS_ID, COMPANY_CODE, CUSTOMER_CODE, PREMISE_CODE, CHECK_DIGIT, PAYMENT_AMOUNT" columnsToFireUpdateTrigger="" userDefinedKey="ACH_CONSOLIDATED_PYMTS_ID" captureProType="Synchronous" streamsOutputQueue="ADB_ACH_CONSOLIDATED_PYMTS_OUT" streamsSchema="SCOTT" outputQPayloadType="ADB_ACH_CONSOLIDATED_PYMTS_OBJ" captureProName="ADB_ACH_CONSOLIDATED_PYMTS_CAP" dbInstanceID="DB11G" inputQueue="ADB_ACH_CONSOLIDATED_PYMTS_IN" dmlHandlerName="ADB_ACH_CONSOLIDATED_PYMTS_DM_HANDLE" applyProcessName="ADB_ACH_CONSOLIDATED_PYMTS_APPLY"/>
+  </adadbmodel:ADBPublisher>
+  <gac:ProducerChannel name="ach_consolidated_pymts" transportConfiguration="#/7" wireFormat="aeXml" destination="%%Domain%%.%%Deployment%%.eBiz.BD.Topic.Cust360.AchConsolidatedPymts" endpointType="endpoint.JMSPublisher" channelType="jmsProducer"/>
+  <adadbmodel:ADBPublisher name="speedpay_transaction" transportConfiguration="#/7" classReference="AESchemas/ae/ADB/AdapterForDatabase.schema#P_SPEEDPAY_TRANSACTIONS" channel="#/14" transportType="jms" qualityOfService="ae.sessions.jmssession" publishingTable="P_SPEEDPAY_TRANSACTIONS" sourceTable="SPEEDPAY_TRANSACTIONS" streamsOutputQueue="ADB_SPEEDPAY_TRANSACTIONS_OUT" streamsSchema="SCOTT" outputQPayloadType="ADB_SPEEDPAY_TRANSACTIONS_OBJ" captureProName="ADB_SPEEDPAY_TRANSACTIONS_CAP" dbInstanceID="DB11G" inputQueue="ADB_SPEEDPAY_TRANSACTIONS_IN" dmlHandlerName="ADB_SPEEDPAY_TRANSACTIONS_DM_HANDLE" applyProcessName="ADB_SPEEDPAY_TRANSACTIONS_APPLY" pubFlag="0">
+    <dbOptions/>
+    <columnsToPublish>TRANS_ID</columnsToPublish>
+    <columnsToPublish>CREATED_ON</columnsToPublish>
+    <columnsToPublish>TRANS_CATEGORY</columnsToPublish>
+    <columnsToPublish>TRANS_AMOUNT</columnsToPublish>
+    <columnsToPublish>ACCOUNT_NUMBER</columnsToPublish>
+    <columnsToPublish>FIRST_NAME</columnsToPublish>
+    <columnsToPublish>LAST_NAME</columnsToPublish>
+    <columnsToPublish>EMAIL_ADDRESS</columnsToPublish>
+    <columnsToPublish>MEMBER_ID</columnsToPublish>
+    <columnsToPublish>CREDIT_CARD_NUMBER</columnsToPublish>
+    <columnsToPublish>CREDIT_CARD_NAME</columnsToPublish>
+    <columnsToPublish>CREDIT_CARD_TYPE</columnsToPublish>
+    <columnsToPublish>CREDIT_CARD_ZIP_CODE</columnsToPublish>
+    <columnsToPublish>CREDIT_CARD_EXPDATE</columnsToPublish>
+    <columnsToPublish>CONFIRM_NUM</columnsToPublish>
+    <columnsToPublish>SOURCE</columnsToPublish>
+    <columnsToPublish>PAYMENT_TYPE</columnsToPublish>
+    <columnsToPublish>PAYMENT_ID</columnsToPublish>
+    <columnsToPublish>PAYMENT_DATE</columnsToPublish>
+    <columnsToPublish>CANCELED_TYPE</columnsToPublish>
+    <columnsToPublish>CANCELED_DATE</columnsToPublish>
+    <columnsToPublish>MEMO_POST_FLAG</columnsToPublish>
+    <dbOperProperties isDefault="false" sourceTableSchema="SCOTT" sourceTable="SPEEDPAY_TRANSACTIONS" publishingTableSchema="SCOTT" publishingTable="P_SPEEDPAY_TRANSACTIONS" updateMode="Update" storageMode="Publish by Value" loopDetection="false" noTriggers="false" columnsToPublish="TRANS_ID, CREATED_ON, TRANS_CATEGORY, TRANS_AMOUNT, ACCOUNT_NUMBER, FIRST_NAME, LAST_NAME, EMAIL_ADDRESS, MEMBER_ID, CREDIT_CARD_NUMBER, CREDIT_CARD_NAME, CREDIT_CARD_TYPE, CREDIT_CARD_ZIP_CODE, CREDIT_CARD_EXPDATE, CONFIRM_NUM, SOURCE, PAYMENT_TYPE, PAYMENT_ID, PAYMENT_DATE, CANCELED_TYPE, CANCELED_DATE, MEMO_POST_FLAG" columnsToFireUpdateTrigger="" userDefinedKey="TRANS_ID" captureProType="Synchronous" streamsOutputQueue="ADB_SPEEDPAY_TRANSACTIONS_OUT" streamsSchema="SCOTT" outputQPayloadType="ADB_SPEEDPAY_TRANSACTIONS_OBJ" captureProName="ADB_SPEEDPAY_TRANSACTIONS_CAP" dbInstanceID="DB11G" inputQueue="ADB_SPEEDPAY_TRANSACTIONS_IN" dmlHandlerName="ADB_SPEEDPAY_TRANSACTIONS_DM_HANDLE" applyProcessName="ADB_SPEEDPAY_TRANSACTIONS_APPLY"/>
+  </adadbmodel:ADBPublisher>
+  <gac:ProducerChannel name="speedpay_transaction" transportConfiguration="#/7" wireFormat="aeXml" destination="%%Domain%%.%%Deployment%%.eBiz.BD.Topic.Cust360.SpeedpayTransactions" endpointType="endpoint.JMSPublisher" channelType="jmsProducer"/>
+  <adadbmodel:ADBPublisher name="account_summary" transportConfiguration="#/7" classReference="AESchemas/ae/ADB/AdapterForDatabase.schema#P_ACCOUNT_SUMMARY" channel="#/16" transportType="jms" qualityOfService="ae.sessions.jmssession" publishingTable="P_ACCOUNT_SUMMARY" sourceTable="ACCOUNT_SUMMARY" streamsOutputQueue="ADB_ACCOUNT_SUMMARY_OUT" streamsSchema="SCOTT" outputQPayloadType="ADB_ACCOUNT_SUMMARY_OBJ" captureProName="ADB_ACCOUNT_SUMMARY_CAP" dbInstanceID="DB11G" inputQueue="ADB_ACCOUNT_SUMMARY_IN" dmlHandlerName="ADB_ACCOUNT_SUMMARY_DM_HANDLE" applyProcessName="ADB_ACCOUNT_SUMMARY_APPLY" pubFlag="0">
+    <dbOptions/>
+    <columnsToPublish>ACCOUNT_NUMBER</columnsToPublish>
+    <columnsToPublish>CURRENT_BALANCE</columnsToPublish>
+    <columnsToPublish>BUDGET_BILLING_STATUS</columnsToPublish>
+    <columnsToPublish>PIPP_BILLING_STATUS</columnsToPublish>
+    <columnsToPublish>LAST_STATEMENT_DATE</columnsToPublish>
+    <columnsToPublish>LAST_STATEMENT_AMOUNT</columnsToPublish>
+    <columnsToPublish>LAST_STATEMENT_DUE_DATE</columnsToPublish>
+    <columnsToPublish>LAST_PAYMENT_DATE</columnsToPublish>
+    <columnsToPublish>LAST_PAYMENT_AMOUNT</columnsToPublish>
+    <columnsToPublish>SERVICE_STREET</columnsToPublish>
+    <columnsToPublish>SERVICE_CITY</columnsToPublish>
+    <columnsToPublish>SERVICE_STATE</columnsToPublish>
+    <columnsToPublish>SERVICE_ZIP</columnsToPublish>
+    <columnsToPublish>BILLING_STREET</columnsToPublish>
+    <columnsToPublish>BILLING_CITY</columnsToPublish>
+    <columnsToPublish>BILLING_STATE</columnsToPublish>
+    <columnsToPublish>BILLING_ZIP</columnsToPublish>
+    <columnsToPublish>LAST_UPDATED</columnsToPublish>
+    <columnsToPublish>BUDGET_VARIANCE</columnsToPublish>
+    <columnsToPublish>ENROLLED_THIRD_PARTY_BILLING</columnsToPublish>
+    <columnsToPublish>ENROLLED_DIRECT_PAY</columnsToPublish>
+    <columnsToPublish>DIRECT_PAY_ACCOUNT_TYPE</columnsToPublish>
+    <columnsToPublish>DIRECT_PAY_ACCOUNT_NUMBER</columnsToPublish>
+    <columnsToPublish>DIRECT_PAY_INSTITUTION</columnsToPublish>
+    <columnsToPublish>ENROLLED_SUMMER_CYCLER</columnsToPublish>
+    <columnsToPublish>EMAIL_BILL_NOTIFICATION</columnsToPublish>
+    <columnsToPublish>RESPONSIBLE_PARTY_NAME</columnsToPublish>
+    <columnsToPublish>DRAFT_ROUTING_NUMBER</columnsToPublish>
+    <columnsToPublish>BUDGET_BALANCE</columnsToPublish>
+    <columnsToPublish>RESPONSIBLE_PARTY_STREET</columnsToPublish>
+    <columnsToPublish>RESPONSIBLE_PARTY_CITY</columnsToPublish>
+    <columnsToPublish>RESPONSIBLE_PARTY_STATE</columnsToPublish>
+    <columnsToPublish>RESPONSIBLE_PARTY_ZIP</columnsToPublish>
+    <columnsToPublish>RESPONSIBLE_PARTY_PHONE</columnsToPublish>
+    <columnsToPublish>RESPONSIBLE_PARTY_WORK_PHONE</columnsToPublish>
+    <columnsToPublish>GAS_TRANSPORT</columnsToPublish>
+    <columnsToPublish>ACTIVE</columnsToPublish>
+    <dbOperProperties isDefault="false" sourceTableSchema="SCOTT" sourceTable="ACCOUNT_SUMMARY" publishingTableSchema="SCOTT" publishingTable="P_ACCOUNT_SUMMARY" updateMode="Update" storageMode="Publish by Value" loopDetection="false" noTriggers="false" columnsToPublish="ACCOUNT_NUMBER, CURRENT_BALANCE, BUDGET_BILLING_STATUS, PIPP_BILLING_STATUS, LAST_STATEMENT_DATE, LAST_STATEMENT_AMOUNT, LAST_STATEMENT_DUE_DATE, LAST_PAYMENT_DATE, LAST_PAYMENT_AMOUNT, SERVICE_STREET, SERVICE_CITY, SERVICE_STATE, SERVICE_ZIP, BILLING_STREET, BILLING_CITY, BILLING_STATE, BILLING_ZIP, LAST_UPDATED, BUDGET_VARIANCE, ENROLLED_THIRD_PARTY_BILLING, ENROLLED_DIRECT_PAY, DIRECT_PAY_ACCOUNT_TYPE, DIRECT_PAY_ACCOUNT_NUMBER, DIRECT_PAY_INSTITUTION, ENROLLED_SUMMER_CYCLER, EMAIL_BILL_NOTIFICATION, RESPONSIBLE_PARTY_NAME, DRAFT_ROUTING_NUMBER, BUDGET_BALANCE, RESPONSIBLE_PARTY_STREET, RESPONSIBLE_PARTY_CITY, RESPONSIBLE_PARTY_STATE, RESPONSIBLE_PARTY_ZIP, RESPONSIBLE_PARTY_PHONE, RESPONSIBLE_PARTY_WORK_PHONE, GAS_TRANSPORT, ACTIVE" columnsToFireUpdateTrigger="" userDefinedKey="ACCOUNT_NUMBER" captureProType="Synchronous" streamsOutputQueue="ADB_ACCOUNT_SUMMARY_OUT" streamsSchema="SCOTT" outputQPayloadType="ADB_ACCOUNT_SUMMARY_OBJ" captureProName="ADB_ACCOUNT_SUMMARY_CAP" dbInstanceID="DB11G" inputQueue="ADB_ACCOUNT_SUMMARY_IN" dmlHandlerName="ADB_ACCOUNT_SUMMARY_DM_HANDLE" applyProcessName="ADB_ACCOUNT_SUMMARY_APPLY"/>
+  </adadbmodel:ADBPublisher>
+  <gac:ProducerChannel name="account_summary" transportConfiguration="#/7" wireFormat="aeXml" destination="%%Domain%%.%%Deployment%%.eBiz.BD.Topic.Cust360.AccountSummar" endpointType="endpoint.JMSPublisher" channelType="jmsProducer"/>
+  <adadbmodel:ADBPublisher name="amr_schedule_data" transportConfiguration="#/7" classReference="AESchemas/ae/ADB/AdapterForDatabase.schema#P_AMR_SCHEDULE_DATA" channel="#/18" transportType="jms" qualityOfService="ae.sessions.jmssession" publishingTable="P_AMR_SCHEDULE_DATA" sourceTable="AMR_SCHEDULE_DATA" streamsOutputQueue="ADB_AMR_SCHEDULE_DATA_OUT" streamsSchema="SCOTT" outputQPayloadType="ADB_AMR_SCHEDULE_DATA_OBJ" captureProName="ADB_AMR_SCHEDULE_DATA_CAP" dbInstanceID="DB11G" inputQueue="ADB_AMR_SCHEDULE_DATA_IN" dmlHandlerName="ADB_AMR_SCHEDULE_DATA_DM_HANDLE" applyProcessName="ADB_AMR_SCHEDULE_DATA_APPLY" pubFlag="0">
+    <dbOptions/>
+    <columnsToPublish>MUNICIPALITY</columnsToPublish>
+    <columnsToPublish>CITY</columnsToPublish>
+    <columnsToPublish>STATE</columnsToPublish>
+    <columnsToPublish>PROJECT_START_DATE</columnsToPublish>
+    <columnsToPublish>BILL_MESSAGE_START_DATE</columnsToPublish>
+    <dbOperProperties isDefault="false" sourceTableSchema="SCOTT" sourceTable="AMR_SCHEDULE_DATA" publishingTableSchema="SCOTT" publishingTable="P_AMR_SCHEDULE_DATA" updateMode="Update" storageMode="Publish by Value" loopDetection="false" noTriggers="false" columnsToPublish="MUNICIPALITY, CITY, STATE, PROJECT_START_DATE, BILL_MESSAGE_START_DATE" columnsToFireUpdateTrigger="" userDefinedKey="MUNICIPALITY" captureProType="Synchronous" streamsOutputQueue="ADB_AMR_SCHEDULE_DATA_OUT" streamsSchema="SCOTT" outputQPayloadType="ADB_AMR_SCHEDULE_DATA_OBJ" captureProName="ADB_AMR_SCHEDULE_DATA_CAP" dbInstanceID="DB11G" inputQueue="ADB_AMR_SCHEDULE_DATA_IN" dmlHandlerName="ADB_AMR_SCHEDULE_DATA_DM_HANDLE" applyProcessName="ADB_AMR_SCHEDULE_DATA_APPLY"/>
+  </adadbmodel:ADBPublisher>
+  <gac:ProducerChannel name="amr_schedule_data" transportConfiguration="#/7" wireFormat="aeXml" destination="%%Domain%%.%%Deployment%%.eBiz.BD.Topic.Cust360.AmrScheduleData" endpointType="endpoint.JMSPublisher" channelType="jmsProducer"/>
+  <adadbmodel:ADBPublisher name="bill_notification_enrollments" transportConfiguration="#/7" classReference="AESchemas/ae/ADB/AdapterForDatabase.schema#P_BILL_NOTIFI_ENROLLMENTS" channel="#/20" transportType="jms" qualityOfService="ae.sessions.jmssession" publishingTable="P_BILL_NOTIFI_ENROLLMENTS" sourceTable="BILL_NOTIFICATION_ENROLLMENTS" streamsOutputQueue="ADB_BILL_NOTIFICATION_ENROLLMENTS_OUT" streamsSchema="SCOTT" outputQPayloadType="ADB_BILL_NOTIFICATION_ENROLLMENTS_OBJ" captureProName="ADB_BILL_NOTIFICATION_ENROLLMENTS_CAP" dbInstanceID="DB11G" inputQueue="ADB_BILL_NOTIFICATION_ENROLLMENTS_IN" dmlHandlerName="ADB_BILL_NOTIFICATION_ENROLLMENTS_DM_HANDLE" applyProcessName="ADB_BILL_NOTIFICATION_ENROLLMENTS_APPLY" pubFlag="0">
+    <dbOptions/>
+    <columnsToPublish>BILL_NOTIF_ENROLLMENTS_ID</columnsToPublish>
+    <columnsToPublish>ACCOUNT_NUMBER</columnsToPublish>
+    <columnsToPublish>BILL_NOTIF_EMAIL_ID</columnsToPublish>
+    <columnsToPublish>START_DATE</columnsToPublish>
+    <columnsToPublish>START_DATE_SOURCE</columnsToPublish>
+    <columnsToPublish>START_DATE_CREATED_BY</columnsToPublish>
+    <columnsToPublish>END_DATE</columnsToPublish>
+    <columnsToPublish>END_DATE_SOURCE</columnsToPublish>
+    <columnsToPublish>END_DATE_CREATED_BY</columnsToPublish>
+    <columnsToPublish>LKUP_END_DATE_REASON_ID</columnsToPublish>
+    <columnsToPublish>LKUP_BILL_NOTIFICATION_TYPE_ID</columnsToPublish>
+    <columnsToPublish>LKUP_BILL_NOTIF_STATUS_ID</columnsToPublish>
+    <columnsToPublish>OFFER_SOURCE</columnsToPublish>
+    <columnsToPublish>LKUP_PROMO_ID</columnsToPublish>
+    <columnsToPublish>OFFER_LOCATION</columnsToPublish>
+    <columnsToPublish>CREATED_ON</columnsToPublish>
+    <columnsToPublish>LAST_UPDATE</columnsToPublish>
+    <dbOperProperties isDefault="false" sourceTableSchema="SCOTT" sourceTable="BILL_NOTIFICATION_ENROLLMENTS" publishingTableSchema="SCOTT" publishingTable="P_BILL_NOTIFI_ENROLLMENTS" updateMode="Update" storageMode="Publish by Value" loopDetection="false" noTriggers="false" columnsToPublish="BILL_NOTIF_ENROLLMENTS_ID, ACCOUNT_NUMBER, BILL_NOTIF_EMAIL_ID, START_DATE, START_DATE_SOURCE, START_DATE_CREATED_BY, END_DATE, END_DATE_SOURCE, END_DATE_CREATED_BY, LKUP_END_DATE_REASON_ID, LKUP_BILL_NOTIFICATION_TYPE_ID, LKUP_BILL_NOTIF_STATUS_ID, OFFER_SOURCE, LKUP_PROMO_ID, OFFER_LOCATION, CREATED_ON, LAST_UPDATE" columnsToFireUpdateTrigger="" userDefinedKey="BILL_NOTIF_ENROLLMENTS_ID" captureProType="Synchronous" streamsOutputQueue="ADB_BILL_NOTIFICATION_ENROLLMENTS_OUT" streamsSchema="SCOTT" outputQPayloadType="ADB_BILL_NOTIFICATION_ENROLLMENTS_OBJ" captureProName="ADB_BILL_NOTIFICATION_ENROLLMENTS_CAP" dbInstanceID="DB11G" inputQueue="ADB_BILL_NOTIFICATION_ENROLLMENTS_IN" dmlHandlerName="ADB_BILL_NOTIFICATION_ENROLLMENTS_DM_HANDLE" applyProcessName="ADB_BILL_NOTIFICATION_ENROLLMENTS_APPLY"/>
+  </adadbmodel:ADBPublisher>
+  <gac:ProducerChannel name="bill_notification_enrollments" transportConfiguration="#/7" wireFormat="aeXml" destination="%%Domain%%.%%Deployment%%.eBiz.BD.Topic.Cust360.BillNotifEnrollments" endpointType="endpoint.JMSPublisher" channelType="jmsProducer"/>
+  <adadbmodel:ADBPublisher name="bill_notification_emailaddress" transportConfiguration="#/7" classReference="AESchemas/ae/ADB/AdapterForDatabase.schema#P_BILL_NOTIF_EMAILADDRESS" channel="#/22" transportType="jms" qualityOfService="ae.sessions.jmssession" publishingTable="P_BILL_NOTIF_EMAILADDRESS" sourceTable="BILL_NOTIFICATION_EMAILADDRESS" streamsOutputQueue="ADB_BILL_NOTIFICATION_EMAILADDRESS_OUT" streamsSchema="SCOTT" outputQPayloadType="ADB_BILL_NOTIFICATION_EMAILADDRESS_OBJ" captureProName="ADB_BILL_NOTIFICATION_EMAILADDRESS_CAP" dbInstanceID="DB11G" inputQueue="ADB_BILL_NOTIFICATION_EMAILADDRESS_IN" dmlHandlerName="ADB_BILL_NOTIFICATION_EMAILADDRESS_DM_HANDLE" applyProcessName="ADB_BILL_NOTIFICATION_EMAILADDRESS_APPLY" pubFlag="0">
+    <dbOptions/>
+    <columnsToPublish>BILL_NOTIF_EMAIL_ID</columnsToPublish>
+    <columnsToPublish>BILL_NOTIF_ENROLLMENTS_ID</columnsToPublish>
+    <columnsToPublish>EMAIL_ADDRESS</columnsToPublish>
+    <columnsToPublish>START_DATE</columnsToPublish>
+    <columnsToPublish>START_DATE_SOURCE</columnsToPublish>
+    <columnsToPublish>START_DATE_CREATED_BY</columnsToPublish>
+    <columnsToPublish>END_DATE</columnsToPublish>
+    <columnsToPublish>END_DATE_SOURCE</columnsToPublish>
+    <columnsToPublish>END_DATE_CREATED_BY</columnsToPublish>
+    <columnsToPublish>TRANS_TYPE</columnsToPublish>
+    <columnsToPublish>CREATED_ON</columnsToPublish>
+    <dbOperProperties isDefault="false" sourceTableSchema="SCOTT" sourceTable="BILL_NOTIFICATION_EMAILADDRESS" publishingTableSchema="SCOTT" publishingTable="P_BILL_NOTIF_EMAILADDRESS" updateMode="Update" storageMode="Publish by Value" loopDetection="false" noTriggers="false" columnsToPublish="BILL_NOTIF_EMAIL_ID, BILL_NOTIF_ENROLLMENTS_ID, EMAIL_ADDRESS, START_DATE, START_DATE_SOURCE, START_DATE_CREATED_BY, END_DATE, END_DATE_SOURCE, END_DATE_CREATED_BY, TRANS_TYPE, CREATED_ON" columnsToFireUpdateTrigger="" userDefinedKey="BILL_NOTIF_EMAIL_ID" captureProType="Synchronous" streamsOutputQueue="ADB_BILL_NOTIFICATION_EMAILADDRESS_OUT" streamsSchema="SCOTT" outputQPayloadType="ADB_BILL_NOTIFICATION_EMAILADDRESS_OBJ" captureProName="ADB_BILL_NOTIFICATION_EMAILADDRESS_CAP" dbInstanceID="DB11G" inputQueue="ADB_BILL_NOTIFICATION_EMAILADDRESS_IN" dmlHandlerName="ADB_BILL_NOTIFICATION_EMAILADDRESS_DM_HANDLE" applyProcessName="ADB_BILL_NOTIFICATION_EMAILADDRESS_APPLY"/>
+  </adadbmodel:ADBPublisher>
+  <gac:ProducerChannel name="bill_notification_emailaddress" transportConfiguration="#/7" wireFormat="aeXml" destination="%%Domain%%.%%Deployment%%.eBiz.BD.Topic.Cust360.BillNotifEmailaddress" endpointType="endpoint.JMSPublisher" channelType="jmsProducer"/>
+</xmi:XMI>

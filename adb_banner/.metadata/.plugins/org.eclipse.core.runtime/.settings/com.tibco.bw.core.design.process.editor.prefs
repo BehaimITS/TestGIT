@@ -1,0 +1,9 @@
+//adb_banner/Processes/adb_banner/Process.bwp.displayer.openstate=1
+//adb_banner/Processes/adb_banner/Process.bwp.favorite.expansionstate=1
+//adb_banner/Processes/adb_banner/Process.bwp.library.expansionstate=0
+//adb_banner/Processes/adb_banner/Process.bwp.recent.expansionstate=1
+com.tibco.bw.core.design.process.editor.numofvirtualpalettes=0
+eclipse.preferences.version=1
+global.favorite_palette_size=0
+global.recent_palette_capacity=8
+global.recent_palette_size=0
