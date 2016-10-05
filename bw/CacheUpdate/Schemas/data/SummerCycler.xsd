@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://behaimits.com/vectren/bigdata/customer360view/SummerCycler" xmlns="http://behaimits.com/vectren/bigdata/customer360view/SummerCycler" elementFormDefault="qualified">
+<xs:complexType name="SummerCyclerItemType"><xs:sequence>
+<xs:element name="SERV_NUM" type="xs:float" />
+<xs:element name="PREM_CODE" type="xs:string" />
+<xs:element name="STATUS_IND" type="xs:string" />
+<xs:element name="DATE_ACTIVATED" type="xs:dateTime" minOccurs="0" />
+<xs:element name="DATE_INACTIVE" type="xs:dateTime" minOccurs="0" />
+<xs:element name="TUPLE_ID" type="xs:float" minOccurs="0" />
+</xs:sequence></xs:complexType><xs:element name="SummerCyclerItem" type="SummerCyclerItemType" /></xs:schema>

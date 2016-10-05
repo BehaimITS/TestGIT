@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Repository:repository xmlns:AESchema="http://www.tibco.com/xmlns/aemeta/types/2002" xmlns:Repository="http://www.tibco.com/xmlns/repo/types/2002" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <AESchema:scalar name="any">
+        <AESchema:dataTypeName>any</AESchema:dataTypeName>
+        <AESchema:javaClass></AESchema:javaClass>
+        <AESchema:length>0</AESchema:length>
+        <AESchema:scale>0</AESchema:scale>
+        <AESchema:precision>0</AESchema:precision>
+    </AESchema:scalar>
+    <AESchema:scalar name="boolean">
+        <AESchema:dataTypeName>boolean</AESchema:dataTypeName>
+        <AESchema:javaClass>java.lang.Boolean</AESchema:javaClass>
+        <AESchema:length>0</AESchema:length>
+        <AESchema:scale>0</AESchema:scale>
+        <AESchema:precision>0</AESchema:precision>
+    </AESchema:scalar>
+    <AESchema:scalar name="char">
+        <AESchema:dataTypeName>char</AESchema:dataTypeName>
+        <AESchema:javaClass>java.lang.Character</AESchema:javaClass>
+        <AESchema:length>0</AESchema:length>
+        <AESchema:scale>0</AESchema:scale>
+        <AESchema:precision>0</AESchema:precision>
+    </AESchema:scalar>
+    <AESchema:scalar name="double">
+        <AESchema:dataTypeName>double</AESchema:dataTypeName>
+        <AESchema:javaClass>java.lang.Double</AESchema:javaClass>
+        <AESchema:length>0</AESchema:length>
+        <AESchema:scale>0</AESchema:scale>
+        <AESchema:precision>0</AESchema:precision>
+    </AESchema:scalar>
+    <AESchema:scalar name="float">
+        <AESchema:dataTypeName>float</AESchema:dataTypeName>
+        <AESchema:javaClass>java.lang.Float</AESchema:javaClass>
+        <AESchema:length>0</AESchema:length>
+        <AESchema:scale>0</AESchema:scale>
+        <AESchema:precision>0</AESchema:precision>
+    </AESchema:scalar>
+    <AESchema:scalar name="long">
+        <AESchema:dataTypeName>long</AESchema:dataTypeName>
+        <AESchema:javaClass>java.lang.Integer</AESchema:javaClass>
+        <AESchema:length>0</AESchema:length>
+        <AESchema:scale>0</AESchema:scale>
+        <AESchema:precision>0</AESchema:precision>
+    </AESchema:scalar>
+    <AESchema:scalar name="longlong">
+        <AESchema:dataTypeName>longlong</AESchema:dataTypeName>
+        <AESchema:javaClass>java.lang.Long</AESchema:javaClass>
+        <AESchema:length>0</AESchema:length>
+        <AESchema:scale>0</AESchema:scale>
+        <AESchema:precision>0</AESchema:precision>
+    </AESchema:scalar>
+    <AESchema:scalar name="octet">
+        <AESchema:dataTypeName>octet</AESchema:dataTypeName>
+        <AESchema:javaClass>java.lang.Byte</AESchema:javaClass>
+        <AESchema:length>0</AESchema:length>
+        <AESchema:scale>0</AESchema:scale>
+        <AESchema:precision>0</AESchema:precision>
+    </AESchema:scalar>
+    <AESchema:scalar name="short">
+        <AESchema:dataTypeName>short</AESchema:dataTypeName>
+        <AESchema:javaClass>java.lang.Short</AESchema:javaClass>
+        <AESchema:length>0</AESchema:length>
+        <AESchema:scale>0</AESchema:scale>
+        <AESchema:precision>0</AESchema:precision>
+    </AESchema:scalar>
+    <AESchema:scalar name="string">
+        <AESchema:dataTypeName>string</AESchema:dataTypeName>
+        <AESchema:javaClass>java.lang.String</AESchema:javaClass>
+        <AESchema:length>0</AESchema:length>
+        <AESchema:scale>0</AESchema:scale>
+        <AESchema:precision>0</AESchema:precision>
+    </AESchema:scalar>
+    <AESchema:scalar name="ulong">
+        <AESchema:dataTypeName>ulong</AESchema:dataTypeName>
+        <AESchema:javaClass>java.lang.Long</AESchema:javaClass>
+        <AESchema:length>0</AESchema:length>
+        <AESchema:scale>0</AESchema:scale>
+        <AESchema:precision>0</AESchema:precision>
+    </AESchema:scalar>
+    <AESchema:scalar name="ulonglong">
+        <AESchema:dataTypeName>ulonglong</AESchema:dataTypeName>
+        <AESchema:javaClass>java.lang.Long</AESchema:javaClass>
+        <AESchema:length>0</AESchema:length>
+        <AESchema:scale>0</AESchema:scale>
+        <AESchema:precision>0</AESchema:precision>
+    </AESchema:scalar>
+    <AESchema:scalar name="ushort">
+        <AESchema:dataTypeName>ushort</AESchema:dataTypeName>
+        <AESchema:javaClass>java.lang.Integer</AESchema:javaClass>
+        <AESchema:length>0</AESchema:length>
+        <AESchema:scale>0</AESchema:scale>
+        <AESchema:precision>0</AESchema:precision>
+    </AESchema:scalar>
+    <AESchema:scalar name="wchar">
+        <AESchema:dataTypeName>wchar</AESchema:dataTypeName>
+        <AESchema:javaClass>java.lang.Character</AESchema:javaClass>
+        <AESchema:length>0</AESchema:length>
+        <AESchema:scale>0</AESchema:scale>
+        <AESchema:precision>0</AESchema:precision>
+    </AESchema:scalar>
+    <AESchema:scalar name="wstring">
+        <AESchema:dataTypeName>wstring</AESchema:dataTypeName>
+        <AESchema:javaClass>java.lang.String</AESchema:javaClass>
+        <AESchema:length>0</AESchema:length>
+        <AESchema:scale>0</AESchema:scale>
+        <AESchema:precision>0</AESchema:precision>
+    </AESchema:scalar>
+</Repository:repository>

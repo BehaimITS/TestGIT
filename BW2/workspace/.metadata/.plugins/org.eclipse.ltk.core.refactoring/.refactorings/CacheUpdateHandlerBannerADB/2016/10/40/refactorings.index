@@ -1,0 +1,6 @@
+1475565952416	Rename Module Configuration Property from '/SpaceName/SpaceName' to 'SpaceNamePaymentDue'
+1475566409415	Delete Module Configuration Property Group 'SpaceName'
+1475570042647	Rename Module Configuration Property Group from 'SpaceName' to 'Space'
+1475570097615	Rename Module Configuration Property Group from 'SpaceName' to 'MessageSelectors'
+1475576427760	Rename Module Configuration Property from '/MessageSelectors/Space/SpaceNamePaymentDue' to 'SpaceNamePaymentDue'
+1475576471686	Rename Module Configuration Property from '/MessageSelectors/Space/SpaceNamePaymentArrangementDue' to 'SpaceNamePaymentArrangementDue'

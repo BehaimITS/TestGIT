@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://behaimits.com/vectren/bigdata/customer360view/BillNotificationEnrollment" xmlns="http://behaimits.com/vectren/bigdata/customer360view/BillNotificationEnrollment" elementFormDefault="qualified">
+<xs:complexType name="BillNotificationEnrollmentItemType"><xs:sequence>
+<xs:element name="ACCOUNT_NUMBER" type="xs:string" />
+<xs:element name="NOTIF_EMAIL_ID" type="xs:float" minOccurs="0" />
+<xs:element name="NOTIF_TYPE" type="xs:string" />
+<xs:element name="NOTIF_STATUS" type="xs:string" />
+<xs:element name="START_DATE" type="xs:dateTime" />
+<xs:element name="END_DATE" type="xs:dateTime" minOccurs="0" />
+<xs:element name="EMAIL_ADDRESS" type="xs:string" minOccurs="0" />
+<xs:element name="LAST_UPDATE" type="xs:dateTime" minOccurs="0" />
+<xs:element name="CREATED_ON" type="xs:dateTime" />
+<xs:element name="START_DATA_SOURCE" type="xs:string" minOccurs="0" />
+<xs:element name="END_DATA_SOURCE" type="xs:string" minOccurs="0" />
+<xs:element name="TUPLE_ID" type="xs:float" minOccurs="0" />
+</xs:sequence></xs:complexType><xs:element name="BillNotificationEnrollmentItem" type="BillNotificationEnrollmentItemType" /></xs:schema>

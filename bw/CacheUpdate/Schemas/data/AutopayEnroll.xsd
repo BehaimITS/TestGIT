@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://behaimits.com/vectren/bigdata/customer360view/AutopayEnroll" xmlns="http://behaimits.com/vectren/bigdata/customer360view/AutopayEnroll" elementFormDefault="qualified">
+<xs:complexType name="AutopayEnrollItemType"><xs:sequence>
+<xs:element name="CUST_CODE" type="xs:float" />
+<xs:element name="PREM_CODE" type="xs:string" />
+<xs:element name="DRAFT_START_DATE" type="xs:dateTime" minOccurs="0" />
+<xs:element name="DRAFT_ACCT_STATUS" type="xs:string" minOccurs="0" />
+<xs:element name="DRAFT_END_DATE" type="xs:dateTime" minOccurs="0" />
+<xs:element name="BANK_ACCT" type="xs:string" minOccurs="0" />
+<xs:element name="CHECK_SAVINGS_IND" type="xs:string" minOccurs="0" />
+<xs:element name="BANK_CODE" type="xs:string" minOccurs="0" />
+<xs:element name="REAS_CODE_END_DRAFT" type="xs:string" minOccurs="0" />
+<xs:element name="TUPLE_ID" type="xs:float" minOccurs="0" />
+</xs:sequence></xs:complexType><xs:element name="AutopayEnrollItem" type="AutopayEnrollItemType" /></xs:schema>

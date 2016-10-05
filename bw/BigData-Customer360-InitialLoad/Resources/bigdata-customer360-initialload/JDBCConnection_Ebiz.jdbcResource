@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jndi:namedResource xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jdbc="http://xsd.tns.tibco.com/amf/models/sharedresource/jdbc" xmlns:jndi="http://xsd.tns.tibco.com/amf/models/sharedresource/jndi" xmlns:subject="http://xsd.tns.tibco.com/trinity/models/identity/subject" xmi:id="_U1WQIWRLEeasH4efi7Q0mg" name="bigdata-customer360-initialload.JDBCConnection_Ebiz" type="jdbc:JdbcDataSource">
+  <jndi:reference xmi:id="_U1idYGRLEeasH4efi7Q0mg" key="subjectJndiName" type="subject:SubjectConfiguration" value=""/>
+  <jndi:configuration xsi:type="jdbc:JdbcDataSource" xmi:id="_U1idYWRLEeasH4efi7Q0mg" username="tibcousr" password="#!NJ/41OfVcYFCSmndI0CvUnwYfu/ierjYY54hHhyrHLk=">
+    <connectionConfig xsi:type="jdbc:NonXaConnection" xmi:id="_U1idYmRLEeasH4efi7Q0mg" jdbcDriver="oracle.jdbc.OracleDriver" dbURL="jdbc:oracle:thin:@xebzdbt1:11521:vcomtst4"/>
+    <connectionProperties xmi:id="_c4ve0GRLEeasH4efi7Q0mg" key="jarFile" value="ojdbc"/>
+  </jndi:configuration>
+</jndi:namedResource>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://behaimits.com/vectren/bigdata/customer360view/ScheduledEchkPayment" xmlns="http://behaimits.com/vectren/bigdata/customer360view/ScheduledEchkPayment" elementFormDefault="qualified">
+<xs:complexType name="ScheduledEchkPaymentItemType"><xs:sequence>
+<xs:element name="TRANSACTION_ID" type="xs:float" />
+<xs:element name="COMPANY_CODE" type="xs:string" minOccurs="0" />
+<xs:element name="CUST_CODE" type="xs:string" minOccurs="0" />
+<xs:element name="PREM_CODE" type="xs:string" minOccurs="0" />
+<xs:element name="PAYDATE" type="xs:string" minOccurs="0" />
+<xs:element name="MEMBER_ID" type="xs:float" minOccurs="0" />
+<xs:element name="EMAIL_ADDRESS" type="xs:string" minOccurs="0" />
+<xs:element name="PAYMENT_DATE" type="xs:dateTime" minOccurs="0" />
+<xs:element name="PAYMENT_AMOUNT" type="xs:float" minOccurs="0" />
+<xs:element name="PROCESSED_FLAG" type="xs:string" minOccurs="0" />
+<xs:element name="CONSOLIDATED_FLAG" type="xs:string" minOccurs="0" />
+<xs:element name="SOURCE" type="xs:string" minOccurs="0" />
+<xs:element name="PAYMENT_TYPE" type="xs:string" minOccurs="0" />
+<xs:element name="TUPLE_ID" type="xs:float" minOccurs="0" />
+</xs:sequence></xs:complexType><xs:element name="ScheduledEchkPaymentItem" type="ScheduledEchkPaymentItemType" /></xs:schema>

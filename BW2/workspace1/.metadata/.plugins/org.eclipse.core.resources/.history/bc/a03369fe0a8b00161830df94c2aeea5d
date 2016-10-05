@@ -1,0 +1,564 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:ae="http://www.tibco.com/xmlns/ae2xsd/2002/05" xmlns:ns0="http://www.tibco.com/xmlns/ae2xsd/2002/05/ae/ADB/AdapterForDatabase" xmlns:ns1="http://www.tibco.com/xmlns/ae2xsd/2002/05/ae/ADB/adbmetadata" targetNamespace="http://www.tibco.com/xmlns/ae2xsd/2002/05/ae/ADB/AdapterForDatabase" elementFormDefault="qualified" attributeFormDefault="qualified">
+    <import namespace="http://www.tibco.com/xmlns/ae2xsd/2002/05" schemaLocation="../../ae2xsd.xsd"/>
+    <import namespace="http://www.tibco.com/xmlns/ae2xsd/2002/05/ae/ADB/adbmetadata" schemaLocation="adbmetadata.xsd"/>
+    <complexType ae:typename="/tibco/public/class/ae/ADB/AdapterForDatabase/P_ACCOUNT_SUMMARY" ae:directory="/AESchemas/ae/ADB/AdapterForDatabase.aeschema#class.P_ACCOUNT_SUMMARY" ae:type="class" name="P__ACCOUNT__SUMMARY">
+        <sequence>
+            <element ae:readable="true" ae:key="true" ae:writeable="true" ae:default="" name="ACCOUNT__NUMBER" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="CURRENT__BALANCE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="BUDGET__BILLING__STATUS" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="PIPP__BILLING__STATUS" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="LAST__STATEMENT__DATE" form="unqualified" nillable="true" type="ns1:adbDateTime" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="LAST__STATEMENT__AMOUNT" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="LAST__STATEMENT__DUE__DATE" form="unqualified" nillable="true" type="ns1:adbDateTime" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="LAST__PAYMENT__DATE" form="unqualified" nillable="true" type="ns1:adbDateTime" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="LAST__PAYMENT__AMOUNT" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="SERVICE__STREET" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="SERVICE__CITY" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="SERVICE__STATE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="SERVICE__ZIP" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="BILLING__STREET" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="BILLING__CITY" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="BILLING__STATE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="BILLING__ZIP" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="LAST__UPDATED" form="unqualified" nillable="true" type="ns1:adbDateTime" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="BUDGET__VARIANCE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ENROLLED__THIRD__PARTY__BILLING" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ENROLLED__DIRECT__PAY" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="DIRECT__PAY__ACCOUNT__TYPE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="DIRECT__PAY__ACCOUNT__NUMBER" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="DIRECT__PAY__INSTITUTION" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ENROLLED__SUMMER__CYCLER" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="EMAIL__BILL__NOTIFICATION" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="RESPONSIBLE__PARTY__NAME" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="DRAFT__ROUTING__NUMBER" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="BUDGET__BALANCE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="RESPONSIBLE__PARTY__STREET" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="RESPONSIBLE__PARTY__CITY" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="RESPONSIBLE__PARTY__STATE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="RESPONSIBLE__PARTY__ZIP" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="RESPONSIBLE__PARTY__PHONE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="RESPONSIBLE__PARTY__WORK__PHONE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="GAS__TRANSPORT" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ACTIVE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__OPCODE" form="unqualified" nillable="true" type="ae:i4" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__TRACKINGID" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__SUBJECT" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__SEQUENCE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__SET__SEQUENCE" form="unqualified" nillable="true" type="ae:i4" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__TIMESTAMP" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__UPDATE__ALL" form="unqualified" nillable="true" type="ae:i4" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__REF__OBJECT" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__AGENT__ID" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+        </sequence>
+    </complexType>
+    <complexType ae:typename="/tibco/public/class/ae/ADB/AdapterForDatabase/P_ACH_CONSOLIDATED_PYMTS" ae:directory="/AESchemas/ae/ADB/AdapterForDatabase.aeschema#class.P_ACH_CONSOLIDATED_PYMTS" ae:type="class" name="P__ACH__CONSOLIDATED__PYMTS">
+        <sequence>
+            <element ae:readable="true" ae:key="true" ae:writeable="true" ae:default="" name="ACH__CONSOLIDATED__PYMTS__ID" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ACH__PAYMENTS__ID" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="COMPANY__CODE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="CUSTOMER__CODE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="PREMISE__CODE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="CHECK__DIGIT" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="PAYMENT__AMOUNT" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__OPCODE" form="unqualified" nillable="true" type="ae:i4" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__TRACKINGID" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__SUBJECT" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__SEQUENCE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__SET__SEQUENCE" form="unqualified" nillable="true" type="ae:i4" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__TIMESTAMP" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__UPDATE__ALL" form="unqualified" nillable="true" type="ae:i4" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__REF__OBJECT" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__AGENT__ID" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+        </sequence>
+    </complexType>
+    <complexType ae:typename="/tibco/public/class/ae/ADB/AdapterForDatabase/P_ACH_PAYMENTS" ae:directory="/AESchemas/ae/ADB/AdapterForDatabase.aeschema#class.P_ACH_PAYMENTS" ae:type="class" name="P__ACH__PAYMENTS">
+        <sequence>
+            <element ae:readable="true" ae:key="true" ae:writeable="true" ae:default="" name="TRANSACTION__ID" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="MEMBER__ID" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="COMPANY__CODE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="CUSTOMER__CODE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="PREMISE__CODE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="CHECK__DIGIT" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="CHECK__NAME" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ACCOUNT__TYPE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ROUTING__NUMBER" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ACCOUNT__NUMBER" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="PAYMENT__AMOUNT" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="CREATED__ON" form="unqualified" nillable="true" type="ns1:adbDateTime" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="SOURCE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="CONFIRMATION__NUMBER" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="BANK__NAME" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="DP__CASE__NUMBER" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="PROCESSED__FLAG" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="FIRST__NAME" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="LAST__NAME" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="GENERAL__CUST__TYPE__ID" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="CHECK__FIRST__NAME" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="CHECK__MIDDLE__INITIAL" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="CONSOLIDATED__FLAG" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="PAYMENT__DATE" form="unqualified" nillable="true" type="ns1:adbDateTime" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="EMAIL__NOTIFICATION" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ENTERED__BY" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="MEMO__POST__FLAG" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="CMT__KEY" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="SAVE__FUTURE__USE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__OPCODE" form="unqualified" nillable="true" type="ae:i4" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__TRACKINGID" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__SUBJECT" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__SEQUENCE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__SET__SEQUENCE" form="unqualified" nillable="true" type="ae:i4" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__TIMESTAMP" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__UPDATE__ALL" form="unqualified" nillable="true" type="ae:i4" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__REF__OBJECT" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__AGENT__ID" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+        </sequence>
+    </complexType>
+    <complexType ae:typename="/tibco/public/class/ae/ADB/AdapterForDatabase/P_AMR_SCHEDULE_DATA" ae:directory="/AESchemas/ae/ADB/AdapterForDatabase.aeschema#class.P_AMR_SCHEDULE_DATA" ae:type="class" name="P__AMR__SCHEDULE__DATA">
+        <sequence>
+            <element ae:readable="true" ae:key="true" ae:writeable="true" ae:default="" name="MUNICIPALITY" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="CITY" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="STATE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="PROJECT__START__DATE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="BILL__MESSAGE__START__DATE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__OPCODE" form="unqualified" nillable="true" type="ae:i4" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__TRACKINGID" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__SUBJECT" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__SEQUENCE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__SET__SEQUENCE" form="unqualified" nillable="true" type="ae:i4" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__TIMESTAMP" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__UPDATE__ALL" form="unqualified" nillable="true" type="ae:i4" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__REF__OBJECT" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__AGENT__ID" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+        </sequence>
+    </complexType>
+    <complexType ae:typename="/tibco/public/class/ae/ADB/AdapterForDatabase/P_ASSIST_PROGRAM_APP" ae:directory="/AESchemas/ae/ADB/AdapterForDatabase.aeschema#class.P_ASSIST_PROGRAM_APP" ae:type="class" name="P__ASSIST__PROGRAM__APP">
+        <sequence>
+            <element ae:readable="true" ae:key="true" ae:writeable="true" ae:default="" name="APPLICATION__ID" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="PROGRAM__ID" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ACCOUNT__NUMBER" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="FIRST__NAME" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="LAST__NAME" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="MI" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="SERVICE__ADDRESS" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="CITY" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="STATE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ZIP" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="APPLICANT__NAME" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="CONTACT__PHONE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="EMAIL" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="HOUSEHOLD__MEMBERS" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="EMPLOYED" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="NAME__EMPLOYEE__ONE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="EMPLOYER__ONE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="WORK__PHONE__ONE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="GROSS__EARNINGS__ONE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="EARNINGS__TYPE__ONE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="NAME__EMPLOYEE__TWO" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="EMPLOYER__TWO" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="WORK__PHONE__TWO" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="GROSS__EARNINGS__TWO" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="EARNINGS__TYPE__TWO" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="NAME__EMPLOYEE__THREE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="EMPLOYER__THREE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="WORK__PHONE__THREE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="GROSS__EARNINGS__THREE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="EARNINGS__TYPE__THREE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="TOTAL__EARNINGS" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="TOTAL__EARNINGS__TYPE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="INCOME__POVERTY__LEVEL" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="DISCONNECT__STATUS" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="INACTIVE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="DISCONNECT__DATE" form="unqualified" nillable="true" type="ns1:adbDateTime" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="BUDGET" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="UTILITY__BALANCE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="OTHER__CHARGES" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="DOWN__PAYMENT" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="DOWN__PAYMENT__VIA" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="UNPAID__PLEDGES" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="AMOUNT__REQUESTED" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="REMAINING__BALANCE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="PAYMENT__ARRANGE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="BI__WEEKLY__INSTALL" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="BI__WEEKLY__DUE" form="unqualified" nillable="true" type="ns1:adbDateTime" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="SPECIAL__EXCEPTION" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="COMMENTS" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="STATUS" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="COMPLETED__BY" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="CREATED__ON" form="unqualified" nillable="true" type="ns1:adbDateTime" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="DENIAL__REASON" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="DENIED__BY" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="DENIED__ON" form="unqualified" nillable="true" type="ns1:adbDateTime" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="APPROVED__BY" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="APPROVED__ON" form="unqualified" nillable="true" type="ns1:adbDateTime" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="RESCIND__BY" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="RESCIND__ON" form="unqualified" nillable="true" type="ns1:adbDateTime" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="COMMENT__BALANCE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="PAYMENT__PROCESSED" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="UPDATED__BY" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="APPLICATION__NUMBER" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="LKUP__DENIAL__TYPE__ID" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="UPDATED__ON" form="unqualified" nillable="true" type="ns1:adbDateTime" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__OPCODE" form="unqualified" nillable="true" type="ae:i4" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__TRACKINGID" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__SUBJECT" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__SEQUENCE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__SET__SEQUENCE" form="unqualified" nillable="true" type="ae:i4" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__TIMESTAMP" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__UPDATE__ALL" form="unqualified" nillable="true" type="ae:i4" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__REF__OBJECT" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__AGENT__ID" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+        </sequence>
+    </complexType>
+    <complexType ae:typename="/tibco/public/class/ae/ADB/AdapterForDatabase/P_ASSIST_PROG_APP" ae:directory="/AESchemas/ae/ADB/AdapterForDatabase.aeschema#class.P_ASSIST_PROG_APP" ae:type="class" name="P__ASSIST__PROG__APP">
+        <sequence>
+            <element ae:readable="true" ae:key="true" ae:writeable="true" ae:default="" name="APPLICATION__ID" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="PROGRAM__ID" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ACCOUNT__NUMBER" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="FIRST__NAME" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="LAST__NAME" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="MI" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="SERVICE__ADDRESS" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="CITY" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="STATE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ZIP" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="APPLICANT__NAME" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="CONTACT__PHONE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="EMAIL" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="HOUSEHOLD__MEMBERS" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="EMPLOYED" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="NAME__EMPLOYEE__ONE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="EMPLOYER__ONE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="WORK__PHONE__ONE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="GROSS__EARNINGS__ONE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="EARNINGS__TYPE__ONE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="NAME__EMPLOYEE__TWO" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="EMPLOYER__TWO" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="WORK__PHONE__TWO" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="GROSS__EARNINGS__TWO" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="EARNINGS__TYPE__TWO" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="NAME__EMPLOYEE__THREE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="EMPLOYER__THREE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="WORK__PHONE__THREE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="GROSS__EARNINGS__THREE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="EARNINGS__TYPE__THREE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="TOTAL__EARNINGS" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="TOTAL__EARNINGS__TYPE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="INCOME__POVERTY__LEVEL" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="DISCONNECT__STATUS" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="INACTIVE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="DISCONNECT__DATE" form="unqualified" nillable="true" type="ns1:adbDateTime" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="BUDGET" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="UTILITY__BALANCE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="OTHER__CHARGES" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="DOWN__PAYMENT" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="DOWN__PAYMENT__VIA" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="UNPAID__PLEDGES" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="AMOUNT__REQUESTED" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="REMAINING__BALANCE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="PAYMENT__ARRANGE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="BI__WEEKLY__INSTALL" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="BI__WEEKLY__DUE" form="unqualified" nillable="true" type="ns1:adbDateTime" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="SPECIAL__EXCEPTION" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="COMMENTS" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="STATUS" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="COMPLETED__BY" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="CREATED__ON" form="unqualified" nillable="true" type="ns1:adbDateTime" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="DENIAL__REASON" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="DENIED__BY" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="DENIED__ON" form="unqualified" nillable="true" type="ns1:adbDateTime" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="APPROVED__BY" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="APPROVED__ON" form="unqualified" nillable="true" type="ns1:adbDateTime" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="RESCIND__BY" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="RESCIND__ON" form="unqualified" nillable="true" type="ns1:adbDateTime" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="COMMENT__BALANCE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="PAYMENT__PROCESSED" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="UPDATED__BY" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="APPLICATION__NUMBER" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="LKUP__DENIAL__TYPE__ID" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="UPDATED__ON" form="unqualified" nillable="true" type="ns1:adbDateTime" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__OPCODE" form="unqualified" nillable="true" type="ae:i4" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__TRACKINGID" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__SUBJECT" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__SEQUENCE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__SET__SEQUENCE" form="unqualified" nillable="true" type="ae:i4" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__TIMESTAMP" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__UPDATE__ALL" form="unqualified" nillable="true" type="ae:i4" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__REF__OBJECT" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__AGENT__ID" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+        </sequence>
+    </complexType>
+    <complexType ae:typename="/tibco/public/class/ae/ADB/AdapterForDatabase/P_BILL_NOTIF_EMAILADDRESS" ae:directory="/AESchemas/ae/ADB/AdapterForDatabase.aeschema#class.P_BILL_NOTIF_EMAILADDRESS" ae:type="class" name="P__BILL__NOTIF__EMAILADDRESS">
+        <sequence>
+            <element ae:readable="true" ae:key="true" ae:writeable="true" ae:default="" name="BILL__NOTIF__EMAIL__ID" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="BILL__NOTIF__ENROLLMENTS__ID" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="EMAIL__ADDRESS" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="START__DATE" form="unqualified" nillable="true" type="ns1:adbDateTime" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="START__DATE__SOURCE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="START__DATE__CREATED__BY" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="END__DATE" form="unqualified" nillable="true" type="ns1:adbDateTime" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="END__DATE__SOURCE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="END__DATE__CREATED__BY" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="TRANS__TYPE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="CREATED__ON" form="unqualified" nillable="true" type="ns1:adbDateTime" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__OPCODE" form="unqualified" nillable="true" type="ae:i4" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__TRACKINGID" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__SUBJECT" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__SEQUENCE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__SET__SEQUENCE" form="unqualified" nillable="true" type="ae:i4" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__TIMESTAMP" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__UPDATE__ALL" form="unqualified" nillable="true" type="ae:i4" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__REF__OBJECT" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__AGENT__ID" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+        </sequence>
+    </complexType>
+    <complexType ae:typename="/tibco/public/class/ae/ADB/AdapterForDatabase/P_BILL_NOTIF_ENROLLMENTS" ae:directory="/AESchemas/ae/ADB/AdapterForDatabase.aeschema#class.P_BILL_NOTIF_ENROLLMENTS" ae:type="class" name="P__BILL__NOTIF__ENROLLMENTS">
+        <sequence>
+            <element ae:readable="true" ae:key="true" ae:writeable="true" ae:default="" name="BILL__NOTIF__ENROLLMENTS__ID" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ACCOUNT__NUMBER" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="BILL__NOTIF__EMAIL__ID" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="START__DATE" form="unqualified" nillable="true" type="ns1:adbDateTime" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="START__DATE__SOURCE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="START__DATE__CREATED__BY" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="END__DATE" form="unqualified" nillable="true" type="ns1:adbDateTime" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="END__DATE__SOURCE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="END__DATE__CREATED__BY" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="LKUP__END__DATE__REASON__ID" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="LKUP__BILL__NOTIFICATION__TYPE__ID" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="LKUP__BILL__NOTIF__STATUS__ID" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="OFFER__SOURCE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="LKUP__PROMO__ID" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="OFFER__LOCATION" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="CREATED__ON" form="unqualified" nillable="true" type="ns1:adbDateTime" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="LAST__UPDATE" form="unqualified" nillable="true" type="ns1:adbDateTime" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__OPCODE" form="unqualified" nillable="true" type="ae:i4" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__TRACKINGID" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__SUBJECT" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__SEQUENCE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__SET__SEQUENCE" form="unqualified" nillable="true" type="ae:i4" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__TIMESTAMP" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__UPDATE__ALL" form="unqualified" nillable="true" type="ae:i4" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__REF__OBJECT" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__AGENT__ID" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+        </sequence>
+    </complexType>
+    <complexType ae:typename="/tibco/public/class/ae/ADB/AdapterForDatabase/P_BUDGET_BILL" ae:directory="/AESchemas/ae/ADB/AdapterForDatabase.aeschema#class.P_BUDGET_BILL" ae:type="class" name="P__BUDGET__BILL">
+        <sequence>
+            <element ae:readable="true" ae:key="true" ae:writeable="true" ae:default="" name="BUDGET__BILL__ID" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ACCOUNT__NUMBER" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="CASE__TYPE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="BUDGET__BILL__AMOUNT" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="CREATED__ON" form="unqualified" nillable="true" type="ns1:adbDateTime" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="SQUARE__FOOTAGE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="HEAT" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="WATER__HEATER" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="RANGE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="WASHING__MACHINE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="DRYER" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="REFRIGERATOR" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="MONTHLY__GAS__USAGE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="RESPONSE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="RESPONSE__DATE" form="unqualified" nillable="true" type="ns1:adbDateTime" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="RESPONSE__DEADLINE" form="unqualified" nillable="true" type="ns1:adbDateTime" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="CURRENT__PAYMENT" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="PAYMENT__DATE" form="unqualified" nillable="true" type="ns1:adbDateTime" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="CRM__ID" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="MONTHLY__ELECTRIC__USAGE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="SOURCE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="USER__TYPE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__OPCODE" form="unqualified" nillable="true" type="ae:i4" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__TRACKINGID" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__SUBJECT" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__SEQUENCE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__SET__SEQUENCE" form="unqualified" nillable="true" type="ae:i4" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__TIMESTAMP" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__UPDATE__ALL" form="unqualified" nillable="true" type="ae:i4" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__REF__OBJECT" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__AGENT__ID" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+        </sequence>
+    </complexType>
+    <complexType ae:typename="/tibco/public/class/ae/ADB/AdapterForDatabase/P_CRM" ae:directory="/AESchemas/ae/ADB/AdapterForDatabase.aeschema#class.P_CRM" ae:type="class" name="P__CRM">
+        <sequence>
+            <element ae:readable="true" ae:key="true" ae:writeable="true" ae:default="" name="CRM__ID" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="LKUP__STATUS__ID" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="LKUP__STATE__ID" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="LKUP__CRM__STATUS__ID" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="MEMBER__ID" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="LKUP__CRM__TYPE__ID" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="NAME" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="EMAIL__ADDRESS" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ZIP__CODE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="PHONE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="SUBJECT" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="PHONE__WORK" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="COMMENT__TEXT" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="PREFERRED__CONTACT__METHOD" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="CREATED__ON" form="unqualified" nillable="true" type="ns1:adbDateTime" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="CREATED__BY" form="unqualified" nillable="true" type="ns1:adbDateTime" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="UPDATED__ON" form="unqualified" nillable="true" type="ns1:adbDateTime" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="UPDATED__BY" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="TOPIC" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ACCOUNT__NUMBER" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="FIRST__NAME" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="LAST__NAME" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="MIDDLE__INITIAL" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="TITLE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="SUFFIX" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="CRM__STATUS" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="EMAIL__FLAG" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADDRESS1" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADDRESS2" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="CITY" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="CONTACT__FLAG" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="SOURCE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="BILLING__ADDRESS1" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="BILLING__ADDRESS2" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="BILLING__CITY" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="BILLING__LKUP__STATE__ID" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="BILLING__ZIP__CODE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="EXTENSION" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__OPCODE" form="unqualified" nillable="true" type="ae:i4" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__TRACKINGID" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__SUBJECT" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__SEQUENCE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__SET__SEQUENCE" form="unqualified" nillable="true" type="ae:i4" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__TIMESTAMP" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__UPDATE__ALL" form="unqualified" nillable="true" type="ae:i4" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__REF__OBJECT" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__AGENT__ID" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+        </sequence>
+    </complexType>
+    <complexType ae:typename="/tibco/public/class/ae/ADB/AdapterForDatabase/P_MEMBER" ae:directory="/AESchemas/ae/ADB/AdapterForDatabase.aeschema#class.P_MEMBER" ae:type="class" name="P__MEMBER">
+        <sequence>
+            <element ae:readable="true" ae:key="true" ae:writeable="true" ae:default="" name="MEMBER__ID" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="PASSWORD" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="LKUP__STATUS__ID" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="LKUP__COMPANY__CODE__ID" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="CREATED__ON" form="unqualified" nillable="true" type="ns1:adbDateTime" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="REGISTERED__DATE" form="unqualified" nillable="true" type="ns1:adbDateTime" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="UPDATED__ON" form="unqualified" nillable="true" type="ns1:adbDateTime" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="FIRST__NAME" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="MIDDLE__INITIAL" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="LAST__NAME" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="USER__NAME" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="EMAIL__ADDRESS" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="TITLE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="SUFFIX" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ZIP__CODE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="EMAILABLE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="REGISTERED" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="USER__TYPE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="CONTACT__MODE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="DAYTIME__PHONE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="EVENING__PHONE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="FAX" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="PRIMARY__CONTACT__METHOD" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="SECONDARY__CONTACT__METHOD" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="SUBSCRIBED" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="UNIQUE__ID" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="EMAIL__VALIDATION" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="CSR__VALIDATION" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="EMAIL__VALIDATION__DATE" form="unqualified" nillable="true" type="ns1:adbDateTime" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="CSR__VALIDATION__DATE" form="unqualified" nillable="true" type="ns1:adbDateTime" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="LAST__ACTIVITY__DATE" form="unqualified" nillable="true" type="ns1:adbDateTime" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="NICKNAME" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="PRIMARY__ACCOUNT__IND" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="PRIOR__LAST__ACTIVITY__DATE" form="unqualified" nillable="true" type="ns1:adbDateTime" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="COURTESY__EMAIL__STATUS" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="PROMO__STATUS" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="SUMMER__BUDGET__BILL__STATUS" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="FALL__BUDGET__BILL__STATUS" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="NEXUS__PROMO__STATUS" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="COLTS__PROMO__STATUS" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="HOME__EFF__PROMO__STATUS" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="CHANGE__PW" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="EBILL__DECLINED__DATE" form="unqualified" nillable="true" type="ns1:adbDateTime" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="REGISTRATION__CONFIRMATION" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="REGISTRATION__CONFIRM__DATE" form="unqualified" nillable="true" type="ns1:adbDateTime" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="USER__PRIVILEGES" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="PROFILE__LOCKED" form="unqualified" nillable="true" type="ns1:adbDateTime" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="PROFILE__FIRST__NAME" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="PROFILE__LAST__NAME" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="COMMON__MEMBER__ID" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="LOGIN__ATTEMPTS" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="LOGIN__ATTEMPT__DATE" form="unqualified" nillable="true" type="ns1:adbDateTime" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="IS__NERC__USER" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="LAST__PASSWORD__UPD__DATE" form="unqualified" nillable="true" type="ns1:adbDateTime" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="DEFAULT__ACCOUNT" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__OPCODE" form="unqualified" nillable="true" type="ae:i4" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__TRACKINGID" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__SUBJECT" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__SEQUENCE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__SET__SEQUENCE" form="unqualified" nillable="true" type="ae:i4" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__TIMESTAMP" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__UPDATE__ALL" form="unqualified" nillable="true" type="ae:i4" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__REF__OBJECT" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__AGENT__ID" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+        </sequence>
+    </complexType>
+    <complexType ae:typename="/tibco/public/class/ae/ADB/AdapterForDatabase/P_MESSAGE_EN" ae:directory="/AESchemas/ae/ADB/AdapterForDatabase.aeschema#class.P_MESSAGE_EN" ae:type="class" name="P__MESSAGE__EN">
+        <sequence>
+            <element ae:readable="true" ae:key="true" ae:writeable="true" ae:default="" name="KEY" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="VALUE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="CREATED__ON" form="unqualified" nillable="true" type="ns1:adbDateTime" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__OPCODE" form="unqualified" nillable="true" type="ae:i4" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__TRACKINGID" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__SUBJECT" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__SEQUENCE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__SET__SEQUENCE" form="unqualified" nillable="true" type="ae:i4" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__TIMESTAMP" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__UPDATE__ALL" form="unqualified" nillable="true" type="ae:i4" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__REF__OBJECT" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__AGENT__ID" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+        </sequence>
+    </complexType>
+    <complexType ae:typename="/tibco/public/class/ae/ADB/AdapterForDatabase/P_SPEEDPAY_TRANSACTIONS" ae:directory="/AESchemas/ae/ADB/AdapterForDatabase.aeschema#class.P_SPEEDPAY_TRANSACTIONS" ae:type="class" name="P__SPEEDPAY__TRANSACTIONS">
+        <sequence>
+            <element ae:readable="true" ae:key="true" ae:writeable="true" ae:default="" name="TRANS__ID" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="CREATED__ON" form="unqualified" nillable="true" type="ns1:adbDateTime" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="TRANS__CATEGORY" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="TRANS__AMOUNT" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ACCOUNT__NUMBER" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="FIRST__NAME" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="LAST__NAME" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="EMAIL__ADDRESS" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="MEMBER__ID" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="CREDIT__CARD__NUMBER" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="CREDIT__CARD__NAME" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="CREDIT__CARD__TYPE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="CREDIT__CARD__ZIP__CODE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="CREDIT__CARD__EXPDATE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="CONFIRM__NUM" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="SOURCE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="PAYMENT__TYPE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="PAYMENT__ID" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="PAYMENT__DATE" form="unqualified" nillable="true" type="ns1:adbDateTime" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="CANCELED__TYPE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="CANCELED__DATE" form="unqualified" nillable="true" type="ns1:adbDateTime" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="MEMO__POST__FLAG" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__OPCODE" form="unqualified" nillable="true" type="ae:i4" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__TRACKINGID" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__SUBJECT" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__SEQUENCE" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__SET__SEQUENCE" form="unqualified" nillable="true" type="ae:i4" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__TIMESTAMP" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__UPDATE__ALL" form="unqualified" nillable="true" type="ae:i4" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__REF__OBJECT" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+            <element ae:readable="true" ae:key="false" ae:writeable="true" ae:default="" name="ADB__AGENT__ID" form="unqualified" nillable="true" type="ae:string" minOccurs="0"/>
+        </sequence>
+    </complexType>
+    <element name="P__ACCOUNT__SUMMARY" type="ns0:P__ACCOUNT__SUMMARY"/>
+    <element name="P__ACH__CONSOLIDATED__PYMTS" type="ns0:P__ACH__CONSOLIDATED__PYMTS"/>
+    <element name="P__ACH__PAYMENTS" type="ns0:P__ACH__PAYMENTS"/>
+    <element name="P__AMR__SCHEDULE__DATA" type="ns0:P__AMR__SCHEDULE__DATA"/>
+    <element name="P__ASSIST__PROGRAM__APP" type="ns0:P__ASSIST__PROGRAM__APP"/>
+    <element name="P__ASSIST__PROG__APP" type="ns0:P__ASSIST__PROG__APP"/>
+    <element name="P__BILL__NOTIF__EMAILADDRESS" type="ns0:P__BILL__NOTIF__EMAILADDRESS"/>
+    <element name="P__BILL__NOTIF__ENROLLMENTS" type="ns0:P__BILL__NOTIF__ENROLLMENTS"/>
+    <element name="P__BUDGET__BILL" type="ns0:P__BUDGET__BILL"/>
+    <element name="P__CRM" type="ns0:P__CRM"/>
+    <element name="P__MEMBER" type="ns0:P__MEMBER"/>
+    <element name="P__MESSAGE__EN" type="ns0:P__MESSAGE__EN"/>
+    <element name="P__SPEEDPAY__TRANSACTIONS" type="ns0:P__SPEEDPAY__TRANSACTIONS"/>
+</schema>

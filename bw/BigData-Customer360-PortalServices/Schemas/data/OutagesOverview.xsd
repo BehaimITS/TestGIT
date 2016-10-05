@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://behaimits.com/vectren/bigdata/customer360view/OutagesOverview" xmlns="http://behaimits.com/vectren/bigdata/customer360view/OutagesOverview" elementFormDefault="qualified">
+<xs:complexType name="OutagesOverviewItemType"><xs:sequence>
+<xs:element name="CIS_ACCOUNT_NUMBER" type="xs:string" minOccurs="0" />
+<xs:element name="ACCOUNT_NUMBER" type="xs:string" minOccurs="0" />
+<xs:element name="CREW_AREA" type="xs:string" minOccurs="0" />
+<xs:element name="INCIDENT_ID" type="xs:float" />
+<xs:element name="ORDER_NUMBER" type="xs:string" />
+<xs:element name="STATUS" type="xs:string" minOccurs="0" />
+<xs:element name="TIME_OFF" type="xs:dateTime" minOccurs="0" />
+<xs:element name="TIME_ON" type="xs:string" minOccurs="0" />
+<xs:element name="ETR" type="xs:dateTime" minOccurs="0" />
+<xs:element name="ETR_EXTENDED" type="xs:dateTime" minOccurs="0" />
+<xs:element name="CAUSE" type="xs:string" minOccurs="0" />
+<xs:element name="SUBCAUSE" type="xs:string" minOccurs="0" />
+</xs:sequence></xs:complexType><xs:element name="OutagesOverviewItem" type="OutagesOverviewItemType" /></xs:schema>

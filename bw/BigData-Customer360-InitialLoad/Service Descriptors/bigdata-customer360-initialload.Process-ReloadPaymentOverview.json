@@ -1,0 +1,63 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "1.0",
+    "title" : "Reloads payment overview data from DB to AS",
+    "description" : "Reloads payment overview data from DB to AS"
+  },
+  "host" : "localhost:8080",
+  "basePath" : "/",
+  "schemes" : [ "http" ],
+  "consumes" : [ "application/json" ],
+  "produces" : [ "application/json" ],
+  "paths" : {
+    "/reloadpaymentoverview" : {
+      "post" : {
+        "description" : "",
+        "operationId" : "post-reloadpaymentoverview",
+        "consumes" : [ "application/json", "application/xml" ],
+        "produces" : [ "application/json", "application/xml" ],
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "description" : "",
+          "schema" : {
+            "$ref" : "#/definitions/input"
+          },
+          "required" : true
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "a string to be returned",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "input" : {
+      "type" : "object",
+      "required" : [ "premiseCode", "company", "customerNumber" ],
+      "properties" : {
+        "company" : {
+          "type" : "string"
+        },
+        "customerNumber" : {
+          "type" : "string"
+        },
+        "premiseCode" : {
+          "type" : "string"
+        },
+        "history" : {
+          "type" : "integer"
+        },
+        "importancy" : {
+          "type" : "string"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://behaimits.com/vectren/bigdata/customer360view/ScheduledPayments" xmlns="http://behaimits.com/vectren/bigdata/customer360view/ScheduledPayments" elementFormDefault="qualified">
+<xs:complexType name="ScheduledPaymentsItemType"><xs:sequence>
+<xs:element name="CUST_CODE" type="xs:float" />
+<xs:element name="PREM_CODE" type="xs:string" />
+<xs:element name="HOLD_UNTIL_DATE" type="xs:dateTime" />
+<xs:element name="DRAFT_AMT" type="xs:float" />
+<xs:element name="CUST_BANK_TRANS" type="xs:string" />
+<xs:element name="CUST_BANK_ABA" type="xs:string" />
+<xs:element name="CUST_BANK_CKDGT" type="xs:string" />
+<xs:element name="CUST_BANK_ACCT_NO" type="xs:string" />
+<xs:element name="TUPLE_ID" type="xs:float" minOccurs="0" />
+</xs:sequence></xs:complexType><xs:element name="ScheduledPaymentsItem" type="ScheduledPaymentsItemType" /></xs:schema>

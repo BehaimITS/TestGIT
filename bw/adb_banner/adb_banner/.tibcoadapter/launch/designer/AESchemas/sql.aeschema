@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Repository:repository xmlns:AESchema="http://www.tibco.com/xmlns/aemeta/types/2002" xmlns:Repository="http://www.tibco.com/xmlns/repo/types/2002" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <AESchema:scalar name="BIGINT">
+        <AESchema:dataTypeName>BIGINT</AESchema:dataTypeName>
+        <AESchema:javaClass>java.lang.Long</AESchema:javaClass>
+        <AESchema:length>0</AESchema:length>
+        <AESchema:scale>0</AESchema:scale>
+        <AESchema:precision>0</AESchema:precision>
+    </AESchema:scalar>
+    <AESchema:scalar name="BIT">
+        <AESchema:dataTypeName>BIT</AESchema:dataTypeName>
+        <AESchema:javaClass>java.lang.Boolean</AESchema:javaClass>
+        <AESchema:length>0</AESchema:length>
+        <AESchema:scale>0</AESchema:scale>
+        <AESchema:precision>0</AESchema:precision>
+    </AESchema:scalar>
+    <AESchema:scalar name="DATE">
+        <AESchema:dataTypeName>DATE</AESchema:dataTypeName>
+        <AESchema:javaClass>java.sql.Date</AESchema:javaClass>
+        <AESchema:length>0</AESchema:length>
+        <AESchema:scale>0</AESchema:scale>
+        <AESchema:precision>0</AESchema:precision>
+    </AESchema:scalar>
+    <AESchema:scalar name="DOUBLE PRECISION">
+        <AESchema:dataTypeName>DOUBLE PRECISION</AESchema:dataTypeName>
+        <AESchema:javaClass>java.lang.Double</AESchema:javaClass>
+        <AESchema:length>0</AESchema:length>
+        <AESchema:scale>0</AESchema:scale>
+        <AESchema:precision>0</AESchema:precision>
+    </AESchema:scalar>
+    <AESchema:scalar name="FLOAT">
+        <AESchema:dataTypeName>FLOAT</AESchema:dataTypeName>
+        <AESchema:javaClass>java.lang.Float</AESchema:javaClass>
+        <AESchema:length>0</AESchema:length>
+        <AESchema:scale>0</AESchema:scale>
+        <AESchema:precision>0</AESchema:precision>
+    </AESchema:scalar>
+    <AESchema:scalar name="INTEGER">
+        <AESchema:dataTypeName>INTEGER</AESchema:dataTypeName>
+        <AESchema:javaClass>java.lang.Integer</AESchema:javaClass>
+        <AESchema:length>0</AESchema:length>
+        <AESchema:scale>0</AESchema:scale>
+        <AESchema:precision>0</AESchema:precision>
+    </AESchema:scalar>
+    <AESchema:scalar name="LONGVARBINARY">
+        <AESchema:dataTypeName>LONGVARBINARY</AESchema:dataTypeName>
+        <AESchema:javaClass>java.lang.Byte[]</AESchema:javaClass>
+        <AESchema:length>0</AESchema:length>
+        <AESchema:scale>0</AESchema:scale>
+        <AESchema:precision>0</AESchema:precision>
+    </AESchema:scalar>
+    <AESchema:scalar name="LONGVARCHAR">
+        <AESchema:dataTypeName>LONGVARCHAR</AESchema:dataTypeName>
+        <AESchema:javaClass>java.lang.String</AESchema:javaClass>
+        <AESchema:length>0</AESchema:length>
+        <AESchema:scale>0</AESchema:scale>
+        <AESchema:precision>0</AESchema:precision>
+    </AESchema:scalar>
+    <AESchema:scalar name="REAL">
+        <AESchema:dataTypeName>REAL</AESchema:dataTypeName>
+        <AESchema:javaClass>java.lang.Float</AESchema:javaClass>
+        <AESchema:length>0</AESchema:length>
+        <AESchema:scale>0</AESchema:scale>
+        <AESchema:precision>0</AESchema:precision>
+    </AESchema:scalar>
+    <AESchema:scalar name="SMALLINT">
+        <AESchema:dataTypeName>SMALLINT</AESchema:dataTypeName>
+        <AESchema:javaClass>java.lang.Short</AESchema:javaClass>
+        <AESchema:length>0</AESchema:length>
+        <AESchema:scale>0</AESchema:scale>
+        <AESchema:precision>0</AESchema:precision>
+    </AESchema:scalar>
+    <AESchema:scalar name="TIME">
+        <AESchema:dataTypeName>TIME</AESchema:dataTypeName>
+        <AESchema:javaClass>java.sql.Time</AESchema:javaClass>
+        <AESchema:length>0</AESchema:length>
+        <AESchema:scale>0</AESchema:scale>
+        <AESchema:precision>0</AESchema:precision>
+    </AESchema:scalar>
+    <AESchema:scalar name="TIMESTAMP">
+        <AESchema:dataTypeName>TIMESTAMP</AESchema:dataTypeName>
+        <AESchema:javaClass>java.sql.Timestamp</AESchema:javaClass>
+        <AESchema:length>0</AESchema:length>
+        <AESchema:scale>0</AESchema:scale>
+        <AESchema:precision>0</AESchema:precision>
+    </AESchema:scalar>
+    <AESchema:scalar name="TINYINT">
+        <AESchema:dataTypeName>TINYINT</AESchema:dataTypeName>
+        <AESchema:javaClass>java.lang.Short</AESchema:javaClass>
+        <AESchema:length>0</AESchema:length>
+        <AESchema:scale>0</AESchema:scale>
+        <AESchema:precision>0</AESchema:precision>
+    </AESchema:scalar>
+    <AESchema:scalar name="VARBINARY">
+        <AESchema:dataTypeName>VARBINARY</AESchema:dataTypeName>
+        <AESchema:javaClass>java.lang.Byte[]</AESchema:javaClass>
+        <AESchema:length>0</AESchema:length>
+        <AESchema:scale>0</AESchema:scale>
+        <AESchema:precision>0</AESchema:precision>
+    </AESchema:scalar>
+    <AESchema:scalar name="VARCHAR">
+        <AESchema:dataTypeName>VARCHAR</AESchema:dataTypeName>
+        <AESchema:javaClass>java.lang.String</AESchema:javaClass>
+        <AESchema:length>0</AESchema:length>
+        <AESchema:scale>0</AESchema:scale>
+        <AESchema:precision>0</AESchema:precision>
+    </AESchema:scalar>
+</Repository:repository>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://behaimits.com/vectren/bigdata/customer360view/HighBillAlert" xmlns="http://behaimits.com/vectren/bigdata/customer360view/HighBillAlert" elementFormDefault="qualified">
+<xs:complexType name="HighBillAlertItemType"><xs:sequence>
+<xs:element name="OP_DATA_ID" type="xs:float" minOccurs="0" />
+<xs:element name="OP_CUSTOMER_ID" type="xs:string" minOccurs="0" />
+<xs:element name="VECTREN_ACCT_NUMBER" type="xs:string" minOccurs="0" />
+<xs:element name="NOTIFICATION_CHANNEL" type="xs:string" minOccurs="0" />
+<xs:element name="DELIVERED_ON" type="xs:dateTime" minOccurs="0" />
+<xs:element name="EMAIL_ADDRESS" type="xs:string" minOccurs="0" />
+<xs:element name="NOTIFICATION_TYPE" type="xs:string" minOccurs="0" />
+<xs:element name="NOTIFICATION_MESSAGE_TYPE" type="xs:string" minOccurs="0" />
+<xs:element name="TUPLE_ID" type="xs:float" minOccurs="0" />
+</xs:sequence></xs:complexType><xs:element name="HighBillAlertItem" type="HighBillAlertItemType" /></xs:schema>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sca:composite xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:BW="http://xsd.tns.tibco.com/amf/models/sca/implementationtype/BW" xmlns:XMLSchema="http://www.w3.org/2001/XMLSchema" xmlns:compositeext="http://schemas.tibco.com/amx/3.0/compositeext" xmlns:sca="http://www.osoa.org/xmlns/sca/1.0" xmlns:scaext="http://xsd.tns.tibco.com/amf/models/sca/extensions" xmi:id="_-jlhoHpsEea3R8-FzNfatw" targetNamespace="http://tns.tibco.com/bw/composite/CacheUpdateHandlerEbizADB" name="CacheUpdateHandlerEbizADB" compositeext:version="1.0.0" compositeext:formatVersion="2">
+  <sca:property xmi:id="_-pFFoHpsEea3R8-FzNfatw" name="BW.DEPLOYMENTUNIT.TYPE" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_-pII8HpsEea3R8-FzNfatw" name="BW.APPNODE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_-pJ-IHpsEea3R8-FzNfatw" name="BW.DEPLOYMENTUNIT.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_-pLzUHpsEea3R8-FzNfatw" name="BW.HOST.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_-pNBcHpsEea3R8-FzNfatw" name="BW.DOMAIN.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_-pO2oHpsEea3R8-FzNfatw" name="BW.DEPLOYMENTUNIT.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_-pQr0HpsEea3R8-FzNfatw" name="BW.APPSPACE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_-pShAHpsEea3R8-FzNfatw" name="BW.MODULE.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_-pUWMHpsEea3R8-FzNfatw" name="BW.MODULE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:component xmi:id="_59XIYIsKEeaHjt9unv3aew" name="Componenttest" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_59XIYYsKEeaHjt9unv3aew" processName="cacheupdatehandlerebizadb.test"/>
+  </sca:component>
+</sca:composite>

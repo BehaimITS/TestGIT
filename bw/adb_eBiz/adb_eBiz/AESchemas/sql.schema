@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:schema="http://xsd.tns.tibco.com/amf/models/adapter/schema">
+  <schema:Scalar xmi:id="BIGINT" name="BIGINT" dataTypeName="BIGINT" javaClass="java.lang.Long"/>
+  <schema:Scalar xmi:id="BIT" name="BIT" dataTypeName="BIT" javaClass="java.lang.Boolean"/>
+  <schema:Scalar xmi:id="DATE" name="DATE" dataTypeName="DATE" javaClass="java.sql.Date"/>
+  <schema:Scalar xmi:id="DOUBLE_sp_PRECISION" name="DOUBLE PRECISION" dataTypeName="DOUBLE PRECISION" javaClass="java.lang.Double"/>
+  <schema:Scalar xmi:id="FLOAT" name="FLOAT" dataTypeName="FLOAT" javaClass="java.lang.Float"/>
+  <schema:Scalar xmi:id="INTEGER" name="INTEGER" dataTypeName="INTEGER" javaClass="java.lang.Integer"/>
+  <schema:Scalar xmi:id="LONGVARBINARY" name="LONGVARBINARY" dataTypeName="LONGVARBINARY" javaClass="java.lang.Byte[]"/>
+  <schema:Scalar xmi:id="LONGVARCHAR" name="LONGVARCHAR" dataTypeName="LONGVARCHAR" javaClass="java.lang.String"/>
+  <schema:Scalar xmi:id="REAL" name="REAL" dataTypeName="REAL" javaClass="java.lang.Float"/>
+  <schema:Scalar xmi:id="SMALLINT" name="SMALLINT" dataTypeName="SMALLINT" javaClass="java.lang.Short"/>
+  <schema:Scalar xmi:id="TIME" name="TIME" dataTypeName="TIME" javaClass="java.sql.Time"/>
+  <schema:Scalar xmi:id="TIMESTAMP" name="TIMESTAMP" dataTypeName="TIMESTAMP" javaClass="java.sql.Timestamp"/>
+  <schema:Scalar xmi:id="TINYINT" name="TINYINT" dataTypeName="TINYINT" javaClass="java.lang.Short"/>
+  <schema:Scalar xmi:id="VARBINARY" name="VARBINARY" dataTypeName="VARBINARY" javaClass="java.lang.Byte[]"/>
+  <schema:Scalar xmi:id="VARCHAR" name="VARCHAR" dataTypeName="VARCHAR" javaClass="java.lang.String"/>
+</xmi:XMI>

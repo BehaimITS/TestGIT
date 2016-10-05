@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<xs:schema xmlns="http://behaimits.com/vectren/bigdata/customer360view/" xmlns:ns01="http://behaimits.com/vectren/bigdata/customer360view/Account" xmlns:ns02="http://behaimits.com/vectren/bigdata/customer360view/AssistanceProgramEngagement" xmlns:ns03="http://behaimits.com/vectren/bigdata/customer360view/BudgedBill" xmlns:ns04="http://behaimits.com/vectren/bigdata/customer360view/BudgedBillEngagement" xmlns:ns05="http://behaimits.com/vectren/bigdata/customer360view/County" xmlns:ns06="http://behaimits.com/vectren/bigdata/customer360view/OutageCause" xmlns:ns07="http://behaimits.com/vectren/bigdata/customer360view/OutagesCall" xmlns:ns08="http://behaimits.com/vectren/bigdata/customer360view/OutagesDetailByService" xmlns:ns09="http://behaimits.com/vectren/bigdata/customer360view/OutagesOverview" xmlns:ns10="http://behaimits.com/vectren/bigdata/customer360view/OutageTerritories" xmlns:ns11="http://behaimits.com/vectren/bigdata/customer360view/PaymentAccountSummary" xmlns:ns12="http://behaimits.com/vectren/bigdata/customer360view/PaymentAch" xmlns:ns13="http://behaimits.com/vectren/bigdata/customer360view/PaymentArrangements" xmlns:ns14="http://behaimits.com/vectren/bigdata/customer360view/PaymentConsolidated" xmlns:ns15="http://behaimits.com/vectren/bigdata/customer360view/PaymentOverview" xmlns:ns16="http://behaimits.com/vectren/bigdata/customer360view/PaymentSpeedPay" xmlns:ns17="http://behaimits.com/vectren/bigdata/customer360view/Premise" xmlns:ns18="http://behaimits.com/vectren/bigdata/customer360view/PremiseLocation" xmlns:ns19="http://behaimits.com/vectren/bigdata/customer360view/Replacements" xmlns:ns20="http://behaimits.com/vectren/bigdata/customer360view/ScheduleData" xmlns:ns21="http://behaimits.com/vectren/bigdata/customer360view/ScheduledPayments" xmlns:ns22="http://behaimits.com/vectren/bigdata/customer360view/SummerCycler" xmlns:ns23="http://behaimits.com/vectren/bigdata/customer360view/BillNotificationEmail" xmlns:ns24="http://behaimits.com/vectren/bigdata/customer360view/BillNotificationEnrollment" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://behaimits.com/vectren/bigdata/customer360view/">
+	
+	<xs:import namespace="http://behaimits.com/vectren/bigdata/customer360view/Account" schemaLocation="../data/Account.xsd"/>
+	<xs:import namespace="http://behaimits.com/vectren/bigdata/customer360view/AssistanceProgramEngagement" schemaLocation="../data/AssistanceProgramEngagement.xsd"/>	
+	<xs:import namespace="http://behaimits.com/vectren/bigdata/customer360view/BillNotificationEmail" schemaLocation="../data/BillNotificationEmail.xsd"/>
+	<xs:import namespace="http://behaimits.com/vectren/bigdata/customer360view/BillNotificationEnrollment" schemaLocation="../data/BillNotificationEnrollment.xsd"/>
+	<xs:import namespace="http://behaimits.com/vectren/bigdata/customer360view/BudgedBill" schemaLocation="../data/BudgedBill.xsd"/>
+	<xs:import namespace="http://behaimits.com/vectren/bigdata/customer360view/BudgedBillEngagement" schemaLocation="../data/BudgedBillEngagement.xsd"/>
+	<xs:import namespace="http://behaimits.com/vectren/bigdata/customer360view/County" schemaLocation="../data/County.xsd"/>
+	<xs:import namespace="http://behaimits.com/vectren/bigdata/customer360view/OutageCause" schemaLocation="../data/OutageCause.xsd"/>
+	<xs:import namespace="http://behaimits.com/vectren/bigdata/customer360view/OutagesCall" schemaLocation="../data/OutagesCall.xsd"/>
+	<xs:import namespace="http://behaimits.com/vectren/bigdata/customer360view/OutagesDetailByService" schemaLocation="../data/OutagesDetailByService.xsd"/>
+	<xs:import namespace="http://behaimits.com/vectren/bigdata/customer360view/OutagesOverview" schemaLocation="../data/OutagesOverview.xsd"/>
+	<xs:import namespace="http://behaimits.com/vectren/bigdata/customer360view/OutageTerritories" schemaLocation="../data/OutageTerritories.xsd"/>
+	<xs:import namespace="http://behaimits.com/vectren/bigdata/customer360view/PaymentAccountSummary" schemaLocation="../data/PaymentAccountSummary.xsd"/>
+	<xs:import namespace="http://behaimits.com/vectren/bigdata/customer360view/PaymentAch" schemaLocation="../data/PaymentAch.xsd"/>
+	<xs:import namespace="http://behaimits.com/vectren/bigdata/customer360view/PaymentArrangements" schemaLocation="../data/PaymentArrangements.xsd"/>
+	<xs:import namespace="http://behaimits.com/vectren/bigdata/customer360view/PaymentConsolidated" schemaLocation="../data/PaymentConsolidated.xsd"/>
+	<xs:import namespace="http://behaimits.com/vectren/bigdata/customer360view/PaymentOverview" schemaLocation="../data/PaymentOverview.xsd"/>
+	<xs:import namespace="http://behaimits.com/vectren/bigdata/customer360view/PaymentSpeedPay" schemaLocation="../data/PaymentSpeedPay.xsd"/>
+	<xs:import namespace="http://behaimits.com/vectren/bigdata/customer360view/Premise" schemaLocation="../data/Premise.xsd"/>
+	<xs:import namespace="http://behaimits.com/vectren/bigdata/customer360view/PremiseLocation" schemaLocation="../data/PremiseLocation.xsd"/>
+	<xs:import namespace="http://behaimits.com/vectren/bigdata/customer360view/Replacements" schemaLocation="../data/Replacements.xsd"/>
+	<xs:import namespace="http://behaimits.com/vectren/bigdata/customer360view/ScheduleData" schemaLocation="../data/ScheduleData.xsd"/>
+	<xs:import namespace="http://behaimits.com/vectren/bigdata/customer360view/ScheduledPayments" schemaLocation="../data/ScheduledPayments.xsd"/>
+	<xs:import namespace="http://behaimits.com/vectren/bigdata/customer360view/SummerCycler" schemaLocation="../data/SummerCycler.xsd"/>
+
+    <xs:element name="response" type="responseType"/>
+    
+    <xs:complexType name="responseType">
+    	<xs:sequence>
+    		<xs:element name="success" type="xs:boolean"/>
+    		<xs:element name="errorsExist" type="xs:boolean"/>
+    		<xs:element maxOccurs="unbounded" minOccurs="0" name="errors" type="errorsType"/>
+    		<xs:element maxOccurs="1" minOccurs="0" name="data" type="dataType"/>
+    	</xs:sequence>
+    </xs:complexType>
+     <xs:complexType name="errorsType">
+    	<xs:sequence>
+    		<xs:element name="code" type="xs:string"/>
+    		<xs:element name="text" type="xs:string"/>
+    	</xs:sequence>
+    </xs:complexType>
+     <xs:complexType name="dataType">
+    	<xs:sequence>
+    		<xs:element maxOccurs="unbounded" minOccurs="0" name="notes" type="notesType"/>
+    	</xs:sequence>
+    </xs:complexType>
+     <xs:complexType name="notesType">
+                <xs:sequence>
+                  <xs:element name="text" type="xs:string"/>
+                  <xs:element name="keyword" type="xs:string"/>
+                  <xs:element name="importance" type="xs:string"/>
+                  <xs:element maxOccurs="1" minOccurs="0" name="type" type="xs:string"/>
+                  <xs:element name="date" type="xs:string"/>
+                  <xs:element maxOccurs="1" minOccurs="0" name="details" type="xs:anyType"/>
+    	</xs:sequence>
+    </xs:complexType>
+</xs:schema>

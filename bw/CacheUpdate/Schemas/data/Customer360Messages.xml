@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<p:Customer360MessagesItem xmlns:p="http://behaimits.com/vectren/bigdata/customer360view/Customer360Messages" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://behaimits.com/vectren/bigdata/customer360view/Customer360Messages Customer360Messages.xsd ">
+  <p:MSG_SEQUENCE_NO>0.0</p:MSG_SEQUENCE_NO>
+  <p:MSG_TIME>2001-12-31T12:00:00</p:MSG_TIME>
+  <p:ACCOUNT_NUMBER>p:ACCOUNT_NUMBER</p:ACCOUNT_NUMBER>
+  <p:MSG_KEY>p:MSG_KEY</p:MSG_KEY>
+  <p:SOURCE_TUPLE_ID>0.0</p:SOURCE_TUPLE_ID>
+  <p:MSG_DEST>p:MSG_DEST</p:MSG_DEST>
+  <p:MSG_TEXT>p:MSG_TEXT</p:MSG_TEXT>
+</p:Customer360MessagesItem>

@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:schema="http://xsd.tns.tibco.com/amf/models/adapter/schema">
+  <schema:ClassType xmi:id="P_UABPYMT" name="P_UABPYMT">
+    <attributes name="UABPYMT_AR_TRANS" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="UABPYMT_ORIGIN" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="UABPYMT_SOURCE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="UABPYMT_CUST_CODE" isKey="true" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="UABPYMT_PREM_CODE" isKey="true" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="UABPYMT_PYMT_DATE" isReadable="true" isWriteable="true">
+      <type href="adbmetadata.schema#adbDateTime"/>
+    </attributes>
+    <attributes name="UABPYMT_ACTIVITY_DATE" isReadable="true" isWriteable="true">
+      <type href="adbmetadata.schema#adbDateTime"/>
+    </attributes>
+    <attributes name="UABPYMT_USER_ID" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="UABPYMT_PRINTED_IND" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="UABPYMT_PYCD_CODE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="UABPYMT_APPL_IND" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="UABPYMT_GL_IND" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="UABPYMT_APPROVED_IND" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="UABPYMT_AMOUNT" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="UABPYMT_BALANCE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="UABPYMT_PRINTED_DATE" isReadable="true" isWriteable="true">
+      <type href="adbmetadata.schema#adbDateTime"/>
+    </attributes>
+    <attributes name="UABPYMT_BHST_TRAN_NUM" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="UABPYMT_PAYMENT_REF" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="UABPYMT_ASVC_CODE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="UABPYMT_RESP_ID" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="UABPYMT_CANCEL_TRANS" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="UABPYMT_FEED_DOC_CODE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="UABPYMT_FEED_SEQ_NUM" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="UABPYMT_CUST_CODE_THIRD_PRTY" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="UABPYMT_RESV_CODE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="UABPYMT_MBIL_NUM" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="UABPYMT_PAYMENT_REF_B" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="UABPYMT_TRANS_NUM" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="UABPYMT_BUSINESS_POST_DATE" isReadable="true" isWriteable="true">
+      <type href="adbmetadata.schema#adbDateTime"/>
+    </attributes>
+    <attributes name="UABPYMT_APGP_CODE_PURGABLE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="ADB_OPCODE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#i4"/>
+    </attributes>
+    <attributes name="ADB_TRACKINGID" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="ADB_SUBJECT" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="ADB_SEQUENCE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="ADB_SET_SEQUENCE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#i4"/>
+    </attributes>
+    <attributes name="ADB_TIMESTAMP" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="ADB_UPDATE_ALL" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#i4"/>
+    </attributes>
+    <attributes name="ADB_REF_OBJECT" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="ADB_AGENT_ID" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+  </schema:ClassType>
+  <schema:ClassType xmi:id="P_UARDRFT" name="P_UARDRFT">
+    <attributes name="UARDRFT_CUST_CODE" isKey="true" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="UARDRFT_PREM_CODE" isKey="true" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="UARDRFT_FILE_DATE" isReadable="true" isWriteable="true">
+      <type href="adbmetadata.schema#adbDateTime"/>
+    </attributes>
+    <attributes name="UARDRFT_HOLD_UNTIL_DATE" isReadable="true" isWriteable="true">
+      <type href="adbmetadata.schema#adbDateTime"/>
+    </attributes>
+    <attributes name="UARDRFT_ACTIVITY_DATE" isReadable="true" isWriteable="true">
+      <type href="adbmetadata.schema#adbDateTime"/>
+    </attributes>
+    <attributes name="UARDRFT_TRANS_CODE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="UARDRFT_CUST_BANK_TRANS" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="UARDRFT_CUST_BANK_ABA" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="UARDRFT_CUST_BANK_CKDGT" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="UARDRFT_CUST_BANK_ACCT_NO" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="UARDRFT_AMOUNT" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="UARDRFT_USER_ID" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="UARDRFT_DRAFT_NUMBER" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="UARDRFT_HOLD_IND" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="UARDRFT_MBIL_NUM" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="UARDRFT_CUST_BANK_ACCT_NO_ENC" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="ADB_OPCODE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#i4"/>
+    </attributes>
+    <attributes name="ADB_TRACKINGID" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="ADB_SUBJECT" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="ADB_SEQUENCE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="ADB_SET_SEQUENCE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#i4"/>
+    </attributes>
+    <attributes name="ADB_TIMESTAMP" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="ADB_UPDATE_ALL" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#i4"/>
+    </attributes>
+    <attributes name="ADB_REF_OBJECT" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="ADB_AGENT_ID" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+  </schema:ClassType>
+  <schema:ClassType xmi:id="P_UARPYAR" name="P_UARPYAR">
+    <attributes name="UARPYAR_CUST_CODE" isKey="true" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="UARPYAR_PREM_CODE" isKey="true" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="UARPYAR_ARRNG_NUM" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="UARPYAR_ENTRY_TYPE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="UARPYAR_AMT_DUE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="UARPYAR_BALANCE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="UARPYAR_DATE_DUE" isReadable="true" isWriteable="true">
+      <type href="adbmetadata.schema#adbDateTime"/>
+    </attributes>
+    <attributes name="UARPYAR_ACTIVITY_DATE" isReadable="true" isWriteable="true">
+      <type href="adbmetadata.schema#adbDateTime"/>
+    </attributes>
+    <attributes name="UARPYAR_USER_ID" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="UARPYAR_DATE_PAID_IN_FULL" isReadable="true" isWriteable="true">
+      <type href="adbmetadata.schema#adbDateTime"/>
+    </attributes>
+    <attributes name="UARPYAR_OPEN_AR_TRANS" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="UARPYAR_MBIL_NUM" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="UARPYAR_INSTALLMENT_IND" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="UARPYAR_SEQ_NUM" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="UARPYAR_BILLED_INST_AMT" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="UARPYAR_PRINTED_DATE" isReadable="true" isWriteable="true">
+      <type href="adbmetadata.schema#adbDateTime"/>
+    </attributes>
+    <attributes name="UARPYAR_FIXED_AMT" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="UARPYAR_OTHER_CHARGES" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="UARPYAR_ACTUAL_AMT" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="ADB_OPCODE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#i4"/>
+    </attributes>
+    <attributes name="ADB_TRACKINGID" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="ADB_SUBJECT" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="ADB_SEQUENCE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="ADB_SET_SEQUENCE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#i4"/>
+    </attributes>
+    <attributes name="ADB_TIMESTAMP" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="ADB_UPDATE_ALL" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#i4"/>
+    </attributes>
+    <attributes name="ADB_REF_OBJECT" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="ADB_AGENT_ID" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+  </schema:ClassType>
+</xmi:XMI>

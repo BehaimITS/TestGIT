@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jndi:namedResource xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jndi="http://xsd.tns.tibco.com/amf/models/sharedresource/jndi" xmlns:smtp="http://xsd.tns.tibco.com/bw/models/sharedresource/smtp" xmlns:subject="http://xsd.tns.tibco.com/trinity/models/identity/subject" xmi:id="_S3na8RN0Eeae19Lxy6T3Sw" name="sendemailutility.SMTPResource" type="smtp:SmtpConfiguration">
+  <jndi:reference xmi:id="_S35u0BN0Eeae19Lxy6T3Sw" key="identityJNDIName" type="subject:SubjectConfiguration" value=""/>
+  <jndi:configuration xsi:type="smtp:SmtpConfiguration" xmi:id="_S35u0RN0Eeae19Lxy6T3Sw">
+    <tcpDetails xmi:id="_S3-AQBN0Eeae19Lxy6T3Sw" port="25" connectionTimeout="60000">
+      <substitutionBindings xmi:id="_ZS_i8BN0Eeae19Lxy6T3Sw" template="host" propName="/MigrationVariables/EMail/SMTP"/>
+    </tcpDetails>
+    <userCredentials xmi:id="_S3-AQRN0Eeae19Lxy6T3Sw"/>
+  </jndi:configuration>
+</jndi:namedResource>

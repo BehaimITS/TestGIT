@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jndi:namedResource xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jms="http://xsd.tns.tibco.com/bw/models/sharedresource/jms" xmlns:jndi="http://xsd.tns.tibco.com/amf/models/sharedresource/jndi" xmi:id="_WhOfEQYEEeaeIZVaaUHP3Q" name="sendemailutilitylib.JndiConfForEMS" type="jms:JNDIConnection">
+  <jndi:configuration xsi:type="jms:JNDIConnectionConfiguration" xmi:id="_WhPGIAYEEeaeIZVaaUHP3Q">
+    <substitutionBindings xmi:id="_6Rh5sAYEEeaeIZVaaUHP3Q" template="providerUrl" propName="/SendEmailUtilityLib/EMS/URL"/>
+    <userCredentials xmi:id="_8IjFsAYEEeaeIZVaaUHP3Q">
+      <substitutionBindings xmi:id="_8sECcAYEEeaeIZVaaUHP3Q" template="password" propName="/SendEmailUtilityLib/EMS/Password"/>
+      <substitutionBindings xmi:id="_9iVjIAYEEeaeIZVaaUHP3Q" template="username" propName="/SendEmailUtilityLib/EMS/Username"/>
+    </userCredentials>
+  </jndi:configuration>
+</jndi:namedResource>

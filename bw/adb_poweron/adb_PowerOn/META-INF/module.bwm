@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sca:composite xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:BW="http://xsd.tns.tibco.com/amf/models/sca/implementationtype/BW" xmlns:XMLSchema="http://www.w3.org/2001/XMLSchema" xmlns:appBuilder="http://xsd.tns.tibco.com/amf/models/sca/implementationtype/AppBuilder" xmlns:compositeext="http://schemas.tibco.com/amx/3.0/compositeext" xmlns:sca="http://www.osoa.org/xmlns/sca/1.0" xmlns:scaext="http://xsd.tns.tibco.com/amf/models/sca/extensions" xmi:id="_3ruD0H7_Eead-pPrZs_5TQ" targetNamespace="http://tns.tibco.com/bw/composite/adb_PowerOn" name="adb_PowerOn" compositeext:version="1.0.0" compositeext:formatVersion="2">
+  <sca:property xmi:id="_4bhJEH7_Eead-pPrZs_5TQ" name="BW.DEPLOYMENTUNIT.TYPE" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_4btWUH7_Eead-pPrZs_5TQ" name="BW.APPNODE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_4bzc8H7_Eead-pPrZs_5TQ" name="BW.DEPLOYMENTUNIT.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_4bzc8X7_Eead-pPrZs_5TQ" name="BW.HOST.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_4b5jkH7_Eead-pPrZs_5TQ" name="BW.DOMAIN.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_4b_qMH7_Eead-pPrZs_5TQ" name="BW.DEPLOYMENTUNIT.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_4b_qMX7_Eead-pPrZs_5TQ" name="BW.APPSPACE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_4cFw0H7_Eead-pPrZs_5TQ" name="BW.MODULE.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_4cL3cH7_Eead-pPrZs_5TQ" name="BW.MODULE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_K9G0-X8AEead-pPrZs_5TQ" name="ADBScriptFileDir" type="XMLSchema:string"/>
+  <sca:property xmi:id="_K9G0-n8AEead-pPrZs_5TQ" name="Deployment" type="XMLSchema:string"/>
+  <sca:property xmi:id="_K9G0-38AEead-pPrZs_5TQ" name="DirLedger" type="XMLSchema:string"/>
+  <sca:property xmi:id="_K9G0_H8AEead-pPrZs_5TQ" name="DirTrace" type="XMLSchema:string"/>
+  <sca:property xmi:id="_K9G0_X8AEead-pPrZs_5TQ" name="Domain" type="XMLSchema:string"/>
+  <sca:property xmi:id="_K9G0_n8AEead-pPrZs_5TQ" name="HawkEnabled" type="XMLSchema:string"/>
+  <sca:property xmi:id="_K9G0_38AEead-pPrZs_5TQ" name="JmsProviderUrl" type="XMLSchema:string"/>
+  <sca:property xmi:id="_K9G1AH8AEead-pPrZs_5TQ" name="JmsSslProviderUrl" type="XMLSchema:string"/>
+  <sca:property xmi:id="_K9G1AX8AEead-pPrZs_5TQ" name="RemoteRvDaemon" type="XMLSchema:string"/>
+  <sca:property xmi:id="_K9G1An8AEead-pPrZs_5TQ" name="RvDaemon" type="XMLSchema:string"/>
+  <sca:property xmi:id="_K9G1A38AEead-pPrZs_5TQ" name="RvNetwork" type="XMLSchema:string"/>
+  <sca:property xmi:id="_K9G1BH8AEead-pPrZs_5TQ" name="RvService" type="XMLSchema:string"/>
+  <sca:property xmi:id="_K9G1BX8AEead-pPrZs_5TQ" name="RvaHost" type="XMLSchema:string"/>
+  <sca:property xmi:id="_K9G1Bn8AEead-pPrZs_5TQ" name="RvaPort" type="XMLSchema:string"/>
+  <sca:property xmi:id="_K9G1B38AEead-pPrZs_5TQ" name="TIBHawkDaemon" type="XMLSchema:string"/>
+  <sca:property xmi:id="_K9G1CH8AEead-pPrZs_5TQ" name="TIBHawkNetwork" type="XMLSchema:string"/>
+  <sca:property xmi:id="_K9G1CX8AEead-pPrZs_5TQ" name="TIBHawkService" type="XMLSchema:string"/>
+  <sca:component xmi:id="_KtLikH8AEead-pPrZs_5TQ" name="ComponentAdapterForDatabase" compositeext:version="1.0.0">
+    <scaext:implementation xsi:type="appBuilder:AppBuilderImplementation" xmi:id="_KtLikX8AEead-pPrZs_5TQ" appBuilderThing="AdapterForDatabase.adadbmodel"/>
+  </sca:component>
+</sca:composite>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Repository:repository xmlns:Repository="http://www.tibco.com/xmlns/repo/types/2002" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <folder acceptsResources="false" allowDuplicates="false" allowUserToChangeIcon="false" name="designer" propLocks="" resourceType="ae.designerfolder" sortContents="false"/>
+</Repository:repository>

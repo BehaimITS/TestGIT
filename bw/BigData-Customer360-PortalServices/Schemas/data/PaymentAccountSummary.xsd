@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://behaimits.com/vectren/bigdata/customer360view/PaymentAccountSummary" xmlns="http://behaimits.com/vectren/bigdata/customer360view/PaymentAccountSummary" elementFormDefault="qualified">
+<xs:complexType name="PaymentAccountSummaryItemType"><xs:sequence>
+<xs:element name="ACCOUNT_NUMBER" type="xs:string" />
+<xs:element name="CURRENT_BALANCE" type="xs:float" minOccurs="0" />
+<xs:element name="BUDGET_BILLING_STATUS" type="xs:string" minOccurs="0" />
+<xs:element name="PIPP_BILLING_STATUS" type="xs:string" minOccurs="0" />
+<xs:element name="LAST_STATEMENT_DATE" type="xs:dateTime" minOccurs="0" />
+<xs:element name="LAST_STATEMENT_AMOUNT" type="xs:float" minOccurs="0" />
+<xs:element name="LAST_STATEMENT_DUE_DATE" type="xs:dateTime" minOccurs="0" />
+<xs:element name="LAST_PAYMENT_DATE" type="xs:dateTime" minOccurs="0" />
+<xs:element name="LAST_PAYMENT_AMOUNT" type="xs:float" minOccurs="0" />
+<xs:element name="SERVICE_STREET" type="xs:string" minOccurs="0" />
+<xs:element name="SERVICE_CITY" type="xs:string" minOccurs="0" />
+<xs:element name="SERVICE_STATE" type="xs:string" minOccurs="0" />
+<xs:element name="SERVICE_ZIP" type="xs:string" minOccurs="0" />
+<xs:element name="BILLING_STREET" type="xs:string" minOccurs="0" />
+<xs:element name="BILLING_CITY" type="xs:string" minOccurs="0" />
+<xs:element name="BILLING_STATE" type="xs:string" minOccurs="0" />
+<xs:element name="BILLING_ZIP" type="xs:string" minOccurs="0" />
+<xs:element name="LAST_UPDATED" type="xs:dateTime" minOccurs="0" />
+<xs:element name="BUDGET_VARIANCE" type="xs:float" minOccurs="0" />
+<xs:element name="ENROLLED_THIRD_PARTY_BILLING" type="xs:string" minOccurs="0" />
+<xs:element name="ENROLLED_DIRECT_PAY" type="xs:string" minOccurs="0" />
+<xs:element name="DIRECT_PAY_ACCOUNT_TYPE" type="xs:string" minOccurs="0" />
+<xs:element name="DIRECT_PAY_ACCOUNT_NUMBER" type="xs:string" minOccurs="0" />
+<xs:element name="DIRECT_PAY_INSTITUTION" type="xs:string" minOccurs="0" />
+<xs:element name="ENROLLED_SUMMER_CYCLER" type="xs:string" minOccurs="0" />
+<xs:element name="EMAIL_BILL_NOTIFICATION" type="xs:string" minOccurs="0" />
+<xs:element name="RESPONSIBLE_PARTY_NAME" type="xs:string" minOccurs="0" />
+<xs:element name="DRAFT_ROUTING_NUMBER" type="xs:string" minOccurs="0" />
+<xs:element name="BUDGET_BALANCE" type="xs:float" minOccurs="0" />
+<xs:element name="RESPONSIBLE_PARTY_STREET" type="xs:string" minOccurs="0" />
+<xs:element name="RESPONSIBLE_PARTY_CITY" type="xs:string" minOccurs="0" />
+<xs:element name="RESPONSIBLE_PARTY_STATE" type="xs:string" minOccurs="0" />
+<xs:element name="RESPONSIBLE_PARTY_ZIP" type="xs:string" minOccurs="0" />
+<xs:element name="RESPONSIBLE_PARTY_PHONE" type="xs:string" minOccurs="0" />
+<xs:element name="RESPONSIBLE_PARTY_WORK_PHONE" type="xs:string" minOccurs="0" />
+<xs:element name="GAS_TRANSPORT" type="xs:string" minOccurs="0" />
+<xs:element name="ACTIVE" type="xs:string" minOccurs="0" />
+</xs:sequence></xs:complexType><xs:element name="PaymentAccountSummaryItem" type="PaymentAccountSummaryItemType" /></xs:schema>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://behaimits.com/vectren/bigdata/customer360view/Reprocessing" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://behaimits.com/vectren/bigdata/customer360view/Reprocessing">
+
+    <element name="message" type="tns:messageType"></element>
+    
+    <complexType name="messageType">
+    	<sequence>
+    		<element name="error" type="tns:errorType"></element>
+    		<element name="data" type="anyType"></element>
+    		<element name="reprocess" type="boolean"></element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="errorType">
+    	<sequence>
+    		<element name="code" type="string"></element>
+    		<element name="msg" type="string"></element>
+    		<element name="detail" type="string"></element>
+    	</sequence>
+    </complexType>
+</schema>

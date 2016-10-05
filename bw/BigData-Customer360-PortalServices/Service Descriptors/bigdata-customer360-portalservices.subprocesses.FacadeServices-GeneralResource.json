@@ -1,0 +1,718 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "1.0",
+    "title" : "Summary about the new REST service.",
+    "description" : "Summary about the new REST service."
+  },
+  "host" : "localhost:8080",
+  "basePath" : "/",
+  "schemes" : [ "http" ],
+  "paths" : {
+    "/bigdata/customer360/budget-bill" : {
+      "post" : {
+        "description" : "getBudgetBill",
+        "operationId" : "post-bigdata-customer360-budget-bill",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "description" : "",
+          "schema" : {
+            "$ref" : "#/definitions/budgetBill"
+          },
+          "required" : true
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "a response to be returned",
+            "schema" : {
+              "$ref" : "#/definitions/response"
+            }
+          }
+        }
+      }
+    },
+    "/bigdata/customer360/payment-due" : {
+      "post" : {
+        "description" : "getPaymentDue",
+        "operationId" : "post-bigdata-customer360-payment-due",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "description" : "",
+          "schema" : {
+            "$ref" : "#/definitions/paymentDue"
+          },
+          "required" : true
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "a response to be returned",
+            "schema" : {
+              "$ref" : "#/definitions/response"
+            }
+          }
+        }
+      }
+    },
+    "/bigdata/customer360/bill-notif-email-changes" : {
+      "post" : {
+        "description" : "getBillNotifEmailChanges",
+        "operationId" : "post-bigdata-customer360-bill-notif-email-changes",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "description" : "",
+          "schema" : {
+            "$ref" : "#/definitions/billNotif"
+          },
+          "required" : true
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "a response to be returned",
+            "schema" : {
+              "$ref" : "#/definitions/response"
+            }
+          }
+        }
+      }
+    },
+    "/bigdata/customer360/amr" : {
+      "post" : {
+        "description" : "",
+        "operationId" : "post-bigdata-customer360-amr",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "description" : "",
+          "schema" : {
+            "$ref" : "#/definitions/amr"
+          },
+          "required" : true
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "a response to be returned",
+            "schema" : {
+              "$ref" : "#/definitions/response"
+            }
+          }
+        }
+      }
+    },
+    "/bigdata/customer360/payments" : {
+      "post" : {
+        "description" : "getPayments",
+        "operationId" : "post-bigdata-customer360-payments",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "description" : "",
+          "schema" : {
+            "$ref" : "#/definitions/payments"
+          },
+          "required" : true
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "a response to be returned",
+            "schema" : {
+              "$ref" : "#/definitions/response"
+            }
+          }
+        }
+      }
+    },
+    "/bigdata/customer360/auto-pay" : {
+      "post" : {
+        "description" : "getAutoPay",
+        "operationId" : "post-bigdata-customer360-auto-pay",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "description" : "",
+          "schema" : {
+            "$ref" : "#/definitions/autoPay"
+          },
+          "required" : true
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "a response to be returned",
+            "schema" : {
+              "$ref" : "#/definitions/response"
+            }
+          }
+        }
+      }
+    },
+    "/bigdata/customer360/outages" : {
+      "post" : {
+        "description" : "getOutages",
+        "operationId" : "post-bigdata-customer360-outages",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "description" : "",
+          "schema" : {
+            "$ref" : "#/definitions/outages"
+          },
+          "required" : true
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "a response to be returned",
+            "schema" : {
+              "$ref" : "#/definitions/response"
+            }
+          }
+        }
+      }
+    },
+    "/bigdata/customer360/assistance" : {
+      "post" : {
+        "description" : "",
+        "operationId" : "post-bigdata-customer360-assistance",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "description" : "",
+          "schema" : {
+            "$ref" : "#/definitions/assistance"
+          },
+          "required" : true
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "a response to be returned",
+            "schema" : {
+              "$ref" : "#/definitions/response"
+            }
+          }
+        }
+      }
+    },
+    "/bigdata/customer360/all" : {
+      "post" : {
+        "description" : "All categories",
+        "operationId" : "post-bigdata-customer360-all",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "description" : "",
+          "schema" : {
+            "$ref" : "#/definitions/all"
+          },
+          "required" : true
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "a response to be returned",
+            "schema" : {
+              "$ref" : "#/definitions/response"
+            }
+          }
+        }
+      }
+    },
+    "/bigdata/customer360/payment-arrangement" : {
+      "post" : {
+        "description" : "getPaymentArrangement",
+        "operationId" : "post-bigdata-customer360-payment-arrangement",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "description" : "",
+          "schema" : {
+            "$ref" : "#/definitions/paymentArrangement"
+          },
+          "required" : true
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "a response to be returned",
+            "schema" : {
+              "$ref" : "#/definitions/response"
+            }
+          }
+        }
+      }
+    },
+    "/bigdata/customer360/bill-notif-enrollment-changes" : {
+      "post" : {
+        "description" : "getBillNotifEnrollmentChanges",
+        "operationId" : "post-bigdata-customer360-bill-notif-enrollment-changes",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "description" : "",
+          "schema" : {
+            "$ref" : "#/definitions/billNotif"
+          },
+          "required" : true
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "a response to be returned",
+            "schema" : {
+              "$ref" : "#/definitions/response"
+            }
+          }
+        }
+      }
+    },
+    "/bigdata/customer360/scheduled-payments" : {
+      "post" : {
+        "description" : "getScheduledPayments",
+        "operationId" : "post-bigdata-customer360-scheduled-payments",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "description" : "",
+          "schema" : {
+            "$ref" : "#/definitions/scheduledPayments"
+          },
+          "required" : true
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "a response to be returned",
+            "schema" : {
+              "$ref" : "#/definitions/response"
+            }
+          }
+        }
+      }
+    },
+    "/bigdata/customer360/bsci-replacement" : {
+      "post" : {
+        "description" : "",
+        "operationId" : "post-bigdata-customer360-bsci-replacement",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "description" : "",
+          "schema" : {
+            "$ref" : "#/definitions/bsciReplacement"
+          },
+          "required" : true
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "a response to be returned",
+            "schema" : {
+              "$ref" : "#/definitions/response"
+            }
+          }
+        }
+      }
+    },
+    "/bigdata/customer360/summer-cycler" : {
+      "post" : {
+        "description" : "getSummerCycler",
+        "operationId" : "post-bigdata-customer360-summer-cycler",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "description" : "",
+          "schema" : {
+            "$ref" : "#/definitions/summerCycler"
+          },
+          "required" : true
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "a response to be returned",
+            "schema" : {
+              "$ref" : "#/definitions/response"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "all" : {
+      "type" : "object",
+      "required" : [ "accountNumber" ],
+      "properties" : {
+        "accountNumber" : {
+          "type" : "string"
+        },
+        "history" : {
+          "type" : "integer"
+        },
+        "importancy" : {
+          "type" : "string"
+        }
+      }
+    },
+    "autoPay" : {
+      "type" : "object",
+      "required" : [ "premiseCode", "company", "customerNumber" ],
+      "properties" : {
+        "company" : {
+          "type" : "string"
+        },
+        "customerNumber" : {
+          "type" : "string"
+        },
+        "premiseCode" : {
+          "type" : "string"
+        },
+        "history" : {
+          "type" : "integer"
+        },
+        "importancy" : {
+          "type" : "string"
+        }
+      }
+    },
+    "notes" : {
+      "type" : "object",
+      "required" : [ "date", "importance", "text", "keyword" ],
+      "properties" : {
+        "text" : {
+          "type" : "string"
+        },
+        "keyword" : {
+          "type" : "string"
+        },
+        "importance" : {
+          "type" : "string"
+        },
+        "type" : {
+          "type" : "string"
+        },
+        "date" : {
+          "type" : "string"
+        },
+        "details" : {
+          "$ref" : "#/definitions/details"
+        }
+      }
+    },
+    "data" : {
+      "type" : "object",
+      "properties" : {
+        "notes" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/notes",
+            "uniqueItems" : false
+          }
+        }
+      }
+    },
+    "amr" : {
+      "type" : "object",
+      "required" : [ "premiseCode", "company", "customerNumber" ],
+      "properties" : {
+        "company" : {
+          "type" : "string"
+        },
+        "customerNumber" : {
+          "type" : "string"
+        },
+        "premiseCode" : {
+          "type" : "string"
+        },
+        "importancy" : {
+          "type" : "string"
+        },
+        "stvcntyCode" : {
+          "type" : "string"
+        },
+        "city" : {
+          "type" : "string"
+        },
+        "municipality" : {
+          "type" : "string"
+        }
+      }
+    },
+    "payments" : {
+      "type" : "object",
+      "required" : [ "premiseCode", "company", "customerNumber" ],
+      "properties" : {
+        "company" : {
+          "type" : "string"
+        },
+        "customerNumber" : {
+          "type" : "string"
+        },
+        "premiseCode" : {
+          "type" : "string"
+        },
+        "history" : {
+          "type" : "integer"
+        },
+        "importancy" : {
+          "type" : "string"
+        }
+      }
+    },
+    "outages" : {
+      "type" : "object",
+      "required" : [ "premiseCode", "company", "customerNumber" ],
+      "properties" : {
+        "company" : {
+          "type" : "string"
+        },
+        "customerNumber" : {
+          "type" : "string"
+        },
+        "premiseCode" : {
+          "type" : "string"
+        },
+        "history" : {
+          "type" : "integer"
+        },
+        "importancy" : {
+          "type" : "string"
+        },
+        "types" : {
+          "type" : "string"
+        }
+      }
+    },
+    "assistance" : {
+      "type" : "object",
+      "required" : [ "premiseCode", "company", "customerNumber" ],
+      "properties" : {
+        "company" : {
+          "type" : "string"
+        },
+        "customerNumber" : {
+          "type" : "string"
+        },
+        "premiseCode" : {
+          "type" : "string"
+        },
+        "history" : {
+          "type" : "integer"
+        },
+        "importancy" : {
+          "type" : "string"
+        }
+      }
+    },
+    "paymentDue" : {
+      "type" : "object",
+      "required" : [ "premiseCode", "company", "customerNumber" ],
+      "properties" : {
+        "company" : {
+          "type" : "string"
+        },
+        "customerNumber" : {
+          "type" : "string"
+        },
+        "premiseCode" : {
+          "type" : "string"
+        },
+        "history" : {
+          "type" : "integer"
+        },
+        "importancy" : {
+          "type" : "string"
+        }
+      }
+    },
+    "billNotif" : {
+      "type" : "object",
+      "required" : [ "premiseCode", "company", "customerNumber" ],
+      "properties" : {
+        "company" : {
+          "type" : "string"
+        },
+        "customerNumber" : {
+          "type" : "string"
+        },
+        "premiseCode" : {
+          "type" : "string"
+        },
+        "history" : {
+          "type" : "integer"
+        },
+        "importancy" : {
+          "type" : "string"
+        }
+      }
+    },
+    "scheduledPayments" : {
+      "type" : "object",
+      "required" : [ "premiseCode", "company", "customerNumber" ],
+      "properties" : {
+        "company" : {
+          "type" : "string"
+        },
+        "customerNumber" : {
+          "type" : "string"
+        },
+        "premiseCode" : {
+          "type" : "string"
+        },
+        "history" : {
+          "type" : "integer"
+        },
+        "importancy" : {
+          "type" : "string"
+        }
+      }
+    },
+    "response" : {
+      "type" : "object",
+      "required" : [ "success", "errorsExist" ],
+      "properties" : {
+        "success" : {
+          "type" : "boolean"
+        },
+        "errorsExist" : {
+          "type" : "boolean"
+        },
+        "errors" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/errors",
+            "uniqueItems" : false
+          }
+        },
+        "data" : {
+          "$ref" : "#/definitions/data"
+        }
+      }
+    },
+    "bsciReplacement" : {
+      "type" : "object",
+      "required" : [ "premiseCode", "company", "customerNumber" ],
+      "properties" : {
+        "company" : {
+          "type" : "string"
+        },
+        "customerNumber" : {
+          "type" : "string"
+        },
+        "premiseCode" : {
+          "type" : "string"
+        },
+        "history" : {
+          "type" : "integer"
+        },
+        "importancy" : {
+          "type" : "string"
+        },
+        "x" : {
+          "type" : "number"
+        },
+        "y" : {
+          "type" : "number"
+        }
+      }
+    },
+    "paymentArrangement" : {
+      "type" : "object",
+      "required" : [ "premiseCode", "company", "customerNumber" ],
+      "properties" : {
+        "company" : {
+          "type" : "string"
+        },
+        "customerNumber" : {
+          "type" : "string"
+        },
+        "premiseCode" : {
+          "type" : "string"
+        },
+        "importancy" : {
+          "type" : "string"
+        }
+      }
+    },
+    "details" : {
+      "type" : "object",
+      "properties" : { }
+    },
+    "budgetBill" : {
+      "type" : "object",
+      "required" : [ "premiseCode", "company", "customerNumber" ],
+      "properties" : {
+        "company" : {
+          "type" : "string"
+        },
+        "customerNumber" : {
+          "type" : "string"
+        },
+        "premiseCode" : {
+          "type" : "string"
+        },
+        "history" : {
+          "type" : "integer"
+        },
+        "importancy" : {
+          "type" : "string"
+        }
+      }
+    },
+    "errors" : {
+      "type" : "object",
+      "required" : [ "code", "text" ],
+      "properties" : {
+        "code" : {
+          "type" : "string"
+        },
+        "text" : {
+          "type" : "string"
+        }
+      }
+    },
+    "summerCycler" : {
+      "type" : "object",
+      "required" : [ "premiseCode", "company", "customerNumber" ],
+      "properties" : {
+        "company" : {
+          "type" : "string"
+        },
+        "customerNumber" : {
+          "type" : "string"
+        },
+        "premiseCode" : {
+          "type" : "string"
+        },
+        "history" : {
+          "type" : "integer"
+        },
+        "importancy" : {
+          "type" : "string"
+        }
+      }
+    }
+  }
+}

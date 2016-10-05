@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sca:composite xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:BW="http://xsd.tns.tibco.com/amf/models/sca/implementationtype/BW" xmlns:XMLSchema="http://www.w3.org/2001/XMLSchema" xmlns:appBuilder="http://xsd.tns.tibco.com/amf/models/sca/implementationtype/AppBuilder" xmlns:compositeext="http://schemas.tibco.com/amx/3.0/compositeext" xmlns:sca="http://www.osoa.org/xmlns/sca/1.0" xmlns:scaext="http://xsd.tns.tibco.com/amf/models/sca/extensions" xmi:id="_-lHysHpsEeawM9Yugqv4bA" targetNamespace="http://tns.tibco.com/bw/composite/adb_eBiz" name="adb_eBiz" compositeext:version="1.0.0" compositeext:formatVersion="2">
+  <sca:property xmi:id="__LOwcHpsEeawM9Yugqv4bA" name="BW.DEPLOYMENTUNIT.TYPE" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="__LaWoHpsEeawM9Yugqv4bA" name="BW.APPNODE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="__LeBAHpsEeawM9Yugqv4bA" name="BW.DEPLOYMENTUNIT.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="__LhrYHpsEeawM9Yugqv4bA" name="BW.HOST.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="__LyKEHpsEeawM9Yugqv4bA" name="BW.DOMAIN.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="__L3poHpsEeawM9Yugqv4bA" name="BW.DEPLOYMENTUNIT.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="__L7UAHpsEeawM9Yugqv4bA" name="BW.APPSPACE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="__L-XUHpsEeawM9Yugqv4bA" name="BW.MODULE.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="__MCBsHpsEeawM9Yugqv4bA" name="BW.MODULE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:component xmi:id="_-8ETEHpsEeawM9Yugqv4bA" name="ComponentProcess" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_-8E6IHpsEeawM9Yugqv4bA" processName="adb_ebiz.Process"/>
+  </sca:component>
+  <sca:component xmi:id="_Ef9ZcHptEeawM9Yugqv4bA" name="ComponentAdapterForDatabase" compositeext:version="1.0.0">
+    <scaext:implementation xsi:type="appBuilder:AppBuilderImplementation" xmi:id="_Ef-nkHptEeawM9Yugqv4bA" appBuilderThing="AdapterForDatabase.adadbmodel"/>
+  </sca:component>
+</sca:composite>

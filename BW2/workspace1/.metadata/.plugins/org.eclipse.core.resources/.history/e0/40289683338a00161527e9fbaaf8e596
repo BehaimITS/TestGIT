@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sca:composite xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:BW="http://xsd.tns.tibco.com/amf/models/sca/implementationtype/BW" xmlns:XMLSchema="http://www.w3.org/2001/XMLSchema" xmlns:compositeext="http://schemas.tibco.com/amx/3.0/compositeext" xmlns:sca="http://www.osoa.org/xmlns/sca/1.0" xmlns:scaext="http://xsd.tns.tibco.com/amf/models/sca/extensions" xmi:id="_qkGUYHpsEea3R8-FzNfatw" targetNamespace="http://tns.tibco.com/bw/composite/CacheUpdateHandlerBannerADB" name="CacheUpdateHandlerBannerADB" compositeext:version="1.0.0" compositeext:formatVersion="2">
+  <sca:property xmi:id="_qpxekHpsEea3R8-FzNfatw" name="BW.DEPLOYMENTUNIT.TYPE" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_qp2XEHpsEea3R8-FzNfatw" name="BW.APPNODE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_qp4MQHpsEea3R8-FzNfatw" name="BW.DEPLOYMENTUNIT.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_qp6BcHpsEea3R8-FzNfatw" name="BW.HOST.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_qp72oHpsEea3R8-FzNfatw" name="BW.DOMAIN.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_qp-S4HpsEea3R8-FzNfatw" name="BW.DEPLOYMENTUNIT.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_qqAIEHpsEea3R8-FzNfatw" name="BW.APPSPACE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_qqB9QHpsEea3R8-FzNfatw" name="BW.MODULE.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_qqDycHpsEea3R8-FzNfatw" name="BW.MODULE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="__jB2cIoEEeaQ3cE0aaucGQ" name="/MessageSelectors/Space/SpaceNamePaymentDue" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_UfJKYIoNEea2LulnjSes7A" name="/MessageSelectors/Space/SpaceNamePaymentArrangementDue" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_bE3s8IooEeazQr1_9mlj3w" name="/MessageSelectors/Space/SpaceNamePaymentOverview" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:component xmi:id="_QfX7cIoIEea2LulnjSes7A" name="Componentubbbhst" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_QfYigIoIEea2LulnjSes7A" processName="cacheupdatehandlerbanneradb.ubbbhst"/>
+  </sca:component>
+  <sca:component xmi:id="_upKSIIoLEea2LulnjSes7A" name="Componentuarpyar" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_upKSIYoLEea2LulnjSes7A" processName="cacheupdatehandlerbanneradb.uarpyar"/>
+  </sca:component>
+  <sca:component xmi:id="_ue55MIonEeazQr1_9mlj3w" name="ComponentPaymentOverview" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_ue55MYonEeazQr1_9mlj3w" processName="cacheupdatehandlerbanneradb.uabpymt"/>
+  </sca:component>
+</sca:composite>

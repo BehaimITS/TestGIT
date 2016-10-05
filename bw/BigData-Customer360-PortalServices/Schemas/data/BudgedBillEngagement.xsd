@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://behaimits.com/vectren/bigdata/customer360view/BudgedBillEngagement" xmlns="http://behaimits.com/vectren/bigdata/customer360view/BudgedBillEngagement" elementFormDefault="qualified">
+<xs:complexType name="BudgedBillEngagementItemType"><xs:sequence>
+<xs:element name="CRM_ID" type="xs:float" />
+<xs:element name="LKUP_STATUS_ID" type="xs:float" minOccurs="0" />
+<xs:element name="LKUP_STATE_ID" type="xs:float" minOccurs="0" />
+<xs:element name="LKUP_CRM_STATUS_ID" type="xs:float" minOccurs="0" />
+<xs:element name="MEMBER_ID" type="xs:float" minOccurs="0" />
+<xs:element name="LKUP_CRM_TYPE_ID" type="xs:float" minOccurs="0" />
+<xs:element name="NAME" type="xs:string" minOccurs="0" />
+<xs:element name="EMAIL_ADDRESS" type="xs:string" minOccurs="0" />
+<xs:element name="ZIP_CODE" type="xs:float" minOccurs="0" />
+<xs:element name="PHONE" type="xs:string" minOccurs="0" />
+<xs:element name="SUBJECT" type="xs:string" minOccurs="0" />
+<xs:element name="PHONE_WORK" type="xs:string" minOccurs="0" />
+<xs:element name="COMMENT_TEXT" type="xs:string" minOccurs="0" />
+<xs:element name="PREFERRED_CONTACT_METHOD" type="xs:string" minOccurs="0" />
+<xs:element name="CREATED_ON" type="xs:dateTime" minOccurs="0" />
+<xs:element name="CREATED_BY" type="xs:dateTime" minOccurs="0" />
+<xs:element name="UPDATED_ON" type="xs:dateTime" minOccurs="0" />
+<xs:element name="UPDATED_BY" type="xs:float" minOccurs="0" />
+<xs:element name="TOPIC" type="xs:string" minOccurs="0" />
+<xs:element name="ACCOUNT_NUMBER" type="xs:string" minOccurs="0" />
+<xs:element name="FIRST_NAME" type="xs:string" minOccurs="0" />
+<xs:element name="LAST_NAME" type="xs:string" minOccurs="0" />
+<xs:element name="MIDDLE_INITIAL" type="xs:string" minOccurs="0" />
+<xs:element name="TITLE" type="xs:string" minOccurs="0" />
+<xs:element name="SUFFIX" type="xs:string" minOccurs="0" />
+<xs:element name="CRM_STATUS" type="xs:float" minOccurs="0" />
+<xs:element name="EMAIL_FLAG" type="xs:float" minOccurs="0" />
+<xs:element name="ADDRESS1" type="xs:string" minOccurs="0" />
+<xs:element name="ADDRESS2" type="xs:string" minOccurs="0" />
+<xs:element name="CITY" type="xs:string" minOccurs="0" />
+<xs:element name="CONTACT_FLAG" type="xs:float" minOccurs="0" />
+<xs:element name="SOURCE" type="xs:string" minOccurs="0" />
+<xs:element name="BILLING_ADDRESS1" type="xs:string" minOccurs="0" />
+<xs:element name="BILLING_ADDRESS2" type="xs:string" minOccurs="0" />
+<xs:element name="BILLING_CITY" type="xs:string" minOccurs="0" />
+<xs:element name="BILLING_LKUP_STATE_ID" type="xs:float" minOccurs="0" />
+<xs:element name="BILLING_ZIP_CODE" type="xs:string" minOccurs="0" />
+<xs:element name="EXTENSION" type="xs:string" minOccurs="0" />
+</xs:sequence></xs:complexType><xs:element name="BudgedBillEngagementItem" type="BudgedBillEngagementItemType" /></xs:schema>

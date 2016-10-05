@@ -1,0 +1,13 @@
+com.tibco.bw.core.design.debug.ui.launch.existingApplications=BigData-Customer360-InitialLoad.application/BigData-Customer360-PortalServices.application/CacheUpdate.application/CacheUpdateHandlerBannerADB.application/CacheUpdateHandlerEbizADB.application/CacheUpdateHandlerPowerOnADB.application/SendEmailUtility.application/SendEmailUtilityTest.application/adb_PowerOn.application/adb_banner.application/adb_eBiz.application/
+com.tibco.bw.core.design.debug.ui.launch.processesArg=CacheUpdateHandlerBannerADB.application\=cacheupdatehandlerbanneradb.ubbbhst/
+com.tibco.bw.core.design.debug.ui.launch.selectedApplications=CacheUpdateHandlerBannerADB.application/
+com.tibco.bw.core.design.debug.ui.launch.selectedModules=CacheUpdateHandlerBannerADB/
+com.tibco.bw.core.design.debug.ui.launch.selectedProcesses=CacheUpdateHandlerBannerADB\=cacheupdatehandlerbanneradb.ubbbhst/
+com.tibco.bw.core.design.debug.ui.view.BWProcessInstanceView+com.tibco.bw.core.design.debug.ui.actions.BWShowInstanceSatckByTempleteAction=true
+eclipse.preferences.version=1
+org.eclipse.debug.ui.DebugView+com.tibco.bw.core.design.debug.ui.actions.BWShowStackByTempleteAction=true
+org.eclipse.debug.ui.PREF_LAUNCH_PERSPECTIVES=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\r\n<launchPerspectives/>\r\n
+org.eclipse.debug.ui.activate_debug_view=false
+org.eclipse.debug.ui.activate_workbench=false
+pref_state_memento.org.eclipse.debug.ui.DebugVieworg.eclipse.debug.ui.DebugView=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<DebugViewMemento org.eclipse.debug.ui.BREADCRUMB_DROPDOWN_AUTO_EXPAND\="false"/>
+preferredDetailPanes=DefaultDetailPane\:DefaultDetailPane|

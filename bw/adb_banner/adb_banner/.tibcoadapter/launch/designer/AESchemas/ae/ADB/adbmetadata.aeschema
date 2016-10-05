@@ -1,0 +1,890 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Repository:repository xmlns:AESchema="http://www.tibco.com/xmlns/aemeta/types/2002" xmlns:Repository="http://www.tibco.com/xmlns/repo/types/2002" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <AESchema:class name="SQL_REQUEST">
+        <AESchema:attribute>
+            <AESchema:name>STATEMENTS</AESchema:name>
+            <AESchema:attributeType isRef="true">#sequence.sequence[SQL_STATEMENT]</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+        <AESchema:attribute>
+            <AESchema:name>CLOSURE</AESchema:name>
+            <AESchema:attributeType isRef="true">/AESchemas/ae.aeschema#scalar.any</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+    </AESchema:class>
+    <AESchema:class name="POLL_COMMAND">
+        <AESchema:attribute>
+            <AESchema:name>ID</AESchema:name>
+            <AESchema:attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+        <AESchema:attribute>
+            <AESchema:name>PUBLISHING_TABLE</AESchema:name>
+            <AESchema:attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+        <AESchema:attribute>
+            <AESchema:name>RETURN_CLASS</AESchema:name>
+            <AESchema:attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+        <AESchema:attribute>
+            <AESchema:name>RETURN_QUEUE</AESchema:name>
+            <AESchema:attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+        <AESchema:attribute>
+            <AESchema:name>DATA_SOURCE</AESchema:name>
+            <AESchema:attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+        <AESchema:attribute>
+            <AESchema:name>USER_NAME</AESchema:name>
+            <AESchema:attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+        <AESchema:attribute>
+            <AESchema:name>PASSWORD</AESchema:name>
+            <AESchema:attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+        <AESchema:attribute>
+            <AESchema:name>DATABASE_NAME</AESchema:name>
+            <AESchema:attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+    </AESchema:class>
+    <AESchema:class name="ADB_SUBSCRIBER_STATUS">
+        <AESchema:attribute>
+            <AESchema:name>RETURN_CODE</AESchema:name>
+            <AESchema:attributeType isRef="true">/AESchemas/ae.aeschema#scalar.i4</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+        <AESchema:attribute>
+            <AESchema:name>ADB_TEXT</AESchema:name>
+            <AESchema:attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+        <AESchema:attribute>
+            <AESchema:name>CALLOUT_TEXT</AESchema:name>
+            <AESchema:attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+        <AESchema:attribute>
+            <AESchema:name>NUMBER_OF_UPDATED_ROW</AESchema:name>
+            <AESchema:attributeType isRef="true">/AESchemas/ae.aeschema#scalar.i4</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+    </AESchema:class>
+    <AESchema:class name="ADB_TABLEMAPPING">
+        <AESchema:attribute>
+            <AESchema:name>PUB_CHILD_TABLE</AESchema:name>
+            <AESchema:attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+        <AESchema:attribute>
+            <AESchema:name>SUB_CHILD_TABLE</AESchema:name>
+            <AESchema:attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+    </AESchema:class>
+    <AESchema:class name="ADB_PREREGLISTENER">
+        <AESchema:attribute>
+            <AESchema:name>SUBJECT</AESchema:name>
+            <AESchema:attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+        <AESchema:attribute>
+            <AESchema:name>LISTENER</AESchema:name>
+            <AESchema:attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+    </AESchema:class>
+    <AESchema:class name="ADB_SUBINFO">
+        <AESchema:attribute>
+            <AESchema:name>SUBJECT</AESchema:name>
+            <AESchema:attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+        <AESchema:attribute>
+            <AESchema:name>DESTINATION_TABLE</AESchema:name>
+            <AESchema:attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+        <AESchema:attribute>
+            <AESchema:name>QUALITY_OF_SERVICE</AESchema:name>
+            <AESchema:attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+        <AESchema:attribute>
+            <AESchema:name>DATA_FORMAT</AESchema:name>
+            <AESchema:attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+        <AESchema:attribute>
+            <AESchema:name>DATA_SOURCE</AESchema:name>
+            <AESchema:attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+        <AESchema:attribute>
+            <AESchema:name>USER_NAME</AESchema:name>
+            <AESchema:attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+        <AESchema:attribute>
+            <AESchema:name>PASSWORD</AESchema:name>
+            <AESchema:attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+        <AESchema:attribute>
+            <AESchema:name>DATABASE_NAME</AESchema:name>
+            <AESchema:attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+        <AESchema:attribute>
+            <AESchema:name>EXCEPTION_TABLE</AESchema:name>
+            <AESchema:attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+    </AESchema:class>
+    <AESchema:class name="ADB_PUBINFO">
+        <AESchema:attribute>
+            <AESchema:name>SUBJECT</AESchema:name>
+            <AESchema:attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+        <AESchema:attribute>
+            <AESchema:name>SOURCE_TABLE</AESchema:name>
+            <AESchema:attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+        <AESchema:attribute>
+            <AESchema:name>PUBLISHING_TABLE</AESchema:name>
+            <AESchema:attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+        <AESchema:attribute>
+            <AESchema:name>QUALITY_OF_SERVICE</AESchema:name>
+            <AESchema:attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+        <AESchema:attribute>
+            <AESchema:name>DATA_FORMAT</AESchema:name>
+            <AESchema:attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+        <AESchema:attribute>
+            <AESchema:name>DATA_SOURCE</AESchema:name>
+            <AESchema:attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+        <AESchema:attribute>
+            <AESchema:name>STORAGE_MODE</AESchema:name>
+            <AESchema:attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+        <AESchema:attribute>
+            <AESchema:name>USER_NAME</AESchema:name>
+            <AESchema:attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+        <AESchema:attribute>
+            <AESchema:name>PASSWORD</AESchema:name>
+            <AESchema:attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+        <AESchema:attribute>
+            <AESchema:name>DATABASE_NAME</AESchema:name>
+            <AESchema:attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+    </AESchema:class>
+    <AESchema:class name="ADB_RELINFO">
+        <AESchema:attribute>
+            <AESchema:name>RELATIONSHIP_NAME</AESchema:name>
+            <AESchema:attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+        <AESchema:attribute>
+            <AESchema:name>PARENT_TABLE</AESchema:name>
+            <AESchema:attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+        <AESchema:attribute>
+            <AESchema:name>PARENT_KEYS</AESchema:name>
+            <AESchema:attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+        <AESchema:attribute>
+            <AESchema:name>CHILD_TABLE</AESchema:name>
+            <AESchema:attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+        <AESchema:attribute>
+            <AESchema:name>IS_PUB</AESchema:name>
+            <AESchema:attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+    </AESchema:class>
+    <AESchema:class name="TERMINATE"/>
+    <AESchema:class name="SQL_COMMAND">
+        <AESchema:attribute>
+            <AESchema:name>ID</AESchema:name>
+            <AESchema:attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+        <AESchema:attribute>
+            <AESchema:name>COMMAND</AESchema:name>
+            <AESchema:attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+        <AESchema:attribute>
+            <AESchema:name>RETURN_CLASS</AESchema:name>
+            <AESchema:attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+        <AESchema:attribute>
+            <AESchema:name>RETURN_QUEUE</AESchema:name>
+            <AESchema:attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+        <AESchema:attribute>
+            <AESchema:name>DATA_SOURCE</AESchema:name>
+            <AESchema:attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+        <AESchema:attribute>
+            <AESchema:name>USER_NAME</AESchema:name>
+            <AESchema:attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+        <AESchema:attribute>
+            <AESchema:name>PASSWORD</AESchema:name>
+            <AESchema:attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+        <AESchema:attribute>
+            <AESchema:name>DATABASE_NAME</AESchema:name>
+            <AESchema:attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+    </AESchema:class>
+    <AESchema:class name="SQL_STATUS">
+        <AESchema:attribute>
+            <AESchema:name>ID</AESchema:name>
+            <AESchema:attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+        <AESchema:attribute>
+            <AESchema:name>STATUS</AESchema:name>
+            <AESchema:attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+        <AESchema:attribute>
+            <AESchema:name>MESSAGE</AESchema:name>
+            <AESchema:attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+    </AESchema:class>
+    <AESchema:class name="NEW_SUBSCRIPTION">
+        <AESchema:attribute>
+            <AESchema:name>SUBJECT</AESchema:name>
+            <AESchema:attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+    </AESchema:class>
+    <AESchema:class name="NEW_PUBLICATION">
+        <AESchema:attribute>
+            <AESchema:name>SUBJECT</AESchema:name>
+            <AESchema:attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+    </AESchema:class>
+    <AESchema:class name="CONFIRM_MESSAGE"/>
+    <AESchema:class name="COMMIT_TRANSACTION"/>
+    <AESchema:class name="SPLIT_MESSAGE">
+        <AESchema:attribute>
+            <AESchema:name>ID</AESchema:name>
+            <AESchema:attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+        <AESchema:attribute>
+            <AESchema:name>CLASSNAME</AESchema:name>
+            <AESchema:attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+        <AESchema:attribute>
+            <AESchema:name>CHUNK_NUM</AESchema:name>
+            <AESchema:attributeType isRef="true">/AESchemas/ae.aeschema#scalar.i4</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+        <AESchema:attribute>
+            <AESchema:name>CHUNK_SIZE</AESchema:name>
+            <AESchema:attributeType isRef="true">/AESchemas/ae.aeschema#scalar.i4</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+        <AESchema:attribute>
+            <AESchema:name>MESSAGE_SIZE</AESchema:name>
+            <AESchema:attributeType isRef="true">/AESchemas/ae.aeschema#scalar.i4</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+        <AESchema:attribute>
+            <AESchema:name>CHUNK_BUFFER</AESchema:name>
+            <AESchema:attributeType isRef="true">/AESchemas/ae.aeschema#scalar.binary</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+    </AESchema:class>
+    <AESchema:class name="adbDateTime">
+        <AESchema:attribute>
+            <AESchema:name>dateTime</AESchema:name>
+            <AESchema:attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+    </AESchema:class>
+    <AESchema:class name="ExplicitNull">
+        <AESchema:attribute>
+            <AESchema:name>explicitNullAttribute</AESchema:name>
+            <AESchema:attributeType isRef="true">/AESchemas/ae.aeschema#scalar.boolean</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+    </AESchema:class>
+    <AESchema:class name="MULTIROW_MESSAGE">
+        <AESchema:attribute>
+            <AESchema:name>MULTIROW_STMT</AESchema:name>
+            <AESchema:attributeType isRef="true">/AESchemas/ae/ADB/scalar.aeschema#sequence.sequence[any]</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+    </AESchema:class>
+    <AESchema:class name="ADB_REQREPINFO">
+        <AESchema:attribute>
+            <AESchema:name>REQUEST_SUBJECT</AESchema:name>
+            <AESchema:attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+        <AESchema:attribute>
+            <AESchema:name>REPLY_SUBJECT</AESchema:name>
+            <AESchema:attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+        <AESchema:attribute>
+            <AESchema:name>QUEUE_NAME</AESchema:name>
+            <AESchema:attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+        <AESchema:attribute>
+            <AESchema:name>QUALITY_OF_SERVICE</AESchema:name>
+            <AESchema:attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+        <AESchema:attribute>
+            <AESchema:name>DATA_FORMAT</AESchema:name>
+            <AESchema:attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+        <AESchema:attribute>
+            <AESchema:name>DATA_SOURCE</AESchema:name>
+            <AESchema:attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+        <AESchema:attribute>
+            <AESchema:name>USER_NAME</AESchema:name>
+            <AESchema:attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+        <AESchema:attribute>
+            <AESchema:name>PASSWORD</AESchema:name>
+            <AESchema:attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+        <AESchema:attribute>
+            <AESchema:name>DATABASE_NAME</AESchema:name>
+            <AESchema:attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+    </AESchema:class>
+    <AESchema:class name="SQL_ROW">
+        <AESchema:attribute>
+            <AESchema:name>ROW</AESchema:name>
+            <AESchema:attributeType isRef="true">/AESchemas/ae/ADB/scalar.aeschema#sequence.sequence[any]</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+    </AESchema:class>
+    <AESchema:class name="SQL_BIND">
+        <AESchema:attribute>
+            <AESchema:name>POSITION</AESchema:name>
+            <AESchema:attributeType isRef="true">/AESchemas/ae.aeschema#scalar.i4</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+        <AESchema:attribute>
+            <AESchema:name>NAME</AESchema:name>
+            <AESchema:attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+        <AESchema:attribute>
+            <AESchema:name>PARAMTYPE</AESchema:name>
+            <AESchema:attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default>IN</AESchema:default>
+        </AESchema:attribute>
+        <AESchema:attribute>
+            <AESchema:name>DATA</AESchema:name>
+            <AESchema:attributeType isRef="true">/AESchemas/ae.aeschema#scalar.any</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+    </AESchema:class>
+    <AESchema:class name="SQL_RESULTSET">
+        <AESchema:attribute>
+            <AESchema:name>HEADER</AESchema:name>
+            <AESchema:attributeType isRef="true">/AESchemas/ae/ADB/scalar.aeschema#sequence.sequence[string]</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+        <AESchema:attribute>
+            <AESchema:name>ROWVALUES</AESchema:name>
+            <AESchema:attributeType isRef="true">#sequence.sequence[SQL_ROW]</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+    </AESchema:class>
+    <AESchema:class name="SQL_RETURN">
+        <AESchema:attribute>
+            <AESchema:name>STATUS</AESchema:name>
+            <AESchema:attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+        <AESchema:attribute>
+            <AESchema:name>SQL</AESchema:name>
+            <AESchema:attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+        <AESchema:attribute>
+            <AESchema:name>ERROR_DESC</AESchema:name>
+            <AESchema:attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+        <AESchema:attribute>
+            <AESchema:name>CLOSURE</AESchema:name>
+            <AESchema:attributeType isRef="true">/AESchemas/ae.aeschema#scalar.any</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+        <AESchema:attribute>
+            <AESchema:name>RETURNVALUE</AESchema:name>
+            <AESchema:attributeType isRef="true">#class.SQL_RETURNVALUE</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+    </AESchema:class>
+    <AESchema:class name="SQL_BATCHRETURN">
+        <AESchema:attribute>
+            <AESchema:name>STATUS</AESchema:name>
+            <AESchema:attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+        <AESchema:attribute>
+            <AESchema:name>SQL</AESchema:name>
+            <AESchema:attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+        <AESchema:attribute>
+            <AESchema:name>ERROR_DESC</AESchema:name>
+            <AESchema:attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+        <AESchema:attribute>
+            <AESchema:name>CLOSURE</AESchema:name>
+            <AESchema:attributeType isRef="true">/AESchemas/ae.aeschema#scalar.any</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+        <AESchema:attribute>
+            <AESchema:name>RETURNVALUES</AESchema:name>
+            <AESchema:attributeType isRef="true">#sequence.sequence[SQL_RETURNVALUE]</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+    </AESchema:class>
+    <AESchema:class name="SQL_RETURNVALUE">
+        <AESchema:attribute>
+            <AESchema:name>CLOSURE</AESchema:name>
+            <AESchema:attributeType isRef="true">/AESchemas/ae.aeschema#scalar.any</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+        <AESchema:attribute>
+            <AESchema:name>OUTBINDS</AESchema:name>
+            <AESchema:attributeType isRef="true">#sequence.sequence[SQL_BIND]</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+        <AESchema:attribute>
+            <AESchema:name>RESULTSETS</AESchema:name>
+            <AESchema:attributeType isRef="true">#sequence.sequence[SQL_RESULTSET]</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+    </AESchema:class>
+    <AESchema:class name="SQL_STATEMENT">
+        <AESchema:attribute>
+            <AESchema:name>MAXROWS</AESchema:name>
+            <AESchema:attributeType isRef="true">/AESchemas/ae.aeschema#scalar.i4</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+        <AESchema:attribute>
+            <AESchema:name>SQL_STRING</AESchema:name>
+            <AESchema:attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+        <AESchema:attribute>
+            <AESchema:name>CLOSURE</AESchema:name>
+            <AESchema:attributeType isRef="true">/AESchemas/ae.aeschema#scalar.any</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+        <AESchema:attribute>
+            <AESchema:name>BINDS</AESchema:name>
+            <AESchema:attributeType isRef="true">#sequence.sequence[SQL_BIND]</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+    </AESchema:class>
+    <AESchema:class name="CUSTOM_OP_OUTPUT_OPTION">
+        <AESchema:attribute>
+            <AESchema:name>ERROR_DESC</AESchema:name>
+            <AESchema:attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+        <AESchema:attribute>
+            <AESchema:name>SQL</AESchema:name>
+            <AESchema:attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</AESchema:attributeType>
+            <AESchema:isKey>false</AESchema:isKey>
+            <AESchema:isReadable>true</AESchema:isReadable>
+            <AESchema:isWriteable>true</AESchema:isWriteable>
+            <AESchema:default></AESchema:default>
+        </AESchema:attribute>
+    </AESchema:class>
+    <AESchema:rpcClass name="SQL_OPS">
+        <AESchema:operation>
+            <AESchema:name>SQL_BATCHEXECUTE</AESchema:name>
+            <AESchema:returnType isRef="true">#class.SQL_BATCHRETURN</AESchema:returnType>
+            <AESchema:oneway>false</AESchema:oneway>
+            <AESchema:parameter>
+                <AESchema:name>STATEMENTS</AESchema:name>
+                <AESchema:parameterType isRef="true">#sequence.sequence[SQL_STATEMENT]</AESchema:parameterType>
+                <AESchema:direction>in</AESchema:direction>
+            </AESchema:parameter>
+        </AESchema:operation>
+        <AESchema:operation>
+            <AESchema:name>SQL_EXECUTE</AESchema:name>
+            <AESchema:returnType isRef="true">#class.SQL_RETURN</AESchema:returnType>
+            <AESchema:oneway>false</AESchema:oneway>
+            <AESchema:parameter>
+                <AESchema:name>STATEMENT</AESchema:name>
+                <AESchema:parameterType isRef="true">#class.SQL_STATEMENT</AESchema:parameterType>
+                <AESchema:direction>in</AESchema:direction>
+            </AESchema:parameter>
+        </AESchema:operation>
+    </AESchema:rpcClass>
+    <AESchema:sequence name="sequence[SQL_ROW]">
+        <AESchema:maxLength>0</AESchema:maxLength>
+        <AESchema:elementType isRef="true">#class.SQL_ROW</AESchema:elementType>
+    </AESchema:sequence>
+    <AESchema:sequence name="sequence[SQL_BIND]">
+        <AESchema:maxLength>0</AESchema:maxLength>
+        <AESchema:elementType isRef="true">#class.SQL_BIND</AESchema:elementType>
+    </AESchema:sequence>
+    <AESchema:sequence name="sequence[SQL_RESULTSET]">
+        <AESchema:maxLength>0</AESchema:maxLength>
+        <AESchema:elementType isRef="true">#class.SQL_RESULTSET</AESchema:elementType>
+    </AESchema:sequence>
+    <AESchema:sequence name="sequence[SQL_STATEMENT]">
+        <AESchema:maxLength>0</AESchema:maxLength>
+        <AESchema:elementType isRef="true">#class.SQL_STATEMENT</AESchema:elementType>
+    </AESchema:sequence>
+    <AESchema:sequence name="sequence[SQL_RETURNVALUE]">
+        <AESchema:maxLength>0</AESchema:maxLength>
+        <AESchema:elementType isRef="true">#class.SQL_RETURNVALUE</AESchema:elementType>
+    </AESchema:sequence>
+</Repository:repository>

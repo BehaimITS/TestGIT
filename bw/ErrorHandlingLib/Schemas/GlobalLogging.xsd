@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="vectren.com:schemas:utility:global_log" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="vectren.com:schemas:utility:global_log" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:element name="Payload">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="MessageHeader"/>
+				<xsd:element ref="GlobalLog"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="EventType">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:enumeration value="INFO"/>
+				<xsd:enumeration value="WARN"/>
+				<xsd:enumeration value="ERROR"/>
+				<xsd:enumeration value="DEBUG"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="Error">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="ErrorCode"/>
+				<xsd:element ref="ErrorDescription"/>
+				<xsd:element ref="AdditionalInfo" minOccurs="0"/>
+				<xsd:element ref="Reprocess"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="ErrorCode">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:maxLength value="20"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="ErrorDescription">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="AdditionalInfo">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:maxLength value="500"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="EventDetail">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="EventInfo"/>
+				<xsd:element ref="Error" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="EventInfo">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="GlobalLog">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="EventType"/>
+				<xsd:element ref="EventTime"/>
+				<xsd:element ref="EventDetail"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="EventTime" type="xsd:dateTime"/>
+	<xsd:element name="MessageHeader">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="BWApplicationName"/>
+				<xsd:element ref="BWApplicationVersion"/>
+				<xsd:element ref="BWDomainName"/>
+				<xsd:element ref="BWAppNodeName"/>
+				<xsd:element ref="BWAppSpaceName"/>
+				<xsd:element ref="MsgTimestamp"/>
+				<xsd:element ref="ProcessName"/>
+				<xsd:element ref="ProcessId"/>
+				<xsd:element ref="JobId"/>
+				<xsd:element ref="TaskName"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="BWApplicationName" type="xsd:string"/>
+	<xsd:element name="BWApplicationVersion" type="xsd:string"/>
+	<xsd:element name="BWDomainName" type="xsd:string"/>
+	<xsd:element name="BWAppNodeName" type="xsd:string"/>
+	<xsd:element name="BWAppSpaceName" type="xsd:string"/>
+	<xsd:element name="ProcessName" type="xsd:string"/>
+	<xsd:element name="ProcessId" type="xsd:string"/>
+	<xsd:element name="JobId" type="xsd:string"/>
+	<xsd:element name="InterfaceName" type="xsd:string"/>
+	<xsd:element name="MsgTimestamp" type="xsd:dateTime"/>
+	<xsd:element name="TaskName" type="xsd:string"/>
+	<xsd:element name="Reprocess" type="xsd:boolean"/>
+</xsd:schema>

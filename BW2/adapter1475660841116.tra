@@ -1,0 +1,75 @@
+tibco.env.PSP ;
+
+tibco.env.TIB_ADADB_HOME C:/Opt/Tibco1/adapter/adadb/7.2
+
+tibco.env.SDK_HOME C:/Opt/Tibco1/adapter/sdk/6.0
+
+tibco.env.TIB_HOME C:/Opt/Tibco1
+
+tibco.env.RV_HOME C:/Opt/Tibco1/tibrv/8.4
+
+tibco.env.EMS_HOME %TIBCO_EMS_HOME_ESC%
+
+tibco.env.TPCL_HOME C:/Opt/Tibco1/tpcl/5.10
+
+tibco.env.TRA_HOME C:/Opt/Tibco1/tra/5.10
+
+tibco.env.TRA_APPEND_VERSION 5.10
+
+tibco.env.JVM_LIB_DIR C:/Opt/Tibco1/tibcojre64/1.8.0/bin/server
+
+tibco.env.JVM_FLAVOR_LIB_DIR %TIBCO_JVM_FLAVOR_LIB_DIR_ESC%
+
+tibco.env.JVM_LIB_PATH C:/Opt/Tibco1/tibcojre64/1.8.0/bin/server/jvm.dll
+
+tibco.env.FILE_ENCODING UTF-8
+
+tibco.env.HEAP_SIZE 256M
+
+tibco.env.CUSTOM_CP_EXT C:/Opt/Tibco1/tpcl/5.10/jdbc
+
+tibco.env.CUSTOM_PATH C:/Opt/Tibco1/tibcojre64/1.8.0/bin
+
+tibco.repourl <repourl>
+
+tibco.configurl <configurl>
+
+ntservice.name TIBCO ActiveMatrix Adapter for Database 
+
+ntservice.displayname TIBCO ActiveMatrix Adapter for Database 
+
+ntservice.starttype <manual/automatic>
+
+ntservice.binary.path.absolute C:/Opt/Tibco1/adapter/adadb/7.2/bin/adbagent.exe
+
+ntservice.interactive true
+
+application.args -system:configurl "AdapterForDatabase" -system:propFile C\:\\TestGIT1\\BW2\\adapter1475660841116.tra
+application.start.dir C:/Opt/Tibco1/adapter/adadb/7.2
+
+java.library %JVM_LIB_PATH%
+
+java.start.class com.tibco.adapter.adb.core.ADBAdapter
+
+java.start.method main
+
+java.stop.class com.tibco.adapter.adb.core.ADBAdapter
+
+java.stop.method shutdown
+
+java.heap.size.max %HEAP_SIZE%
+
+java.property.file.encoding %FILE_ENCODING%
+
+java.property.TIBCO_HOME %TIB_HOME%
+
+java.property.TIBCO_TRA_VERSION %TRA_APPEND_VERSION%
+
+tibco.env.PATH %CUSTOM_PATH%;%TIB_ADADB_HOME%/bin;%SDK_HOME%/bin;%TRA_HOME%/hotfix/bin;%TRA_HOME%/bin;%RV_HOME%/bin;%EMS_HOME%/bin;%TPCL_HOME%/bin
+
+tibco.env.STD_CP_EXT %SDK_HOME%/lib;%TRA_HOME%/hotfix/lib;%TRA_HOME%/lib;%TPCL_HOME%/lib;%RV_HOME%/lib/tibrvj.jar;%RV_HOME%/lib;%EMS_HOME%/lib;%TPCL_HOME%/lib/entrust
+
+tibco.class.path.extended %CUSTOM_CP_EXT%;%TIB_ADADB_HOME%/lib;%STD_CP_EXT%
+
+tibco.env.CUSTOM_LIB_PATH %RV_HOME%/lib/64
+

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:tns="http://xmlns.vectren.com/tibco/HandleErrorService.wsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="HandleErrorService" targetNamespace="http://xmlns.vectren.com/tibco/HandleErrorService.wsdl">
+  <wsdl:types>
+    <xsd:schema xmlns:log="vectren.com:schemas:utility:global_log" elementFormDefault="unqualified" targetNamespace="http://xmlns.vectren.com/tibco/HandleErrorService.wsdl">
+	<xsd:import namespace="vectren.com:schemas:utility:global_log" schemaLocation="../Schemas/GlobalLogging.xsd"/>
+      <xsd:element name="operationRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="log:Payload"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="operationResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="out" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="operationFault">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="fault" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="operationRequest1">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="in" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+        </xsd:schema>
+  </wsdl:types>
+  
+  <wsdl:message name="operationRequest">
+    <wsdl:part element="tns:operationRequest" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="operationResponse">
+    <wsdl:part element="tns:operationResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="operationFault">
+    <wsdl:part element="tns:operationFault" name="parameters"/>
+  </wsdl:message>
+    <wsdl:message name="operationRequest1">
+    <wsdl:part element="tns:operationRequest1" name="parameters"/>
+  </wsdl:message>
+    <wsdl:portType name="HandleErrorService">
+    <wsdl:operation name="handleError">
+      <wsdl:input message="tns:operationRequest" name="operationInput"/>
+      <wsdl:output message="tns:operationResponse" name="operationOutput"/>
+      <wsdl:fault message="tns:operationFault" name="Fault"/>
+    </wsdl:operation>
+        <wsdl:operation name="operation">
+      <wsdl:input message="tns:operationRequest1" name="operationInput0"/>
+    </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>

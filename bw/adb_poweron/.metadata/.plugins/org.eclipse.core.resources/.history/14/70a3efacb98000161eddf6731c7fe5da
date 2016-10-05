@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:adadbmodel="http://xsd.tns.tibco.com/adadb/models/adadbmodel" xmlns:common="http://xsd.tns.tibco.com/amf/models/adapter/common" xmlns:gac="http://xsd.tns.tibco.com/amf/models/adapter/gac">
+  <adadbmodel:ADBAdapterConfiguration name="AdapterForDatabase" instanceId="AdapterForDatabase" services="#/8 #/11 #/13 #/15" reporting="#/4" logging="#/5" monitoring="#/6" transports="#/3 #/7 #/10" channels="#/9 #/12 #/14 #/16" vendor="16" runTimeConnection="#/1" convertOracleNumberToString="true" deployOperations="true">
+    <startup active="true" showBanner="true">
+      <components active="true" componentName="ADBHawkDefault"/>
+      <components active="true" componentName="ADBAgentJmsSession"/>
+      <components active="true" componentName="adb_po_call_mv"/>
+      <components active="true" componentName="JMSTopic"/>
+      <components active="true" componentName="asb_po_cust_interr_data_mv"/>
+      <components active="true" componentName="asb_cis_customer_mv"/>
+      <components active="true" componentName="adb_vn_outage_all_mv"/>
+    </startup>
+    <hawk help="TIB/Adapter for ActiveDatabase MicroAgent" microAgentName="COM.TIBCO.adb.custom.%%Deployment%%.%%InstanceId%%" transport="#/3">
+      <methods name="setDebugLevel" help="Sets the debug level for the agent (possible values 0-3)">
+        <inputParameters name="DebugLevel" help="The debug level" type="integer"/>
+      </methods>
+      <methods name="showConfiguration" help="Retrieve configuration information for the agent.">
+        <outputParameters name="VerboseInfo" help="Verbose flag information" type="string"/>
+        <outputParameters name="DebugLevelInfo" help="Debug level information" type="string"/>
+        <outputParameters name="PollIntervalInfo" help="Poll interval information" type="string"/>
+      </methods>
+      <methods name="terminateADBagent" help="Terminates the agent"/>
+      <methods name="toggleVerboseFlag" help="Toggles the value of the verbose flag."/>
+      <methods name="getEventQueueSize" help="Gets number of messages waiting in the event queue.">
+        <inputParameters name="Session" help="Specify subscriber or request/reply listener" type="string" valueChoices="Subscriber,RequestReply"/>
+        <outputParameters name="QueueCount" help="Number of events in the queue" type="integer"/>
+        <outputParameters name="QueueLimit" help="Maximum number of events in queue (0 = unlimited)" type="integer"/>
+      </methods>
+      <methods name="getActivityStatistics" help="Get statistics about the data handled by the adapter instance" index="Name">
+        <inputParameters name="Get Subtotal By" help="Get statistics by either service or operation" type="string" valueChoices="Service,Operation"/>
+        <outputParameters name="Name" help="Service Name" type="string"/>
+        <outputParameters name="Total" help="Total number of objects processed" type="integer"/>
+        <outputParameters name="Success" help="Total number of objects successfully processed" type="integer"/>
+        <outputParameters name="Failure" help="Total number of objects that caused an error during processing" type="integer"/>
+      </methods>
+      <methods name="getActivityStatisticsByService" help="Get statistics about the data handled by a particular adapter service" index="Operation">
+        <inputParameters name="Service Name" help="Name of which service to get the statistic for" type="string"/>
+        <outputParameters name="Operation" help="The type of operation this service provides" type="string"/>
+        <outputParameters name="SchemaName" help="Name of the top level schema processed by this service, or the subject of a request/response service" type="string"/>
+        <outputParameters name="Total" help="Total number of objects processed" type="integer"/>
+        <outputParameters name="Success" help="Total number of objects successfully processed" type="integer"/>
+        <outputParameters name="Failure" help="Total number of objects that caused an error during processing" type="integer"/>
+      </methods>
+      <methods name="getActivityStatisticsByOperation" help="Get statistics about one operation" index="ServiceName">
+        <inputParameters name="Operation" help="Name of the operation" type="string" valueChoices="fetch,insert,update,delete,request/reply,standard_operation,custom_operation"/>
+        <outputParameters name="ServiceName" help="Name of the Service" type="string"/>
+        <outputParameters name="Total" help="Total number of objects processed" type="integer"/>
+        <outputParameters name="Success" help="Total number of objects successfully processed" type="integer"/>
+        <outputParameters name="Failure" help="Total number of objects that caused an error during processing" type="integer"/>
+      </methods>
+      <methods name="getThreadStatistics" help="Get operation counts of the current threads" index="TaskType">
+        <outputParameters name="ThreadID" help="A unique identification of a particular thread" type="string"/>
+        <outputParameters name="ThreadType" help="A type that tells what part of the adapter this thread belongs to" type="string"/>
+        <outputParameters name="TaskType" help="Description of the tasks this thread processes" type="string"/>
+        <outputParameters name="TaskCount" help="Number of tasks processed by this thread" type="integer"/>
+      </methods>
+      <methods name="getQueueStatistics" help="Get statistics about current count of elements in any internal queue" index="QueueID">
+        <outputParameters name="QueueID" help="A unique identification of a particular queue" type="string"/>
+        <outputParameters name="QueueType" help="A type that will match this queue to a thread or connection" type="string"/>
+        <outputParameters name="QueueCount" help="Current number of elements in the queue" type="integer"/>
+        <outputParameters name="MaxQueueSize" help="Maximum number of elements that can be held in this queue" type="integer"/>
+      </methods>
+      <methods name="getConnectionStatistics" help="Return the state and statistics for all the curent connections used by the adapter" index="ConnectionID">
+        <outputParameters name="ConnectionID" help="A unique identification of a particular connection" type="string"/>
+        <outputParameters name="ConnectionType" help="Describe the purpose of this connection serves to the adapter" type="string"/>
+        <outputParameters name="State" help="Current state of the connection" type="string"/>
+        <outputParameters name="NumRetries" help="Total number of times this connection had been re-established" type="integer"/>
+        <outputParameters name="TotalNumOperations" help="Total number of operations processed by this connection" type="integer"/>
+        <outputParameters name="CurrentNumOperations" help="Total number of operations processed by this connection since the last reconnection" type="integer"/>
+      </methods>
+      <methods name="resetActivityStatistics" help="Reset all the counts for the activity statistics"/>
+      <methods name="resetThreadStatistics" help="Reset all the counts for the thread statistics"/>
+      <methods name="resetConnectionStatistics" help="Reset all the counts for the connection statistics"/>
+      <methods name="setPollingInterval" help="Set the polling interval setting">
+        <inputParameters name="PollingInterval" help="Polling interval in milliseconds" type="integer"/>
+      </methods>
+      <methods name="getPollingInterval" help="Get the current polling interval setting">
+        <outputParameters name="PollingInterval" help="Polling interval in milliseconds" type="integer"/>
+      </methods>
+      <methods name="setPollingBatchSize" help="Set the polling polling batch size setting">
+        <inputParameters name="PollingBatchSize" help="Polling batch size" type="integer"/>
+      </methods>
+      <methods name="getPollingBatchSize" help="Get the current polling batch size setting">
+        <outputParameters name="PollingBatchSize" help="Polling batch size" type="integer"/>
+      </methods>
+      <methods name="getPerfMonSetting" help="Get the setting of the perfMon option">
+        <outputParameters name="Setting" help="Value of PerfMon option" type="string"/>
+      </methods>
+    </hawk>
+    <metadata>
+      <loadUrl url="/AESchemas/ae/ADB/adbmetadata.aeschema"/>
+      <loadUrl url="/AESchemas/ae/ADB/AdapterForDatabase.schema"/>
+      <loadUrl url="/AESchemas/ae/ADB/AdapterForDatabase.aeschema"/>
+    </metadata>
+    <serviceOptions>
+      <allPublicationServices/>
+      <allSubscriptionServices/>
+      <allRequestResponseServices/>
+    </serviceOptions>
+    <adminOptions languageEncoding="ASCII" useTraceFile="" scriptFileName="%%ADBScriptFileDir%%\AdapterForDatabase.sql">
+      <substitutionBindings template="%%Domain%%.%%Deployment%%.adb.%%InstanceId%%.exit" propName="terminationSubjectorTopic"/>
+      <substitutionBindings template="%%Domain%%.%%Deployment%%.adb.%%InstanceId%%" propName="jmsDestinationPrefix"/>
+    </adminOptions>
+    <asOptions invocationThreadCount="32" connectionTimeout="30000"/>
+  </adadbmodel:ADBAdapterConfiguration>
+  <adadbmodel:ADBRuntimeConnection retryInterval="10000" retryAttempts="3" reconnectionAttemptsBeforeSuspend="1" adbConnectionConfiguration="ADBConnections/AdapterForDatabase.sharedadbc#/"/>
+  <adadbmodel:ADBRuntimeConnectionConfiguration>
+    <JDBCProperties/>
+    <password/>
+  </adadbmodel:ADBRuntimeConnectionConfiguration>
+  <common:RVConfiguration name="ADBHawkDefault">
+    <substitutionBindings template="%%TIBHawkService%%" propName="service"/>
+    <substitutionBindings template="%%TIBHawkNetwork%%" propName="network"/>
+    <substitutionBindings template="%%TIBHawkDaemon%%" propName="daemon"/>
+  </common:RVConfiguration>
+  <gac:Reporting name="adb_Reporting">
+    <sinks xsi:type="gac:FileSink" name="fileSink" fileLimit="30000" fileCount="3" appendMode="true">
+      <substitutionBindings template="%%DirTrace%%/%%Deployment%%.%%InstanceId%%.log" propName="fileName"/>
+      <roles name="infoRole"/>
+      <roles name="debugRole"/>
+      <roles name="errorRole"/>
+      <roles name="warnRole"/>
+    </sinks>
+    <sinks xsi:type="gac:StdioSink" name="stdioSink">
+      <roles name="infoRole"/>
+      <roles name="debugRole"/>
+      <roles name="errorRole"/>
+      <roles name="warnRole"/>
+    </sinks>
+  </gac:Reporting>
+  <gac:Logging name="adb_Logging" logDebugMessages="true">
+    <substitutionBindings template="%%DirTrace%%/%%Deployment%%.%%InstanceId%%.log" propName="logfileName"/>
+  </gac:Logging>
+  <gac:Monitoring name="adb_Monitoring" standardMicroAgentName="COM.TIBCO.ADAPTER.adb.%%Deployment%%.%%InstanceId%%" standardMicroAgentTimeout="10000" classMicroAgentName="COM.TIBCO.adb.%%Deployment%%.%%InstanceId%%" classMicroAgentTimeout="10000" defaultMicroAgentTransport="#/3">
+    <substitutionBindings template="%%HawkEnabled%%" propName="enableClassMicroAgent"/>
+    <substitutionBindings template="COM.TIBCO.ADAPTER.adb.%%Deployment%%.%%InstanceId%%" propName="standardMicroAgentName"/>
+    <substitutionBindings template="COM.TIBCO.adb.%%Deployment%%.%%InstanceId%%" propName="classMicroAgentName"/>
+  </gac:Monitoring>
+  <common:JMSConnectionConfiguration name="ADBAgentJmsSession" useJNDI="false" providerURL="%%JmsProviderUrl%%" factoryName="TopicConnectionFactory"/>
+  <adadbmodel:ADBPublisher name="adb_po_call_mv" transportConfiguration="#/10" classReference="AESchemas/ae/ADB/AdapterForDatabase.schema#P_PO_CALL_MV" channel="#/9" transportType="jms" qualityOfService="ae.sessions.jmssession" publishingTable="P_PO_CALL_MV" sourceTable="PO_CALL_MV" streamsOutputQueue="ADB_PO_CALL_MV_OUT" streamsSchema="SCOTT" outputQPayloadType="ADB_PO_CALL_MV_OBJ" captureProName="ADB_PO_CALL_MV_CAP" dbInstanceID="DB11G" inputQueue="ADB_PO_CALL_MV_IN" dmlHandlerName="ADB_PO_CALL_MV_DM_HANDLE" applyProcessName="ADB_PO_CALL_MV_APPLY" pubFlag="0">
+    <dbOptions/>
+    <columnsToPublish>ID</columnsToPublish>
+    <columnsToPublish>TYPE_ID</columnsToPublish>
+    <columnsToPublish>SIMPLE_AREA_ID</columnsToPublish>
+    <columnsToPublish>ACCOUNT_NUMBER</columnsToPublish>
+    <columnsToPublish>ORIGINATING_NUMBER</columnsToPublish>
+    <columnsToPublish>DESCRIPTION</columnsToPublish>
+    <columnsToPublish>TIME_RECEIVED</columnsToPublish>
+    <columnsToPublish>RECEIVED_BY</columnsToPublish>
+    <columnsToPublish>RECEIVED_BY_ID</columnsToPublish>
+    <columnsToPublish>COMMENTS</columnsToPublish>
+    <columnsToPublish>STATUS</columnsToPublish>
+    <columnsToPublish>SCHEDULED_START_TIME</columnsToPublish>
+    <columnsToPublish>READ</columnsToPublish>
+    <columnsToPublish>INFORMATIVE</columnsToPublish>
+    <columnsToPublish>PREDICT</columnsToPublish>
+    <columnsToPublish>NAME</columnsToPublish>
+    <columnsToPublish>LOCATION_DESC</columnsToPublish>
+    <columnsToPublish>CONTACT_NO</columnsToPublish>
+    <columnsToPublish>EMAIL</columnsToPublish>
+    <columnsToPublish>CALLBACK</columnsToPublish>
+    <columnsToPublish>DEMAND_SECTION_ID</columnsToPublish>
+    <columnsToPublish>PROCESSOR_STATUS_ID</columnsToPublish>
+    <columnsToPublish>INCIDENT_ID</columnsToPublish>
+    <columnsToPublish>LOCATING_RWO_DATASET_NAME</columnsToPublish>
+    <columnsToPublish>LOCATING_RWO_GIS_RWO_CODE</columnsToPublish>
+    <columnsToPublish>LOCATING_RWO_GIS_RWO_ID1</columnsToPublish>
+    <columnsToPublish>LOCATING_RWO_GIS_RWO_ID2</columnsToPublish>
+    <columnsToPublish>LOCATING_RWO_GIS_RWO_ID3</columnsToPublish>
+    <columnsToPublish>X</columnsToPublish>
+    <columnsToPublish>Y</columnsToPublish>
+    <columnsToPublish>HANDLED_BY</columnsToPublish>
+    <dbOperProperties isDefault="false" sourceTableSchema="SCOTT" sourceTable="PO_CALL_MV" publishingTableSchema="SCOTT" publishingTable="P_PO_CALL_MV" updateMode="Update" storageMode="Publish by Value" loopDetection="false" noTriggers="false" columnsToPublish="ID, TYPE_ID, SIMPLE_AREA_ID, ACCOUNT_NUMBER, ORIGINATING_NUMBER, DESCRIPTION, TIME_RECEIVED, RECEIVED_BY, RECEIVED_BY_ID, COMMENTS, STATUS, SCHEDULED_START_TIME, READ, INFORMATIVE, PREDICT, NAME, LOCATION_DESC, CONTACT_NO, EMAIL, CALLBACK, DEMAND_SECTION_ID, PROCESSOR_STATUS_ID, INCIDENT_ID, LOCATING_RWO_DATASET_NAME, LOCATING_RWO_GIS_RWO_CODE, LOCATING_RWO_GIS_RWO_ID1, LOCATING_RWO_GIS_RWO_ID2, LOCATING_RWO_GIS_RWO_ID3, X, Y, HANDLED_BY" columnsToFireUpdateTrigger="" userDefinedKey="ID" captureProType="Synchronous" streamsOutputQueue="ADB_PO_CALL_MV_OUT" streamsSchema="SCOTT" outputQPayloadType="ADB_PO_CALL_MV_OBJ" captureProName="ADB_PO_CALL_MV_CAP" dbInstanceID="DB11G" inputQueue="ADB_PO_CALL_MV_IN" dmlHandlerName="ADB_PO_CALL_MV_DM_HANDLE" applyProcessName="ADB_PO_CALL_MV_APPLY"/>
+  </adadbmodel:ADBPublisher>
+  <gac:ProducerChannel name="adb_po_call_mv" transportConfiguration="#/10" classReference="AESchemas/ae/ADB/AdapterForDatabase.schema#P_PO_CALL_MV" wireFormat="aeXml" destination="%%Domain%%.%%Deployment%%.adb.AdapterForDatabase.adb_po_call_mv" endpointType="endpoint.JMSPublisher" channelType="jmsProducer"/>
+  <common:JMSConnectionConfiguration name="JMSTopic" useJNDI="false" factoryName="TopicConnectionFactory">
+    <substitutionBindings template="%%JmsProviderUrl%%" propName="providerURL"/>
+  </common:JMSConnectionConfiguration>
+  <adadbmodel:ADBPublisher name="asb_po_cust_interr_data_mv" transportConfiguration="#/10" classReference="AESchemas/ae/ADB/AdapterForDatabase.schema#P_PO_CUST_INTERR_DATA_MV" channel="#/12" transportType="jms" qualityOfService="ae.sessions.jmssession" publishingTable="P_PO_CUST_INTERR_DATA_MV" sourceTable="PO_CUSTOMER_INTERRUPT_DATA_MV" streamsOutputQueue="ADB_PO_CUSTOMER_INTERRUPT_DATA_MV_OUT" streamsSchema="SCOTT" outputQPayloadType="ADB_PO_CUSTOMER_INTERRUPT_DATA_MV_OBJ" captureProName="ADB_PO_CUSTOMER_INTERRUPT_DATA_MV_CAP" dbInstanceID="DB11G" inputQueue="ADB_PO_CUSTOMER_INTERRUPT_DATA_MV_IN" dmlHandlerName="ADB_PO_CUSTOMER_INTERRUPT_DATA_MV_DM_HANDLE" applyProcessName="ADB_PO_CUSTOMER_INTERRUPT_DATA_MV_APPLY" pubFlag="0">
+    <dbOptions/>
+    <columnsToPublish>INCIDENT_ID</columnsToPublish>
+    <columnsToPublish>CUSTOMER_ID</columnsToPublish>
+    <columnsToPublish>DATE_OF_ACTION</columnsToPublish>
+    <columnsToPublish>ACTION</columnsToPublish>
+    <columnsToPublish>NETWORK_EVENT_ID</columnsToPublish>
+    <columnsToPublish>CUSTOMER_ACCOUNT</columnsToPublish>
+    <dbOperProperties isDefault="false" sourceTableSchema="SCOTT" sourceTable="PO_CUSTOMER_INTERRUPT_DATA_MV" publishingTableSchema="SCOTT" publishingTable="P_PO_CUST_INTERR_DATA_MV" updateMode="Update" storageMode="Publish by Value" loopDetection="false" noTriggers="false" columnsToPublish="INCIDENT_ID, CUSTOMER_ID, DATE_OF_ACTION, ACTION, NETWORK_EVENT_ID, CUSTOMER_ACCOUNT" columnsToFireUpdateTrigger="" userDefinedKey="CUSTOMER_ID" captureProType="Synchronous" streamsOutputQueue="ADB_PO_CUSTOMER_INTERRUPT_DATA_MV_OUT" streamsSchema="SCOTT" outputQPayloadType="ADB_PO_CUSTOMER_INTERRUPT_DATA_MV_OBJ" captureProName="ADB_PO_CUSTOMER_INTERRUPT_DATA_MV_CAP" dbInstanceID="DB11G" inputQueue="ADB_PO_CUSTOMER_INTERRUPT_DATA_MV_IN" dmlHandlerName="ADB_PO_CUSTOMER_INTERRUPT_DATA_MV_DM_HANDLE" applyProcessName="ADB_PO_CUSTOMER_INTERRUPT_DATA_MV_APPLY"/>
+  </adadbmodel:ADBPublisher>
+  <gac:ProducerChannel name="asb_po_cust_interr_data_mv" transportConfiguration="#/10" wireFormat="aeXml" destination="%%Domain%%.%%Deployment%%.PowerOn.BD.Topic.Cust360.PoDataMv" endpointType="endpoint.JMSPublisher" channelType="jmsProducer"/>
+  <adadbmodel:ADBPublisher name="asb_cis_customer_mv" transportConfiguration="#/10" classReference="AESchemas/ae/ADB/AdapterForDatabase.schema#P_CIS_CUSTOMER_MV" channel="#/14" transportType="jms" qualityOfService="ae.sessions.jmssession" publishingTable="P_CIS_CUSTOMER_MV" sourceTable="CIS_CUSTOMER_MV" streamsOutputQueue="ADB_CIS_CUSTOMER_MV_OUT" streamsSchema="SCOTT" outputQPayloadType="ADB_CIS_CUSTOMER_MV_OBJ" captureProName="ADB_CIS_CUSTOMER_MV_CAP" dbInstanceID="DB11G" inputQueue="ADB_CIS_CUSTOMER_MV_IN" dmlHandlerName="ADB_CIS_CUSTOMER_MV_DM_HANDLE" applyProcessName="ADB_CIS_CUSTOMER_MV_APPLY" pubFlag="0">
+    <dbOptions/>
+    <columnsToPublish>ACCOUNT_NUMBER</columnsToPublish>
+    <columnsToPublish>CIS_ACCOUNT_NUMBER</columnsToPublish>
+    <columnsToPublish>LAST_NAME</columnsToPublish>
+    <columnsToPublish>FIRST_NAME</columnsToPublish>
+    <columnsToPublish>AREA_CODE</columnsToPublish>
+    <columnsToPublish>PHONE_NUMBER</columnsToPublish>
+    <columnsToPublish>LOCATION_DESC</columnsToPublish>
+    <columnsToPublish>AREA_DESC</columnsToPublish>
+    <columnsToPublish>METER_ID</columnsToPublish>
+    <columnsToPublish>SOCIAL_SECURITY_NO</columnsToPublish>
+    <columnsToPublish>CUSTOMER_TYPE_ID</columnsToPublish>
+    <columnsToPublish>PREMISE_CODE</columnsToPublish>
+    <columnsToPublish>SERVICE_NO</columnsToPublish>
+    <columnsToPublish>COMPANY_CODE</columnsToPublish>
+    <columnsToPublish>CUSTOMER_CODE</columnsToPublish>
+    <columnsToPublish>HOUSE_NUMBER</columnsToPublish>
+    <columnsToPublish>STREET</columnsToPublish>
+    <columnsToPublish>CUSTOMER_TYPE</columnsToPublish>
+    <columnsToPublish>CITY</columnsToPublish>
+    <columnsToPublish>STATE</columnsToPublish>
+    <columnsToPublish>ZIP</columnsToPublish>
+    <columnsToPublish>APARTMENT_NUMBER</columnsToPublish>
+    <columnsToPublish>HOUSE_NUMBER_ADDITION</columnsToPublish>
+    <columnsToPublish>STREET_DIR_PREFIX</columnsToPublish>
+    <columnsToPublish>STREET_DIR_SUFFIX</columnsToPublish>
+    <columnsToPublish>STREET_TYPE</columnsToPublish>
+    <dbOperProperties isDefault="false" sourceTableSchema="SCOTT" sourceTable="CIS_CUSTOMER_MV" publishingTableSchema="SCOTT" publishingTable="P_CIS_CUSTOMER_MV" updateMode="Update" storageMode="Publish by Value" loopDetection="false" noTriggers="false" columnsToPublish="ACCOUNT_NUMBER, CIS_ACCOUNT_NUMBER, LAST_NAME, FIRST_NAME, AREA_CODE, PHONE_NUMBER, LOCATION_DESC, AREA_DESC, METER_ID, SOCIAL_SECURITY_NO, CUSTOMER_TYPE_ID, PREMISE_CODE, SERVICE_NO, COMPANY_CODE, CUSTOMER_CODE, HOUSE_NUMBER, STREET, CUSTOMER_TYPE, CITY, STATE, ZIP, APARTMENT_NUMBER, HOUSE_NUMBER_ADDITION, STREET_DIR_PREFIX, STREET_DIR_SUFFIX, STREET_TYPE" columnsToFireUpdateTrigger="" userDefinedKey="ACCOUNT_NUMBER" captureProType="Synchronous" streamsOutputQueue="ADB_CIS_CUSTOMER_MV_OUT" streamsSchema="SCOTT" outputQPayloadType="ADB_CIS_CUSTOMER_MV_OBJ" captureProName="ADB_CIS_CUSTOMER_MV_CAP" dbInstanceID="DB11G" inputQueue="ADB_CIS_CUSTOMER_MV_IN" dmlHandlerName="ADB_CIS_CUSTOMER_MV_DM_HANDLE" applyProcessName="ADB_CIS_CUSTOMER_MV_APPLY"/>
+  </adadbmodel:ADBPublisher>
+  <gac:ProducerChannel name="asb_cis_customer_mv" transportConfiguration="#/10" wireFormat="aeXml" destination="%%Domain%%.%%Deployment%%.PowerOn.BD.Topic.Cust360.CisCustomerMv" endpointType="endpoint.JMSPublisher" channelType="jmsProducer"/>
+  <adadbmodel:ADBPublisher name="adb_vn_outage_all_mv" transportConfiguration="#/10" classReference="AESchemas/ae/ADB/AdapterForDatabase.schema#P_VN_OUTAGE_ALL_MV" channel="#/16" transportType="jms" qualityOfService="ae.sessions.jmssession" publishingTable="P_VN_OUTAGE_ALL_MV" sourceTable="VN_OUTAGE_ALL_MV" streamsOutputQueue="ADB_VN_OUTAGE_ALL_MV_OUT" streamsSchema="SCOTT" outputQPayloadType="ADB_VN_OUTAGE_ALL_MV_OBJ" captureProName="ADB_VN_OUTAGE_ALL_MV_CAP" dbInstanceID="DB11G" inputQueue="ADB_VN_OUTAGE_ALL_MV_IN" dmlHandlerName="ADB_VN_OUTAGE_ALL_MV_DM_HANDLE" applyProcessName="ADB_VN_OUTAGE_ALL_MV_APPLY" pubFlag="0">
+    <dbOptions/>
+    <columnsToPublish>INCIDENT_ID</columnsToPublish>
+    <columnsToPublish>ORDER_ID</columnsToPublish>
+    <columnsToPublish>INCIDENT_STATUS</columnsToPublish>
+    <columnsToPublish>CAUSE</columnsToPublish>
+    <columnsToPublish>SUBCAUSE</columnsToPublish>
+    <columnsToPublish>DISTRICT</columnsToPublish>
+    <columnsToPublish>SUBSTATION</columnsToPublish>
+    <columnsToPublish>CIRCUIT_ID</columnsToPublish>
+    <columnsToPublish>CI_SUSTAINED</columnsToPublish>
+    <columnsToPublish>CI_TRANSIENT</columnsToPublish>
+    <columnsToPublish>CI_SUSTAINED_TRANSIENT</columnsToPublish>
+    <columnsToPublish>CMI_SUSTAINED</columnsToPublish>
+    <columnsToPublish>CMI_TRANSIENT</columnsToPublish>
+    <columnsToPublish>CMI_SUSTAINED_TRANSIENT</columnsToPublish>
+    <columnsToPublish>DURATION_SUSTAINED</columnsToPublish>
+    <columnsToPublish>DURATION_TRANSIENT</columnsToPublish>
+    <columnsToPublish>DURATION_SUSTAINED_TRANSIENT</columnsToPublish>
+    <columnsToPublish>REPAIR_CATEGORY</columnsToPublish>
+    <columnsToPublish>REPAIR_ACTION</columnsToPublish>
+    <columnsToPublish>TRANSMISSION_EVENT</columnsToPublish>
+    <columnsToPublish>WORK_CLEARANCE</columnsToPublish>
+    <columnsToPublish>MOMENTARY</columnsToPublish>
+    <columnsToPublish>ORDER_NUMBER</columnsToPublish>
+    <columnsToPublish>DISC_DEVICE</columnsToPublish>
+    <columnsToPublish>FAILED_EQUIPMENT</columnsToPublish>
+    <columnsToPublish>COMMENTS</columnsToPublish>
+    <columnsToPublish>LOCATION</columnsToPublish>
+    <columnsToPublish>ORDER_TYPE</columnsToPublish>
+    <columnsToPublish>STATUS</columnsToPublish>
+    <columnsToPublish>ETR</columnsToPublish>
+    <columnsToPublish>CREWS</columnsToPublish>
+    <columnsToPublish>DEVICE</columnsToPublish>
+    <columnsToPublish>PRIORITY</columnsToPublish>
+    <columnsToPublish>INCIDENT</columnsToPublish>
+    <columnsToPublish>SPECIAL</columnsToPublish>
+    <columnsToPublish>FIRST_CALL_TIME</columnsToPublish>
+    <columnsToPublish>NUM_CALLS</columnsToPublish>
+    <columnsToPublish>OWNER_NAME</columnsToPublish>
+    <columnsToPublish>LAST_UPDATED_TIME</columnsToPublish>
+    <columnsToPublish>CREW_AREA</columnsToPublish>
+    <columnsToPublish>DISPATCHER_AREA_NAME</columnsToPublish>
+    <columnsToPublish>CUSTOMERS</columnsToPublish>
+    <columnsToPublish>OUTAGE_ONLY</columnsToPublish>
+    <columnsToPublish>READY_FOR_ARCHIVE</columnsToPublish>
+    <columnsToPublish>START_TIME</columnsToPublish>
+    <columnsToPublish>MAJOR_EVENT</columnsToPublish>
+    <dbOperProperties isDefault="false" sourceTableSchema="SCOTT" sourceTable="VN_OUTAGE_ALL_MV" publishingTableSchema="SCOTT" publishingTable="P_VN_OUTAGE_ALL_MV" updateMode="Update" storageMode="Publish by Value" loopDetection="false" noTriggers="false" columnsToPublish="INCIDENT_ID, ORDER_ID, INCIDENT_STATUS, CAUSE, SUBCAUSE, DISTRICT, SUBSTATION, CIRCUIT_ID, CI_SUSTAINED, CI_TRANSIENT, CI_SUSTAINED_TRANSIENT, CMI_SUSTAINED, CMI_TRANSIENT, CMI_SUSTAINED_TRANSIENT, DURATION_SUSTAINED, DURATION_TRANSIENT, DURATION_SUSTAINED_TRANSIENT, REPAIR_CATEGORY, REPAIR_ACTION, TRANSMISSION_EVENT, WORK_CLEARANCE, MOMENTARY, ORDER_NUMBER, DISC_DEVICE, FAILED_EQUIPMENT, COMMENTS, LOCATION, ORDER_TYPE, STATUS, ETR, CREWS, DEVICE, PRIORITY, INCIDENT, SPECIAL, FIRST_CALL_TIME, NUM_CALLS, OWNER_NAME, LAST_UPDATED_TIME, CREW_AREA, DISPATCHER_AREA_NAME, CUSTOMERS, OUTAGE_ONLY, READY_FOR_ARCHIVE, START_TIME, MAJOR_EVENT" columnsToFireUpdateTrigger="" userDefinedKey="ORDER_ID" captureProType="Synchronous" streamsOutputQueue="ADB_VN_OUTAGE_ALL_MV_OUT" streamsSchema="SCOTT" outputQPayloadType="ADB_VN_OUTAGE_ALL_MV_OBJ" captureProName="ADB_VN_OUTAGE_ALL_MV_CAP" dbInstanceID="DB11G" inputQueue="ADB_VN_OUTAGE_ALL_MV_IN" dmlHandlerName="ADB_VN_OUTAGE_ALL_MV_DM_HANDLE" applyProcessName="ADB_VN_OUTAGE_ALL_MV_APPLY"/>
+  </adadbmodel:ADBPublisher>
+  <gac:ProducerChannel name="adb_vn_outage_all_mv" transportConfiguration="#/10" wireFormat="aeXml" destination="%%Domain%%.%%Deployment%%.PowerOn.BD.Topic.Cust360.VnOutageAllMv" endpointType="endpoint.JMSPublisher" channelType="jmsProducer"/>
+</xmi:XMI>

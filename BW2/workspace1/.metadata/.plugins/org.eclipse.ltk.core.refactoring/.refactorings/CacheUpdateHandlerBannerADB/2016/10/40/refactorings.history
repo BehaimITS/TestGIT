@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;CacheUpdateHandlerBannerADB/Processes/cacheupdatehandlerbanneradb/PaymentOverview.bwp&apos; to &apos;uabpymt.bwp&apos;" description="Rename resource &apos;PaymentOverview.bwp&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Processes/cacheupdatehandlerbanneradb/PaymentOverview.bwp" name="uabpymt.bwp" stamp="1475585548684" updateReferences="true"/>
+</session>

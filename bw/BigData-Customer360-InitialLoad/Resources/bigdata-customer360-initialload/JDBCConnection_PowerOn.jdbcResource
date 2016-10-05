@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jndi:namedResource xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jdbc="http://xsd.tns.tibco.com/amf/models/sharedresource/jdbc" xmlns:jndi="http://xsd.tns.tibco.com/amf/models/sharedresource/jndi" xmlns:subject="http://xsd.tns.tibco.com/trinity/models/identity/subject" xmi:id="_YDAQYWR2EeaY6IWhsMBrWQ" name="bigdata-customer360-initialload.JDBCConnection_PowerOn" type="jdbc:JdbcDataSource">
+  <jndi:reference xmi:id="_YDGXAGR2EeaY6IWhsMBrWQ" key="subjectJndiName" type="subject:SubjectConfiguration" value=""/>
+  <jndi:configuration xsi:type="jdbc:JdbcDataSource" xmi:id="_YDGXAWR2EeaY6IWhsMBrWQ" username="OUTAGE_CENTER" password="#!/zZt7gSzx3hZwbJnZQTMueotbphgQIVITySAemwPZ6Y=">
+    <connectionConfig xsi:type="jdbc:NonXaConnection" xmi:id="_YDGXAmR2EeaY6IWhsMBrWQ" jdbcDriver="oracle.jdbc.OracleDriver" dbURL="jdbc:oracle:thin:@xedgist1:1521:omtest2"/>
+    <connectionProperties xmi:id="_dzfBQGR2EeaY6IWhsMBrWQ" key="jarFile" value="ojdbc"/>
+  </jndi:configuration>
+</jndi:namedResource>

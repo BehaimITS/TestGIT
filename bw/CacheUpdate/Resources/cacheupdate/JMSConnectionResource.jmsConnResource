@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jndi:namedResource xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jms="http://xsd.tns.tibco.com/bw/models/sharedresource/jms" xmlns:jndi="http://xsd.tns.tibco.com/amf/models/sharedresource/jndi" xmi:id="_5a9wAXsyEea3R8-FzNfatw" name="cacheupdate.JMSConnectionResource" type="jms:JMSConnectionFactory">
+  <jndi:description>Shared JMS connection in order to receive messages with content supposed to be stored in AS</jndi:description>
+  <jndi:reference xmi:id="_5a_lMHsyEea3R8-FzNfatw" key="jndiConnectionJNDIName" type="jms:JNDIConnection" value="cacheupdate.EMSDefaultJNDIConfiguration"/>
+  <jndi:configuration xsi:type="jms:JNDIConnectionFactory" xmi:id="_5a_lMXsyEea3R8-FzNfatw" factoryType="Queue/Topic" jndiName="QueueConnectionFactory" topicFactoryJNDIName="TopicConnectionFactory"/>
+</jndi:namedResource>

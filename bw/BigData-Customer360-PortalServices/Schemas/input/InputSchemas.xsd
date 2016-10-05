@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://behaim.com/vectren/bigdata/customer360view/InputSchemas"
+	xmlns:tns="http://behaim.com/vectren/bigdata/customer360view/InputSchemas"
+	elementFormDefault="qualified">
+
+
+	<element name="all" type="tns:allType"></element>
+	<element name="amr" type="tns:amrType"></element>
+	<element name="assistance" type="tns:assistanceType"></element>
+	<element name="autoPay" type="tns:autoPayType"></element>
+	<element name="billNotif" type="tns:billNotifType"></element>
+	<element name="bsciReplacement" type="tns:bsciReplacementType"></element>
+	<element name="budgetBill" type="tns:budgetBillType"></element>
+	<element name="outages" type="tns:outagesType"></element>
+	<element name="paymentArrangement" type="tns:paymentArrangementType"></element>
+	<element name="paymentDue" type="tns:paymentDueType"></element>
+	<element name="payments" type="tns:paymentsType"></element>
+	<element name="scheduledPayments" type="tns:scheduledPaymentsType"></element>
+	<element name="summerCycler" type="tns:summerCyclerType"></element>
+	<element name="scheduledEPayments" type="tns:scheduledEPaymentsType"></element>
+	<element name="budgetBillEstimatedAmount" type="tns:budgetBillEstimatedAmountType"></element>
+	<element name="vectrenProfile" type="tns:vectrenProfileType"></element>
+	<element name="messages" type="tns:messagesType"></element>
+
+	<complexType name="allType">
+		<sequence>
+			<element maxOccurs="1" minOccurs="1" name="company" type="string" />
+			<element name="customerNumber" type="string" />
+			<element name="premiseCode" type="string" />
+			<element minOccurs="0" name="history" type="integer" />
+			<element minOccurs="0" name="importancy" type="string" />
+		</sequence>
+	</complexType>
+	<complexType name="amrType">
+		<sequence>
+			<element maxOccurs="1" minOccurs="1" name="company" type="string" />
+			<element name="customerNumber" type="string" />
+			<element name="premiseCode" type="string" />
+			<element minOccurs="0" name="importancy" type="string" />
+			<element minOccurs="0" name="stvcntyCode" type="string" />
+			<element minOccurs="0" name="city" type="string" />
+			<element minOccurs="0" name="municipality" type="string" />
+		</sequence>
+	</complexType>
+	<complexType name="assistanceType">
+		<sequence>
+			<element maxOccurs="1" minOccurs="1" name="company" type="string" />
+			<element name="customerNumber" type="string" />
+			<element name="premiseCode" type="string" />
+			<element minOccurs="0" name="history" type="integer" />
+			<element minOccurs="0" name="importancy" type="string" />
+		</sequence>
+	</complexType>
+	<complexType name="autoPayType">
+		<sequence>
+			<element maxOccurs="1" minOccurs="1" name="company" type="string" />
+			<element name="customerNumber" type="string" />
+			<element name="premiseCode" type="string" />
+			<element minOccurs="0" name="history" type="integer" />
+			<element minOccurs="0" name="importancy" type="string" />
+		</sequence>
+	</complexType>
+	<complexType name="billNotifType">
+		<sequence>
+			<element maxOccurs="1" minOccurs="1" name="company" type="string" />
+			<element name="customerNumber" type="string" />
+			<element name="premiseCode" type="string" />
+			<element minOccurs="0" name="history" type="integer" />
+			<element minOccurs="0" name="importancy" type="string" />
+		</sequence>
+	</complexType>
+	<complexType name="bsciReplacementType">
+		<sequence>
+			<element maxOccurs="1" minOccurs="1" name="company" type="string" />
+			<element name="customerNumber" type="string" />
+			<element name="premiseCode" type="string" />
+			<element minOccurs="0" name="history" type="integer" />
+			<element minOccurs="0" name="importancy" type="string" />
+			<element minOccurs="0" name="x" type="float" />
+			<element minOccurs="0" name="y" type="float" />
+		</sequence>
+	</complexType>
+	<complexType name="budgetBillType">
+		<sequence>
+			<element maxOccurs="1" minOccurs="1" name="company" type="string" />
+			<element name="customerNumber" type="string" />
+			<element name="premiseCode" type="string" />
+			<element minOccurs="0" name="history" type="integer" />
+			<element minOccurs="0" name="importancy" type="string" />
+		</sequence>
+	</complexType>
+	<complexType name="outagesType">
+		<sequence>
+			<element maxOccurs="1" minOccurs="1" name="company" type="string" />
+			<element name="customerNumber" type="string" />
+			<element name="premiseCode" type="string" />
+			<element minOccurs="0" name="history" type="integer" />
+			<element minOccurs="0" name="importancy" type="string" />
+			<element minOccurs="0" name="types" type="string" />
+		</sequence>
+	</complexType>
+	<complexType name="paymentArrangementType">
+		<sequence>
+			<element maxOccurs="1" minOccurs="1" name="company" type="string" />
+			<element name="customerNumber" type="string" />
+			<element name="premiseCode" type="string" />
+			<element minOccurs="0" name="importancy" type="string" />
+		</sequence>
+	</complexType>
+	<complexType name="paymentDueType">
+		<sequence>
+			<element maxOccurs="1" minOccurs="1" name="company" type="string" />
+			<element name="customerNumber" type="string" />
+			<element name="premiseCode" type="string" />
+			<element minOccurs="0" name="history" type="integer" />
+			<element minOccurs="0" name="importancy" type="string" />
+		</sequence>
+	</complexType>
+	<complexType name="paymentsType">
+		<sequence>
+			<element maxOccurs="1" minOccurs="1" name="company" type="string" />
+			<element name="customerNumber" type="string" />
+			<element name="premiseCode" type="string" />
+			<element minOccurs="0" name="history" type="integer" />
+			<element minOccurs="0" name="importancy" type="string" />
+		</sequence>
+	</complexType>
+	<complexType name="scheduledPaymentsType">
+		<sequence>
+			<element maxOccurs="1" minOccurs="1" name="company" type="string" />
+			<element name="customerNumber" type="string" />
+			<element name="premiseCode" type="string" />
+			<element minOccurs="0" name="history" type="integer" />
+			<element minOccurs="0" name="importancy" type="string" />
+		</sequence>
+	</complexType>
+	<complexType name="summerCyclerType">
+		<sequence>
+			<element maxOccurs="1" minOccurs="1" name="company" type="string" />
+			<element name="customerNumber" type="string" />
+			<element name="premiseCode" type="string" />
+			<element minOccurs="0" name="history" type="integer" />
+			<element minOccurs="0" name="importancy" type="string" />
+		</sequence>
+	</complexType>
+	
+	<complexType name="scheduledEPaymentsType">
+		<sequence>
+			<element maxOccurs="1" minOccurs="1" name="company" type="string" />
+			<element name="customerNumber" type="string" />
+			<element name="premiseCode" type="string" />
+			<element minOccurs="0" name="history" type="integer" />
+			<element minOccurs="0" name="importancy" type="string" />
+		</sequence>
+	</complexType>
+	<complexType name="budgetBillEstimatedAmountType">
+		<sequence>
+			<element maxOccurs="1" minOccurs="1" name="company" type="string" />
+			<element name="customerNumber" type="string" />
+			<element name="premiseCode" type="string" />
+			<element minOccurs="0" name="validationMode" type="string" />
+			<element minOccurs="0" name="history" type="integer" />
+			<element minOccurs="0" name="importancy" type="string" />
+		</sequence>
+	</complexType>
+	<complexType name="vectrenProfileType">
+		<sequence>
+			<element maxOccurs="1" minOccurs="1" name="company" type="string" />
+			<element name="customerNumber" type="string" />
+			<element name="premiseCode" type="string" />
+			<element minOccurs="0" name="history" type="integer" />
+			<element minOccurs="0" name="importancy" type="string" />
+		</sequence>
+	</complexType>
+	<complexType name="messagesType">
+		<sequence>
+			<element maxOccurs="1" minOccurs="1" name="company" type="string" />
+			<element name="customerNumber" type="string" />
+			<element name="premiseCode" type="string" />
+			<element minOccurs="0" name="key" type="string" />
+			<element minOccurs="0" name="history" type="integer" />
+			<element minOccurs="0" name="importancy" type="string" />
+		</sequence>
+	</complexType>
+</schema>

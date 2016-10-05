@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://behaimits.com/vectren/bigdata/customer360view/Premise" xmlns="http://behaimits.com/vectren/bigdata/customer360view/Premise" elementFormDefault="qualified">
+<xs:complexType name="PremiseItemType"><xs:sequence>
+<xs:element name="UCBPREM_CODE" type="xs:string" />
+<xs:element name="STREETNUMBER" type="xs:string" minOccurs="0" />
+<xs:element name="PRE" type="xs:string" minOccurs="0" />
+<xs:element name="STREETNAME" type="xs:string" />
+<xs:element name="SUFFIX" type="xs:string" minOccurs="0" />
+<xs:element name="POST" type="xs:string" minOccurs="0" />
+<xs:element name="UNITTYPE" type="xs:string" minOccurs="0" />
+<xs:element name="UNIT" type="xs:string" minOccurs="0" />
+<xs:element name="CITY" type="xs:string" minOccurs="0" />
+<xs:element name="STATE" type="xs:string" minOccurs="0" />
+<xs:element name="ZIP" type="xs:string" minOccurs="0" />
+<xs:element name="COUNTY" type="xs:string" minOccurs="0" />
+<xs:element name="TUPLE_ID" type="xs:float" minOccurs="0" />
+</xs:sequence></xs:complexType><xs:element name="PremiseItem" type="PremiseItemType" /></xs:schema>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://behaimits.com/vectren/bigdata/customer360view/OutagesCall" xmlns="http://behaimits.com/vectren/bigdata/customer360view/OutagesCall" elementFormDefault="qualified">
+<xs:complexType name="OutagesCallItemType"><xs:sequence>
+<xs:element name="CIS_ACCOUNT_NUMBER" type="xs:string" minOccurs="0" />
+<xs:element name="ID" type="xs:float" />
+<xs:element name="TYPE_ID" type="xs:float" />
+<xs:element name="SIMPLE_AREA_ID" type="xs:float" />
+<xs:element name="ACCOUNT_NUMBER" type="xs:string" minOccurs="0" />
+<xs:element name="ORIGINATING_NUMBER" type="xs:string" minOccurs="0" />
+<xs:element name="DESCRIPTION" type="xs:string" minOccurs="0" />
+<xs:element name="TIME_RECEIVED" type="xs:dateTime" minOccurs="0" />
+<xs:element name="RECEIVED_BY" type="xs:string" minOccurs="0" />
+<xs:element name="RECEIVED_BY_ID" type="xs:float" minOccurs="0" />
+<xs:element name="COMMENTS" type="xs:string" minOccurs="0" />
+<xs:element name="STATUS" type="xs:string" minOccurs="0" />
+<xs:element name="SCHEDULED_START_TIME" type="xs:dateTime" minOccurs="0" />
+<xs:element name="READ" type="xs:float" minOccurs="0" />
+<xs:element name="INFORMATIVE" type="xs:float" minOccurs="0" />
+<xs:element name="PREDICT" type="xs:float" minOccurs="0" />
+<xs:element name="NAME" type="xs:string" minOccurs="0" />
+<xs:element name="LOCATION_DESC" type="xs:string" minOccurs="0" />
+<xs:element name="CONTACT_NO" type="xs:string" minOccurs="0" />
+<xs:element name="EMAIL" type="xs:string" minOccurs="0" />
+<xs:element name="CALLBACK" type="xs:float" minOccurs="0" />
+<xs:element name="DEMAND_SECTION_ID" type="xs:float" minOccurs="0" />
+<xs:element name="PROCESSOR_STATUS_ID" type="xs:float" />
+<xs:element name="INCIDENT_ID" type="xs:float" minOccurs="0" />
+<xs:element name="LOCATING_RWO_DATASET_NAME" type="xs:string" minOccurs="0" />
+<xs:element name="LOCATING_RWO_GIS_RWO_CODE" type="xs:float" minOccurs="0" />
+<xs:element name="LOCATING_RWO_GIS_RWO_ID1" type="xs:float" minOccurs="0" />
+<xs:element name="LOCATING_RWO_GIS_RWO_ID2" type="xs:float" minOccurs="0" />
+<xs:element name="LOCATING_RWO_GIS_RWO_ID3" type="xs:float" minOccurs="0" />
+<xs:element name="X" type="xs:float" minOccurs="0" />
+<xs:element name="Y" type="xs:float" minOccurs="0" />
+<xs:element name="HANDLED_BY" type="xs:float" minOccurs="0" />
+<xs:element name="TUPLE_ID" type="xs:float" minOccurs="0" />
+</xs:sequence></xs:complexType><xs:element name="OutagesCallItem" type="OutagesCallItemType" /></xs:schema>

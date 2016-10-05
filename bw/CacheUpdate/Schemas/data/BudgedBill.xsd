@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://behaimits.com/vectren/bigdata/customer360view/BudgedBill" xmlns="http://behaimits.com/vectren/bigdata/customer360view/BudgedBill" elementFormDefault="qualified">
+<xs:complexType name="BudgedBillItemType"><xs:sequence>
+<xs:element name="ACCOUNT_NUMBER" type="xs:string" />
+<xs:element name="BUDGET_BILL_AMOUNT" type="xs:string" minOccurs="0" />
+<xs:element name="CREATED_ON" type="xs:dateTime" minOccurs="0" />
+<xs:element name="SOURCE" type="xs:string" />
+<xs:element name="USER_TYPE" type="xs:string" minOccurs="0" />
+<xs:element name="CRM_ID" type="xs:float" minOccurs="0" />
+<xs:element name="CASE_TYPE" type="xs:string" />
+<xs:element name="BUDGET_BILL_ID" type="xs:float" />
+<xs:element name="CURRENT_PAYMENT" type="xs:string" minOccurs="0" />
+<xs:element name="PAYMENT_DATE" type="xs:dateTime" minOccurs="0" />
+<xs:element name="MONTHLY_GAS_USAGE" type="xs:float" minOccurs="0" />
+<xs:element name="MONTHLY_ELECTRIC_USAGE" type="xs:float" minOccurs="0" />
+<xs:element name="TUPLE_ID" type="xs:float" minOccurs="0" />
+</xs:sequence></xs:complexType><xs:element name="BudgedBillItem" type="BudgedBillItemType" /></xs:schema>

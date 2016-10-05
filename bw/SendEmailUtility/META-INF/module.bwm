@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sca:composite xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:BW="http://xsd.tns.tibco.com/amf/models/sca/implementationtype/BW" xmlns:XMLSchema="http://www.w3.org/2001/XMLSchema" xmlns:compositeext="http://schemas.tibco.com/amx/3.0/compositeext" xmlns:property="http://ns.tibco.com/bw/property" xmlns:sca="http://www.osoa.org/xmlns/sca/1.0" xmlns:scaext="http://xsd.tns.tibco.com/amf/models/sca/extensions" xmi:id="_DlIHIBNaEeapbbiiNV8v7A" targetNamespace="http://tns.tibco.com/bw/composite/SendEmailUtility" name="SendEmailUtility" compositeext:version="1.0.0" compositeext:formatVersion="2">
+  <sca:property xmi:id="_GW9VkBNaEeapbbiiNV8v7A" name="BW.DEPLOYMENTUNIT.TYPE" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_GXuKkBNaEeapbbiiNV8v7A" name="BW.APPNODE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_GYF-ABNaEeapbbiiNV8v7A" name="BW.DEPLOYMENTUNIT.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_GYSLQBNaEeapbbiiNV8v7A" name="BW.HOST.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_GYdKYBNaEeapbbiiNV8v7A" name="BW.DOMAIN.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_GYjRABNaEeapbbiiNV8v7A" name="BW.DEPLOYMENTUNIT.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_GYnicBNaEeapbbiiNV8v7A" name="BW.APPSPACE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_GYrM0BNaEeapbbiiNV8v7A" name="BW.MODULE.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_GYu3MBNaEeapbbiiNV8v7A" name="BW.MODULE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_Pjwm4BNbEeapbbiiNV8v7A" name="/GlobalVariables/Reprocessing/Timeout" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_RzvsgBNbEeapbbiiNV8v7A" name="/GlobalVariables/Reprocessing/Attempts" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nWkioBucEeaNMav4b-gJMw" name="/GlobalVariables/EMail/TibcoMailFrom" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_OCc8kBuoEeaNMav4b-gJMw" name="/GlobalVariables/EMail/JMSQueue" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_x9G1oBNbEeapbbiiNV8v7A" name="/MigrationVariables/EMail/SMTP" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:component xmi:id="_yqF6wBubEeaNMav4b-gJMw" name="ComponentSendMail" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_yqF6wRubEeaNMav4b-gJMw" processName="sendemailutility.SendMail"/>
+  </sca:component>
+</sca:composite>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://Vectren.mail.com" targetNamespace="http://Vectren.mail.com" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:element name="MailBox">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="TIBCOMailMsg" maxOccurs="unbounded" minOccurs="0"/>
+				<xsd:element ref="MailMsg" maxOccurs="unbounded" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="TIBCOMailMsg">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="To"/>
+				<xsd:element ref="CC" minOccurs="0"/>
+				<xsd:element ref="BCC" minOccurs="0"/>
+				<xsd:element ref="ReplyTo" minOccurs="0"/>
+				<xsd:element ref="Subject"/>
+				<xsd:element ref="MsgBody" minOccurs="0"/>
+				<xsd:element ref="FilePath" minOccurs="0"/>
+				<xsd:element ref="TIBCOSignature" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="MailMsg">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="From"/>
+				<xsd:element ref="To"/>
+				<xsd:element ref="CC" minOccurs="0"/>
+				<xsd:element ref="BCC" minOccurs="0"/>
+				<xsd:element ref="ReplyTo" minOccurs="0"/>
+				<xsd:element ref="Subject"/>
+				<xsd:element ref="MsgBody" minOccurs="0"/>
+				<xsd:element ref="FilePath" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="From" type="xsd:string"/>	
+	<xsd:element name="To" type="xsd:string"/>
+	<xsd:element name="CC" type="xsd:string"/>
+	<xsd:element name="BCC" type="xsd:string"/>
+	<xsd:element name="Subject" type="xsd:string"/>
+	<xsd:element name="MsgBody" type="xsd:string"/>
+	<xsd:element name="FilePath" type="xsd:string"/>
+	<xsd:element name="ReplyTo" type="xsd:string"/>
+	<xsd:element name="TIBCOSignature">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="BWApplicationName" minOccurs="0"/>
+				<xsd:element ref="BWApplicationVersion" minOccurs="0"/>
+				<xsd:element ref="BWAppSpaceName" minOccurs="0"/>
+				<xsd:element ref="BWAppNodeName" minOccurs="0"/>
+				<xsd:element ref="BWProcessName" minOccurs="0"/>
+				<xsd:element ref="EmailType" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="BWApplicationName" type="xsd:string"/>
+	<xsd:element name="BWApplicationVersion" type="xsd:string"/>
+	<xsd:element name="BWAppSpaceName" type="xsd:string"/>
+	<xsd:element name="BWAppNodeName" type="xsd:string"/>
+	<xsd:element name="BWProcessName" type="xsd:string"/>
+	<xsd:element name="EmailType" type="xsd:string"/>
+</xsd:schema>

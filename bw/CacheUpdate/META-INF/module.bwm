@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sca:composite xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:BW="http://xsd.tns.tibco.com/amf/models/sca/implementationtype/BW" xmlns:XMLSchema="http://www.w3.org/2001/XMLSchema" xmlns:assr="http://xsd.tns.tibco.com/bw/models/sharedresource/activespace" xmlns:compositeext="http://schemas.tibco.com/amx/3.0/compositeext" xmlns:jms="http://xsd.tns.tibco.com/bw/models/sharedresource/jms" xmlns:property="http://ns.tibco.com/bw/property" xmlns:sca="http://www.osoa.org/xmlns/sca/1.0" xmlns:scaext="http://xsd.tns.tibco.com/amf/models/sca/extensions" xmi:id="_kGNqAHmzEeaKNOMJder--w" targetNamespace="http://tns.tibco.com/bw/composite/CacheUpdate" name="CacheUpdate" compositeext:version="1.0.0" compositeext:formatVersion="2">
+  <sca:property xmi:id="_kN0G0HmzEeaKNOMJder--w" name="BW.DEPLOYMENTUNIT.TYPE" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_kN4YQHmzEeaKNOMJder--w" name="BW.APPNODE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_kN6NcHmzEeaKNOMJder--w" name="BW.DEPLOYMENTUNIT.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_kN9QwHmzEeaKNOMJder--w" name="BW.HOST.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_kN_F8HmzEeaKNOMJder--w" name="BW.DOMAIN.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_kOBiMHmzEeaKNOMJder--w" name="BW.DEPLOYMENTUNIT.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_kOD-cHmzEeaKNOMJder--w" name="BW.APPSPACE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_kOFzoHmzEeaKNOMJder--w" name="BW.MODULE.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_kOIP4HmzEeaKNOMJder--w" name="BW.MODULE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_2i9LoHszEea3R8-FzNfatw" name="/Connection/EMS/URL" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_CwPA0Hs0Eea3R8-FzNfatw" name="/Connection/EMS/User" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_HzSD8Hs0Eea3R8-FzNfatw" name="/Connection/EMS/Password" type="property:password" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_9hl8QHs0Eea3R8-FzNfatw" name="/Connection/EMS/JMSConnection" type="jms:JMSConnectionFactory" scaext:simpleValue="" scalable="true"/>
+  <sca:property xmi:id="_f8z90Hs2Eeayieo2bMj7Uw" name="/Connection/EMS/Destinations/Queue.Updates" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_1FY2MHxLEeaySrIoTu29Bg" name="/Connection/EMS/Destinations/Queue.Errors" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_TJ0DAHwTEeahSf9BOj3_WQ" name="/Connection/AS/MetaspaceName" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_6Mqo8HwSEeahSf9BOj3_WQ" name="/Connection/AS/MemberName" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_Kfc68HwTEeahSf9BOj3_WQ" name="/Connection/AS/DiscoveryURL" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_5PA4cHwTEeahSf9BOj3_WQ" name="/Connection/AS/ConnectionTimeout" type="XMLSchema:long" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_xrQ4YHs9Eeayieo2bMj7Uw" name="/MessageSelectors/Space/Account" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_F5RCwHs-Eeayieo2bMj7Uw" name="/MessageSelectors/Space/AssistanceProgramEngagement" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_JDEsUHs-Eeayieo2bMj7Uw" name="/MessageSelectors/Space/BillNotificationEmail" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_NUO_gHs-Eeayieo2bMj7Uw" name="/MessageSelectors/Space/BillNotificationEnrollment" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_R-1GYHs-Eeayieo2bMj7Uw" name="/MessageSelectors/Space/BudgetBill" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_YDxEUHs-Eeayieo2bMj7Uw" name="/MessageSelectors/Space/BudgetBillEngagement" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_cGUTwHs-Eeayieo2bMj7Uw" name="/MessageSelectors/Space/County" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_a0zl4IYxEeaB3J1zWesAcA" name="/MessageSelectors/Space/Messages" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_q_DCkHs-Eeayieo2bMj7Uw" name="/MessageSelectors/Space/OutageCause" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_tLEOMHs-Eeayieo2bMj7Uw" name="/MessageSelectors/Space/OutagesCall" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_x6smEHs-Eeayieo2bMj7Uw" name="/MessageSelectors/Space/OutagesDetailByService" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_1DN2MHs-Eeayieo2bMj7Uw" name="/MessageSelectors/Space/OutagesOverview" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_5YqzgHs-Eeayieo2bMj7Uw" name="/MessageSelectors/Space/OutageTerritories" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_8TrMEHs-Eeayieo2bMj7Uw" name="/MessageSelectors/Space/PaymentAccountSummary" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_trQ7wHs_Eeayieo2bMj7Uw" name="/MessageSelectors/Space/PaymentAch" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_0OC10HtLEea2ld2c3w74Jw" name="/MessageSelectors/Space/PaymentArrangements" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_4JhM4HtLEea2ld2c3w74Jw" name="/MessageSelectors/Space/PaymentConsolidated" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_86UpcHtLEea2ld2c3w74Jw" name="/MessageSelectors/Space/PaymentOverview" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_BkD0sHtMEea2ld2c3w74Jw" name="/MessageSelectors/Space/PaymentSpeedPay" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_JXetsHtMEea2ld2c3w74Jw" name="/MessageSelectors/Space/Premise" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_QTO-4HtMEea2ld2c3w74Jw" name="/MessageSelectors/Space/PremiseLocation" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_3MmcMHtMEea2ld2c3w74Jw" name="/MessageSelectors/Space/Replacements" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_ITRpQHtNEea2ld2c3w74Jw" name="/MessageSelectors/Space/ScheduleData" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_L66eUHtNEea2ld2c3w74Jw" name="/MessageSelectors/Space/SchedulePayments" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_tpeqsHtNEea2ld2c3w74Jw" name="/MessageSelectors/Space/SummerCycler" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_dkgtYIYxEeaB3J1zWesAcA" name="/MessageSelectors/Space/VectrenProfile" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:component xmi:id="_FwYzoHp6Eea3R8-FzNfatw" name="ComponentHandlePaymentsUpdate" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_FwYzoXp6Eea3R8-FzNfatw" processName="cacheupdate.HandleAutopayEnrollUpdate"/>
+  </sca:component>
+  <sca:component xmi:id="_fWWm0IYjEeaB3J1zWesAcA" name="ComponentHandleMessagesUpdate" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_fWWm0YYjEeaB3J1zWesAcA" processName="cacheupdate.HandleMessagesUpdate"/>
+  </sca:component>
+  <sca:component xmi:id="_2zQ1wIbqEeapcuSxysd12Q" name="ComponentAutopayEnrollListener" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_2zQ1wYbqEeapcuSxysd12Q" processName="cacheupdate.events.AutopayEnrollListener"/>
+  </sca:component>
+</sca:composite>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" ?><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://behaimits.com/vectren/bigdata/customer360view/ScheduledPayments" xmlns="http://behaimits.com/vectren/bigdata/customer360view/ScheduledPayments" elementFormDefault="qualified">
+<xs:complexType name="ScheduledPaymentsItemType"><xs:sequence>
+<xs:element name="UARDRFT_CUST_CODE" type="xs:float" />
+<xs:element name="UARDRFT_PREM_CODE" type="xs:string" />
+<xs:element name="UARDRFT_HOLD_UNTIL_DATE" type="xs:dateTime" />
+<xs:element name="UARDRFT_AMOUNT" type="xs:float" />
+</xs:sequence></xs:complexType><xs:element name="ScheduledPaymentsItem" type="ScheduledPaymentsItemType" /></xs:schema>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://behaimits.com/vectren/bigdata/customer360view/BDError" xmlns:tns="http://behaimits.com/vectren/bigdata/customer360view/BDError" elementFormDefault="qualified">
+
+    <element name="BDError" type="tns:errorType"></element>
+    
+    <complexType name="errorType">
+    	<sequence>
+    		<element name="message" type="string"></element>
+    		<element name="code" type="string"></element>
+    		<element name="detail" type="string"></element>
+    		<element name="data" type="anyType" maxOccurs="1" minOccurs="0"></element>
+    	</sequence>
+    </complexType>
+</schema>

@@ -1,0 +1,6 @@
+----------------------------------------------------------------
+2016-09-30 08:39:40.290 GMT:
+ Booting Derby version The Apache Software Foundation - Apache Derby - 10.5.1.1 - (764942): instance a816c00e-0157-7a3f-bdb1-0000501971a9
+on database directory C:\TestGIT\aa\.metadata\.plugins\com.tibco.xpd.resources\db\TibcoResources  
+
+Database Class Loader started - derby.database.classpath=''

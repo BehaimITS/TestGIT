@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" ?><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://behaimits.com/vectren/bigdata/customer360view/OutageCause" xmlns="http://behaimits.com/vectren/bigdata/customer360view/OutageCause" elementFormDefault="qualified">
+<xs:complexType name="OutageCauseItemType"><xs:sequence>
+<xs:element name="LKUP_CAUSE_ID" type="xs:float" />
+<xs:element name="TYPE" type="xs:string" minOccurs="0" />
+<xs:element name="CAUSE" type="xs:string" minOccurs="0" />
+<xs:element name="ALT_TERM_CAUSE" type="xs:string" minOccurs="0" />
+</xs:sequence></xs:complexType><xs:element name="OutageCauseItem" type="OutageCauseItemType" /></xs:schema>

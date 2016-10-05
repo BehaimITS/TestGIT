@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:schema="http://xsd.tns.tibco.com/amf/models/adapter/schema">
+  <schema:ClassType xmi:id="SQL_REQUEST" name="SQL_REQUEST">
+    <attributes name="STATEMENTS" type="sequence[SQL_STATEMENT]" isReadable="true" isWriteable="true"/>
+    <attributes name="CLOSURE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#any"/>
+    </attributes>
+  </schema:ClassType>
+  <schema:ClassType xmi:id="POLL_COMMAND" name="POLL_COMMAND">
+    <attributes name="ID" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="PUBLISHING_TABLE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="RETURN_CLASS" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="RETURN_QUEUE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="DATA_SOURCE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="USER_NAME" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="PASSWORD" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="DATABASE_NAME" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+  </schema:ClassType>
+  <schema:ClassType xmi:id="ADB_SUBSCRIBER_STATUS" name="ADB_SUBSCRIBER_STATUS">
+    <attributes name="RETURN_CODE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#i4"/>
+    </attributes>
+    <attributes name="ADB_TEXT" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="CALLOUT_TEXT" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="NUMBER_OF_UPDATED_ROW" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#i4"/>
+    </attributes>
+  </schema:ClassType>
+  <schema:ClassType xmi:id="ADB_TABLEMAPPING" name="ADB_TABLEMAPPING">
+    <attributes name="PUB_CHILD_TABLE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="SUB_CHILD_TABLE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+  </schema:ClassType>
+  <schema:ClassType xmi:id="ADB_PREREGLISTENER" name="ADB_PREREGLISTENER">
+    <attributes name="SUBJECT" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="LISTENER" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+  </schema:ClassType>
+  <schema:ClassType xmi:id="ADB_SUBINFO" name="ADB_SUBINFO">
+    <attributes name="SUBJECT" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="DESTINATION_TABLE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="QUALITY_OF_SERVICE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="DATA_FORMAT" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="DATA_SOURCE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="USER_NAME" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="PASSWORD" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="DATABASE_NAME" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="EXCEPTION_TABLE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+  </schema:ClassType>
+  <schema:ClassType xmi:id="ADB_PUBINFO" name="ADB_PUBINFO">
+    <attributes name="SUBJECT" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="SOURCE_TABLE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="PUBLISHING_TABLE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="QUALITY_OF_SERVICE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="DATA_FORMAT" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="DATA_SOURCE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="STORAGE_MODE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="USER_NAME" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="PASSWORD" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="DATABASE_NAME" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+  </schema:ClassType>
+  <schema:ClassType xmi:id="ADB_RELINFO" name="ADB_RELINFO">
+    <attributes name="RELATIONSHIP_NAME" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="PARENT_TABLE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="PARENT_KEYS" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="CHILD_TABLE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="IS_PUB" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+  </schema:ClassType>
+  <schema:ClassType xmi:id="TERMINATE" name="TERMINATE"/>
+  <schema:ClassType xmi:id="SQL_COMMAND" name="SQL_COMMAND">
+    <attributes name="ID" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="COMMAND" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="RETURN_CLASS" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="RETURN_QUEUE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="DATA_SOURCE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="USER_NAME" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="PASSWORD" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="DATABASE_NAME" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+  </schema:ClassType>
+  <schema:ClassType xmi:id="SQL_STATUS" name="SQL_STATUS">
+    <attributes name="ID" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="STATUS" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="MESSAGE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+  </schema:ClassType>
+  <schema:ClassType xmi:id="NEW_SUBSCRIPTION" name="NEW_SUBSCRIPTION">
+    <attributes name="SUBJECT" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+  </schema:ClassType>
+  <schema:ClassType xmi:id="NEW_PUBLICATION" name="NEW_PUBLICATION">
+    <attributes name="SUBJECT" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+  </schema:ClassType>
+  <schema:ClassType xmi:id="CONFIRM_MESSAGE" name="CONFIRM_MESSAGE"/>
+  <schema:ClassType xmi:id="COMMIT_TRANSACTION" name="COMMIT_TRANSACTION"/>
+  <schema:ClassType xmi:id="SPLIT_MESSAGE" name="SPLIT_MESSAGE">
+    <attributes name="ID" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="CLASSNAME" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="CHUNK_NUM" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#i4"/>
+    </attributes>
+    <attributes name="CHUNK_SIZE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#i4"/>
+    </attributes>
+    <attributes name="MESSAGE_SIZE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#i4"/>
+    </attributes>
+    <attributes name="CHUNK_BUFFER" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#binary"/>
+    </attributes>
+  </schema:ClassType>
+  <schema:ClassType xmi:id="adbDateTime" name="adbDateTime">
+    <attributes name="dateTime" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+  </schema:ClassType>
+  <schema:ClassType xmi:id="ExplicitNull" name="ExplicitNull">
+    <attributes name="explicitNullAttribute" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#boolean"/>
+    </attributes>
+  </schema:ClassType>
+  <schema:ClassType xmi:id="MULTIROW_MESSAGE" name="MULTIROW_MESSAGE">
+    <attributes name="MULTIROW_STMT" isReadable="true" isWriteable="true">
+      <type href="scalar.schema#sequence[any]"/>
+    </attributes>
+  </schema:ClassType>
+  <schema:ClassType xmi:id="ADB_REQREPINFO" name="ADB_REQREPINFO">
+    <attributes name="REQUEST_SUBJECT" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="REPLY_SUBJECT" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="QUEUE_NAME" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="QUALITY_OF_SERVICE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="DATA_FORMAT" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="DATA_SOURCE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="USER_NAME" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="PASSWORD" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="DATABASE_NAME" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+  </schema:ClassType>
+  <schema:ClassType xmi:id="SQL_ROW" name="SQL_ROW">
+    <attributes name="ROW" isReadable="true" isWriteable="true">
+      <type href="scalar.schema#sequence[any]"/>
+    </attributes>
+  </schema:ClassType>
+  <schema:ClassType xmi:id="SQL_BIND" name="SQL_BIND">
+    <attributes name="POSITION" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#i4"/>
+    </attributes>
+    <attributes name="NAME" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="PARAMTYPE" isReadable="true" isWriteable="true" default="IN">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="DATA" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#any"/>
+    </attributes>
+  </schema:ClassType>
+  <schema:ClassType xmi:id="SQL_RESULTSET" name="SQL_RESULTSET">
+    <attributes name="HEADER" isReadable="true" isWriteable="true">
+      <type href="scalar.schema#sequence[string]"/>
+    </attributes>
+    <attributes name="ROWVALUES" type="sequence[SQL_ROW]" isReadable="true" isWriteable="true"/>
+  </schema:ClassType>
+  <schema:ClassType xmi:id="SQL_RETURN" name="SQL_RETURN">
+    <attributes name="STATUS" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="SQL" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="ERROR_DESC" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="CLOSURE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#any"/>
+    </attributes>
+    <attributes name="RETURNVALUE" type="SQL_RETURNVALUE" isReadable="true" isWriteable="true"/>
+  </schema:ClassType>
+  <schema:ClassType xmi:id="SQL_BATCHRETURN" name="SQL_BATCHRETURN">
+    <attributes name="STATUS" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="SQL" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="ERROR_DESC" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="CLOSURE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#any"/>
+    </attributes>
+    <attributes name="RETURNVALUES" type="sequence[SQL_RETURNVALUE]" isReadable="true" isWriteable="true"/>
+  </schema:ClassType>
+  <schema:ClassType xmi:id="SQL_RETURNVALUE" name="SQL_RETURNVALUE">
+    <attributes name="CLOSURE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#any"/>
+    </attributes>
+    <attributes name="OUTBINDS" type="sequence[SQL_BIND]" isReadable="true" isWriteable="true"/>
+    <attributes name="RESULTSETS" type="sequence[SQL_RESULTSET]" isReadable="true" isWriteable="true"/>
+  </schema:ClassType>
+  <schema:ClassType xmi:id="SQL_STATEMENT" name="SQL_STATEMENT">
+    <attributes name="MAXROWS" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#i4"/>
+    </attributes>
+    <attributes name="SQL_STRING" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="CLOSURE" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#any"/>
+    </attributes>
+    <attributes name="BINDS" type="sequence[SQL_BIND]" isReadable="true" isWriteable="true"/>
+  </schema:ClassType>
+  <schema:ClassType xmi:id="CUSTOM_OP_OUTPUT_OPTION" name="CUSTOM_OP_OUTPUT_OPTION">
+    <attributes name="ERROR_DESC" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+    <attributes name="SQL" isReadable="true" isWriteable="true">
+      <type href="../../ae.schema#string"/>
+    </attributes>
+  </schema:ClassType>
+  <schema:RpcClassType xmi:id="SQL_OPS" name="SQL_OPS" isRpcClass="true">
+    <operations name="SQL_BATCHEXECUTE" type="SQL_BATCHRETURN">
+      <parameters name="STATEMENTS" type="sequence[SQL_STATEMENT]"/>
+    </operations>
+    <operations name="SQL_EXECUTE" type="SQL_RETURN">
+      <parameters name="STATEMENT" type="SQL_STATEMENT"/>
+    </operations>
+  </schema:RpcClassType>
+  <schema:Sequence xmi:id="sequence[SQL_ROW]" name="sequence[SQL_ROW]" elementType="SQL_ROW"/>
+  <schema:Sequence xmi:id="sequence[SQL_BIND]" name="sequence[SQL_BIND]" elementType="SQL_BIND"/>
+  <schema:Sequence xmi:id="sequence[SQL_RESULTSET]" name="sequence[SQL_RESULTSET]" elementType="SQL_RESULTSET"/>
+  <schema:Sequence xmi:id="sequence[SQL_STATEMENT]" name="sequence[SQL_STATEMENT]" elementType="SQL_STATEMENT"/>
+  <schema:Sequence xmi:id="sequence[SQL_RETURNVALUE]" name="sequence[SQL_RETURNVALUE]" elementType="SQL_RETURNVALUE"/>
+</xmi:XMI>

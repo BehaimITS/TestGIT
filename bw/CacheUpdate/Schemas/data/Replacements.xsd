@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://behaimits.com/vectren/bigdata/customer360view/Replacements" xmlns="http://behaimits.com/vectren/bigdata/customer360view/Replacements" elementFormDefault="qualified">
+<xs:complexType name="ReplacementsItemType"><xs:sequence>
+<xs:element name="MAP_GROUP_DATA_ID" type="xs:float" />
+<xs:element name="GIS_GROUP_CODE" type="xs:string" minOccurs="0" />
+<xs:element name="MAP_CODE" type="xs:string" minOccurs="0" />
+<xs:element name="MAP_CONFIG_CODE" type="xs:string" minOccurs="0" />
+<xs:element name="DESCRIPTION" type="xs:string" minOccurs="0" />
+<xs:element name="START_DATE" type="xs:dateTime" minOccurs="0" />
+<xs:element name="END_DATE" type="xs:dateTime" minOccurs="0" />
+<xs:element name="IMPORT_STATUS" type="xs:float" minOccurs="0" />
+<xs:element name="TUPLE_ID" type="xs:float" minOccurs="0" />
+</xs:sequence></xs:complexType><xs:element name="ReplacementsItem" type="ReplacementsItemType" /></xs:schema>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://behaimits.com/vectren/bigdata/customer360view/Customer360Messages" xmlns="http://behaimits.com/vectren/bigdata/customer360view/Customer360Messages" elementFormDefault="qualified">
+<xs:complexType name="Customer360MessagesItemType"><xs:sequence>
+<xs:element name="MSG_SEQUENCE_NO" type="xs:float" minOccurs="0" />
+<xs:element name="MSG_TIME" type="xs:dateTime" minOccurs="0" />
+<xs:element name="ACCOUNT_NUMBER" type="xs:string" minOccurs="0" />
+<xs:element name="MSG_KEY" type="xs:string" minOccurs="0" />
+<xs:element name="SOURCE_TUPLE_ID" type="xs:float" minOccurs="0" />
+<xs:element name="MSG_DEST" type="xs:string" minOccurs="0" />
+<xs:element name="MSG_TEXT" type="xs:string" minOccurs="0" />
+</xs:sequence></xs:complexType><xs:element name="Customer360MessagesItem" type="Customer360MessagesItemType" /></xs:schema>

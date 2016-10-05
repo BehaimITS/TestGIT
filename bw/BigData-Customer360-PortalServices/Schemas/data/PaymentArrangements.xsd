@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" ?><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://behaimits.com/vectren/bigdata/customer360view/PaymentArrangements" xmlns="http://behaimits.com/vectren/bigdata/customer360view/PaymentArrangements" elementFormDefault="qualified">
+<xs:complexType name="PaymentArrangementsItemType"><xs:sequence>
+<xs:element name="UARPYAR_CUST_CODE" type="xs:float" />
+<xs:element name="UARPYAR_PREM_CODE" type="xs:string" />
+<xs:element name="UARPYAR_BALANCE" type="xs:float" />
+<xs:element name="UARPYAR_AMT_DUE" type="xs:float" />
+<xs:element name="UARPYAR_DATE_DUE" type="xs:dateTime" />
+</xs:sequence></xs:complexType><xs:element name="PaymentArrangementsItem" type="PaymentArrangementsItemType" /></xs:schema>

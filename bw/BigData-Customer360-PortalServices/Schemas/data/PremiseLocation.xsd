@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" ?><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://behaimits.com/vectren/bigdata/customer360view/PremiseLocation" xmlns="http://behaimits.com/vectren/bigdata/customer360view/PremiseLocation" elementFormDefault="qualified">
+<xs:complexType name="PremiseLocationItemType"><xs:sequence>
+<xs:element name="UCBPREM_CODE" type="xs:string" />
+<xs:element name="LATITUDE" type="xs:float" minOccurs="0" />
+<xs:element name="LONGITUDE" type="xs:float" minOccurs="0" />
+</xs:sequence></xs:complexType><xs:element name="PremiseLocationItem" type="PremiseLocationItemType" /></xs:schema>

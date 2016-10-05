@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config:ProjectConfig xmlns:config="http://www.tibco.com/XPD/projectConfig">
+  <projectDetails id="com.example.adb_ebiz">
+    <globalDestinations/>
+  </projectDetails>
+  <config:assetTypes id="com.tibco.amx.zion.schema.asset"/>
+  <config:assetTypes id="com.tibco.bw.process.asset"/>
+  <config:assetTypes id="com.tibco.xpd.asset.wsdl"/>
+  <config:assetTypes id="com.tibco.amx.zion.resource.asset"/>
+  <config:assetTypes id="com.tibco.bw.core.design.policy.asset"/>
+  <config:specialFolders>
+    <config:folder id="_7_YCoIPnEeaZ8K37phZ3MA" kind="com.tibco.amx.zion.schema" location="Schemas"/>
+    <config:folder id="_7_k28IPnEeaZ8K37phZ3MA" kind="com.tibco.bw.process.folder" location="Processes"/>
+    <config:folder id="_7_n6QIPnEeaZ8K37phZ3MA" kind="wsdl" location="Service Descriptors"/>
+    <config:folder id="_7_q9kIPnEeaZ8K37phZ3MA" kind="com.tibco.amx.zion.resource" location="Resources"/>
+    <config:folder id="_7_tZ0IPnEeaZ8K37phZ3MA" kind="com.tibco.amx.zion.policy" location="Policies"/>
+  </config:specialFolders>
+</config:ProjectConfig>

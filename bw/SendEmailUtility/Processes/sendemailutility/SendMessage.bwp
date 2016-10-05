@@ -1,0 +1,2270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpws:process exitOnStandardFault="no"
+    name="sendemailutility.SendMessage" suppressJoinFailure="yes"
+    targetNamespace="http://xmlns.example.com/20160506024414"
+    xmlns:bpws="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+    xmlns:info="http://www.tibco.com/bw/process/info"
+    xmlns:ns="http://xmlns.example.com/20160506024414PLT"
+    xmlns:ns0="http://www.tibco.com/pe/EngineTypes"
+    xmlns:ns1="http://www.example.org/wsdl/1462520551804"
+    xmlns:ns2="http://www.tibco.com/pe/WriteToLogActivitySchema"
+    xmlns:ns3="http://tns.tibco.com/bw/activity/sendmail/xsd/input+26f8560c-722e-4ac4-9a01-702e6cf2bc24+input"
+    xmlns:ns4="http://tns.tibco.com/bw/activity/sendmail/xsd/input+3c4e5496-03d7-44dc-b87e-516e5a05bdbe+input"
+    xmlns:ns5="http://schemas.tibco.com/bw/plugins/basic/6.0/Exceptions"
+    xmlns:ns6="http://Vectren.mail.com"
+    xmlns:ns7="http://www.tibco.com/namespaces/tnt/plugins/generalactivities/mapper/1462898084143"
+    xmlns:ns8="http://www.tibco.com/namespaces/tnt/plugins/generalactivities/mapper/1463412643610"
+    xmlns:ns9="http://tns.tibco.com/bw/activity/sendmail/xsd/input+247f68a3-6d68-449d-b48e-ef9ed3a7a024+input"
+    xmlns:sca="http://docs.oasis-open.org/ns/opencsa/sca/200912"
+    xmlns:sca-bpel="http://docs.oasis-open.org/ns/opencsa/sca-bpel/200801"
+    xmlns:tibex="http://www.tibco.com/bpel/2007/extensions"
+    xmlns:tibprop="http://ns.tibco.com/bw/property" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <tibex:Types>
+        <xs:schema attributeFormDefault="unqualified"
+            elementFormDefault="qualified"
+            targetNamespace="http://www.tibco.com/pe/EngineTypes"
+            xmlns:tns="http://www.tibco.com/pe/EngineTypes" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:complexType block="extension restriction"
+                final="extension restriction" name="ErrorReport">
+                <xs:sequence>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="StackTrace" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="Msg" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="FullClass" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="Class" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="ProcessStack" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" minOccurs="0" name="MsgCode" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" minOccurs="0" name="Data" type="tns:anydata"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType block="extension restriction"
+                final="extension restriction" name="FaultDetail">
+                <xs:sequence>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="ActivityName" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" minOccurs="0" name="Data" type="tns:anydata"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="Msg" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="MsgCode" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="ProcessStack" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="StackTrace" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType block="extension restriction"
+                final="extension restriction" name="ProcessContext">
+                <xs:sequence>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="JobId" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="ProcessInstanceId" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" minOccurs="0"
+                        name="CustomJobId" type="xs:string"/>
+                    <!--xs:element name="RestartedFromCheckpoint" form="unqualified" block="extension restriction substitution" type="xs:boolean"/-->
+                    <!--xs:element minOccurs="0" maxOccurs="unbounded" name="TrackingInfo" form="unqualified" block="extension restriction substitution" type="xs:string"/-->
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType block="extension restriction"
+                final="extension restriction" name="anydata">
+                <xs:sequence>
+                    <xs:any namespace="##any" processContents="lax"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element block="extension restriction substitution"
+                final="extension restriction" name="ErrorReport" type="tns:ErrorReport"/>
+            <xs:element block="extension restriction substitution"
+                final="extension restriction" name="FaultDetail" type="tns:FaultDetail"/>
+            <xs:element block="extension restriction substitution"
+                final="extension restriction" name="ProcessContext" type="tns:ProcessContext"/>
+            <xs:element block="extension restriction substitution"
+                final="extension restriction" name="CorrelationValue" type="xs:string"/>
+        </xs:schema>
+        <schema attributeFormDefault="unqualified"
+            elementFormDefault="unqualified"
+            targetNamespace="http://schemas.tibco.com/bw/pe/plugin/5.0/exceptions"
+            version="" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.tibco.com/bw/pe/plugin/5.0/exceptions">
+            <complexType name="ActivityExceptionType">
+                <sequence>
+                    <element name="msg" type="string"/>
+                    <element minOccurs="0" name="msgCode" type="string"/>
+                </sequence>
+            </complexType>
+            <element name="ActivityException" type="tns:ActivityExceptionType"/>
+            <complexType name="ActivityTimedOutExceptionType">
+                <complexContent>
+                    <extension base="tns:ActivityExceptionType"/>
+                </complexContent>
+            </complexType>
+            <element name="ActivityTimedOutException" type="tns:ActivityTimedOutExceptionType"/>
+        </schema>
+        <xs:schema attributeFormDefault="unqualified"
+            elementFormDefault="qualified"
+            targetNamespace="http://www.tibco.com/pe/WriteToLogActivitySchema"
+            xmlns:tns="http://www.tibco.com/pe/WriteToLogActivitySchema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:complexType name="LogParametersType">
+                <xs:sequence>
+                    <xs:element form="unqualified" minOccurs="0"
+                        name="msgCode" type="xs:string"/>
+                    <xs:element form="unqualified" minOccurs="0"
+                        name="loggerName" type="xs:string"/>
+                    <xs:element form="unqualified" minOccurs="0"
+                        name="logLevel" type="xs:string"/>
+                    <xs:element form="unqualified" name="message" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="ActivityInput" type="tns:LogParametersType"/>
+        </xs:schema>
+        <xs:schema attributeFormDefault="unqualified"
+            elementFormDefault="qualified"
+            targetNamespace="http://xmlns.tibco.com/encodings/mimefile"
+            xmlns:tns="http://xmlns.tibco.com/encodings/mimefile" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:complexType name="mimeEnvelopeSuperSetType">
+                <xs:sequence>
+                    <xs:element form="unqualified" maxOccurs="unbounded"
+                        minOccurs="0" name="mimePart" type="tns:partSuperSetType"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="mimeHeadersType">
+                <xs:sequence>
+                    <xs:element form="unqualified" minOccurs="0"
+                        name="content-disposition" type="xs:string"/>
+                    <xs:element form="unqualified" name="content-type" type="xs:string"/>
+                    <xs:element form="unqualified" minOccurs="0"
+                        name="content-transfer-encoding" type="xs:string"/>
+                    <xs:element form="unqualified" minOccurs="0"
+                        name="content-id" type="xs:string"/>
+                    <xs:any maxOccurs="unbounded" minOccurs="0"
+                        namespace="##local" processContents="skip"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="partSuperSetType">
+                <xs:sequence>
+                    <xs:element form="unqualified" name="mimeHeaders" type="tns:mimeHeadersType"/>
+                    <xs:choice>
+                        <xs:element form="unqualified"
+                            name="binaryContent" type="xs:base64Binary"/>
+                        <xs:element form="unqualified" name="fileName" type="xs:string"/>
+                        <xs:element form="unqualified"
+                            name="textContent" type="xs:string"/>
+                    </xs:choice>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="mimeEnvelopeElement" type="tns:mimeEnvelopeSuperSetType"/>
+        </xs:schema>
+        <schema elementFormDefault="qualified"
+            targetNamespace="http://tns.tibco.com/bw/activity/sendmail/xsd/input+26f8560c-722e-4ac4-9a01-702e6cf2bc24+input"
+            xmlns="http://www.w3.org/2001/XMLSchema"
+            xmlns:tns="http://tns.tibco.com/bw/activity/sendmail/xsd/input+26f8560c-722e-4ac4-9a01-702e6cf2bc24+input" xmlns:tns1="http://xmlns.tibco.com/encodings/mimefile">
+            <import namespace="http://xmlns.tibco.com/encodings/mimefile"/>
+            <complexType name="SendMailParametersType">
+                <sequence>
+                    <element form="unqualified" maxOccurs="1"
+                        minOccurs="0" name="username" type="string"/>
+                    <element form="unqualified" maxOccurs="1"
+                        minOccurs="0" name="password" type="string"/>
+                    <element form="unqualified" maxOccurs="1"
+                        minOccurs="1" name="from" type="string"/>
+                    <element form="unqualified" maxOccurs="unbounded"
+                        minOccurs="0" name="to" type="string"/>
+                    <element form="unqualified" maxOccurs="unbounded"
+                        minOccurs="0" name="cc" type="string"/>
+                    <element form="unqualified" maxOccurs="unbounded"
+                        minOccurs="0" name="bcc" type="string"/>
+                    <element form="unqualified" maxOccurs="unbounded"
+                        minOccurs="0" name="replyTo" type="string"/>
+                    <element form="unqualified" maxOccurs="1"
+                        minOccurs="0" name="subject" type="string"/>
+                    <element form="unqualified" maxOccurs="1"
+                        minOccurs="0" name="sentdate" type="string"/>
+                    <element form="unqualified" maxOccurs="1"
+                        minOccurs="0" name="bodyElement" type="tns:bodyType"/>
+                    <element form="unqualified" maxOccurs="1"
+                        minOccurs="0" name="Headers" type="tns:headersType"/>
+                    <element minOccurs="0" ref="tns1:mimeEnvelopeElement"/>
+                </sequence>
+            </complexType>
+            <complexType name="headersType">
+                <sequence>
+                    <element form="unqualified" maxOccurs="1"
+                        minOccurs="0" name="Content-Type" type="string"/>
+                </sequence>
+            </complexType>
+            <complexType name="bodyType">
+                <choice>
+                    <element form="unqualified" minOccurs="0"
+                        name="bodyText" type="string"/>
+                    <element form="unqualified" minOccurs="0"
+                        name="fileName" type="string"/>
+                </choice>
+            </complexType>
+            <element name="mailActivityInput" type="tns:SendMailParametersType"/>
+        </schema>
+        <schema elementFormDefault="qualified"
+            targetNamespace="http://tns.tibco.com/bw/activity/sendmail/xsd/input+247f68a3-6d68-449d-b48e-ef9ed3a7a024+input"
+            xmlns="http://www.w3.org/2001/XMLSchema"
+            xmlns:tns="http://tns.tibco.com/bw/activity/sendmail/xsd/input+247f68a3-6d68-449d-b48e-ef9ed3a7a024+input" xmlns:tns1="http://xmlns.tibco.com/encodings/mimefile">
+            <import namespace="http://xmlns.tibco.com/encodings/mimefile"/>
+            <complexType name="SendMailParametersType">
+                <sequence>
+                    <element form="unqualified" maxOccurs="1"
+                        minOccurs="0" name="username" type="string"/>
+                    <element form="unqualified" maxOccurs="1"
+                        minOccurs="0" name="password" type="string"/>
+                    <element form="unqualified" maxOccurs="1"
+                        minOccurs="1" name="from" type="string"/>
+                    <element form="unqualified" maxOccurs="unbounded"
+                        minOccurs="0" name="to" type="string"/>
+                    <element form="unqualified" maxOccurs="unbounded"
+                        minOccurs="0" name="cc" type="string"/>
+                    <element form="unqualified" maxOccurs="unbounded"
+                        minOccurs="0" name="bcc" type="string"/>
+                    <element form="unqualified" maxOccurs="unbounded"
+                        minOccurs="0" name="replyTo" type="string"/>
+                    <element form="unqualified" maxOccurs="1"
+                        minOccurs="0" name="subject" type="string"/>
+                    <element form="unqualified" maxOccurs="1"
+                        minOccurs="0" name="sentdate" type="string"/>
+                    <element form="unqualified" maxOccurs="1"
+                        minOccurs="0" name="bodyElement" type="tns:bodyType"/>
+                    <element form="unqualified" maxOccurs="1"
+                        minOccurs="0" name="Headers" type="tns:headersType"/>
+                    <element minOccurs="0" ref="tns1:mimeEnvelopeElement"/>
+                </sequence>
+            </complexType>
+            <complexType name="headersType">
+                <sequence>
+                    <element form="unqualified" maxOccurs="1"
+                        minOccurs="0" name="Content-Type" type="string"/>
+                </sequence>
+            </complexType>
+            <complexType name="bodyType">
+                <choice>
+                    <element form="unqualified" minOccurs="0"
+                        name="bodyText" type="string"/>
+                    <element form="unqualified" minOccurs="0"
+                        name="fileName" type="string"/>
+                </choice>
+            </complexType>
+            <element name="mailActivityInput" type="tns:SendMailParametersType"/>
+        </schema>
+        <schema
+            targetNamespace="http://schemas.tibco.com/bw/plugins/basic/6.0/Exceptions"
+            xmlns="http://www.w3.org/2001/XMLSchema"
+            xmlns:tibex="http://www.tibco.com/bpel/2007/extensions" xmlns:tns="http://schemas.tibco.com/bw/plugins/basic/6.0/Exceptions">
+            <element name="DefaultFault">
+                <complexType>
+                    <sequence>
+                        <element maxOccurs="1" minOccurs="0"
+                            name="message" type="string"/>
+                        <element maxOccurs="1" minOccurs="0"
+                            name="msgCode" type="string"/>
+                    </sequence>
+                </complexType>
+            </element>
+        </schema>
+        <wsdl:definitions
+            targetNamespace="http://xmlns.example.com/20160506024414PLT"
+            xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype"
+            xmlns:ptyp="http://www.example.org/wsdl/1462520551804"
+            xmlns:tns="http://xmlns.example.com/20160506024414PLT"
+            xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop"
+            xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <plnk:partnerLinkType name="partnerLinkType">
+                <plnk:role name="use" portType="ptyp:SendMessage"/>
+            </plnk:partnerLinkType>
+            <wsdl:import namespace="http://www.example.org/wsdl/1462520551804"/>
+        </wsdl:definitions>
+    </tibex:Types>
+    <tibex:ProcessInfo createdBy="v.krejc"
+        createdOn="Fri May 06 02:44:14 CDT 2016" description=""
+        modifiers="public" productVersion="6.3.1 HF1 V19 2016-3-17"
+        scalable="true" singleton="true" stateless="false" type="IT"/>
+    <tibex:ProcessTemplateConfigurations/>
+    <notation:Diagram measurementUnit="Pixel" type="BWProcess"
+        xmlns:bwnotation="http://tns.tibco.com/bw/runtime/BWNotation"
+        xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <children type="2001">
+            <children type="5001"/>
+            <children type="3001">
+                <children type="4001">
+                    <children type="4017">
+                        <styles lineColor="0" xsi:type="notation:ShapeStyle"/>
+                        <layoutConstraint xsi:type="notation:Bounds"/>
+                    </children>
+                    <children type="4017">
+                        <styles lineColor="0" xsi:type="notation:ShapeStyle"/>
+                        <layoutConstraint xsi:type="notation:Bounds"/>
+                    </children>
+                    <children type="4017">
+                        <styles lineColor="0" xsi:type="notation:ShapeStyle"/>
+                        <layoutConstraint xsi:type="notation:Bounds"/>
+                    </children>
+                    <children type="4017">
+                        <styles lineColor="0" xsi:type="notation:ShapeStyle"/>
+                        <layoutConstraint xsi:type="notation:Bounds"/>
+                    </children>
+                    <children type="40011"/>
+                    <children type="3006">
+                        <styles xsi:type="notation:DrawerStyle"/>
+                        <styles xsi:type="notation:SortingStyle"/>
+                        <styles xsi:type="notation:FilteringStyle"/>
+                        <styles xsi:type="bwnotation:BackgroundStyle"/>
+                        <styles xsi:type="bwnotation:ResizingStyle"/>
+                    </children>
+                    <styles lineColor="0" xsi:type="notation:ShapeStyle"/>
+                    <styles xsi:type="bwnotation:BackgroundStyle"/>
+                    <styles xsi:type="bwnotation:ResizingStyle"/>
+                    <element href="//0/@process/@partnerLinks/@children.0"/>
+                    <layoutConstraint xsi:type="notation:Bounds"/>
+                </children>
+                <styles xsi:type="notation:SortingStyle"/>
+                <styles xsi:type="notation:FilteringStyle"/>
+                <element href="//0/@process"/>
+            </children>
+            <children type="3002">
+                <styles xsi:type="notation:SortingStyle"/>
+                <styles xsi:type="notation:FilteringStyle"/>
+            </children>
+            <children type="3003">
+                <styles xsi:type="notation:SortingStyle"/>
+                <styles xsi:type="notation:FilteringStyle"/>
+            </children>
+            <children type="3004">
+                <children type="4018">
+                    <children type="3018">
+                        <children type="4020">
+                            <children type="3020">
+                                <children type="4005">
+                                    <children type="3007">
+                                    <children type="4002">
+                                    <children type="4017">
+                                    <styles lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.0"/>
+                                    <layoutConstraint x="-138"
+                                    xsi:type="notation:Bounds" y="326"/>
+                                    </children>
+                                    <children type="4002">
+                                    <children type="4017">
+                                    <styles lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.1"/>
+                                    <layoutConstraint x="589"
+                                    xsi:type="notation:Bounds" y="326"/>
+                                    </children>
+                                    <children type="4018">
+                                    <children type="3018">
+                                    <children type="4020">
+                                    <children type="3020">
+                                    <children type="4005">
+                                    <children type="3007">
+
+                                    <children type="4002">
+
+                                    <children type="4017">
+
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <children type="4017">
+
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <children type="4017">
+
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <children type="4017">
+
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+
+                                    <element href="//0/@process/@activity/@activity/@activities.2/@activity/@activity/@activity/@activities.2"/>
+
+                                    <layoutConstraint
+                                    x="7"
+                                    xsi:type="notation:Bounds" y="5"/>
+                                    </children>
+
+                                    <children type="4002">
+
+                                    <children type="4017">
+
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <children type="4017">
+
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <children type="4017">
+
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <children type="4017">
+
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+
+                                    <element href="//0/@process/@activity/@activity/@activities.2/@activity/@activity/@activity/@activities.3"/>
+
+                                    <layoutConstraint
+                                    x="193"
+                                    xsi:type="notation:Bounds" y="5"/>
+                                    </children>
+
+                                    <children type="4002">
+
+                                    <children type="4017">
+
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <children type="4017">
+
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <children type="4017">
+
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <children type="4017">
+
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+
+                                    <element href="//0/@process/@activity/@activity/@activities.2/@activity/@activity/@activity/@activities.4"/>
+
+                                    <layoutConstraint
+                                    x="277"
+                                    xsi:type="notation:Bounds" y="5"/>
+                                    </children>
+
+                                    <children type="4002">
+
+                                    <children type="4017">
+
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <children type="4017">
+
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <children type="4017">
+
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <children type="4017">
+
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+
+                                    <element href="//0/@process/@activity/@activity/@activities.2/@activity/@activity/@activity/@activities.5"/>
+
+                                    <layoutConstraint
+                                    x="104"
+                                    xsi:type="notation:Bounds" y="82"/>
+                                    </children>
+
+                                    <children type="4002">
+
+                                    <children type="4017">
+
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <children type="4017">
+
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <children type="4017">
+
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <children type="4017">
+
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+
+                                    <element href="//0/@process/@activity/@activity/@activities.2/@activity/@activity/@activity/@activities.6"/>
+
+                                    <layoutConstraint
+                                    x="113"
+                                    xsi:type="notation:Bounds" y="5"/>
+                                    </children>
+                                    <styles xsi:type="notation:DrawerStyle"/>
+                                    <styles xsi:type="notation:SortingStyle"/>
+                                    <styles xsi:type="notation:FilteringStyle"/>
+                                    </children>
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+                                    <styles xsi:type="bwnotation:ResizingStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.2/@activity/@activity/@activity"/>
+
+                                    <layoutConstraint
+                                    height="177"
+                                    width="444" xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles xsi:type="notation:SortingStyle"/>
+                                    <styles xsi:type="notation:FilteringStyle"/>
+                                    </children>
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles xsi:type="bwnotation:BackgroundStyle"/>
+                                    <styles xsi:type="bwnotation:ResizingStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.2"/>
+                                    <layoutConstraint
+                                    height="160"
+                                    width="447"
+                                    x="15"
+                                    xsi:type="notation:Bounds" y="20"/>
+                                    </children>
+                                    <children type="4002">
+                                    <children type="4017">
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.2/@activity/@activity/@activity/@activities.0"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4002">
+                                    <children type="4017">
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.2/@activity/@activity/@activity/@activities.1"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4022">
+                                    <children type="3022">
+                                    <children type="4029">
+                                    <children type="3031">
+
+                                    <children type="4033">
+
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <element href="//0/@process/@activity/@activity/@activities.2/@faultHandlers/@catchAll"/>
+
+                                    <layoutConstraint
+                                    height="34"
+                                    width="34"
+                                    xsi:type="notation:Bounds" y="68"/>
+                                    </children>
+                                    <styles xsi:type="notation:SortingStyle"/>
+                                    <styles xsi:type="notation:FilteringStyle"/>
+                                    </children>
+                                    <children type="3032">
+
+                                    <children type="4005">
+
+                                    <children type="3007">
+
+                                    <children type="4002">
+
+                                    <children type="4017">
+
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <children type="4017">
+
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <children type="4017">
+
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <children type="4017">
+
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+
+                                    <element href="//0/@process/@activity/@activity/@activities.2/@faultHandlers/@catchAll/@activity/@activity/@activities.0"/>
+
+                                    <layoutConstraint
+                                    x="21"
+                                    xsi:type="notation:Bounds" y="-12"/>
+                                    </children>
+
+                                    <styles xsi:type="notation:DrawerStyle"/>
+
+                                    <styles xsi:type="notation:SortingStyle"/>
+
+                                    <styles xsi:type="notation:FilteringStyle"/>
+                                    </children>
+
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+
+                                    <styles xsi:type="bwnotation:ResizingStyle"/>
+
+                                    <element href="//0/@process/@activity/@activity/@activities.2/@faultHandlers/@catchAll/@activity/@activity"/>
+
+                                    <layoutConstraint
+                                    height="102"
+                                    width="366" xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles xsi:type="notation:SortingStyle"/>
+                                    <styles xsi:type="notation:FilteringStyle"/>
+                                    </children>
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles xsi:type="bwnotation:BackgroundStyle"/>
+                                    <styles
+                                    restoreHeight="112"
+                                    restoreWidth="417" xsi:type="bwnotation:ResizingStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.2/@faultHandlers/@catchAll"/>
+
+                                    <layoutConstraint
+                                    height="112"
+                                    width="417" xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles xsi:type="notation:SortingStyle"/>
+                                    <styles xsi:type="notation:FilteringStyle"/>
+                                    </children>
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles xsi:type="bwnotation:BackgroundStyle"/>
+                                    <styles xsi:type="bwnotation:ResizingStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.2/@faultHandlers"/>
+                                    <layoutConstraint
+                                    height="134"
+                                    width="427"
+                                    x="21"
+                                    xsi:type="notation:Bounds" y="180"/>
+                                    </children>
+                                    <styles xsi:type="notation:SortingStyle"/>
+                                    <styles xsi:type="notation:FilteringStyle"/>
+                                    </children>
+                                    <styles lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles xsi:type="bwnotation:BackgroundStyle"/>
+                                    <styles xsi:type="bwnotation:ResizingStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.2"/>
+                                    <layoutConstraint
+                                    height="315" width="487"
+                                    x="53"
+                                    xsi:type="notation:Bounds" y="3"/>
+                                    </children>
+                                    <children type="4018">
+                                    <children type="3018">
+                                    <children type="4020">
+                                    <children type="3020">
+                                    <children type="4005">
+                                    <children type="3007">
+
+                                    <children type="4002">
+
+                                    <children type="4017">
+
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <children type="4017">
+
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <children type="4017">
+
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <children type="4017">
+
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+
+                                    <element href="//0/@process/@activity/@activity/@activities.3/@activity/@activity/@activity/@activities.2"/>
+
+                                    <layoutConstraint
+                                    x="17"
+                                    xsi:type="notation:Bounds" y="15"/>
+                                    </children>
+
+                                    <children type="4002">
+
+                                    <children type="4017">
+
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <children type="4017">
+
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <children type="4017">
+
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <children type="4017">
+
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+
+                                    <element href="//0/@process/@activity/@activity/@activities.3/@activity/@activity/@activity/@activities.3"/>
+
+                                    <layoutConstraint
+                                    x="137"
+                                    xsi:type="notation:Bounds" y="15"/>
+                                    </children>
+
+                                    <children type="4002">
+
+                                    <children type="4017">
+
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <children type="4017">
+
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <children type="4017">
+
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <children type="4017">
+
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+
+                                    <element href="//0/@process/@activity/@activity/@activities.3/@activity/@activity/@activity/@activities.4"/>
+
+                                    <layoutConstraint
+                                    x="236"
+                                    xsi:type="notation:Bounds" y="15"/>
+                                    </children>
+
+                                    <children type="4002">
+
+                                    <children type="4017">
+
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <children type="4017">
+
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <children type="4017">
+
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <children type="4017">
+
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+
+                                    <element href="//0/@process/@activity/@activity/@activities.3/@activity/@activity/@activity/@activities.5"/>
+
+                                    <layoutConstraint
+                                    x="326"
+                                    xsi:type="notation:Bounds" y="15"/>
+                                    </children>
+
+                                    <children type="4002">
+
+                                    <children type="4017">
+
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <children type="4017">
+
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <children type="4017">
+
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <children type="4017">
+
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+
+                                    <element href="//0/@process/@activity/@activity/@activities.3/@activity/@activity/@activity/@activities.6"/>
+
+                                    <layoutConstraint
+                                    x="113"
+                                    xsi:type="notation:Bounds" y="112"/>
+                                    </children>
+                                    <styles xsi:type="notation:DrawerStyle"/>
+                                    <styles xsi:type="notation:SortingStyle"/>
+                                    <styles xsi:type="notation:FilteringStyle"/>
+                                    </children>
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+                                    <styles xsi:type="bwnotation:ResizingStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.3/@activity/@activity/@activity"/>
+
+                                    <layoutConstraint
+                                    height="209"
+                                    width="459" xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles xsi:type="notation:SortingStyle"/>
+                                    <styles xsi:type="notation:FilteringStyle"/>
+                                    </children>
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles xsi:type="bwnotation:BackgroundStyle"/>
+                                    <styles xsi:type="bwnotation:ResizingStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.3"/>
+                                    <layoutConstraint
+                                    height="209"
+                                    width="462"
+                                    x="15"
+                                    xsi:type="notation:Bounds" y="20"/>
+                                    </children>
+                                    <children type="4002">
+                                    <children type="4017">
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.3/@activity/@activity/@activity/@activities.0"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4002">
+                                    <children type="4017">
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.3/@activity/@activity/@activity/@activities.1"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4022">
+                                    <children type="3022">
+                                    <children type="4029">
+                                    <children type="3031">
+
+                                    <children type="4033">
+
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <element href="//0/@process/@activity/@activity/@activities.3/@faultHandlers/@catchAll"/>
+
+                                    <layoutConstraint
+                                    height="34"
+                                    width="34"
+                                    xsi:type="notation:Bounds" y="68"/>
+                                    </children>
+                                    <styles xsi:type="notation:SortingStyle"/>
+                                    <styles xsi:type="notation:FilteringStyle"/>
+                                    </children>
+                                    <children type="3032">
+
+                                    <children type="4005">
+
+                                    <children type="3007">
+
+                                    <children type="4002">
+
+                                    <children type="4017">
+
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <children type="4017">
+
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <children type="4017">
+
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <children type="4017">
+
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+
+                                    <element href="//0/@process/@activity/@activity/@activities.3/@faultHandlers/@catchAll/@activity/@activity/@activities.0"/>
+
+                                    <layoutConstraint
+                                    x="31"
+                                    xsi:type="notation:Bounds" y="22"/>
+                                    </children>
+
+                                    <styles xsi:type="notation:DrawerStyle"/>
+
+                                    <styles xsi:type="notation:SortingStyle"/>
+
+                                    <styles xsi:type="notation:FilteringStyle"/>
+                                    </children>
+
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+
+                                    <styles xsi:type="bwnotation:ResizingStyle"/>
+
+                                    <element href="//0/@process/@activity/@activity/@activities.3/@faultHandlers/@catchAll/@activity/@activity"/>
+
+                                    <layoutConstraint
+                                    height="107"
+                                    width="379" xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles xsi:type="notation:SortingStyle"/>
+                                    <styles xsi:type="notation:FilteringStyle"/>
+                                    </children>
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles xsi:type="bwnotation:BackgroundStyle"/>
+                                    <styles xsi:type="bwnotation:ResizingStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.3/@faultHandlers/@catchAll"/>
+
+                                    <layoutConstraint
+                                    height="117"
+                                    width="430" xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles xsi:type="notation:SortingStyle"/>
+                                    <styles xsi:type="notation:FilteringStyle"/>
+                                    </children>
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles xsi:type="bwnotation:BackgroundStyle"/>
+                                    <styles xsi:type="bwnotation:ResizingStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.3/@faultHandlers"/>
+                                    <layoutConstraint
+                                    height="143"
+                                    width="440"
+                                    x="21"
+                                    xsi:type="notation:Bounds" y="219"/>
+                                    </children>
+                                    <styles xsi:type="notation:SortingStyle"/>
+                                    <styles xsi:type="notation:FilteringStyle"/>
+                                    </children>
+                                    <styles lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles xsi:type="bwnotation:BackgroundStyle"/>
+                                    <styles restoreHeight="220"
+                                    restoreWidth="380"
+                                    restoreX="271"
+                                    restoreY="481" xsi:type="bwnotation:ResizingStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.3"/>
+                                    <layoutConstraint
+                                    height="373" width="502"
+                                    x="53"
+                                    xsi:type="notation:Bounds" y="384"/>
+                                    </children>
+                                    <styles xsi:type="notation:DrawerStyle"/>
+                                    <styles xsi:type="notation:SortingStyle"/>
+                                    <styles xsi:type="notation:FilteringStyle"/>
+                                    <element href="//0/@process/@activity/@activity"/>
+                                    </children>
+                                    <styles lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+                                    <styles xsi:type="bwnotation:ResizingStyle"/>
+                                    <element href="//0/@process/@activity/@activity"/>
+                                    <layoutConstraint height="848"
+                                    width="838" xsi:type="notation:Bounds"/>
+                                </children>
+                                <styles xsi:type="notation:SortingStyle"/>
+                                <styles xsi:type="notation:FilteringStyle"/>
+                            </children>
+                            <styles lineColor="0" xsi:type="notation:ShapeStyle"/>
+                            <styles xsi:type="bwnotation:BackgroundStyle"/>
+                            <styles xsi:type="bwnotation:ResizingStyle"/>
+                            <element href="//0/@process/@activity"/>
+                            <layoutConstraint height="814" width="841" xsi:type="notation:Bounds"/>
+                        </children>
+                        <styles xsi:type="notation:SortingStyle"/>
+                        <styles xsi:type="notation:FilteringStyle"/>
+                        <element href="//0/@process/@activity"/>
+                    </children>
+                    <styles lineColor="0" xsi:type="notation:ShapeStyle"/>
+                    <styles xsi:type="bwnotation:BackgroundStyle"/>
+                    <styles xsi:type="bwnotation:ResizingStyle"/>
+                    <element href="//0/@process/@activity"/>
+                    <layoutConstraint height="838" width="841" x="1"
+                        xsi:type="notation:Bounds" y="1"/>
+                </children>
+                <styles xsi:type="notation:SortingStyle"/>
+                <styles xsi:type="notation:FilteringStyle"/>
+                <element href="//0/@process"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ShapeStyle"/>
+            <element href="//0/@process"/>
+            <layoutConstraint height="924" width="1183" xsi:type="notation:Bounds"/>
+        </children>
+        <styles xsi:type="notation:DiagramStyle"/>
+        <element href="//0"/>
+        <edges
+            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0"
+            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.2" type="4006">
+            <children type="6002">
+                <layoutConstraint x="-14" xsi:type="notation:Location" y="-40"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@activity/@links/@children.0"/>
+            <bendpoints points="[0, 0, 0, 0]$[0, 0, 0, 0]" xsi:type="notation:RelativeBendpoints"/>
+            <targetAnchor id="(0.02631578947368421,0.5363636363636364)" xsi:type="notation:IdentityAnchor"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.2/@children.0/@children.0/@children.0/@children.0/@children.0/@children.1"
+            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.2/@children.0/@children.0/@children.0/@children.0/@children.0/@children.2" type="4006">
+            <children type="6002">
+                <layoutConstraint xsi:type="notation:Location" y="40"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@activity/@activities.2/@activity/@activity/@activity/@links/@children.1"/>
+            <bendpoints points="[0, 0, 0, 0]$[0, 0, 0, 0]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.2/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0"
+            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.2/@children.0/@children.0/@children.0/@children.0/@children.0/@children.4" type="4006">
+            <children type="6002">
+                <layoutConstraint x="-2" xsi:type="notation:Location" y="-17"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@activity/@activities.2/@activity/@activity/@activity/@links/@children.0"/>
+            <bendpoints points="[25, 6, -114, 0]$[115, 0, -24, -6]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0"
+            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.1" type="4006">
+            <children type="6002">
+                <layoutConstraint x="-144" xsi:type="notation:Location" y="-10"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@activity/@links/@children.1"/>
+            <bendpoints points="[25, -1, -447, 0]$[448, 0, -24, 1]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.2/@children.0/@children.1"
+            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.2/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0" type="4006">
+            <children type="6002">
+                <layoutConstraint xsi:type="notation:Location" y="40"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@activity/@activities.2/@activity/@activity/@activity/@links/@children.2"/>
+            <bendpoints points="[12, -4, -72, 21]$[60, -18, -24, 7]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.2/@children.0/@children.0/@children.0/@children.0/@children.0/@children.2"
+            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.2/@children.0/@children.2" type="4006">
+            <children type="6002">
+                <layoutConstraint xsi:type="notation:Location" y="40"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@activity/@activities.2/@activity/@activity/@activity/@links/@children.3"/>
+            <bendpoints points="[25, 6, -75, -19]$[88, 22, -12, -3]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.2"
+            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.1" type="4006">
+            <children type="6002">
+                <layoutConstraint xsi:type="notation:Location" y="40"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@activity/@links/@children.2"/>
+            <bendpoints points="[193, 55, -153, -44]$[322, 92, -24, -7]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.2/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0"
+            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.2/@children.0/@children.0/@children.0/@children.0/@children.0/@children.3" type="4006">
+            <children type="6002">
+                <layoutConstraint x="32" xsi:type="notation:Location" y="20"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@activity/@activities.2/@activity/@activity/@activity/@links/@children.4"/>
+            <bendpoints points="[0, 0, 0, 0]$[0, 0, 0, 0]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.2/@children.0/@children.0/@children.0/@children.0/@children.0/@children.4"
+            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.2/@children.0/@children.0/@children.0/@children.0/@children.0/@children.1" type="4006">
+            <children type="6002">
+                <layoutConstraint xsi:type="notation:Location" y="40"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@activity/@activities.2/@activity/@activity/@activity/@links/@children.5"/>
+            <bendpoints points="[25, 0, -55, 0]$[56, 0, -24, 0]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0"
+            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.3" type="4006">
+            <children type="6002">
+                <layoutConstraint xsi:type="notation:Location" y="40"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@activity/@links/@children.3"/>
+            <bendpoints
+                points="[25, 10, -323, -127]$[116, 45, -232, -92]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.3/@children.0/@children.1"
+            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.3/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0" type="4006">
+            <children type="6002">
+                <layoutConstraint xsi:type="notation:Location" y="40"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@activity/@activities.3/@activity/@activity/@activity/@links/@children.0"/>
+            <bendpoints points="[12, -9, -74, 51]$[62, -43, -24, 17]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.3/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0"
+            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.3/@children.0/@children.0/@children.0/@children.0/@children.0/@children.1" type="4006">
+            <children type="6002">
+                <layoutConstraint x="-4" xsi:type="notation:Location" y="-17"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@activity/@activities.3/@activity/@activity/@activity/@links/@children.1"/>
+            <bendpoints points="[25, 0, -95, 0]$[96, 0, -24, 0]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.3/@children.0/@children.0/@children.0/@children.0/@children.0/@children.1"
+            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.3/@children.0/@children.0/@children.0/@children.0/@children.0/@children.2" type="4006">
+            <children type="6002">
+                <layoutConstraint xsi:type="notation:Location" y="40"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@activity/@activities.3/@activity/@activity/@activity/@links/@children.2"/>
+            <bendpoints points="[25, 0, -74, 0]$[75, 0, -24, 0]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.3/@children.0/@children.0/@children.0/@children.0/@children.0/@children.2"
+            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.3/@children.0/@children.0/@children.0/@children.0/@children.0/@children.3" type="4006">
+            <children type="6002">
+                <layoutConstraint xsi:type="notation:Location" y="40"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@activity/@activities.3/@activity/@activity/@activity/@links/@children.3"/>
+            <bendpoints points="[25, 0, -65, 0]$[66, 0, -24, 0]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.3/@children.0/@children.0/@children.0/@children.0/@children.0/@children.3"
+            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.3/@children.0/@children.2" type="4006">
+            <children type="6002">
+                <layoutConstraint xsi:type="notation:Location" y="40"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@activity/@activities.3/@activity/@activity/@activity/@links/@children.4"/>
+            <bendpoints points="[25, 21, -45, -39]$[58, 49, -12, -11]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.3/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0"
+            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.3/@children.0/@children.0/@children.0/@children.0/@children.0/@children.4" type="4006">
+            <children type="6002">
+                <layoutConstraint x="24" xsi:type="notation:Location" y="24"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@activity/@activities.3/@activity/@activity/@activity/@links/@children.5"/>
+            <bendpoints points="[0, 0, 0, 0]$[0, 0, 0, 0]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+    </notation:Diagram>
+    <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" namespace="http://www.example.org/wsdl/1462520551804"/>
+    <bpws:import importType="http://www.w3.org/2001/XMLSchema" namespace="http://www.tibco.com/namespaces/tnt/plugins/generalactivities/mapper/1462898084143"/>
+    <bpws:import importType="http://www.w3.org/2001/XMLSchema" namespace="http://Vectren.mail.com"/>
+    <bpws:import importType="http://www.w3.org/2001/XMLSchema" namespace="http://www.tibco.com/namespaces/tnt/plugins/generalactivities/mapper/1463412643610"/>
+    <bpws:partnerLinks>
+        <bpws:partnerLink myRole="use" name="SendMessage"
+            partnerLinkType="ns:partnerLinkType" sca-bpel:ignore="false" sca-bpel:service="SendMessage"/>
+    </bpws:partnerLinks>
+    <bpws:variables>
+        <bpws:variable element="ns0:ProcessContext"
+            name="_processContext" sca-bpel:internal="true"/>
+        <bpws:variable messageType="ns1:MailBox" name="sendMessageIn" sca-bpel:internal="true"/>
+        <bpws:variable element="ns2:ActivityInput" name="Log-input" sca-bpel:internal="true"/>
+        <bpws:variable element="ns3:mailActivityInput"
+            name="SendMail-input" sca-bpel:internal="true"/>
+        <bpws:variable name="smtpProperty" sca-bpel:hotUpdate="false"
+            sca-bpel:privateProperty="true" sca-bpel:property="yes"
+            sca-bpel:sharedResourceType="{http://xsd.tns.tibco.com/bw/models/sharedresource/smtp}SmtpConfiguration" type="xsd:string">
+            <bpws:from>
+                <bpws:literal>sendemailutility.SMTPResource</bpws:literal>
+            </bpws:from>
+        </bpws:variable>
+        <bpws:variable element="ns7:MapperInput"
+            name="ValidateAddresses-input" sca-bpel:internal="true"/>
+        <bpws:variable element="ns7:MapperInput"
+            name="ValidateAddresses" sca-bpel:internal="true"/>
+        <bpws:variable element="ns8:MapperInput" name="MailInput-input" sca-bpel:internal="true"/>
+        <bpws:variable element="ns8:MapperInput" name="MailInput" sca-bpel:internal="true"/>
+        <bpws:variable element="ns2:ActivityInput" name="LogError-input" sca-bpel:internal="true"/>
+        <bpws:variable element="ns2:ActivityInput"
+            name="LogError1-input" sca-bpel:internal="true"/>
+        <bpws:variable element="ns7:MapperInput"
+            name="ValidateAddresses1-input" sca-bpel:internal="true"/>
+        <bpws:variable element="ns7:MapperInput"
+            name="ValidateAddresses1" sca-bpel:internal="true"/>
+        <bpws:variable element="ns8:MapperInput" name="MailInput1-input" sca-bpel:internal="true"/>
+        <bpws:variable element="ns8:MapperInput" name="MailInput1" sca-bpel:internal="true"/>
+        <bpws:variable element="ns2:ActivityInput" name="Log1-input" sca-bpel:internal="true"/>
+        <bpws:variable element="ns9:mailActivityInput"
+            name="SendMail1-input" sca-bpel:internal="true"/>
+        <bpws:variable element="ns5:DefaultFault" name="Throw1-input" sca-bpel:internal="true"/>
+    </bpws:variables>
+    <bpws:extensions>
+        <bpws:extension mustUnderstand="no" namespace="http://www.eclipse.org/gmf/runtime/1.0.2/notation"/>
+        <bpws:extension mustUnderstand="no" namespace="http://www.tibco.com/bw/process/info"/>
+        <bpws:extension mustUnderstand="no" namespace="http://docs.oasis-open.org/ns/opencsa/sca-bpel/200801"/>
+        <bpws:extension mustUnderstand="no" namespace="http://docs.oasis-open.org/ns/opencsa/sca/200912"/>
+        <bpws:extension mustUnderstand="no" namespace="http://ns.tibco.com/bw/property"/>
+        <bpws:extension mustUnderstand="no" namespace="http://www.tibco.com/bpel/2007/extensions"/>
+    </bpws:extensions>
+    <bpws:scope name="scope">
+        <bpws:flow name="flow">
+            <bpws:links>
+                <bpws:link name="StartToForEach" tibex:label="TIBCO Msg" tibex:linkType="SUCCESSWITHCONDITION"/>
+                <bpws:link name="StartToEmpty_else" tibex:label="else" tibex:linkType="SUCCESSWITHNOCONDITION"/>
+                <bpws:link name="IterateToEmpty" tibex:linkType="SUCCESS"/>
+                <bpws:link name="StartToIterate1_MailMsg"
+                    tibex:label="Mail Msg" tibex:linkType="SUCCESSWITHCONDITION"/>
+            </bpws:links>
+            <bpws:receive createInstance="yes" name="Start"
+                operation="sendMessage" partnerLink="SendMessage"
+                portType="ns1:SendMessage"
+                tibex:xpdlId="37ee5f36-25b8-4a78-8385-b9f9528a1f1e" variable="sendMessageIn">
+                <bpws:sources>
+                    <bpws:source linkName="StartToForEach">
+                        <tibex:DesignExpression>
+                            <tibex:expression
+                                expression="count($sendMessageIn/parameters/ns6:MailBox/ns6:TIBCOMailMsg)>0" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0"/>
+                        </tibex:DesignExpression>
+                        <bpws:transitionCondition><![CDATA[count($sendMessageIn.parameters/ns6:TIBCOMailMsg)>0]]></bpws:transitionCondition>
+                    </bpws:source>
+                    <bpws:source linkName="StartToEmpty_else">
+                        <tibex:DesignExpression>
+                            <tibex:expression expression="##otherwise##" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0"/>
+                        </tibex:DesignExpression>
+                        <bpws:transitionCondition><![CDATA[##otherwise##]]></bpws:transitionCondition>
+                    </bpws:source>
+                    <bpws:source linkName="StartToIterate1_MailMsg">
+                        <tibex:DesignExpression>
+                            <tibex:expression
+                                expression="count($sendMessageIn/parameters/ns6:MailBox/ns6:MailMsg)>0" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0"/>
+                        </tibex:DesignExpression>
+                        <bpws:transitionCondition><![CDATA[count($sendMessageIn.parameters/ns6:MailMsg)>0]]></bpws:transitionCondition>
+                    </bpws:source>
+                </bpws:sources>
+            </bpws:receive>
+            <bpws:empty name="Empty" tibex:xpdlId="21ab6d42-6f73-47a3-b649-5d02d4828db3">
+                <bpws:targets>
+                    <bpws:target linkName="StartToEmpty_else"/>
+                    <bpws:target linkName="IterateToEmpty"/>
+                </bpws:targets>
+            </bpws:empty>
+            <bpws:scope name="Iterate" tibex:group="iterate" tibex:xpdlId="c987f671-384d-422d-9121-d0cf5225ea48">
+                <bpws:targets>
+                    <bpws:target linkName="StartToForEach"/>
+                </bpws:targets>
+                <bpws:sources>
+                    <bpws:source linkName="IterateToEmpty"/>
+                </bpws:sources>
+                <bpws:variables>
+                    <bpws:variable name="FaultName"
+                        sca-bpel:internal="true" type="xsd:string"/>
+                    <bpws:variable element="ns0:FaultDetail"
+                        name="FaultDetails" sca-bpel:internal="true"/>
+                </bpws:variables>
+                <bpws:faultHandlers>
+                    <bpws:catchAll tibex:faultDetailsVar="FaultDetails"
+                        tibex:faultNameVar="FaultName" tibex:xpdlId="f5c63639-9219-493c-a043-74573b391244">
+                        <bpws:scope name="scope1">
+                            <bpws:flow name="flow2">
+                                <bpws:links/>
+                                <bpws:extensionActivity>
+                                    <tibex:activityExtension
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/pe/WriteToLogActivitySchema&quot; xmlns:tib=&quot;http://www.tibco.com/bw/xslt/custom-functions&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;FaultDetails&quot;/>&lt;xsl:template name=&quot;LogError-input&quot; match=&quot;/&quot;>&lt;tns:ActivityInput>&lt;message>&lt;xsl:value-of select=&quot;concat(&amp;quot;Error while trying to send an email. Details: &amp;quot;, tib:render-xml($FaultDetails, false(), true()))&quot;/>&lt;/message>&lt;/tns:ActivityInput>&lt;/xsl:template>&lt;/xsl:stylesheet>"
+                                    expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
+                                    inputVariable="LogError-input"
+                                    name="LogError"
+                                    tibex:xpdlId="86450f21-fb66-4ba3-ac40-616b6b315b04" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                                    <tibex:inputBindings>
+                                    <tibex:inputBinding
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/pe/WriteToLogActivitySchema&quot; xmlns:tib=&quot;http://www.tibco.com/bw/xslt/custom-functions&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;FaultDetails&quot;/>&lt;xsl:template name=&quot;LogError-input&quot; match=&quot;/&quot;>&lt;tns:ActivityInput>&lt;message>&lt;xsl:value-of select=&quot;concat(&amp;quot;Error while trying to send an email. Details: &amp;quot;, tib:render-xml($FaultDetails, false(), true()))&quot;/>&lt;/message>&lt;/tns:ActivityInput>&lt;/xsl:template>&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                                    </tibex:inputBindings>
+                                    <tibex:config>
+                                    <bwext:BWActivity
+                                    activityTypeID="bw.generalactivities.log"
+                                    version="6.0.0.001"
+                                    xmlns:activityconfig="http://tns.tibco.com/bw/model/activityconfig"
+                                    xmlns:bwext="http://tns.tibco.com/bw/model/core/bwext"
+                                    xmlns:generalactivities="http://ns.tibco.com/bw/palette/generalactivities" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                                    <activityConfig>
+                                    <properties
+                                    name="config" xsi:type="activityconfig:EMFProperty">
+                                    <type href="http://ns.tibco.com/bw/palette/generalactivities#//Log"/>
+                                    <value
+                                    role="Error"
+                                    suppressJobInfo="true" xsi:type="generalactivities:Log"/>
+                                    </properties>
+                                    </activityConfig>
+                                    </bwext:BWActivity>
+                                    </tibex:config>
+                                    </tibex:activityExtension>
+                                </bpws:extensionActivity>
+                            </bpws:flow>
+                        </bpws:scope>
+                    </bpws:catchAll>
+                </bpws:faultHandlers>
+                <bpws:forEach counterName="i" name="iterate"
+                    parallel="no" tibex:group="iterate">
+                    <tibex:DesignExpression name="variableList">
+                        <tibex:expression
+                            expression="$sendMessageIn/parameters/ns6:MailBox/ns6:TIBCOMailMsg" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0"/>
+                    </tibex:DesignExpression>
+                    <bpws:startCounterValue><![CDATA[1]]></bpws:startCounterValue>
+                    <bpws:finalCounterValue expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0"><![CDATA[count($sendMessageIn.parameters/ns6:TIBCOMailMsg)]]></bpws:finalCounterValue>
+                    <bpws:scope name="innerScope">
+                        <bpws:variables>
+                            <bpws:variable element="ns6:TIBCOMailMsg"
+                                name="currentElement" sca-bpel:internal="true"/>
+                        </bpws:variables>
+                        <bpws:flow name="flow1">
+                            <bpws:links>
+                                <bpws:link
+                                    name="ValidateAddressesToMailInput"
+                                    tibex:label="valid" tibex:linkType="SUCCESSWITHNOCONDITION"/>
+                                <bpws:link name="LogToSendMail" tibex:linkType="SUCCESS"/>
+                                <bpws:link
+                                    name="GroupStartToValidateAddresses" tibex:linkType="SUCCESS"/>
+                                <bpws:link name="SendMailToGroupEnd" tibex:linkType="SUCCESS"/>
+                                <bpws:link
+                                    name="ValidateAddressesToThrow_invalid"
+                                    tibex:label="invalid" tibex:linkType="SUCCESSWITHCONDITION"/>
+                                <bpws:link name="MailInputToLog" tibex:linkType="SUCCESS"/>
+                            </bpws:links>
+                            <bpws:assign name="GroupStart"
+                                tibex:group="groupStart"
+                                tibex:xpdlId="98661ff6-c029-48d3-b30b-b12c660bd0b5" validate="no">
+                                <bpws:sources>
+                                    <bpws:source linkName="GroupStartToValidateAddresses"/>
+                                </bpws:sources>
+                                <bpws:copy>
+                                    <bpws:from expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0"><![CDATA[($sendMessageIn.parameters/ns6:TIBCOMailMsg)[number($i)]]]></bpws:from>
+                                    <bpws:to variable="currentElement"/>
+                                </bpws:copy>
+                            </bpws:assign>
+                            <bpws:empty name="GroupEnd"
+                                tibex:group="groupEnd" tibex:xpdlId="6f124c29-5127-42f6-8878-eb01eabc28c0">
+                                <bpws:targets>
+                                    <bpws:target linkName="SendMailToGroupEnd"/>
+                                </bpws:targets>
+                            </bpws:empty>
+                            <bpws:extensionActivity>
+                                <tibex:activityExtension
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/namespaces/tnt/plugins/generalactivities/mapper/1462898084143&quot; xmlns:ns=&quot;http://Vectren.mail.com&quot; xmlns:tib=&quot;http://www.tibco.com/bw/xslt/custom-functions&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;currentElement&quot;/>&lt;xsl:template name=&quot;ValidateAddresses-input&quot; match=&quot;/&quot;>&lt;tns:MapperInput>&lt;elements>&lt;xsl:variable name=&quot;varTO&quot; select=&quot;tokenize($currentElement/ns:To, &amp;quot;;&amp;quot;)&quot;/>&lt;xsl:variable name=&quot;varCC&quot; select=&quot;tokenize($currentElement/ns:CC, &amp;quot;;&amp;quot;)&quot;/>&lt;xsl:variable name=&quot;varBCC&quot; select=&quot;tokenize($currentElement/ns:BCC, &amp;quot;;&amp;quot;)&quot;/>&lt;xsl:for-each select=&quot;$varTO&quot;>&lt;xsl:if test=&quot;not(contains(tib:trim(current()), ' ')) and string-length(tib:trim(current()))>0&quot;>&lt;TO>&lt;xsl:value-of select=&quot;tib:trim(current())&quot;/>&lt;/TO>&lt;/xsl:if>&lt;/xsl:for-each>&lt;xsl:for-each select=&quot;$varCC&quot;>&lt;xsl:if test=&quot;not(contains(tib:trim(current()), ' ')) and string-length(tib:trim(current()))>0&quot;>&lt;CC>&lt;xsl:value-of select=&quot;tib:trim(current())&quot;/>&lt;/CC>&lt;/xsl:if>&lt;/xsl:for-each>&lt;xsl:for-each select=&quot;$varBCC&quot;>&lt;xsl:if test=&quot;not(contains(tib:trim(current()), ' ')) and string-length(tib:trim(current()))>0&quot;>&lt;BCC>&lt;xsl:value-of select=&quot;tib:trim(current())&quot;/>&lt;/BCC>&lt;/xsl:if>&lt;/xsl:for-each>&lt;xsl:if test=&quot;string-length(tib:trim($currentElement/ns:ReplyTo))>0 and not(contains(tib:trim($currentElement/ns:ReplyTo), ' '))&quot;>&lt;REPLYTO>&lt;xsl:value-of select=&quot;tib:trim($currentElement/ns:ReplyTo)&quot;/>&lt;/REPLYTO>&lt;/xsl:if>&lt;/elements>&lt;/tns:MapperInput>&lt;/xsl:template>&lt;/xsl:stylesheet>"
+                                    expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
+                                    inputVariable="ValidateAddresses-input"
+                                    name="ValidateAddresses"
+                                    outputVariable="ValidateAddresses"
+                                    tibex:xpdlId="82a0e18d-a929-4275-aa4f-f7ee3c8b221f" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                                    <bpws:targets>
+                                    <bpws:target linkName="GroupStartToValidateAddresses"/>
+                                    </bpws:targets>
+                                    <bpws:sources>
+                                    <bpws:source linkName="ValidateAddressesToMailInput">
+                                    <tibex:DesignExpression>
+                                    <tibex:expression
+                                    expression="##otherwise##" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0"/>
+                                    </tibex:DesignExpression>
+                                    <bpws:transitionCondition><![CDATA[##otherwise##]]></bpws:transitionCondition>
+                                    </bpws:source>
+                                    <bpws:source linkName="ValidateAddressesToThrow_invalid">
+                                    <tibex:DesignExpression>
+                                    <tibex:expression
+                                    expression="(count($ValidateAddresses/elements/TO) &lt; 1 and count($ValidateAddresses/elements/CC) &lt; 1 and count($ValidateAddresses/elements/BCC) &lt; 1) or&#xd;&#xa;(exists($currentElement/ns6:ReplyTo) and not(exists($ValidateAddresses/elements/REPLYTO)))" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0"/>
+                                    </tibex:DesignExpression>
+                                    <bpws:transitionCondition><![CDATA[(count($ValidateAddresses/elements/TO) < 1 and count($ValidateAddresses/elements/CC) < 1 and count($ValidateAddresses/elements/BCC) < 1) or
+(exists($currentElement/ns6:ReplyTo) and not(exists($ValidateAddresses/elements/REPLYTO)))]]></bpws:transitionCondition>
+                                    </bpws:source>
+                                    </bpws:sources>
+                                    <tibex:inputBindings>
+                                    <tibex:inputBinding
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/namespaces/tnt/plugins/generalactivities/mapper/1462898084143&quot; xmlns:ns=&quot;http://Vectren.mail.com&quot; xmlns:tib=&quot;http://www.tibco.com/bw/xslt/custom-functions&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;currentElement&quot;/>&lt;xsl:template name=&quot;ValidateAddresses-input&quot; match=&quot;/&quot;>&lt;tns:MapperInput>&lt;elements>&lt;xsl:variable name=&quot;varTO&quot; select=&quot;tokenize($currentElement/ns:To, &amp;quot;;&amp;quot;)&quot;/>&lt;xsl:variable name=&quot;varCC&quot; select=&quot;tokenize($currentElement/ns:CC, &amp;quot;;&amp;quot;)&quot;/>&lt;xsl:variable name=&quot;varBCC&quot; select=&quot;tokenize($currentElement/ns:BCC, &amp;quot;;&amp;quot;)&quot;/>&lt;xsl:for-each select=&quot;$varTO&quot;>&lt;xsl:if test=&quot;not(contains(tib:trim(current()), ' ')) and string-length(tib:trim(current()))>0&quot;>&lt;TO>&lt;xsl:value-of select=&quot;tib:trim(current())&quot;/>&lt;/TO>&lt;/xsl:if>&lt;/xsl:for-each>&lt;xsl:for-each select=&quot;$varCC&quot;>&lt;xsl:if test=&quot;not(contains(tib:trim(current()), ' ')) and string-length(tib:trim(current()))>0&quot;>&lt;CC>&lt;xsl:value-of select=&quot;tib:trim(current())&quot;/>&lt;/CC>&lt;/xsl:if>&lt;/xsl:for-each>&lt;xsl:for-each select=&quot;$varBCC&quot;>&lt;xsl:if test=&quot;not(contains(tib:trim(current()), ' ')) and string-length(tib:trim(current()))>0&quot;>&lt;BCC>&lt;xsl:value-of select=&quot;tib:trim(current())&quot;/>&lt;/BCC>&lt;/xsl:if>&lt;/xsl:for-each>&lt;xsl:if test=&quot;string-length(tib:trim($currentElement/ns:ReplyTo))>0 and not(contains(tib:trim($currentElement/ns:ReplyTo), ' '))&quot;>&lt;REPLYTO>&lt;xsl:value-of select=&quot;tib:trim($currentElement/ns:ReplyTo)&quot;/>&lt;/REPLYTO>&lt;/xsl:if>&lt;/elements>&lt;/tns:MapperInput>&lt;/xsl:template>&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                                    </tibex:inputBindings>
+                                    <tibex:config>
+                                    <bwext:BWActivity
+                                    activityTypeID="bw.generalactivities.mapper"
+                                    version="6.0.0.001"
+                                    xmlns:activityconfig="http://tns.tibco.com/bw/model/activityconfig"
+                                    xmlns:bwext="http://tns.tibco.com/bw/model/core/bwext"
+                                    xmlns:generalactivities="http://ns.tibco.com/bw/palette/generalactivities"
+                                    xmlns:mapper_1462898084143="http://www.tibco.com/namespaces/tnt/plugins/generalactivities/mapper/1462898084143" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                                    <activityConfig>
+                                    <properties
+                                    name="config" xsi:type="activityconfig:EMFProperty">
+                                    <type href="http://ns.tibco.com/bw/palette/generalactivities#//Mapper"/>
+                                    <value
+                                    inputQName="mapper_1462898084143:MapperInput" xsi:type="generalactivities:Mapper"/>
+                                    </properties>
+                                    </activityConfig>
+                                    </bwext:BWActivity>
+                                    </tibex:config>
+                                </tibex:activityExtension>
+                            </bpws:extensionActivity>
+                            <bpws:extensionActivity>
+                                <tibex:activityExtension
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/pe/WriteToLogActivitySchema&quot; xmlns:ns=&quot;http://Vectren.mail.com&quot; xmlns:bw=&quot;http://www.tibco.com/bw/xpath/bw-custom-functions&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;currentElement&quot;/>&lt;xsl:param name=&quot;MailInput&quot;/>&lt;xsl:template name=&quot;Log-input&quot; match=&quot;/&quot;>&lt;tns:ActivityInput>&lt;message>&lt;xsl:value-of select=&quot;concat(&amp;quot;Sending email. FROM: &amp;quot;, bw:getModuleProperty(&amp;quot;/GlobalVariables/EMail/TibcoMailFrom&amp;quot;),&amp;#xD;&amp;#xA;&amp;quot;, TO: &amp;quot;, $MailInput/TO, &amp;#xD;&amp;#xA;&amp;quot; (CC: &amp;quot;,$MailInput/CC&amp;#xD;&amp;#xA;,&amp;quot;, BCC: &amp;quot;,$MailInput/BCC,&amp;#xD;&amp;#xA;&amp;quot;), SUBJECT: &amp;quot;, bw:getModuleProperty(&amp;quot;BW.DOMAIN.NAME&amp;quot;),&amp;quot;: &amp;quot;,$currentElement/ns:Subject)&quot;/>&lt;/message>&lt;/tns:ActivityInput>&lt;/xsl:template>&lt;/xsl:stylesheet>"
+                                    expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
+                                    inputVariable="Log-input" name="Log"
+                                    tibex:xpdlId="a435f3bd-efea-4bb7-82d1-627c2e0f6ccc" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                                    <bpws:targets>
+                                    <bpws:target linkName="MailInputToLog"/>
+                                    </bpws:targets>
+                                    <bpws:sources>
+                                    <bpws:source linkName="LogToSendMail"/>
+                                    </bpws:sources>
+                                    <tibex:inputBindings>
+                                    <tibex:inputBinding
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/pe/WriteToLogActivitySchema&quot; xmlns:ns=&quot;http://Vectren.mail.com&quot; xmlns:bw=&quot;http://www.tibco.com/bw/xpath/bw-custom-functions&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;currentElement&quot;/>&lt;xsl:param name=&quot;MailInput&quot;/>&lt;xsl:template name=&quot;Log-input&quot; match=&quot;/&quot;>&lt;tns:ActivityInput>&lt;message>&lt;xsl:value-of select=&quot;concat(&amp;quot;Sending email. FROM: &amp;quot;, bw:getModuleProperty(&amp;quot;/GlobalVariables/EMail/TibcoMailFrom&amp;quot;),&amp;#xD;&amp;#xA;&amp;quot;, TO: &amp;quot;, $MailInput/TO, &amp;#xD;&amp;#xA;&amp;quot; (CC: &amp;quot;,$MailInput/CC&amp;#xD;&amp;#xA;,&amp;quot;, BCC: &amp;quot;,$MailInput/BCC,&amp;#xD;&amp;#xA;&amp;quot;), SUBJECT: &amp;quot;, bw:getModuleProperty(&amp;quot;BW.DOMAIN.NAME&amp;quot;),&amp;quot;: &amp;quot;,$currentElement/ns:Subject)&quot;/>&lt;/message>&lt;/tns:ActivityInput>&lt;/xsl:template>&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                                    </tibex:inputBindings>
+                                    <tibex:config>
+                                    <bwext:BWActivity
+                                    activityTypeID="bw.generalactivities.log"
+                                    version="6.0.0.001"
+                                    xmlns:activityconfig="http://tns.tibco.com/bw/model/activityconfig"
+                                    xmlns:bwext="http://tns.tibco.com/bw/model/core/bwext"
+                                    xmlns:generalactivities="http://ns.tibco.com/bw/palette/generalactivities" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                                    <activityConfig>
+                                    <properties
+                                    name="config" xsi:type="activityconfig:EMFProperty">
+                                    <type href="http://ns.tibco.com/bw/palette/generalactivities#//Log"/>
+                                    <value role="Info"
+                                    suppressJobInfo="true" xsi:type="generalactivities:Log"/>
+                                    </properties>
+                                    </activityConfig>
+                                    </bwext:BWActivity>
+                                    </tibex:config>
+                                </tibex:activityExtension>
+                            </bpws:extensionActivity>
+                            <bpws:extensionActivity>
+                                <tibex:activityExtension
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://tns.tibco.com/bw/activity/sendmail/xsd/input+26f8560c-722e-4ac4-9a01-702e6cf2bc24+input&quot; xmlns:bw=&quot;http://www.tibco.com/bw/xpath/bw-custom-functions&quot; xmlns:ns=&quot;http://Vectren.mail.com&quot; xmlns:tns1=&quot;http://xmlns.tibco.com/encodings/mimefile&quot; xmlns:tib=&quot;http://www.tibco.com/bw/xslt/custom-functions&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;currentElement&quot;/>&lt;xsl:param name=&quot;MailInput&quot;/>&lt;xsl:template name=&quot;SendMail-input&quot; match=&quot;/&quot;>&lt;xsl:choose>&lt;xsl:when test=&quot;string-length($currentElement/ns:FilePath)>0&quot;>&lt;tns:mailActivityInput>&lt;from>&lt;xsl:value-of select=&quot;$MailInput/FROM&quot;/>&lt;/from>&lt;xsl:if test=&quot;$MailInput/TO&quot;>&lt;to>&lt;xsl:value-of select=&quot;$MailInput/TO&quot;/>&lt;/to>&lt;/xsl:if>&lt;xsl:if test=&quot;$MailInput/CC&quot;>&lt;cc>&lt;xsl:value-of select=&quot;$MailInput/CC&quot;/>&lt;/cc>&lt;/xsl:if>&lt;xsl:if test=&quot;$MailInput/BCC&quot;>&lt;bcc>&lt;xsl:value-of select=&quot;$MailInput/BCC&quot;/>&lt;/bcc>&lt;/xsl:if>&lt;xsl:if test=&quot;$MailInput/REPLYTO&quot;>&lt;replyTo>&lt;xsl:value-of select=&quot;$MailInput/REPLYTO&quot;/>&lt;/replyTo>&lt;/xsl:if>&lt;xsl:choose>&lt;xsl:when test=&quot;string-length($currentElement/ns:TIBCOSignature/ns:EmailType)>0&quot;>&lt;subject>&lt;xsl:value-of select=&quot;concat($currentElement/ns:TIBCOSignature/ns:EmailType, &amp;quot;: &amp;quot;, bw:getModuleProperty(&amp;quot;BW.DOMAIN.NAME&amp;quot;),&amp;quot;: &amp;quot;,$currentElement/ns:Subject)&quot;/>&lt;/subject>&lt;/xsl:when>&lt;xsl:otherwise>&lt;subject>&lt;xsl:value-of select=&quot;concat(bw:getModuleProperty(&amp;quot;BW.DOMAIN.NAME&amp;quot;),&amp;quot;: &amp;quot;,$currentElement/ns:Subject)&quot;/>&lt;/subject>&lt;/xsl:otherwise>&lt;/xsl:choose>&lt;sentdate>&lt;xsl:value-of select=&quot;current-dateTime()&quot;/>&lt;/sentdate>&lt;Headers>&lt;Content-Type>&lt;xsl:value-of select=&quot;'text/html'&quot;/>&lt;/Content-Type>&lt;/Headers>&lt;tns1:mimeEnvelopeElement>&lt;mimePart>&lt;mimeHeaders>&lt;content-disposition>&lt;xsl:value-of select=&quot;concat('*;filename=',tib:substring-after-last($currentElement/ns:FilePath, '/'))&quot;/>&lt;/content-disposition>&lt;content-type>&lt;xsl:value-of select=&quot;'text/plain'&quot;/>&lt;/content-type>&lt;/mimeHeaders>&lt;fileName>&lt;xsl:value-of select=&quot;$currentElement/ns:FilePath&quot;/>&lt;/fileName>&lt;/mimePart>&lt;/tns1:mimeEnvelopeElement>&lt;/tns:mailActivityInput>&lt;/xsl:when>&lt;xsl:otherwise>&lt;tns:mailActivityInput>&lt;from>&lt;xsl:value-of select=&quot;$MailInput/FROM&quot;/>&lt;/from>&lt;xsl:if test=&quot;$MailInput/TO&quot;>&lt;to>&lt;xsl:value-of select=&quot;$MailInput/TO&quot;/>&lt;/to>&lt;/xsl:if>&lt;xsl:if test=&quot;$MailInput/CC&quot;>&lt;cc>&lt;xsl:value-of select=&quot;$MailInput/CC&quot;/>&lt;/cc>&lt;/xsl:if>&lt;xsl:if test=&quot;$MailInput/BCC&quot;>&lt;bcc>&lt;xsl:value-of select=&quot;$MailInput/BCC&quot;/>&lt;/bcc>&lt;/xsl:if>&lt;xsl:if test=&quot;$MailInput/REPLYTO&quot;>&lt;replyTo>&lt;xsl:value-of select=&quot;$MailInput/REPLYTO&quot;/>&lt;/replyTo>&lt;/xsl:if>&lt;xsl:choose>&lt;xsl:when test=&quot;string-length($currentElement/ns:TIBCOSignature/ns:EmailType)>0&quot;>&lt;subject>&lt;xsl:value-of select=&quot;concat($currentElement/ns:TIBCOSignature/ns:EmailType, &amp;quot;: &amp;quot;, bw:getModuleProperty(&amp;quot;BW.DOMAIN.NAME&amp;quot;),&amp;quot;: &amp;quot;,$currentElement/ns:Subject)&quot;/>&lt;/subject>&lt;/xsl:when>&lt;xsl:otherwise>&lt;subject>&lt;xsl:value-of select=&quot;concat(bw:getModuleProperty(&amp;quot;BW.DOMAIN.NAME&amp;quot;),&amp;quot;: &amp;quot;,$currentElement/ns:Subject)&quot;/>&lt;/subject>&lt;/xsl:otherwise>&lt;/xsl:choose>&lt;sentdate>&lt;xsl:value-of select=&quot;current-dateTime()&quot;/>&lt;/sentdate>&lt;bodyElement>&lt;bodyText>&lt;xsl:value-of select=&quot;concat($currentElement/ns:MsgBody, &amp;quot;&amp;#xA;&amp;#xA;&amp;quot;,&amp;quot;*** Information below is for TIBCO Support Purposes ***&amp;quot;, &amp;quot;&amp;#xA;&amp;#xA;Application Name: &amp;quot;, $currentElement/ns:TIBCOSignature/ns:BWApplicationName, &amp;quot; &amp;#xA;&amp;#xA;Application Version: &amp;quot;, $currentElement/ns:TIBCOSignature/ns:BWApplicationVersion, &amp;quot; &amp;#xA;&amp;#xA;Process Name: &amp;quot;, $currentElement/ns:TIBCOSignature/ns:BWProcessName, &amp;quot; &amp;#xA;&amp;#xA;AppSpace: &amp;quot;, $currentElement/ns:TIBCOSignature/ns:BWAppSpaceName, &amp;quot; &amp;#xA;&amp;#xA;AppNode: &amp;quot;,$currentElement/ns:TIBCOSignature/ns:BWAppNodeName )&quot;/>&lt;/bodyText>&lt;/bodyElement>&lt;/tns:mailActivityInput>&lt;/xsl:otherwise>&lt;/xsl:choose>&lt;/xsl:template>&lt;/xsl:stylesheet>"
+                                    expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
+                                    inputVariable="SendMail-input"
+                                    name="SendMail"
+                                    tibex:xpdlId="26f8560c-722e-4ac4-9a01-702e6cf2bc24" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                                    <bpws:targets>
+                                    <bpws:target linkName="LogToSendMail"/>
+                                    </bpws:targets>
+                                    <bpws:sources>
+                                    <bpws:source linkName="SendMailToGroupEnd"/>
+                                    </bpws:sources>
+                                    <tibex:inputBindings>
+                                    <tibex:inputBinding
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://tns.tibco.com/bw/activity/sendmail/xsd/input+26f8560c-722e-4ac4-9a01-702e6cf2bc24+input&quot; xmlns:bw=&quot;http://www.tibco.com/bw/xpath/bw-custom-functions&quot; xmlns:ns=&quot;http://Vectren.mail.com&quot; xmlns:tns1=&quot;http://xmlns.tibco.com/encodings/mimefile&quot; xmlns:tib=&quot;http://www.tibco.com/bw/xslt/custom-functions&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;currentElement&quot;/>&lt;xsl:param name=&quot;MailInput&quot;/>&lt;xsl:template name=&quot;SendMail-input&quot; match=&quot;/&quot;>&lt;xsl:choose>&lt;xsl:when test=&quot;string-length($currentElement/ns:FilePath)>0&quot;>&lt;tns:mailActivityInput>&lt;from>&lt;xsl:value-of select=&quot;$MailInput/FROM&quot;/>&lt;/from>&lt;xsl:if test=&quot;$MailInput/TO&quot;>&lt;to>&lt;xsl:value-of select=&quot;$MailInput/TO&quot;/>&lt;/to>&lt;/xsl:if>&lt;xsl:if test=&quot;$MailInput/CC&quot;>&lt;cc>&lt;xsl:value-of select=&quot;$MailInput/CC&quot;/>&lt;/cc>&lt;/xsl:if>&lt;xsl:if test=&quot;$MailInput/BCC&quot;>&lt;bcc>&lt;xsl:value-of select=&quot;$MailInput/BCC&quot;/>&lt;/bcc>&lt;/xsl:if>&lt;xsl:if test=&quot;$MailInput/REPLYTO&quot;>&lt;replyTo>&lt;xsl:value-of select=&quot;$MailInput/REPLYTO&quot;/>&lt;/replyTo>&lt;/xsl:if>&lt;xsl:choose>&lt;xsl:when test=&quot;string-length($currentElement/ns:TIBCOSignature/ns:EmailType)>0&quot;>&lt;subject>&lt;xsl:value-of select=&quot;concat($currentElement/ns:TIBCOSignature/ns:EmailType, &amp;quot;: &amp;quot;, bw:getModuleProperty(&amp;quot;BW.DOMAIN.NAME&amp;quot;),&amp;quot;: &amp;quot;,$currentElement/ns:Subject)&quot;/>&lt;/subject>&lt;/xsl:when>&lt;xsl:otherwise>&lt;subject>&lt;xsl:value-of select=&quot;concat(bw:getModuleProperty(&amp;quot;BW.DOMAIN.NAME&amp;quot;),&amp;quot;: &amp;quot;,$currentElement/ns:Subject)&quot;/>&lt;/subject>&lt;/xsl:otherwise>&lt;/xsl:choose>&lt;sentdate>&lt;xsl:value-of select=&quot;current-dateTime()&quot;/>&lt;/sentdate>&lt;Headers>&lt;Content-Type>&lt;xsl:value-of select=&quot;'text/html'&quot;/>&lt;/Content-Type>&lt;/Headers>&lt;tns1:mimeEnvelopeElement>&lt;mimePart>&lt;mimeHeaders>&lt;content-disposition>&lt;xsl:value-of select=&quot;concat('*;filename=',tib:substring-after-last($currentElement/ns:FilePath, '/'))&quot;/>&lt;/content-disposition>&lt;content-type>&lt;xsl:value-of select=&quot;'text/plain'&quot;/>&lt;/content-type>&lt;/mimeHeaders>&lt;fileName>&lt;xsl:value-of select=&quot;$currentElement/ns:FilePath&quot;/>&lt;/fileName>&lt;/mimePart>&lt;/tns1:mimeEnvelopeElement>&lt;/tns:mailActivityInput>&lt;/xsl:when>&lt;xsl:otherwise>&lt;tns:mailActivityInput>&lt;from>&lt;xsl:value-of select=&quot;$MailInput/FROM&quot;/>&lt;/from>&lt;xsl:if test=&quot;$MailInput/TO&quot;>&lt;to>&lt;xsl:value-of select=&quot;$MailInput/TO&quot;/>&lt;/to>&lt;/xsl:if>&lt;xsl:if test=&quot;$MailInput/CC&quot;>&lt;cc>&lt;xsl:value-of select=&quot;$MailInput/CC&quot;/>&lt;/cc>&lt;/xsl:if>&lt;xsl:if test=&quot;$MailInput/BCC&quot;>&lt;bcc>&lt;xsl:value-of select=&quot;$MailInput/BCC&quot;/>&lt;/bcc>&lt;/xsl:if>&lt;xsl:if test=&quot;$MailInput/REPLYTO&quot;>&lt;replyTo>&lt;xsl:value-of select=&quot;$MailInput/REPLYTO&quot;/>&lt;/replyTo>&lt;/xsl:if>&lt;xsl:choose>&lt;xsl:when test=&quot;string-length($currentElement/ns:TIBCOSignature/ns:EmailType)>0&quot;>&lt;subject>&lt;xsl:value-of select=&quot;concat($currentElement/ns:TIBCOSignature/ns:EmailType, &amp;quot;: &amp;quot;, bw:getModuleProperty(&amp;quot;BW.DOMAIN.NAME&amp;quot;),&amp;quot;: &amp;quot;,$currentElement/ns:Subject)&quot;/>&lt;/subject>&lt;/xsl:when>&lt;xsl:otherwise>&lt;subject>&lt;xsl:value-of select=&quot;concat(bw:getModuleProperty(&amp;quot;BW.DOMAIN.NAME&amp;quot;),&amp;quot;: &amp;quot;,$currentElement/ns:Subject)&quot;/>&lt;/subject>&lt;/xsl:otherwise>&lt;/xsl:choose>&lt;sentdate>&lt;xsl:value-of select=&quot;current-dateTime()&quot;/>&lt;/sentdate>&lt;bodyElement>&lt;bodyText>&lt;xsl:value-of select=&quot;concat($currentElement/ns:MsgBody, &amp;quot;&amp;#xA;&amp;#xA;&amp;quot;,&amp;quot;*** Information below is for TIBCO Support Purposes ***&amp;quot;, &amp;quot;&amp;#xA;&amp;#xA;Application Name: &amp;quot;, $currentElement/ns:TIBCOSignature/ns:BWApplicationName, &amp;quot; &amp;#xA;&amp;#xA;Application Version: &amp;quot;, $currentElement/ns:TIBCOSignature/ns:BWApplicationVersion, &amp;quot; &amp;#xA;&amp;#xA;Process Name: &amp;quot;, $currentElement/ns:TIBCOSignature/ns:BWProcessName, &amp;quot; &amp;#xA;&amp;#xA;AppSpace: &amp;quot;, $currentElement/ns:TIBCOSignature/ns:BWAppSpaceName, &amp;quot; &amp;#xA;&amp;#xA;AppNode: &amp;quot;,$currentElement/ns:TIBCOSignature/ns:BWAppNodeName )&quot;/>&lt;/bodyText>&lt;/bodyElement>&lt;/tns:mailActivityInput>&lt;/xsl:otherwise>&lt;/xsl:choose>&lt;/xsl:template>&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                                    </tibex:inputBindings>
+                                    <tibex:config>
+                                    <bwext:BWActivity
+                                    activityTypeID="bw.mail.send"
+                                    xmlns:activityconfig="http://tns.tibco.com/bw/model/activityconfig"
+                                    xmlns:bwext="http://tns.tibco.com/bw/model/core/bwext"
+                                    xmlns:input="http://tns.tibco.com/bw/activity/sendmail/xsd/input+26f8560c-722e-4ac4-9a01-702e6cf2bc24+input"
+                                    xmlns:mail="http://ns.tibco.com/bw/palette/mail" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                                    <activityConfig>
+                                    <properties
+                                    name="config" xsi:type="activityconfig:EMFProperty">
+                                    <type href="http://ns.tibco.com/bw/palette/mail#//SendMail"/>
+                                    <value
+                                    inputHeadersQName="input:headersType"
+                                    newActivity="true"
+                                    smtpProperty="smtpProperty" xsi:type="mail:SendMail"/>
+                                    </properties>
+                                    </activityConfig>
+                                    </bwext:BWActivity>
+                                    </tibex:config>
+                                </tibex:activityExtension>
+                            </bpws:extensionActivity>
+                            <bpws:throw faultName="ns5:DefaultFault"
+                                faultVariable="Throw1-input"
+                                name="Throw" tibex:xpdlId="409e9006-d48f-4ce6-a2df-1724297e90a8">
+                                <tibex:inputBinding expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tns="http://schemas.tibco.com/bw/plugins/basic/6.0/Exceptions" xmlns:tib="http://www.tibco.com/bw/xslt/custom-functions" version="2.0"&gt;&lt;xsl:param name="currentElement"/&gt;&lt;xsl:template name="Throw-input" match="/"&gt;&lt;tns:DefaultFault&gt;&lt;message&gt;&lt;xsl:value-of select="concat(&amp;quot;Invalid email address in: &amp;quot;, tib:render-xml($currentElement, false(),true()))"/&gt;&lt;/message&gt;&lt;/tns:DefaultFault&gt;&lt;/xsl:template&gt;&lt;/xsl:stylesheet&gt;</tibex:inputBinding>
+                                <tibex:inputBindings>
+                                    <tibex:partBinding
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://schemas.tibco.com/bw/plugins/basic/6.0/Exceptions&quot; xmlns:tib=&quot;http://www.tibco.com/bw/xslt/custom-functions&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;currentElement&quot;/>&lt;xsl:template name=&quot;Throw-input&quot; match=&quot;/&quot;>&lt;tns:DefaultFault>&lt;message>&lt;xsl:value-of select=&quot;concat(&amp;quot;Invalid email address in: &amp;quot;, tib:render-xml($currentElement, false(),true()))&quot;/>&lt;/message>&lt;/tns:DefaultFault>&lt;/xsl:template>&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                                </tibex:inputBindings>
+                                <bpws:targets>
+                                    <bpws:target linkName="ValidateAddressesToThrow_invalid"/>
+                                </bpws:targets>
+                            </bpws:throw>
+                            <bpws:extensionActivity>
+                                <tibex:activityExtension
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/namespaces/tnt/plugins/generalactivities/mapper/1463412643610&quot; xmlns:bw=&quot;http://www.tibco.com/bw/xpath/bw-custom-functions&quot; xmlns:tib=&quot;http://www.tibco.com/bw/xslt/custom-functions&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;ValidateAddresses&quot;/>&lt;xsl:template name=&quot;MailInput-input&quot; match=&quot;/&quot;>&lt;tns:MapperInput>&lt;TO>&lt;xsl:value-of select=&quot;tib:concat-sequence-format($ValidateAddresses/elements/TO, ';', true())&quot;/>&lt;/TO>&lt;CC>&lt;xsl:value-of select=&quot;tib:concat-sequence-format($ValidateAddresses/elements/CC, ';', true())&quot;/>&lt;/CC>&lt;BCC>&lt;xsl:value-of select=&quot;tib:concat-sequence-format($ValidateAddresses/elements/BCC, ';', true())&quot;/>&lt;/BCC>&lt;FROM>&lt;xsl:value-of select=&quot;bw:getModuleProperty('/GlobalVariables/EMail/TibcoMailFrom')&quot;/>&lt;/FROM>&lt;xsl:if test=&quot;$ValidateAddresses/elements/REPLYTO&quot;>&lt;REPLYTO>&lt;xsl:value-of select=&quot;$ValidateAddresses/elements/REPLYTO&quot;/>&lt;/REPLYTO>&lt;/xsl:if>&lt;/tns:MapperInput>&lt;/xsl:template>&lt;/xsl:stylesheet>"
+                                    expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
+                                    inputVariable="MailInput-input"
+                                    name="MailInput"
+                                    outputVariable="MailInput"
+                                    tibex:xpdlId="75d6250a-ecaf-4776-b8c7-485a72158f68" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                                    <bpws:targets>
+                                    <bpws:target linkName="ValidateAddressesToMailInput"/>
+                                    </bpws:targets>
+                                    <bpws:sources>
+                                    <bpws:source linkName="MailInputToLog"/>
+                                    </bpws:sources>
+                                    <tibex:inputBindings>
+                                    <tibex:inputBinding
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/namespaces/tnt/plugins/generalactivities/mapper/1463412643610&quot; xmlns:bw=&quot;http://www.tibco.com/bw/xpath/bw-custom-functions&quot; xmlns:tib=&quot;http://www.tibco.com/bw/xslt/custom-functions&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;ValidateAddresses&quot;/>&lt;xsl:template name=&quot;MailInput-input&quot; match=&quot;/&quot;>&lt;tns:MapperInput>&lt;TO>&lt;xsl:value-of select=&quot;tib:concat-sequence-format($ValidateAddresses/elements/TO, ';', true())&quot;/>&lt;/TO>&lt;CC>&lt;xsl:value-of select=&quot;tib:concat-sequence-format($ValidateAddresses/elements/CC, ';', true())&quot;/>&lt;/CC>&lt;BCC>&lt;xsl:value-of select=&quot;tib:concat-sequence-format($ValidateAddresses/elements/BCC, ';', true())&quot;/>&lt;/BCC>&lt;FROM>&lt;xsl:value-of select=&quot;bw:getModuleProperty('/GlobalVariables/EMail/TibcoMailFrom')&quot;/>&lt;/FROM>&lt;xsl:if test=&quot;$ValidateAddresses/elements/REPLYTO&quot;>&lt;REPLYTO>&lt;xsl:value-of select=&quot;$ValidateAddresses/elements/REPLYTO&quot;/>&lt;/REPLYTO>&lt;/xsl:if>&lt;/tns:MapperInput>&lt;/xsl:template>&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                                    </tibex:inputBindings>
+                                    <tibex:config>
+                                    <bwext:BWActivity
+                                    activityTypeID="bw.generalactivities.mapper"
+                                    version="6.0.0.001"
+                                    xmlns:activityconfig="http://tns.tibco.com/bw/model/activityconfig"
+                                    xmlns:bwext="http://tns.tibco.com/bw/model/core/bwext"
+                                    xmlns:generalactivities="http://ns.tibco.com/bw/palette/generalactivities"
+                                    xmlns:mapper_1463412643610="http://www.tibco.com/namespaces/tnt/plugins/generalactivities/mapper/1463412643610" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                                    <activityConfig>
+                                    <properties
+                                    name="config" xsi:type="activityconfig:EMFProperty">
+                                    <type href="http://ns.tibco.com/bw/palette/generalactivities#//Mapper"/>
+                                    <value
+                                    inputQName="mapper_1463412643610:MapperInput" xsi:type="generalactivities:Mapper"/>
+                                    </properties>
+                                    </activityConfig>
+                                    </bwext:BWActivity>
+                                    </tibex:config>
+                                </tibex:activityExtension>
+                            </bpws:extensionActivity>
+                        </bpws:flow>
+                    </bpws:scope>
+                </bpws:forEach>
+            </bpws:scope>
+            <bpws:scope name="Iterate1" tibex:group="iterate" tibex:xpdlId="de00822f-579c-462d-b143-20c41bb8ea28">
+                <bpws:targets>
+                    <bpws:target linkName="StartToIterate1_MailMsg"/>
+                </bpws:targets>
+                <bpws:variables>
+                    <bpws:variable name="FaultName1"
+                        sca-bpel:internal="true" type="xsd:string"/>
+                    <bpws:variable element="ns0:FaultDetail"
+                        name="FaultDetails1" sca-bpel:internal="true"/>
+                </bpws:variables>
+                <bpws:faultHandlers>
+                    <bpws:catchAll tibex:faultDetailsVar="FaultDetails1"
+                        tibex:faultNameVar="FaultName1" tibex:xpdlId="f42fc47e-63ed-479f-b3dc-1c0163abfb9c">
+                        <bpws:scope name="scope2">
+                            <bpws:flow name="flow4">
+                                <bpws:links/>
+                                <bpws:extensionActivity>
+                                    <tibex:activityExtension
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/pe/WriteToLogActivitySchema&quot; xmlns:tib=&quot;http://www.tibco.com/bw/xslt/custom-functions&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;FaultDetails1&quot;/>&lt;xsl:template name=&quot;LogError1-input&quot; match=&quot;/&quot;>&lt;tns:ActivityInput>&lt;message>&lt;xsl:value-of select=&quot;concat(&amp;quot;Error while trying to send an email. Details: &amp;quot;, tib:render-xml($FaultDetails1, false(), true()))&quot;/>&lt;/message>&lt;/tns:ActivityInput>&lt;/xsl:template>&lt;/xsl:stylesheet>"
+                                    expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
+                                    inputVariable="LogError1-input"
+                                    name="LogError1"
+                                    tibex:xpdlId="9295464e-2bcd-4866-ada0-dde929ef1783" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                                    <tibex:inputBindings>
+                                    <tibex:inputBinding
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/pe/WriteToLogActivitySchema&quot; xmlns:tib=&quot;http://www.tibco.com/bw/xslt/custom-functions&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;FaultDetails1&quot;/>&lt;xsl:template name=&quot;LogError1-input&quot; match=&quot;/&quot;>&lt;tns:ActivityInput>&lt;message>&lt;xsl:value-of select=&quot;concat(&amp;quot;Error while trying to send an email. Details: &amp;quot;, tib:render-xml($FaultDetails1, false(), true()))&quot;/>&lt;/message>&lt;/tns:ActivityInput>&lt;/xsl:template>&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                                    </tibex:inputBindings>
+                                    <tibex:config>
+                                    <bwext:BWActivity
+                                    activityTypeID="bw.generalactivities.log"
+                                    version="6.0.0.001"
+                                    xmlns:activityconfig="http://tns.tibco.com/bw/model/activityconfig"
+                                    xmlns:bwext="http://tns.tibco.com/bw/model/core/bwext"
+                                    xmlns:generalactivities="http://ns.tibco.com/bw/palette/generalactivities" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                                    <activityConfig>
+                                    <properties
+                                    name="config" xsi:type="activityconfig:EMFProperty">
+                                    <type href="http://ns.tibco.com/bw/palette/generalactivities#//Log"/>
+                                    <value
+                                    role="Error"
+                                    suppressJobInfo="true" xsi:type="generalactivities:Log"/>
+                                    </properties>
+                                    </activityConfig>
+                                    </bwext:BWActivity>
+                                    </tibex:config>
+                                    </tibex:activityExtension>
+                                </bpws:extensionActivity>
+                            </bpws:flow>
+                        </bpws:scope>
+                    </bpws:catchAll>
+                </bpws:faultHandlers>
+                <bpws:forEach counterName="index" name="iterate1"
+                    parallel="no" tibex:group="iterate">
+                    <tibex:DesignExpression name="variableList">
+                        <tibex:expression
+                            expression="$sendMessageIn/parameters/ns6:MailBox/ns6:MailMsg" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0"/>
+                    </tibex:DesignExpression>
+                    <bpws:startCounterValue><![CDATA[1]]></bpws:startCounterValue>
+                    <bpws:finalCounterValue expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0"><![CDATA[count($sendMessageIn.parameters/ns6:MailMsg)]]></bpws:finalCounterValue>
+                    <bpws:scope name="innerScope1">
+                        <bpws:variables>
+                            <bpws:variable element="ns6:MailMsg"
+                                name="currentElement1" sca-bpel:internal="true"/>
+                        </bpws:variables>
+                        <bpws:flow name="flow3">
+                            <bpws:links>
+                                <bpws:link
+                                    name="GroupStart1ToCopy_1_ValidateAddresses" tibex:linkType="SUCCESS"/>
+                                <bpws:link
+                                    name="Copy_1_ValidateAddressesToCopy_1_valid"
+                                    tibex:label="valid" tibex:linkType="SUCCESSWITHNOCONDITION"/>
+                                <bpws:link
+                                    name="Copy_1_MailInputToCopy_1_Log" tibex:linkType="SUCCESS"/>
+                                <bpws:link
+                                    name="Copy_1_LogToCopy_1_SendMail" tibex:linkType="SUCCESS"/>
+                                <bpws:link
+                                    name="Copy_1_SendMailToGroupEnd1" tibex:linkType="SUCCESS"/>
+                                <bpws:link
+                                    name="ValidateAddresses1ToThrow1_invalid"
+                                    tibex:label="invalid" tibex:linkType="SUCCESSWITHCONDITION"/>
+                            </bpws:links>
+                            <bpws:assign name="GroupStart1"
+                                tibex:group="groupStart"
+                                tibex:xpdlId="e1400c1d-b034-4534-bccb-34b7219204a2" validate="no">
+                                <bpws:sources>
+                                    <bpws:source linkName="GroupStart1ToCopy_1_ValidateAddresses"/>
+                                </bpws:sources>
+                                <bpws:copy>
+                                    <bpws:from expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0"><![CDATA[($sendMessageIn.parameters/ns6:MailMsg)[number($index)]]]></bpws:from>
+                                    <bpws:to variable="currentElement1"/>
+                                </bpws:copy>
+                            </bpws:assign>
+                            <bpws:empty name="GroupEnd1"
+                                tibex:group="groupEnd" tibex:xpdlId="99c8721e-9a9d-412f-906a-9a41bf9a633c">
+                                <bpws:targets>
+                                    <bpws:target linkName="Copy_1_SendMailToGroupEnd1"/>
+                                </bpws:targets>
+                            </bpws:empty>
+                            <bpws:extensionActivity>
+                                <tibex:activityExtension
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/namespaces/tnt/plugins/generalactivities/mapper/1462898084143&quot; xmlns:ns=&quot;http://Vectren.mail.com&quot; xmlns:tib=&quot;http://www.tibco.com/bw/xslt/custom-functions&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;currentElement1&quot;/>&lt;xsl:template name=&quot;ValidateAddresses1-input&quot; match=&quot;/&quot;>&lt;tns:MapperInput>&lt;elements>&lt;xsl:variable name=&quot;varTO&quot; select=&quot;tokenize($currentElement1/ns:To, &amp;quot;;&amp;quot;)&quot;/>&lt;xsl:variable name=&quot;varCC&quot; select=&quot;tokenize($currentElement1/ns:CC, &amp;quot;;&amp;quot;)&quot;/>&lt;xsl:variable name=&quot;varBCC&quot; select=&quot;tokenize($currentElement1/ns:BCC, &amp;quot;;&amp;quot;)&quot;/>&lt;xsl:for-each select=&quot;$varTO&quot;>&lt;xsl:if test=&quot;not(contains(tib:trim(current()), ' ')) and string-length(tib:trim(current()))>0&quot;>&lt;TO>&lt;xsl:value-of select=&quot;tib:trim(current())&quot;/>&lt;/TO>&lt;/xsl:if>&lt;/xsl:for-each>&lt;xsl:for-each select=&quot;$varCC&quot;>&lt;xsl:if test=&quot;not(contains(tib:trim(current()), ' ')) and string-length(tib:trim(current()))>0&quot;>&lt;CC>&lt;xsl:value-of select=&quot;tib:trim(current())&quot;/>&lt;/CC>&lt;/xsl:if>&lt;/xsl:for-each>&lt;xsl:for-each select=&quot;$varBCC&quot;>&lt;xsl:if test=&quot;not(contains(tib:trim(current()), ' ')) and string-length(tib:trim(current()))>0&quot;>&lt;BCC>&lt;xsl:value-of select=&quot;tib:trim(current())&quot;/>&lt;/BCC>&lt;/xsl:if>&lt;/xsl:for-each>&lt;xsl:if test=&quot;string-length(tib:trim($currentElement1/ns:From)) > 0 and not(contains(tib:trim($currentElement1/ns:From), &amp;quot; &amp;quot;))&quot;>&lt;FROM>&lt;xsl:value-of select=&quot;tib:trim($currentElement1/ns:From)&quot;/>&lt;/FROM>&lt;/xsl:if>&lt;xsl:if test=&quot;string-length(tib:trim($currentElement1/ns:ReplyTo)) > 0 and not(contains(tib:trim($currentElement1/ns:ReplyTo), &amp;quot; &amp;quot;))&quot;>&lt;REPLYTO>&lt;xsl:value-of select=&quot;tib:trim($currentElement1/ns:ReplyTo)&quot;/>&lt;/REPLYTO>&lt;/xsl:if>&lt;/elements>&lt;/tns:MapperInput>&lt;/xsl:template>&lt;/xsl:stylesheet>"
+                                    expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
+                                    inputVariable="ValidateAddresses1-input"
+                                    name="ValidateAddresses1"
+                                    outputVariable="ValidateAddresses1"
+                                    tibex:xpdlId="37d20ab7-e741-4566-b1b2-d5238f2808b8" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                                    <bpws:targets>
+                                    <bpws:target linkName="GroupStart1ToCopy_1_ValidateAddresses"/>
+                                    </bpws:targets>
+                                    <bpws:sources>
+                                    <bpws:source linkName="Copy_1_ValidateAddressesToCopy_1_valid">
+                                    <tibex:DesignExpression>
+                                    <tibex:expression
+                                    expression="##otherwise##" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0"/>
+                                    </tibex:DesignExpression>
+                                    <bpws:transitionCondition><![CDATA[##otherwise##]]></bpws:transitionCondition>
+                                    </bpws:source>
+                                    <bpws:source linkName="ValidateAddresses1ToThrow1_invalid">
+                                    <tibex:DesignExpression>
+                                    <tibex:expression
+                                    expression="(count($ValidateAddresses1/elements/TO) &lt; 1 and count($ValidateAddresses1/elements/CC) &lt; 1 and count($ValidateAddresses1/elements/BCC) &lt; 1) or &#xd;&#xa;(exists($currentElement1/ns6:From) and not(exists($ValidateAddresses1/elements/FROM))) or (exists($currentElement1/ns6:ReplyTo) and not(exists($ValidateAddresses1/elements/REPLYTO)))" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0"/>
+                                    </tibex:DesignExpression>
+                                    <bpws:transitionCondition><![CDATA[(count($ValidateAddresses1/elements/TO) < 1 and count($ValidateAddresses1/elements/CC) < 1 and count($ValidateAddresses1/elements/BCC) < 1) or 
+(exists($currentElement1/ns6:From) and not(exists($ValidateAddresses1/elements/FROM))) or (exists($currentElement1/ns6:ReplyTo) and not(exists($ValidateAddresses1/elements/REPLYTO)))]]></bpws:transitionCondition>
+                                    </bpws:source>
+                                    </bpws:sources>
+                                    <tibex:inputBindings>
+                                    <tibex:inputBinding
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/namespaces/tnt/plugins/generalactivities/mapper/1462898084143&quot; xmlns:ns=&quot;http://Vectren.mail.com&quot; xmlns:tib=&quot;http://www.tibco.com/bw/xslt/custom-functions&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;currentElement1&quot;/>&lt;xsl:template name=&quot;ValidateAddresses1-input&quot; match=&quot;/&quot;>&lt;tns:MapperInput>&lt;elements>&lt;xsl:variable name=&quot;varTO&quot; select=&quot;tokenize($currentElement1/ns:To, &amp;quot;;&amp;quot;)&quot;/>&lt;xsl:variable name=&quot;varCC&quot; select=&quot;tokenize($currentElement1/ns:CC, &amp;quot;;&amp;quot;)&quot;/>&lt;xsl:variable name=&quot;varBCC&quot; select=&quot;tokenize($currentElement1/ns:BCC, &amp;quot;;&amp;quot;)&quot;/>&lt;xsl:for-each select=&quot;$varTO&quot;>&lt;xsl:if test=&quot;not(contains(tib:trim(current()), ' ')) and string-length(tib:trim(current()))>0&quot;>&lt;TO>&lt;xsl:value-of select=&quot;tib:trim(current())&quot;/>&lt;/TO>&lt;/xsl:if>&lt;/xsl:for-each>&lt;xsl:for-each select=&quot;$varCC&quot;>&lt;xsl:if test=&quot;not(contains(tib:trim(current()), ' ')) and string-length(tib:trim(current()))>0&quot;>&lt;CC>&lt;xsl:value-of select=&quot;tib:trim(current())&quot;/>&lt;/CC>&lt;/xsl:if>&lt;/xsl:for-each>&lt;xsl:for-each select=&quot;$varBCC&quot;>&lt;xsl:if test=&quot;not(contains(tib:trim(current()), ' ')) and string-length(tib:trim(current()))>0&quot;>&lt;BCC>&lt;xsl:value-of select=&quot;tib:trim(current())&quot;/>&lt;/BCC>&lt;/xsl:if>&lt;/xsl:for-each>&lt;xsl:if test=&quot;string-length(tib:trim($currentElement1/ns:From)) > 0 and not(contains(tib:trim($currentElement1/ns:From), &amp;quot; &amp;quot;))&quot;>&lt;FROM>&lt;xsl:value-of select=&quot;tib:trim($currentElement1/ns:From)&quot;/>&lt;/FROM>&lt;/xsl:if>&lt;xsl:if test=&quot;string-length(tib:trim($currentElement1/ns:ReplyTo)) > 0 and not(contains(tib:trim($currentElement1/ns:ReplyTo), &amp;quot; &amp;quot;))&quot;>&lt;REPLYTO>&lt;xsl:value-of select=&quot;tib:trim($currentElement1/ns:ReplyTo)&quot;/>&lt;/REPLYTO>&lt;/xsl:if>&lt;/elements>&lt;/tns:MapperInput>&lt;/xsl:template>&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                                    </tibex:inputBindings>
+                                    <tibex:config>
+                                    <bwext:BWActivity
+                                    activityTypeID="bw.generalactivities.mapper"
+                                    version="6.0.0.001"
+                                    xmlns:activityconfig="http://tns.tibco.com/bw/model/activityconfig"
+                                    xmlns:bwext="http://tns.tibco.com/bw/model/core/bwext"
+                                    xmlns:generalactivities="http://ns.tibco.com/bw/palette/generalactivities"
+                                    xmlns:mapper_1462898084143="http://www.tibco.com/namespaces/tnt/plugins/generalactivities/mapper/1462898084143" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                                    <activityConfig>
+                                    <properties
+                                    name="config" xsi:type="activityconfig:EMFProperty">
+                                    <type href="http://ns.tibco.com/bw/palette/generalactivities#//Mapper"/>
+                                    <value
+                                    inputQName="mapper_1462898084143:MapperInput" xsi:type="generalactivities:Mapper"/>
+                                    </properties>
+                                    </activityConfig>
+                                    </bwext:BWActivity>
+                                    </tibex:config>
+                                </tibex:activityExtension>
+                            </bpws:extensionActivity>
+                            <bpws:extensionActivity>
+                                <tibex:activityExtension
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/namespaces/tnt/plugins/generalactivities/mapper/1463412643610&quot; xmlns:bw=&quot;http://www.tibco.com/bw/xpath/bw-custom-functions&quot; xmlns:tib=&quot;http://www.tibco.com/bw/xslt/custom-functions&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;ValidateAddresses1&quot;/>&lt;xsl:template name=&quot;MailInput1-input&quot; match=&quot;/&quot;>&lt;tns:MapperInput>&lt;TO>&lt;xsl:value-of select=&quot;tib:concat-sequence-format($ValidateAddresses1/elements/TO, ';', true())&quot;/>&lt;/TO>&lt;CC>&lt;xsl:value-of select=&quot;tib:concat-sequence-format($ValidateAddresses1/elements/CC, ';', true())&quot;/>&lt;/CC>&lt;BCC>&lt;xsl:value-of select=&quot;tib:concat-sequence-format($ValidateAddresses1/elements/BCC, ';', true())&quot;/>&lt;/BCC>&lt;xsl:if test=&quot;$ValidateAddresses1/elements/FROM&quot;>&lt;FROM>&lt;xsl:value-of select=&quot;$ValidateAddresses1/elements/FROM&quot;/>&lt;/FROM>&lt;/xsl:if>&lt;xsl:if test=&quot;$ValidateAddresses1/elements/REPLYTO&quot;>&lt;REPLYTO>&lt;xsl:value-of select=&quot;$ValidateAddresses1/elements/REPLYTO&quot;/>&lt;/REPLYTO>&lt;/xsl:if>&lt;/tns:MapperInput>&lt;/xsl:template>&lt;/xsl:stylesheet>"
+                                    expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
+                                    inputVariable="MailInput1-input"
+                                    name="MailInput1"
+                                    outputVariable="MailInput1"
+                                    tibex:xpdlId="8ae755c7-eaf0-4147-997b-2ae20ac9def7" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                                    <bpws:targets>
+                                    <bpws:target linkName="Copy_1_ValidateAddressesToCopy_1_valid"/>
+                                    </bpws:targets>
+                                    <bpws:sources>
+                                    <bpws:source linkName="Copy_1_MailInputToCopy_1_Log"/>
+                                    </bpws:sources>
+                                    <tibex:inputBindings>
+                                    <tibex:inputBinding
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/namespaces/tnt/plugins/generalactivities/mapper/1463412643610&quot; xmlns:bw=&quot;http://www.tibco.com/bw/xpath/bw-custom-functions&quot; xmlns:tib=&quot;http://www.tibco.com/bw/xslt/custom-functions&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;ValidateAddresses1&quot;/>&lt;xsl:template name=&quot;MailInput1-input&quot; match=&quot;/&quot;>&lt;tns:MapperInput>&lt;TO>&lt;xsl:value-of select=&quot;tib:concat-sequence-format($ValidateAddresses1/elements/TO, ';', true())&quot;/>&lt;/TO>&lt;CC>&lt;xsl:value-of select=&quot;tib:concat-sequence-format($ValidateAddresses1/elements/CC, ';', true())&quot;/>&lt;/CC>&lt;BCC>&lt;xsl:value-of select=&quot;tib:concat-sequence-format($ValidateAddresses1/elements/BCC, ';', true())&quot;/>&lt;/BCC>&lt;xsl:if test=&quot;$ValidateAddresses1/elements/FROM&quot;>&lt;FROM>&lt;xsl:value-of select=&quot;$ValidateAddresses1/elements/FROM&quot;/>&lt;/FROM>&lt;/xsl:if>&lt;xsl:if test=&quot;$ValidateAddresses1/elements/REPLYTO&quot;>&lt;REPLYTO>&lt;xsl:value-of select=&quot;$ValidateAddresses1/elements/REPLYTO&quot;/>&lt;/REPLYTO>&lt;/xsl:if>&lt;/tns:MapperInput>&lt;/xsl:template>&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                                    </tibex:inputBindings>
+                                    <tibex:config>
+                                    <bwext:BWActivity
+                                    activityTypeID="bw.generalactivities.mapper"
+                                    version="6.0.0.001"
+                                    xmlns:activityconfig="http://tns.tibco.com/bw/model/activityconfig"
+                                    xmlns:bwext="http://tns.tibco.com/bw/model/core/bwext"
+                                    xmlns:generalactivities="http://ns.tibco.com/bw/palette/generalactivities"
+                                    xmlns:mapper_1463412643610="http://www.tibco.com/namespaces/tnt/plugins/generalactivities/mapper/1463412643610" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                                    <activityConfig>
+                                    <properties
+                                    name="config" xsi:type="activityconfig:EMFProperty">
+                                    <type href="http://ns.tibco.com/bw/palette/generalactivities#//Mapper"/>
+                                    <value
+                                    inputQName="mapper_1463412643610:MapperInput" xsi:type="generalactivities:Mapper"/>
+                                    </properties>
+                                    </activityConfig>
+                                    </bwext:BWActivity>
+                                    </tibex:config>
+                                </tibex:activityExtension>
+                            </bpws:extensionActivity>
+                            <bpws:extensionActivity>
+                                <tibex:activityExtension
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/pe/WriteToLogActivitySchema&quot; xmlns:ns=&quot;http://Vectren.mail.com&quot; xmlns:bw=&quot;http://www.tibco.com/bw/xpath/bw-custom-functions&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;currentElement1&quot;/>&lt;xsl:param name=&quot;MailInput1&quot;/>&lt;xsl:template name=&quot;Log1l-input&quot; match=&quot;/&quot;>&lt;tns:ActivityInput>&lt;message>&lt;xsl:value-of select=&quot;concat(&amp;quot;Sending email. FROM: TIBCO_&amp;quot;, bw:getModuleProperty(&amp;quot;BW.DOMAIN.NAME&amp;quot;), &amp;quot;@VECTREN.COM, TO: &amp;quot;, $MailInput1/TO, &amp;quot; (CC: &amp;quot;, $MailInput1/CC, &amp;quot;, BCC: &amp;quot;, $MailInput1/BCC, &amp;quot;), SUBJECT: &amp;quot;, bw:getModuleProperty(&amp;quot;BW.DOMAIN.NAME&amp;quot;), &amp;quot;: &amp;quot;, $currentElement1/ns:Subject)&quot;/>&lt;/message>&lt;/tns:ActivityInput>&lt;/xsl:template>&lt;/xsl:stylesheet>"
+                                    expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
+                                    inputVariable="Log1-input"
+                                    name="Log1"
+                                    tibex:xpdlId="8d6ad499-f731-498f-a35f-151aea37d6d6" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                                    <bpws:targets>
+                                    <bpws:target linkName="Copy_1_MailInputToCopy_1_Log"/>
+                                    </bpws:targets>
+                                    <bpws:sources>
+                                    <bpws:source linkName="Copy_1_LogToCopy_1_SendMail"/>
+                                    </bpws:sources>
+                                    <tibex:inputBindings>
+                                    <tibex:inputBinding
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/pe/WriteToLogActivitySchema&quot; xmlns:ns=&quot;http://Vectren.mail.com&quot; xmlns:bw=&quot;http://www.tibco.com/bw/xpath/bw-custom-functions&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;currentElement1&quot;/>&lt;xsl:param name=&quot;MailInput1&quot;/>&lt;xsl:template name=&quot;Log1l-input&quot; match=&quot;/&quot;>&lt;tns:ActivityInput>&lt;message>&lt;xsl:value-of select=&quot;concat(&amp;quot;Sending email. FROM: TIBCO_&amp;quot;, bw:getModuleProperty(&amp;quot;BW.DOMAIN.NAME&amp;quot;), &amp;quot;@VECTREN.COM, TO: &amp;quot;, $MailInput1/TO, &amp;quot; (CC: &amp;quot;, $MailInput1/CC, &amp;quot;, BCC: &amp;quot;, $MailInput1/BCC, &amp;quot;), SUBJECT: &amp;quot;, bw:getModuleProperty(&amp;quot;BW.DOMAIN.NAME&amp;quot;), &amp;quot;: &amp;quot;, $currentElement1/ns:Subject)&quot;/>&lt;/message>&lt;/tns:ActivityInput>&lt;/xsl:template>&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                                    </tibex:inputBindings>
+                                    <tibex:config>
+                                    <bwext:BWActivity
+                                    activityTypeID="bw.generalactivities.log"
+                                    version="6.0.0.001"
+                                    xmlns:activityconfig="http://tns.tibco.com/bw/model/activityconfig"
+                                    xmlns:bwext="http://tns.tibco.com/bw/model/core/bwext"
+                                    xmlns:generalactivities="http://ns.tibco.com/bw/palette/generalactivities" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                                    <activityConfig>
+                                    <properties
+                                    name="config" xsi:type="activityconfig:EMFProperty">
+                                    <type href="http://ns.tibco.com/bw/palette/generalactivities#//Log"/>
+                                    <value role="Info"
+                                    suppressJobInfo="true" xsi:type="generalactivities:Log"/>
+                                    </properties>
+                                    </activityConfig>
+                                    </bwext:BWActivity>
+                                    </tibex:config>
+                                </tibex:activityExtension>
+                            </bpws:extensionActivity>
+                            <bpws:extensionActivity>
+                                <tibex:activityExtension
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://tns.tibco.com/bw/activity/sendmail/xsd/input+247f68a3-6d68-449d-b48e-ef9ed3a7a024+input&quot; xmlns:bw=&quot;http://www.tibco.com/bw/xpath/bw-custom-functions&quot; xmlns:ns=&quot;http://Vectren.mail.com&quot; xmlns:tns1=&quot;http://xmlns.tibco.com/encodings/mimefile&quot; xmlns:tib=&quot;http://www.tibco.com/bw/xslt/custom-functions&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;currentElement1&quot;/>&lt;xsl:param name=&quot;MailInput1&quot;/>&lt;xsl:template name=&quot;SendMail1-input&quot; match=&quot;/&quot;>&lt;xsl:choose>&lt;xsl:when test=&quot;string-length($currentElement1/ns:FilePath) > 0&quot;>&lt;tns:mailActivityInput>&lt;from>&lt;xsl:value-of select=&quot;$MailInput1/FROM&quot;/>&lt;/from>&lt;xsl:if test=&quot;$MailInput1/TO&quot;>&lt;to>&lt;xsl:value-of select=&quot;$MailInput1/TO&quot;/>&lt;/to>&lt;/xsl:if>&lt;xsl:if test=&quot;$MailInput1/CC&quot;>&lt;cc>&lt;xsl:value-of select=&quot;$MailInput1/CC&quot;/>&lt;/cc>&lt;/xsl:if>&lt;xsl:if test=&quot;$MailInput1/BCC&quot;>&lt;bcc>&lt;xsl:value-of select=&quot;$MailInput1/BCC&quot;/>&lt;/bcc>&lt;/xsl:if>&lt;xsl:if test=&quot;$MailInput1/REPLYTO&quot;>&lt;replyTo>&lt;xsl:value-of select=&quot;$MailInput1/REPLYTO&quot;/>&lt;/replyTo>&lt;/xsl:if>&lt;subject>&lt;xsl:value-of select=&quot;$currentElement1/ns:Subject&quot;/>&lt;/subject>&lt;sentdate>&lt;xsl:value-of select=&quot;current-dateTime()&quot;/>&lt;/sentdate>&lt;Headers>&lt;Content-Type>&lt;xsl:value-of select=&quot;'text/html'&quot;/>&lt;/Content-Type>&lt;/Headers>&lt;tns1:mimeEnvelopeElement>&lt;mimePart>&lt;mimeHeaders>&lt;content-disposition>&lt;xsl:value-of select=&quot;concat(&amp;quot;*;filename=&amp;quot;, tib:substring-after-last($currentElement1/ns:FilePath, &amp;quot;/&amp;quot;))&quot;/>&lt;/content-disposition>&lt;content-type>&lt;xsl:value-of select=&quot;'text/plain'&quot;/>&lt;/content-type>&lt;/mimeHeaders>&lt;fileName>&lt;xsl:value-of select=&quot;$currentElement1/ns:FilePath&quot;/>&lt;/fileName>&lt;/mimePart>&lt;/tns1:mimeEnvelopeElement>&lt;/tns:mailActivityInput>&lt;/xsl:when>&lt;xsl:otherwise>&lt;tns:mailActivityInput>&lt;from>&lt;xsl:value-of select=&quot;$MailInput1/FROM&quot;/>&lt;/from>&lt;xsl:if test=&quot;$MailInput1/TO&quot;>&lt;to>&lt;xsl:value-of select=&quot;$MailInput1/TO&quot;/>&lt;/to>&lt;/xsl:if>&lt;xsl:if test=&quot;$MailInput1/CC&quot;>&lt;cc>&lt;xsl:value-of select=&quot;$MailInput1/CC&quot;/>&lt;/cc>&lt;/xsl:if>&lt;xsl:if test=&quot;$MailInput1/BCC&quot;>&lt;bcc>&lt;xsl:value-of select=&quot;$MailInput1/BCC&quot;/>&lt;/bcc>&lt;/xsl:if>&lt;xsl:if test=&quot;$MailInput1/REPLYTO&quot;>&lt;replyTo>&lt;xsl:value-of select=&quot;$MailInput1/REPLYTO&quot;/>&lt;/replyTo>&lt;/xsl:if>&lt;subject>&lt;xsl:value-of select=&quot;$currentElement1/ns:Subject&quot;/>&lt;/subject>&lt;sentdate>&lt;xsl:value-of select=&quot;current-dateTime()&quot;/>&lt;/sentdate>&lt;bodyElement>&lt;xsl:if test=&quot;$currentElement1/ns:MsgBody&quot;>&lt;bodyText>&lt;xsl:value-of select=&quot;$currentElement1/ns:MsgBody&quot;/>&lt;/bodyText>&lt;/xsl:if>&lt;/bodyElement>&lt;/tns:mailActivityInput>&lt;/xsl:otherwise>&lt;/xsl:choose>&lt;/xsl:template>&lt;/xsl:stylesheet>"
+                                    expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
+                                    inputVariable="SendMail1-input"
+                                    name="SendMail1"
+                                    tibex:xpdlId="247f68a3-6d68-449d-b48e-ef9ed3a7a024" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                                    <bpws:targets>
+                                    <bpws:target linkName="Copy_1_LogToCopy_1_SendMail"/>
+                                    </bpws:targets>
+                                    <bpws:sources>
+                                    <bpws:source linkName="Copy_1_SendMailToGroupEnd1"/>
+                                    </bpws:sources>
+                                    <tibex:inputBindings>
+                                    <tibex:inputBinding
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://tns.tibco.com/bw/activity/sendmail/xsd/input+247f68a3-6d68-449d-b48e-ef9ed3a7a024+input&quot; xmlns:bw=&quot;http://www.tibco.com/bw/xpath/bw-custom-functions&quot; xmlns:ns=&quot;http://Vectren.mail.com&quot; xmlns:tns1=&quot;http://xmlns.tibco.com/encodings/mimefile&quot; xmlns:tib=&quot;http://www.tibco.com/bw/xslt/custom-functions&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;currentElement1&quot;/>&lt;xsl:param name=&quot;MailInput1&quot;/>&lt;xsl:template name=&quot;SendMail1-input&quot; match=&quot;/&quot;>&lt;xsl:choose>&lt;xsl:when test=&quot;string-length($currentElement1/ns:FilePath) > 0&quot;>&lt;tns:mailActivityInput>&lt;from>&lt;xsl:value-of select=&quot;$MailInput1/FROM&quot;/>&lt;/from>&lt;xsl:if test=&quot;$MailInput1/TO&quot;>&lt;to>&lt;xsl:value-of select=&quot;$MailInput1/TO&quot;/>&lt;/to>&lt;/xsl:if>&lt;xsl:if test=&quot;$MailInput1/CC&quot;>&lt;cc>&lt;xsl:value-of select=&quot;$MailInput1/CC&quot;/>&lt;/cc>&lt;/xsl:if>&lt;xsl:if test=&quot;$MailInput1/BCC&quot;>&lt;bcc>&lt;xsl:value-of select=&quot;$MailInput1/BCC&quot;/>&lt;/bcc>&lt;/xsl:if>&lt;xsl:if test=&quot;$MailInput1/REPLYTO&quot;>&lt;replyTo>&lt;xsl:value-of select=&quot;$MailInput1/REPLYTO&quot;/>&lt;/replyTo>&lt;/xsl:if>&lt;subject>&lt;xsl:value-of select=&quot;$currentElement1/ns:Subject&quot;/>&lt;/subject>&lt;sentdate>&lt;xsl:value-of select=&quot;current-dateTime()&quot;/>&lt;/sentdate>&lt;Headers>&lt;Content-Type>&lt;xsl:value-of select=&quot;'text/html'&quot;/>&lt;/Content-Type>&lt;/Headers>&lt;tns1:mimeEnvelopeElement>&lt;mimePart>&lt;mimeHeaders>&lt;content-disposition>&lt;xsl:value-of select=&quot;concat(&amp;quot;*;filename=&amp;quot;, tib:substring-after-last($currentElement1/ns:FilePath, &amp;quot;/&amp;quot;))&quot;/>&lt;/content-disposition>&lt;content-type>&lt;xsl:value-of select=&quot;'text/plain'&quot;/>&lt;/content-type>&lt;/mimeHeaders>&lt;fileName>&lt;xsl:value-of select=&quot;$currentElement1/ns:FilePath&quot;/>&lt;/fileName>&lt;/mimePart>&lt;/tns1:mimeEnvelopeElement>&lt;/tns:mailActivityInput>&lt;/xsl:when>&lt;xsl:otherwise>&lt;tns:mailActivityInput>&lt;from>&lt;xsl:value-of select=&quot;$MailInput1/FROM&quot;/>&lt;/from>&lt;xsl:if test=&quot;$MailInput1/TO&quot;>&lt;to>&lt;xsl:value-of select=&quot;$MailInput1/TO&quot;/>&lt;/to>&lt;/xsl:if>&lt;xsl:if test=&quot;$MailInput1/CC&quot;>&lt;cc>&lt;xsl:value-of select=&quot;$MailInput1/CC&quot;/>&lt;/cc>&lt;/xsl:if>&lt;xsl:if test=&quot;$MailInput1/BCC&quot;>&lt;bcc>&lt;xsl:value-of select=&quot;$MailInput1/BCC&quot;/>&lt;/bcc>&lt;/xsl:if>&lt;xsl:if test=&quot;$MailInput1/REPLYTO&quot;>&lt;replyTo>&lt;xsl:value-of select=&quot;$MailInput1/REPLYTO&quot;/>&lt;/replyTo>&lt;/xsl:if>&lt;subject>&lt;xsl:value-of select=&quot;$currentElement1/ns:Subject&quot;/>&lt;/subject>&lt;sentdate>&lt;xsl:value-of select=&quot;current-dateTime()&quot;/>&lt;/sentdate>&lt;bodyElement>&lt;xsl:if test=&quot;$currentElement1/ns:MsgBody&quot;>&lt;bodyText>&lt;xsl:value-of select=&quot;$currentElement1/ns:MsgBody&quot;/>&lt;/bodyText>&lt;/xsl:if>&lt;/bodyElement>&lt;/tns:mailActivityInput>&lt;/xsl:otherwise>&lt;/xsl:choose>&lt;/xsl:template>&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                                    </tibex:inputBindings>
+                                    <tibex:config>
+                                    <bwext:BWActivity
+                                    activityTypeID="bw.mail.send"
+                                    xmlns:activityconfig="http://tns.tibco.com/bw/model/activityconfig"
+                                    xmlns:bwext="http://tns.tibco.com/bw/model/core/bwext"
+                                    xmlns:input="http://tns.tibco.com/bw/activity/sendmail/xsd/input+247f68a3-6d68-449d-b48e-ef9ed3a7a024+input"
+                                    xmlns:mail="http://ns.tibco.com/bw/palette/mail" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                                    <activityConfig>
+                                    <properties
+                                    name="config" xsi:type="activityconfig:EMFProperty">
+                                    <type href="http://ns.tibco.com/bw/palette/mail#//SendMail"/>
+                                    <value
+                                    inputHeadersQName="input:headersType"
+                                    newActivity="true"
+                                    smtpProperty="smtpProperty" xsi:type="mail:SendMail"/>
+                                    </properties>
+                                    </activityConfig>
+                                    </bwext:BWActivity>
+                                    </tibex:config>
+                                </tibex:activityExtension>
+                            </bpws:extensionActivity>
+                            <bpws:throw faultName="ns5:DefaultFault"
+                                faultVariable="Throw1-input"
+                                name="Throw1" tibex:xpdlId="3ae6a8ec-bed1-477b-a1e5-4a23d77e7388">
+                                <tibex:inputBinding expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tns="http://schemas.tibco.com/bw/plugins/basic/6.0/Exceptions" xmlns:tib="http://www.tibco.com/bw/xslt/custom-functions" version="2.0"&gt;&lt;xsl:param name="currentElement1"/&gt;&lt;xsl:template name="Throw1-input" match="/"&gt;&lt;tns:DefaultFault&gt;&lt;message&gt;&lt;xsl:value-of select="concat(&amp;quot;Invalid email address in: &amp;quot;, tib:render-xml($currentElement1, false(),true()))"/&gt;&lt;/message&gt;&lt;/tns:DefaultFault&gt;&lt;/xsl:template&gt;&lt;/xsl:stylesheet&gt;</tibex:inputBinding>
+                                <tibex:inputBindings>
+                                    <tibex:partBinding
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://schemas.tibco.com/bw/plugins/basic/6.0/Exceptions&quot; xmlns:tib=&quot;http://www.tibco.com/bw/xslt/custom-functions&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;currentElement1&quot;/>&lt;xsl:template name=&quot;Throw1-input&quot; match=&quot;/&quot;>&lt;tns:DefaultFault>&lt;message>&lt;xsl:value-of select=&quot;concat(&amp;quot;Invalid email address in: &amp;quot;, tib:render-xml($currentElement1, false(),true()))&quot;/>&lt;/message>&lt;/tns:DefaultFault>&lt;/xsl:template>&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                                </tibex:inputBindings>
+                                <bpws:targets>
+                                    <bpws:target linkName="ValidateAddresses1ToThrow1_invalid"/>
+                                </bpws:targets>
+                            </bpws:throw>
+                        </bpws:flow>
+                    </bpws:scope>
+                </bpws:forEach>
+            </bpws:scope>
+        </bpws:flow>
+    </bpws:scope>
+</bpws:process>

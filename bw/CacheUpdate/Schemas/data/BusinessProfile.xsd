@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://behaimits.com/vectren/bigdata/customer360view/BusinessProfile" xmlns="http://behaimits.com/vectren/bigdata/customer360view/BusinessProfile" elementFormDefault="qualified">
+<xs:complexType name="BusinessProfileItemType"><xs:sequence>
+<xs:element name="ACCOUNT_NUMBER" type="xs:string" minOccurs="0" />
+<xs:element name="MEMBER_ID" type="xs:float" />
+<xs:element name="USER_NAME" type="xs:string" minOccurs="0" />
+<xs:element name="CREATED_DATE" type="xs:dateTime" />
+<xs:element name="LAST_LOGIN_DATE" type="xs:dateTime" minOccurs="0" />
+<xs:element name="PRIOR_LAST_LOGIN_DATE" type="xs:dateTime" minOccurs="0" />
+<xs:element name="PASSWORD_RESET" type="xs:string" minOccurs="0" />
+<xs:element name="PASSWORD_UPDATED_DATE" type="xs:dateTime" minOccurs="0" />
+<xs:element name="EBILL_DECLINE_DATE" type="xs:dateTime" minOccurs="0" />
+<xs:element name="UPDATED_ON" type="xs:dateTime" minOccurs="0" />
+<xs:element name="TUPLE_ID" type="xs:float" minOccurs="0" />
+</xs:sequence></xs:complexType><xs:element name="BusinessProfileItem" type="BusinessProfileItemType" /></xs:schema>

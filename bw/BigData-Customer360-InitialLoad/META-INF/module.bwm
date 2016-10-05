@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sca:composite xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:BW="http://xsd.tns.tibco.com/amf/models/sca/implementationtype/BW" xmlns:XMLSchema="http://www.w3.org/2001/XMLSchema" xmlns:compositeext="http://schemas.tibco.com/amx/3.0/compositeext" xmlns:rest="http://xsd.tns.tibco.com/bw/models/binding/rest" xmlns:sca="http://www.osoa.org/xmlns/sca/1.0" xmlns:scact="http://xsd.tns.tibco.com/amf/models/sca/componentType" xmlns:scaext="http://xsd.tns.tibco.com/amf/models/sca/extensions" xmi:id="_Mgy54GOkEea0Dts6aQmABg" targetNamespace="http://tns.tibco.com/bw/composite/BigData-Customer360-InitialLoad" name="BigData-Customer360-InitialLoad" compositeext:version="1.0.0" compositeext:formatVersion="2">
+  <sca:service xmi:id="_NPx20mRUEeaY6IWhsMBrWQ" name="reloadasdatabyaccount" promote="ComponentReloadASDataByAccount/reloadasdatabyaccount">
+    <sca:interface.wsdl xmi:id="_NPyd4GRUEeaY6IWhsMBrWQ" interface="http://xmlns.example.com/20160817032550PLT#wsdl.interface(reloadasdatabyaccount)" scaext:wsdlLocation="../Processes/bigdata-customer360-initialload/ReloadASDataByAccount.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_NQkhAGRUEeaY6IWhsMBrWQ" name="RestService" path="/reloadasdatabyaccount" docBasePath="http://localhost:7777/BigData-Customer360-InitialLoad" docResourcePath="ReloadASDataByAccount" basePath="/" connector="bigdata-customer360-initialload.ReloadPaymentOverview" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/bigdata-customer360-initialload.ReloadASDataByAccount-ReloadASDataByAccount.json">
+      <operation xmi:id="_NQkhAWRUEeaY6IWhsMBrWQ" operationName="post" nickname="post-reloadasdatabyaccount" httpMethod="POST" responseStyle="element">
+        <responseStatus xmi:id="_75j_oGRYEeaY6IWhsMBrWQ" statusCode="200" reasonPhrase="OK" dataType="string"/>
+        <responseStatus xmi:id="_8B9GoGRYEeaY6IWhsMBrWQ" statusCode="201" reasonPhrase="Created" dataType="string"/>
+        <clientFormat>json</clientFormat>
+        <clientFormat>xml</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+        <clientRequestFormat>xml</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_NQkhA2RUEeaY6IWhsMBrWQ"/>
+      <clientFormat>xml</clientFormat>
+      <clientFormat>json</clientFormat>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_NQkhAmRUEeaY6IWhsMBrWQ" bindingName="RestService"/>
+  </sca:service>
+  <sca:property xmi:id="_Ms3nAGOkEea0Dts6aQmABg" name="BW.DEPLOYMENTUNIT.TYPE" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_Ms3nAWOkEea0Dts6aQmABg" name="BW.APPNODE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_MtAw8GOkEea0Dts6aQmABg" name="BW.DEPLOYMENTUNIT.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_MtAw8WOkEea0Dts6aQmABg" name="BW.HOST.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_MtKh8GOkEea0Dts6aQmABg" name="BW.DOMAIN.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_MtKh8WOkEea0Dts6aQmABg" name="BW.DEPLOYMENTUNIT.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_MtUS8GOkEea0Dts6aQmABg" name="BW.APPSPACE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_MtUS8WOkEea0Dts6aQmABg" name="BW.MODULE.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_Mtdc4GOkEea0Dts6aQmABg" name="BW.MODULE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:component xmi:id="_NPxPwGRUEeaY6IWhsMBrWQ" name="ComponentReloadASDataByAccount" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_NPxPwWRUEeaY6IWhsMBrWQ" processName="bigdata-customer360-initialload.ReloadASDataByAccount"/>
+    <sca:service xmi:id="_NPx20GRUEeaY6IWhsMBrWQ" name="reloadasdatabyaccount">
+      <sca:interface.wsdl xmi:id="_NPx20WRUEeaY6IWhsMBrWQ" interface="http://xmlns.example.com/20160817032550PLT#wsdl.interface(reloadasdatabyaccount)" scaext:wsdlLocation="../Processes/bigdata-customer360-initialload/ReloadASDataByAccount.bwp"/>
+    </sca:service>
+  </sca:component>
+</sca:composite>

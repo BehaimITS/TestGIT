@@ -1,0 +1,482 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:schema="http://xsd.tns.tibco.com/amf/models/adapter/schema">
+  <schema:ClassType xmi:id="P_UABPYMT" name="P_UABPYMT">
+    <attributes name="UABPYMT_AR_TRANS" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UABPYMT_ORIGIN" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UABPYMT_SOURCE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UABPYMT_CUST_CODE" type="../../ae.schema#string" isKey="true" isReadable="true" isWriteable="true"/>
+    <attributes name="UABPYMT_PREM_CODE" type="../../ae.schema#string" isKey="true" isReadable="true" isWriteable="true"/>
+    <attributes name="UABPYMT_PYMT_DATE" type="adbmetadata.schema#adbDateTime" isReadable="true" isWriteable="true"/>
+    <attributes name="UABPYMT_ACTIVITY_DATE" type="adbmetadata.schema#adbDateTime" isReadable="true" isWriteable="true"/>
+    <attributes name="UABPYMT_USER_ID" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UABPYMT_PRINTED_IND" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UABPYMT_PYCD_CODE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UABPYMT_APPL_IND" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UABPYMT_GL_IND" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UABPYMT_APPROVED_IND" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UABPYMT_AMOUNT" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UABPYMT_BALANCE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UABPYMT_PRINTED_DATE" type="adbmetadata.schema#adbDateTime" isReadable="true" isWriteable="true"/>
+    <attributes name="UABPYMT_BHST_TRAN_NUM" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UABPYMT_PAYMENT_REF" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UABPYMT_ASVC_CODE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UABPYMT_RESP_ID" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UABPYMT_CANCEL_TRANS" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UABPYMT_FEED_DOC_CODE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UABPYMT_FEED_SEQ_NUM" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UABPYMT_CUST_CODE_THIRD_PRTY" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UABPYMT_RESV_CODE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UABPYMT_MBIL_NUM" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UABPYMT_PAYMENT_REF_B" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UABPYMT_TRANS_NUM" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UABPYMT_BUSINESS_POST_DATE" type="adbmetadata.schema#adbDateTime" isReadable="true" isWriteable="true"/>
+    <attributes name="UABPYMT_APGP_CODE_PURGABLE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_OPCODE" type="../../ae.schema#i4" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_TRACKINGID" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_SUBJECT" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_SEQUENCE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_SET_SEQUENCE" type="../../ae.schema#i4" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_TIMESTAMP" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_UPDATE_ALL" type="../../ae.schema#i4" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_REF_OBJECT" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_AGENT_ID" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+  </schema:ClassType>
+  <schema:ClassType xmi:id="P_UARDRFT" name="P_UARDRFT">
+    <attributes name="UARDRFT_CUST_CODE" type="../../ae.schema#string" isKey="true" isReadable="true" isWriteable="true"/>
+    <attributes name="UARDRFT_PREM_CODE" type="../../ae.schema#string" isKey="true" isReadable="true" isWriteable="true"/>
+    <attributes name="UARDRFT_FILE_DATE" type="adbmetadata.schema#adbDateTime" isReadable="true" isWriteable="true"/>
+    <attributes name="UARDRFT_HOLD_UNTIL_DATE" type="adbmetadata.schema#adbDateTime" isReadable="true" isWriteable="true"/>
+    <attributes name="UARDRFT_ACTIVITY_DATE" type="adbmetadata.schema#adbDateTime" isReadable="true" isWriteable="true"/>
+    <attributes name="UARDRFT_TRANS_CODE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UARDRFT_CUST_BANK_TRANS" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UARDRFT_CUST_BANK_ABA" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UARDRFT_CUST_BANK_CKDGT" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UARDRFT_CUST_BANK_ACCT_NO" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UARDRFT_AMOUNT" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UARDRFT_USER_ID" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UARDRFT_DRAFT_NUMBER" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UARDRFT_HOLD_IND" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UARDRFT_MBIL_NUM" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UARDRFT_CUST_BANK_ACCT_NO_ENC" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_OPCODE" type="../../ae.schema#i4" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_TRACKINGID" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_SUBJECT" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_SEQUENCE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_SET_SEQUENCE" type="../../ae.schema#i4" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_TIMESTAMP" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_UPDATE_ALL" type="../../ae.schema#i4" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_REF_OBJECT" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_AGENT_ID" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+  </schema:ClassType>
+  <schema:ClassType xmi:id="P_UARPYAR" name="P_UARPYAR">
+    <attributes name="UARPYAR_CUST_CODE" type="../../ae.schema#string" isKey="true" isReadable="true" isWriteable="true"/>
+    <attributes name="UARPYAR_PREM_CODE" type="../../ae.schema#string" isKey="true" isReadable="true" isWriteable="true"/>
+    <attributes name="UARPYAR_ARRNG_NUM" type="../../ae.schema#string" isKey="true" isReadable="true" isWriteable="true"/>
+    <attributes name="UARPYAR_ENTRY_TYPE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UARPYAR_AMT_DUE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UARPYAR_BALANCE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UARPYAR_DATE_DUE" type="adbmetadata.schema#adbDateTime" isReadable="true" isWriteable="true"/>
+    <attributes name="UARPYAR_ACTIVITY_DATE" type="adbmetadata.schema#adbDateTime" isReadable="true" isWriteable="true"/>
+    <attributes name="UARPYAR_USER_ID" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UARPYAR_DATE_PAID_IN_FULL" type="adbmetadata.schema#adbDateTime" isReadable="true" isWriteable="true"/>
+    <attributes name="UARPYAR_OPEN_AR_TRANS" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UARPYAR_MBIL_NUM" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UARPYAR_INSTALLMENT_IND" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UARPYAR_SEQ_NUM" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UARPYAR_BILLED_INST_AMT" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UARPYAR_PRINTED_DATE" type="adbmetadata.schema#adbDateTime" isReadable="true" isWriteable="true"/>
+    <attributes name="UARPYAR_FIXED_AMT" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UARPYAR_OTHER_CHARGES" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UARPYAR_ACTUAL_AMT" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_OPCODE" type="../../ae.schema#i4" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_TRACKINGID" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_SUBJECT" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_SEQUENCE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_SET_SEQUENCE" type="../../ae.schema#i4" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_TIMESTAMP" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_UPDATE_ALL" type="../../ae.schema#i4" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_REF_OBJECT" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_AGENT_ID" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+  </schema:ClassType>
+  <schema:ClassType xmi:id="P_UCBPREM" name="P_UCBPREM">
+    <attributes name="UCBPREM_CODE" type="../../ae.schema#string" isKey="true" isReadable="true" isWriteable="true"/>
+    <attributes name="UCBPREM_STREET_NAME" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCBPREM_DATE_CREATED" type="adbmetadata.schema#adbDateTime" isReadable="true" isWriteable="true"/>
+    <attributes name="UCBPREM_ACTIVITY_DATE" type="adbmetadata.schema#adbDateTime" isReadable="true" isWriteable="true"/>
+    <attributes name="UCBPREM_USER_ID" type="../../ae.schema#string" isKey="true" isReadable="true" isWriteable="true"/>
+    <attributes name="UCBPREM_ALTERNATE_LOCATION" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCBPREM_PARCEL_ID" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCBPREM_CENSUS_TRACT" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCBPREM_GRID" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCBPREM_MAP" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCBPREM_BLOCK" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCBPREM_LOT" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCBPREM_STREET_NUMBER" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCBPREM_PDIR_CODE_PRE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCBPREM_SSFX_CODE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCBPREM_PDIR_CODE_POST" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCBPREM_UTYP_CODE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCBPREM_UNIT" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCBPREM_CITY" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCBPREM_STAT_CODE_ADDR" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCBPREM_ZIPC_CODE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCBPREM_DELIVERY_POINT" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCBPREM_CAR_RT" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCBPREM_I_O_CITY_IND" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCBPREM_PERMIT_CODE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCBPREM_CUST_CODE_DEVELOPER" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCBPREM_CUST_CODE_OWNER" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCBPREM_MUNI_CODE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCBPREM_STAT_CODE_REV" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCBPREM_CNTY_CODE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCBPREM_NATN_CODE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCBPREM_SDIS_CODE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCBPREM_BDIS_CODE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCBPREM_SDIV_CODE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCBPREM_DATE_RETIRED" type="adbmetadata.schema#adbDateTime" isReadable="true" isWriteable="true"/>
+    <attributes name="UCBPREM_AREA_IMPERV" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCBPREM_HAZARD_IND" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCBPREM_DWTP_CODE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCBPREM_STREET_NAME_SDX" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCBPREM_CYCL_CODE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCBPREM_DISPATCH_AREA" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCBPREM_ROUTE_CODE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCBPREM_LATITUDE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCBPREM_LONGITUDE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCBPREM_RJUR_CODE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCBPREM_TJUR_CODE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCBPREM_DFLT_SPRO_CODE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCBPREM_HIGHOCCUPANCY_IND" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCBPREM_DWELL_OWN_RENT" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCBPREM_DWELL_LOC_TYPE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCBPREM_DWELL_UNIT_TYPE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCBPREM_DWELL_PROP_TYPE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_OPCODE" type="../../ae.schema#i4" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_TRACKINGID" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_SUBJECT" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_SEQUENCE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_SET_SEQUENCE" type="../../ae.schema#i4" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_TIMESTAMP" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_UPDATE_ALL" type="../../ae.schema#i4" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_REF_OBJECT" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_AGENT_ID" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+  </schema:ClassType>
+  <schema:ClassType xmi:id="P_UCRACCT" name="P_UCRACCT">
+    <attributes name="UCRACCT_PREM_CODE" type="../../ae.schema#string" isKey="true" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRACCT_CUST_CODE" type="../../ae.schema#string" isKey="true" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRACCT_STATUS_IND" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRACCT_CYCL_CODE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRACCT_ESTABLISHED_DATE" type="adbmetadata.schema#adbDateTime" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRACCT_ACTIVITY_DATE" type="adbmetadata.schema#adbDateTime" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRACCT_USER_ID" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRACCT_DBA" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRACCT_ACCT_CODE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRACCT_CUST_CODE_RESP" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRACCT_NUM_COPIES" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRACCT_PENALTY_EXEMPT_IND" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRACCT_DQNT_CODE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRACCT_LSUP_CODE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRACCT_MAIL_IND" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRACCT_BUNCH_CODE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRACCT_BMSG_CODE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRACCT_SICC_CODE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRACCT_SS_CHECK_DAY" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRACCT_PMNT_ARR" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRACCT_ARRNG_NUM" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRACCT_ENAS_CODE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRACCT_BANK_CODE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRACCT_BANK_ACCT" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRACCT_CHECK_SAVING_IND" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRACCT_DRAFT_ACCT_STATUS" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRACCT_DRAFT_MAX" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRACCT_CUST_CODE_MASTER" type="../../ae.schema#binary" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRACCT_OLD_ACCOUNT" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRACCT_WRITE_OFF_IND" type="../../ae.schema#binary" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRACCT_PREM_CODE_BILL_ADDR" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRACCT_BAD_DEBT_EXEMPT_IND" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRACCT_RDUP_IND" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRACCT_RDUP_AMT" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRACCT_RDUP_START_DATE" type="adbmetadata.schema#adbDateTime" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRACCT_RDUP_END_DATE" type="adbmetadata.schema#adbDateTime" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRACCT_DRAFT_START_DATE" type="adbmetadata.schema#adbDateTime" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRACCT_DRAFT_END_DATE" type="adbmetadata.schema#adbDateTime" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRACCT_REAS_CODE_END_DRAFT" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRACCT_MBIL_NUM" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRACCT_NOBILL_CTR" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRACCT_MMBR_TYPE_IND" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRACCT_MMBR_CODE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRACCT_ADDR_ATYP_CODE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRACCT_COMPANY_CODE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRACCT_HOLD_DQNT_CODE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRACCT_HOLD_RDUP_START_DATE" type="adbmetadata.schema#adbDateTime" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRACCT_HOLD_RDUP_END_DATE" type="adbmetadata.schema#adbDateTime" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRACCT_HOLD_RDUP_AMT" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRACCT_ATYP_CODE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRACCT_H2O_PROGRAM_IND" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRACCT_THIRD_START_DATE" type="adbmetadata.schema#adbDateTime" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRACCT_THIRD_END_DATE" type="adbmetadata.schema#adbDateTime" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRACCT_LARGE_FONT_IND" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRACCT_PURGE_EXEMPT_IND" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRACCT_NONR_IND" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRACCT_NONR_DATE" type="adbmetadata.schema#adbDateTime" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRACCT_WMS_WO_NUM" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRACCT_CONS_EST_1_IND" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRACCT_CONS_EST_1_DATE" type="adbmetadata.schema#adbDateTime" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRACCT_CONS_EST_2_IND" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRACCT_CONS_EST_2_DATE" type="adbmetadata.schema#adbDateTime" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRACCT_TAX_EXEMPT_IND" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRACCT_BDGT_AUTO_EX_IND" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRACCT_OLD_DQNT_CODE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRACCT_BANK_ACCT_ENC" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRACCT_CYCLE_SYNC" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRACCT_CHECK_DIGIT" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRACCT_ACTIVE_POST_PIPP_IND" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRACCT_PIPP_INST_AMT" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRACCT_PIPP_INCENT_CR_AMT" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRACCT_EXPIRATION_DATE" type="adbmetadata.schema#adbDateTime" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_OPCODE" type="../../ae.schema#i4" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_TRACKINGID" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_SUBJECT" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_SEQUENCE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_SET_SEQUENCE" type="../../ae.schema#i4" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_TIMESTAMP" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_UPDATE_ALL" type="../../ae.schema#i4" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_REF_OBJECT" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_AGENT_ID" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+  </schema:ClassType>
+  <schema:ClassType xmi:id="P_UCRSERV" name="P_UCRSERV">
+    <attributes name="UCRSERV_PREM_CODE" type="../../ae.schema#string" isKey="true" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRSERV_NUM" type="../../ae.schema#string" isKey="true" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRSERV_STYP_CODE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRSERV_DATE_INSTALLED" type="adbmetadata.schema#adbDateTime" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRSERV_ACTIVITY_DATE" type="adbmetadata.schema#adbDateTime" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRSERV_USER_ID" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRSERV_STATUS_IND" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRSERV_UTYP_CODE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRSERV_UNIT" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRSERV_DPOT_CODE_NEAREST" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRSERV_SERVICE_LOCATION" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRSERV_SCLS_CODE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRSERV_REAC_CODE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRSERV_TVAC_CODE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRSERV_NUM_UNITS" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRSERV_SRAT_CODE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRSERV_DISC_PCT" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRSERV_DATE_RETIRED" type="adbmetadata.schema#adbDateTime" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRSERV_RRTR_CODE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRSERV_DATE_ACTIVATED" type="adbmetadata.schema#adbDateTime" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRSERV_DATE_INACTIVE" type="adbmetadata.schema#adbDateTime" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRSERV_INVN_CODE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRSERV_I_O_BUILDING_IND" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRSERV_REMOTE_PHONE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRSERV_RADIO_FREQ" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRSERV_RMTH_CODE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRSERV_KEY_ID" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRSERV_CUST_CODE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRSERV_SEAL_NUM" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRSERV_CHARGE_FREQUENCY" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRSERV_CHARGE_START_MONTH" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRSERV_CLOR_CODE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRSERV_ROUTE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRSERV_READING_SEQ" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRSERV_DEPOSIT_AMT" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRSERV_OVER_UNDER_IND" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRSERV_LOCK_BOX_IND" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRSERV_PHASE_IND" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRSERV_PREPAID_IND" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRSERV_CUST_CODE_REVERT" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRSERV_MAP_LOCATION" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRSERV_DIST_CODE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRSERV_READ_START_MONTH" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRSERV_READ_FREQUENCY" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRSERV_LF_PERCENT" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRSERV_PREM_CODE_ASRV_XFER_TO" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRSERV_NUM_ASRV_XFER_TO" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRSERV_UTVPRSZ_CODE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRSERV_UTVQLTZ_CODE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRSERV_UTVTMPZ_CODE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRSERV_PRESSURE_FACTOR" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRSERV_BASE_EXEMPT_UNTIL_DATE" type="adbmetadata.schema#adbDateTime" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRSERV_DDF_EXEMPT_UNTIL_DATE" type="adbmetadata.schema#adbDateTime" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRSERV_WNA_EXEMPT_UNTIL_DATE" type="adbmetadata.schema#adbDateTime" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRSERV_TEMP_ZONE_IND_OVERRIDE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRSERV_RTP_CNFG_CODE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRSERV_OVERRIDE_DEFAULT_IND" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRSERV_REVERSION_TYPE_IND" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRSERV_NUM_MONTHS" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRSERV_BILL_COUNTER_NUM" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRSERV_LAST_CHG_DATE" type="adbmetadata.schema#adbDateTime" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRSERV_CONNECTED_LOAD" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRSERV_WMS_WO_NUM" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRSERV_MLOC_CODE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRSERV_DISC_LOC" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRSERV_HDDP_EXEMPT_UNTIL_DATE" type="adbmetadata.schema#adbDateTime" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRSERV_FIRST_DATE" type="adbmetadata.schema#adbDateTime" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRSERV_FIRST_CUST_CODE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRSERV_FIRST_METER" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRSERV_FIRST_IND" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRSERV_LATITUDE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRSERV_LONGITUDE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UCRSERV_GPS_ORIGIN" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_OPCODE" type="../../ae.schema#i4" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_TRACKINGID" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_SUBJECT" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_SEQUENCE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_SET_SEQUENCE" type="../../ae.schema#i4" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_TIMESTAMP" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_UPDATE_ALL" type="../../ae.schema#i4" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_REF_OBJECT" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_AGENT_ID" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+  </schema:ClassType>
+  <schema:ClassType xmi:id="P_UXTBUDG" name="P_UXTBUDG">
+    <attributes name="UXTBUDG_CUST_CODE" type="../../ae.schema#string" isKey="true" isReadable="true" isWriteable="true"/>
+    <attributes name="UXTBUDG_PREM_CODE" type="../../ae.schema#string" isKey="true" isReadable="true" isWriteable="true"/>
+    <attributes name="UXTBUDG_SERV_NUM" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UXTBUDG_BILL_PRINT_DATE" type="adbmetadata.schema#adbDateTime" isReadable="true" isWriteable="true"/>
+    <attributes name="UXTBUDG_BDGM_CODE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UXTBUDG_STATUS_IND" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UXTBUDG_USER_ID" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UXTBUDG_ACTIVITY_DATE" type="adbmetadata.schema#adbDateTime" isReadable="true" isWriteable="true"/>
+    <attributes name="UXTBUDG_BDGT_BILL_AMT" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UXTBUDG_BILL_FREQUENCY" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UXTBUDG_START_DATE" type="adbmetadata.schema#adbDateTime" isReadable="true" isWriteable="true"/>
+    <attributes name="UXTBUDG_NUM_MONTHS" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UXTBUDG_TOLERANCE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UXTBUDG_AVERAGE_CHARGE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UXTBUDG_DOS" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UXTBUDG_CHARGES" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UXTBUDG_ADJUSTMENTS" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UXTBUDG_VARIANCE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UXTBUDG_EXPIRES" type="adbmetadata.schema#adbDateTime" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_OPCODE" type="../../ae.schema#i4" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_TRACKINGID" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_SUBJECT" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_SEQUENCE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_SET_SEQUENCE" type="../../ae.schema#i4" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_TIMESTAMP" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_UPDATE_ALL" type="../../ae.schema#i4" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_REF_OBJECT" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_AGENT_ID" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+  </schema:ClassType>
+  <schema:ClassType xmi:id="P_UBBBHST" name="P_UBBBHST">
+    <attributes name="UBBBHST_TRAN_NUM" type="../../ae.schema#string" isKey="true" isReadable="true" isWriteable="true"/>
+    <attributes name="UBBBHST_CUST_CODE" type="../../ae.schema#string" isKey="true" isReadable="true" isWriteable="true"/>
+    <attributes name="UBBBHST_PREM_CODE" type="../../ae.schema#string" isKey="true" isReadable="true" isWriteable="true"/>
+    <attributes name="UBBBHST_PRINTED_DATE" type="adbmetadata.schema#adbDateTime" isReadable="true" isWriteable="true"/>
+    <attributes name="UBBBHST_ACTIVITY_DATE" type="adbmetadata.schema#adbDateTime" isReadable="true" isWriteable="true"/>
+    <attributes name="UBBBHST_USER_ID" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UBBBHST_PREV_BAL" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UBBBHST_PAYMENTS" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UBBBHST_ADJUSTMENTS" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UBBBHST_ENDING_BAL" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UBBBHST_CANCEL_IND" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UBBBHST_CANCEL_DATE" type="adbmetadata.schema#adbDateTime" isReadable="true" isWriteable="true"/>
+    <attributes name="UBBBHST_ACCOUNT_STATUS_IND" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UBBBHST_REAS_CODE_CNCL" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UBBBHST_LATE_FEE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UBBBHST_DISCONNECT_IND" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UBBBHST_PIPP_PREV_BAL" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UBBBHST_MBIL_TRAN_NUM" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UBBBHST_MBIL_PRINTED_DATE" type="adbmetadata.schema#adbDateTime" isReadable="true" isWriteable="true"/>
+    <attributes name="UBBBHST_THIRD_AMT_DUE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UBBBHST_ACCT_DEPOSIT" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UBBBHST_APGP_CODE_PURGABLE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UBBBHST_PURGE_ACTION_IND" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UBBBHST_CHARGES" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UBBBHST_CHARGES_LOCAL_IND" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UBBBHST_TEMP_CHARGES_LOCAL_IND" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UBBBHST_GROSS_AMT" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UBBBHST_DISCONNECT_AMT" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UBBBHST_DISCONNECT_DATE" type="adbmetadata.schema#adbDateTime" isReadable="true" isWriteable="true"/>
+    <attributes name="UBBBHST_DUE_DATE" type="adbmetadata.schema#adbDateTime" isReadable="true" isWriteable="true"/>
+    <attributes name="UBBBHST_PIPP_TYPE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UBBBHST_SPTY_IND" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_OPCODE" type="../../ae.schema#i4" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_TRACKINGID" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_SUBJECT" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_SEQUENCE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_SET_SEQUENCE" type="../../ae.schema#i4" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_TIMESTAMP" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_UPDATE_ALL" type="../../ae.schema#i4" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_REF_OBJECT" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_AGENT_ID" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+  </schema:ClassType>
+  <schema:ClassType xmi:id="P_UXBSCPO" name="P_UXBSCPO">
+    <attributes name="UXBSCPO_POOL_CUST_CODE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UXBSCPO_POOL_PREM_CODE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UXBSCPO_SCHL_CUST_CODE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UXBSCPO_SCHL_PREM_CODE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UXBSCPO_ACCT_TYPE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UXBSCPO_ACCT_ENRL_STATUS" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UXBSCPO_REQ_DATE" type="adbmetadata.schema#adbDateTime" isReadable="true" isWriteable="true"/>
+    <attributes name="UXBSCPO_START_DATE" type="adbmetadata.schema#adbDateTime" isReadable="true" isWriteable="true"/>
+    <attributes name="UXBSCPO_END_DATE" type="adbmetadata.schema#adbDateTime" isReadable="true" isWriteable="true"/>
+    <attributes name="UXBSCPO_VIEW_BILL" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UXBSCPO_RATE_UP_ALLOWED_IND" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UXBSCPO_ACTIVITY_DATE" type="adbmetadata.schema#adbDateTime" isReadable="true" isWriteable="true"/>
+    <attributes name="UXBSCPO_USER_ID" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_OPCODE" type="../../ae.schema#i4" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_TRACKINGID" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_SUBJECT" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_SEQUENCE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_SET_SEQUENCE" type="../../ae.schema#i4" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_TIMESTAMP" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_UPDATE_ALL" type="../../ae.schema#i4" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_REF_OBJECT" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_AGENT_ID" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+  </schema:ClassType>
+  <schema:ClassType xmi:id="P_UABBUDG" name="P_UABBUDG">
+    <attributes name="UABBUDG_CUST_CODE" type="../../ae.schema#string" isKey="true" isReadable="true" isWriteable="true"/>
+    <attributes name="UABBUDG_PREM_CODE" type="../../ae.schema#string" isKey="true" isReadable="true" isWriteable="true"/>
+    <attributes name="UABBUDG_SERV_NUM" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UABBUDG_BDGT_START_DATE" type="adbmetadata.schema#adbDateTime" isReadable="true" isWriteable="true"/>
+    <attributes name="UABBUDG_BDGM_CODE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UABBUDG_STATUS_IND" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UABBUDG_USER_ID" type="../../ae.schema#string" isKey="true" isReadable="true" isWriteable="true"/>
+    <attributes name="UABBUDG_ACTIVITY_DATE" type="adbmetadata.schema#adbDateTime" isReadable="true" isWriteable="true"/>
+    <attributes name="UABBUDG_BDGT_BILL_AMT" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UABBUDG_END_DATE" type="adbmetadata.schema#adbDateTime" isReadable="true" isWriteable="true"/>
+    <attributes name="UABBUDG_APGP_CODE_PURGABLE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UABBUDG_INITIAL_AMT" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UABBUDG_TOTAL_BAL" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UABBUDG_AVG_BAL" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UABBUDG_STAT_CHG_IND" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_OPCODE" type="../../ae.schema#i4" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_TRACKINGID" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_SUBJECT" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_SEQUENCE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_SET_SEQUENCE" type="../../ae.schema#i4" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_TIMESTAMP" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_UPDATE_ALL" type="../../ae.schema#i4" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_REF_OBJECT" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_AGENT_ID" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+  </schema:ClassType>
+  <schema:ClassType xmi:id="P_UTRBDGM" name="P_UTRBDGM">
+    <attributes name="UTRBDGM_CODE" type="../../ae.schema#string" isKey="true" isReadable="true" isWriteable="true"/>
+    <attributes name="UTRBDGM_DESC" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UTRBDGM_ACTIVITY_DATE" type="adbmetadata.schema#adbDateTime" isReadable="true" isWriteable="true"/>
+    <attributes name="UTRBDGM_USER_ID" type="../../ae.schema#string" isKey="true" isReadable="true" isWriteable="true"/>
+    <attributes name="UTRBDGM_CATCHUP_IND" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UTRBDGM_NUM_MO_AVERAGE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UTRBDGM_IND_PRIOR_CUST" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UTRBDGM_CONS_OR_DOLLARS_IND" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UTRBDGM_RE_CALC_METHOD" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UTRBDGM_RECALC_TOLERANCE_PCT" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UTRBDGM_RESTART_IND" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UTRBDGM_DELQ_TERM_IND" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UTRBDGM_INCL_BAL_IND" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UTRBDGM_CRE_ADJM_CODE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UTRBDGM_CNCL_ADJM_CODE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UTRBDGM_TR_FROM_ADJM_CODE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="UTRBDGM_TR_TO_ADJM_CODE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_OPCODE" type="../../ae.schema#i4" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_TRACKINGID" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_SUBJECT" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_SEQUENCE" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_SET_SEQUENCE" type="../../ae.schema#i4" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_TIMESTAMP" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_UPDATE_ALL" type="../../ae.schema#i4" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_REF_OBJECT" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+    <attributes name="ADB_AGENT_ID" type="../../ae.schema#string" isReadable="true" isWriteable="true"/>
+  </schema:ClassType>
+</xmi:XMI>

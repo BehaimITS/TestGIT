@@ -1,0 +1,27 @@
+{"records": [
+    {
+        "jsonSchemaLocation": "/BigData-Customer360-PortalServices/Service Descriptors/bigdata-customer360-portalservices.subprocesses.FacadeServices-GeneralResource.json",
+        "conversionType": "linked",
+        "xsdSchemaTargetNamespace": "http://behaim.com/vectren/bigdata/customer360view/RequestSchemas"
+    },
+    {
+        "jsonSchemaLocation": "/BigData-Customer360-PortalServices/Service Descriptors/bigdata-customer360-portalservices.subprocesses.FacadeServices-GeneralResource.json",
+        "conversionType": "linked",
+        "xsdSchemaTargetNamespace": "http://behaimits.com/vectren/bigdata/customer360view/"
+    },
+    {
+        "jsonSchemaLocation": "/BigData-Customer360-PortalServices/Service Descriptors/bigdata-customer360-portalservices.subprocesses.FacadeServices-GeneralResource.json",
+        "conversionType": "linked",
+        "xsdSchemaTargetNamespace": "http://behaim.com/vectren/bigdata/customer360view/InputSchemas"
+    },
+    {
+        "jsonSchemaLocation": "/BigData-Customer360-PortalServices/Service Descriptors/bigdata-customer360-portalservices.FacadeServices-GeneralResource.json",
+        "conversionType": "linked",
+        "xsdSchemaTargetNamespace": "http://behaim.com/vectren/bigdata/customer360view/RequestSchemas"
+    },
+    {
+        "jsonSchemaLocation": "/BigData-Customer360-PortalServices/Service Descriptors/bigdata-customer360-portalservices.FacadeServices-GeneralResource.json",
+        "conversionType": "linked",
+        "xsdSchemaTargetNamespace": "http://behaimits.com/vectren/bigdata/customer360view/"
+    }
+]}

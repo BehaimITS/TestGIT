@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ErrorHandlingLib Module
+Bundle-SymbolicName: ErrorHandlingLib
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: TIBCO Software Inc.
+TIBCO-BW-SharedModule: META-INF/module.bwm
+TIBCO-BW-ModuleSharedVariables: META-INF/module.msv
+Require-Capability: com.tibco.bw.model; filter:="(name=bwext)",
+ com.tibco.bw.module; filter:="(&(name=SendEmailUtilityLib)(version=1.0.0))",
+ com.tibco.bw.palette; filter:="(name=bw.generalactivities)"
+Provide-Capability: com.tibco.bw.module; name="ErrorHandlingLib"; version:Version="1.0.0",
+ com.tibco.bw.schemas; ns="vectren.com:schemas:utility:global_log",
+ com.tibco.bw.wsdls; ns="http://xmlns.vectren.com/tibco/HandleErrorService.wsdl",
+ com.tibco.bw.processes; name="errorhandlinglib"
+TIBCO-BW-ConfigProfile: META-INF/default.substvar
+TIBCO-BW-JobSharedVariables: META-INF/module.jsv
+TIBCO-BW-Version: 6.3.1 HF1 V19 2016-3-17

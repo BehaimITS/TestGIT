@@ -1,0 +1,1586 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpws:process exitOnStandardFault="no"
+    name="subprocesses.PaymentOverview" suppressJoinFailure="yes"
+    targetNamespace="http://xmlns.example.com/20160816132729"
+    xmlns:bpws="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+    xmlns:info="http://www.tibco.com/bw/process/info"
+    xmlns:ns="http://www.tibco.com/pe/EngineTypes"
+    xmlns:ns0="http://behaim.com/vectren/bigdata/customer360view/SimpleInput"
+    xmlns:ns1="http://www.tibco.com/namespaces/tnt/plugins/jdbc+b9e166cc-1384-4a74-a4bb-2e9334c0c1d3+input"
+    xmlns:ns10="http://www.tibco.com/namespaces/tnt/plugins/jdbc+2ed55a03-7327-4d37-b288-982fde2c7523+input"
+    xmlns:ns11="http://www.tibco.com/namespaces/tnt/plugins/jdbc+2ed55a03-7327-4d37-b288-982fde2c7523+output"
+    xmlns:ns12="http://www.tibco.com/namespaces/tnt/plugins/jdbc+49d1ee49-97a0-4e0a-adbf-42e8363a533d+input"
+    xmlns:ns13="http://www.tibco.com/namespaces/tnt/plugins/jdbc+49d1ee49-97a0-4e0a-adbf-42e8363a533d+output"
+    xmlns:ns14="http://tns.tibco.com/bw/activity/activespace/xsd/+bigdata-customer360-initialload.Metaspace/PaymentOverview/PaymentOverview_Seeder+Put-input+compareAndPut"
+    xmlns:ns15="http://tns.tibco.com/bw/activity/activespace/xsd/+bigdata-customer360-initialload.Metaspace/PaymentOverview/PaymentOverview_Seeder+Take-input"
+    xmlns:ns16="http://tns.tibco.com/bw/activity/activespace/xsd/+bigdata-customer360-initialload.Metaspace/PaymentOverview/PaymentOverview_Seeder+Take-output"
+    xmlns:ns17="http://tns.tibco.com/bw/activity/activespace/xsd/+bigdata-customer360-initialload.Metaspace/PaymentOverview/PaymentOverview_Leech+Put-input"
+    xmlns:ns18="http://tns.tibco.com/bw/activity/activespace/xsd/+bigdata-customer360-initialload.Metaspace/PaymentOverview/PaymentOverview_Leech+Put-output"
+    xmlns:ns2="http://www.tibco.com/namespaces/tnt/plugins/jdbc+b9e166cc-1384-4a74-a4bb-2e9334c0c1d3+output"
+    xmlns:ns3="http://tns.tibco.com/bw/activity/activespace/xsd/+bigdata-customer360-initialload.Metaspace/PaymentOverview/PaymentOverview_Seeder+Put-input"
+    xmlns:ns4="http://tns.tibco.com/bw/activity/activespace/xsd/+bigdata-customer360-initialload.Metaspace/PaymentOverview/PaymentOverview_Seeder+Put-output"
+    xmlns:ns5="http://www.tibco.com/pe/WriteToLogActivitySchema"
+    xmlns:ns6="http://www.tibco.com/namespaces/tnt/plugins/jdbc+2e628c49-d2ed-4392-8e39-a50621246a84+input"
+    xmlns:ns7="http://www.tibco.com/namespaces/tnt/plugins/jdbc+2e628c49-d2ed-4392-8e39-a50621246a84+output"
+    xmlns:ns8="http://www.tibco.com/namespaces/tnt/plugins/jdbc+4dceb729-a80e-43e2-afe1-8417107888c2+input"
+    xmlns:ns9="http://www.tibco.com/namespaces/tnt/plugins/jdbc+4dceb729-a80e-43e2-afe1-8417107888c2+output"
+    xmlns:sca="http://docs.oasis-open.org/ns/opencsa/sca/200912"
+    xmlns:sca-bpel="http://docs.oasis-open.org/ns/opencsa/sca-bpel/200801"
+    xmlns:tibex="http://www.tibco.com/bpel/2007/extensions"
+    xmlns:tibprop="http://ns.tibco.com/bw/property" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <tibex:Types>
+        <xs:schema attributeFormDefault="unqualified"
+            elementFormDefault="qualified"
+            targetNamespace="http://www.tibco.com/pe/EngineTypes"
+            xmlns:tns="http://www.tibco.com/pe/EngineTypes" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:complexType block="extension restriction"
+                final="extension restriction" name="ErrorReport">
+                <xs:sequence>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="StackTrace" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="Msg" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="FullClass" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="Class" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="ProcessStack" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" minOccurs="0" name="MsgCode" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" minOccurs="0" name="Data" type="tns:anydata"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType block="extension restriction"
+                final="extension restriction" name="FaultDetail">
+                <xs:sequence>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="ActivityName" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" minOccurs="0" name="Data" type="tns:anydata"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="Msg" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="MsgCode" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="ProcessStack" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="StackTrace" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType block="extension restriction"
+                final="extension restriction" name="ProcessContext">
+                <xs:sequence>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="JobId" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="ProcessInstanceId" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" minOccurs="0"
+                        name="CustomJobId" type="xs:string"/>
+                    <!--xs:element name="RestartedFromCheckpoint" form="unqualified" block="extension restriction substitution" type="xs:boolean"/-->
+                    <!--xs:element minOccurs="0" maxOccurs="unbounded" name="TrackingInfo" form="unqualified" block="extension restriction substitution" type="xs:string"/-->
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType block="extension restriction"
+                final="extension restriction" name="anydata">
+                <xs:sequence>
+                    <xs:any namespace="##any" processContents="lax"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element block="extension restriction substitution"
+                final="extension restriction" name="ErrorReport" type="tns:ErrorReport"/>
+            <xs:element block="extension restriction substitution"
+                final="extension restriction" name="FaultDetail" type="tns:FaultDetail"/>
+            <xs:element block="extension restriction substitution"
+                final="extension restriction" name="ProcessContext" type="tns:ProcessContext"/>
+            <xs:element block="extension restriction substitution"
+                final="extension restriction" name="CorrelationValue" type="xs:string"/>
+        </xs:schema>
+        <schema attributeFormDefault="unqualified"
+            elementFormDefault="unqualified"
+            targetNamespace="http://schemas.tibco.com/bw/pe/plugin/5.0/exceptions"
+            version="" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.tibco.com/bw/pe/plugin/5.0/exceptions">
+            <complexType name="ActivityExceptionType">
+                <sequence>
+                    <element name="msg" type="string"/>
+                    <element minOccurs="0" name="msgCode" type="string"/>
+                </sequence>
+            </complexType>
+            <element name="ActivityException" type="tns:ActivityExceptionType"/>
+            <complexType name="ActivityTimedOutExceptionType">
+                <complexContent>
+                    <extension base="tns:ActivityExceptionType"/>
+                </complexContent>
+            </complexType>
+            <element name="ActivityTimedOutException" type="tns:ActivityTimedOutExceptionType"/>
+        </schema>
+        <schema
+            targetNamespace="http://www.tibco.com/namespaces/tnt/plugins/jdbc+b9e166cc-1384-4a74-a4bb-2e9334c0c1d3+input"
+            xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.tibco.com/namespaces/tnt/plugins/jdbc+b9e166cc-1384-4a74-a4bb-2e9334c0c1d3+input">
+            <element name="jdbcQueryActivityInput">
+                <complexType>
+                    <sequence>
+                        <element maxOccurs="1" minOccurs="1"
+                            name="par_cust_code" nillable="true" type="string"/>
+                        <element maxOccurs="1" minOccurs="1"
+                            name="par_prem_code" nillable="true" type="string"/>
+                        <element maxOccurs="1" minOccurs="1"
+                            name="par_pymt_date" nillable="true" type="decimal"/>
+                        <element maxOccurs="1" minOccurs="0"
+                            name="ServerTimeZone" type="string"/>
+                        <element maxOccurs="1" minOccurs="0"
+                            name="timeout" type="long"/>
+                        <element maxOccurs="1" minOccurs="0"
+                            name="maxRows" type="long"/>
+                    </sequence>
+                </complexType>
+            </element>
+        </schema>
+        <schema
+            targetNamespace="http://www.tibco.com/namespaces/tnt/plugins/jdbc+b9e166cc-1384-4a74-a4bb-2e9334c0c1d3+output"
+            xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.tibco.com/namespaces/tnt/plugins/jdbc+b9e166cc-1384-4a74-a4bb-2e9334c0c1d3+output">
+            <element name="resultSet">
+                <complexType>
+                    <sequence>
+                        <element maxOccurs="unbounded" minOccurs="0" name="Record">
+                            <complexType>
+                                <sequence>
+                                    <element maxOccurs="1" minOccurs="1"
+                                    name="UABPYMT_AR_TRANS" type="decimal"/>
+                                    <element maxOccurs="1" minOccurs="1"
+                                    name="UABPYMT_CUST_CODE" type="integer"/>
+                                    <element maxOccurs="1" minOccurs="1"
+                                    name="UABPYMT_PREM_CODE" type="string"/>
+                                    <element maxOccurs="1" minOccurs="1"
+                                    name="UABPYMT_PYMT_DATE" type="dateTime"/>
+                                    <element maxOccurs="1" minOccurs="0"
+                                    name="PAYDATE" nillable="false" type="string"/>
+                                    <element maxOccurs="1" minOccurs="0"
+                                    name="PAYAMOUNT"
+                                    nillable="false" type="decimal"/>
+                                    <element maxOccurs="1" minOccurs="0"
+                                    name="STATUS" nillable="false" type="string"/>
+                                    <element maxOccurs="1" minOccurs="1"
+                                    name="PAYSOURCE" type="string"/>
+                                    <element maxOccurs="1" minOccurs="1"
+                                    name="PAYDESC" type="string"/>
+                                </sequence>
+                            </complexType>
+                        </element>
+                    </sequence>
+                </complexType>
+            </element>
+        </schema>
+        <xs:schema attributeFormDefault="unqualified"
+            elementFormDefault="qualified"
+            targetNamespace="http://www.tibco.com/pe/WriteToLogActivitySchema"
+            xmlns:tns="http://www.tibco.com/pe/WriteToLogActivitySchema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:complexType name="LogParametersType">
+                <xs:sequence>
+                    <xs:element form="unqualified" minOccurs="0"
+                        name="msgCode" type="xs:string"/>
+                    <xs:element form="unqualified" minOccurs="0"
+                        name="loggerName" type="xs:string"/>
+                    <xs:element form="unqualified" minOccurs="0"
+                        name="logLevel" type="xs:string"/>
+                    <xs:element form="unqualified" name="message" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="ActivityInput" type="tns:LogParametersType"/>
+        </xs:schema>
+        <schema
+            targetNamespace="http://www.tibco.com/namespaces/tnt/plugins/jdbc+2ed55a03-7327-4d37-b288-982fde2c7523+input"
+            xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.tibco.com/namespaces/tnt/plugins/jdbc+2ed55a03-7327-4d37-b288-982fde2c7523+input">
+            <element name="jdbcQueryActivityInput">
+                <complexType>
+                    <sequence>
+                        <element maxOccurs="1" minOccurs="1"
+                            name="par_cust_code" nillable="true" type="string"/>
+                        <element maxOccurs="1" minOccurs="1"
+                            name="par_prem_code" nillable="true" type="string"/>
+                        <element maxOccurs="1" minOccurs="1"
+                            name="par_pymt_date" nillable="true" type="decimal"/>
+                        <element maxOccurs="1" minOccurs="0"
+                            name="ServerTimeZone" type="string"/>
+                        <element maxOccurs="1" minOccurs="0"
+                            name="timeout" type="long"/>
+                        <element maxOccurs="1" minOccurs="0"
+                            name="maxRows" type="long"/>
+                    </sequence>
+                </complexType>
+            </element>
+        </schema>
+        <schema
+            targetNamespace="http://www.tibco.com/namespaces/tnt/plugins/jdbc+2ed55a03-7327-4d37-b288-982fde2c7523+output"
+            xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.tibco.com/namespaces/tnt/plugins/jdbc+2ed55a03-7327-4d37-b288-982fde2c7523+output">
+            <element name="resultSet">
+                <complexType>
+                    <sequence>
+                        <element maxOccurs="unbounded" minOccurs="0" name="Record">
+                            <complexType>
+                                <sequence>
+                                    <element maxOccurs="1" minOccurs="1"
+                                    name="UABPYMT_AR_TRANS" type="decimal"/>
+                                    <element maxOccurs="1" minOccurs="1"
+                                    name="UABPYMT_CUST_CODE" type="integer"/>
+                                    <element maxOccurs="1" minOccurs="1"
+                                    name="UABPYMT_PREM_CODE" type="string"/>
+                                    <element maxOccurs="1" minOccurs="1"
+                                    name="UABPYMT_PYMT_DATE" type="dateTime"/>
+                                    <element maxOccurs="1" minOccurs="0"
+                                    name="PAYDATE" nillable="false" type="string"/>
+                                    <element maxOccurs="1" minOccurs="0"
+                                    name="PAYAMOUNT"
+                                    nillable="false" type="decimal"/>
+                                    <element maxOccurs="1" minOccurs="0"
+                                    name="STATUS" nillable="false" type="string"/>
+                                    <element maxOccurs="1" minOccurs="1"
+                                    name="PAYSOURCE" type="string"/>
+                                    <element maxOccurs="1" minOccurs="1"
+                                    name="PAYDESC" type="string"/>
+                                </sequence>
+                            </complexType>
+                        </element>
+                    </sequence>
+                </complexType>
+            </element>
+        </schema>
+        <schema
+            targetNamespace="http://www.tibco.com/namespaces/tnt/plugins/jdbc+49d1ee49-97a0-4e0a-adbf-42e8363a533d+input"
+            xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.tibco.com/namespaces/tnt/plugins/jdbc+49d1ee49-97a0-4e0a-adbf-42e8363a533d+input">
+            <element name="jdbcQueryActivityInput">
+                <complexType>
+                    <sequence>
+                        <element maxOccurs="1" minOccurs="1"
+                            name="par_cust_code" nillable="true" type="string"/>
+                        <element maxOccurs="1" minOccurs="1"
+                            name="par_prem_code" nillable="true" type="string"/>
+                        <element maxOccurs="1" minOccurs="1"
+                            name="par_pymt_date" nillable="true" type="decimal"/>
+                        <element maxOccurs="1" minOccurs="0"
+                            name="ServerTimeZone" type="string"/>
+                        <element maxOccurs="1" minOccurs="0"
+                            name="timeout" type="long"/>
+                        <element maxOccurs="1" minOccurs="0"
+                            name="maxRows" type="long"/>
+                    </sequence>
+                </complexType>
+            </element>
+        </schema>
+        <schema
+            targetNamespace="http://www.tibco.com/namespaces/tnt/plugins/jdbc+49d1ee49-97a0-4e0a-adbf-42e8363a533d+output"
+            xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.tibco.com/namespaces/tnt/plugins/jdbc+49d1ee49-97a0-4e0a-adbf-42e8363a533d+output">
+            <element name="resultSet">
+                <complexType>
+                    <sequence>
+                        <element maxOccurs="unbounded" minOccurs="0" name="Record">
+                            <complexType>
+                                <sequence>
+                                    <element maxOccurs="1" minOccurs="1"
+                                    name="UABPYMT_AR_TRANS" type="decimal"/>
+                                    <element maxOccurs="1" minOccurs="1"
+                                    name="UABPYMT_CUST_CODE" type="integer"/>
+                                    <element maxOccurs="1" minOccurs="1"
+                                    name="UABPYMT_PREM_CODE" type="string"/>
+                                    <element maxOccurs="1" minOccurs="1"
+                                    name="UABPYMT_PYMT_DATE" type="dateTime"/>
+                                    <element maxOccurs="1" minOccurs="0"
+                                    name="PAYDATE" nillable="false" type="string"/>
+                                    <element maxOccurs="1" minOccurs="0"
+                                    name="PAYAMOUNT"
+                                    nillable="false" type="decimal"/>
+                                    <element maxOccurs="1" minOccurs="0"
+                                    name="STATUS" nillable="false" type="string"/>
+                                    <element maxOccurs="1" minOccurs="1"
+                                    name="PAYSOURCE" type="string"/>
+                                    <element maxOccurs="1" minOccurs="1"
+                                    name="PAYDESC" type="string"/>
+                                </sequence>
+                            </complexType>
+                        </element>
+                    </sequence>
+                </complexType>
+            </element>
+        </schema>
+        <schema
+            targetNamespace="http://tns.tibco.com/bw/activity/activespace/xsd/+bigdata-customer360-initialload.Metaspace/PaymentOverview/PaymentOverview_Leech+Put-input"
+            xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://tns.tibco.com/bw/activity/activespace/xsd/+bigdata-customer360-initialload.Metaspace/PaymentOverview/PaymentOverview_Leech+Put-input">
+            <complexType name="ActivityInput">
+                <sequence>
+                    <element maxOccurs="1" minOccurs="0"
+                        name="PutOptions" type="tns:PutOptions"/>
+                    <element maxOccurs="unbounded" minOccurs="1"
+                        name="Tuple" type="tns:Tuple"/>
+                </sequence>
+            </complexType>
+            <element name="ActivityInput" type="tns:ActivityInput"/>
+            <complexType name="PutOptions">
+                <sequence>
+                    <element maxOccurs="1" minOccurs="0" name="lockWait" type="long"/>
+                    <element maxOccurs="1" minOccurs="0" name="ttl" type="long"/>
+                    <element maxOccurs="1" minOccurs="0" name="isForget" type="boolean"/>
+                    <element maxOccurs="1" minOccurs="0" name="isLock" type="boolean"/>
+                    <element maxOccurs="1" minOccurs="0" name="isUnlock" type="boolean"/>
+                    <element maxOccurs="1" minOccurs="0" name="isRoute" type="boolean"/>
+                </sequence>
+            </complexType>
+            <complexType name="Tuple">
+                <sequence>
+                    <element maxOccurs="1" minOccurs="1"
+                        name="UABPYMT_AR_TRANS" type="float"/>
+                    <element maxOccurs="1" minOccurs="1"
+                        name="UABPYMT_CUST_CODE" type="float"/>
+                    <element maxOccurs="1" minOccurs="1"
+                        name="UABPYMT_PREM_CODE" type="string"/>
+                    <element maxOccurs="1" minOccurs="1"
+                        name="UABPYMT_PYMT_DATE" type="dateTime"/>
+                    <element maxOccurs="1" minOccurs="0" name="PAYDATE" type="string"/>
+                    <element maxOccurs="1" minOccurs="0"
+                        name="PAYAMOUNT" type="float"/>
+                    <element maxOccurs="1" minOccurs="0" name="STATUS" type="string"/>
+                    <element maxOccurs="1" minOccurs="1"
+                        name="PAYSOURCE" type="string"/>
+                    <element maxOccurs="1" minOccurs="1" name="PAYDESC" type="string"/>
+                    <element maxOccurs="1" minOccurs="0"
+                        name="PutOptions" type="tns:PutOptions1"/>
+                </sequence>
+            </complexType>
+            <complexType name="PutOptions1">
+                <sequence>
+                    <element maxOccurs="1" minOccurs="0" name="lockWait" type="long"/>
+                    <element maxOccurs="1" minOccurs="0" name="ttl" type="long"/>
+                    <element maxOccurs="1" minOccurs="0" name="isForget" type="boolean"/>
+                    <element maxOccurs="1" minOccurs="0" name="isLock" type="boolean"/>
+                    <element maxOccurs="1" minOccurs="0" name="isUnlock" type="boolean"/>
+                    <element maxOccurs="1" minOccurs="0" name="isRoute" type="boolean"/>
+                </sequence>
+            </complexType>
+        </schema>
+        <schema
+            targetNamespace="http://tns.tibco.com/bw/activity/activespace/xsd/+bigdata-customer360-initialload.Metaspace/PaymentOverview/PaymentOverview_Leech+Put-output"
+            xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://tns.tibco.com/bw/activity/activespace/xsd/+bigdata-customer360-initialload.Metaspace/PaymentOverview/PaymentOverview_Leech+Put-output">
+            <complexType name="ResultList">
+                <sequence>
+                    <element maxOccurs="1" minOccurs="1" name="HasError" type="boolean"/>
+                    <element maxOccurs="unbounded" minOccurs="1"
+                        name="Result" type="tns:Result"/>
+                </sequence>
+            </complexType>
+            <element name="ResultList" type="tns:ResultList"/>
+            <complexType name="Result">
+                <sequence>
+                    <element maxOccurs="1" minOccurs="1" name="Status" type="string"/>
+                    <element maxOccurs="1" minOccurs="0" name="Tuple" type="tns:Tuple"/>
+                    <element maxOccurs="1" minOccurs="1" name="HasError" type="boolean"/>
+                    <element maxOccurs="1" minOccurs="0" name="Error" type="string"/>
+                </sequence>
+            </complexType>
+            <complexType name="Tuple">
+                <sequence>
+                    <element maxOccurs="1" minOccurs="1"
+                        name="UABPYMT_AR_TRANS" type="float"/>
+                    <element maxOccurs="1" minOccurs="1"
+                        name="UABPYMT_CUST_CODE" type="float"/>
+                    <element maxOccurs="1" minOccurs="1"
+                        name="UABPYMT_PREM_CODE" type="string"/>
+                    <element maxOccurs="1" minOccurs="1"
+                        name="UABPYMT_PYMT_DATE" type="dateTime"/>
+                    <element maxOccurs="1" minOccurs="0" name="PAYDATE" type="string"/>
+                    <element maxOccurs="1" minOccurs="0"
+                        name="PAYAMOUNT" type="float"/>
+                    <element maxOccurs="1" minOccurs="0" name="STATUS" type="string"/>
+                    <element maxOccurs="1" minOccurs="1"
+                        name="PAYSOURCE" type="string"/>
+                    <element maxOccurs="1" minOccurs="1" name="PAYDESC" type="string"/>
+                </sequence>
+            </complexType>
+        </schema>
+        <wsdl:definitions
+            targetNamespace="http://xmlns.example.com/20160816132729"
+            xmlns:tns="http://xmlns.example.com/20160816132729"
+            xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop"
+            xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+    </tibex:Types>
+    <tibex:ProcessInfo callable="true" createdBy="Administrator"
+        createdOn="Tue Aug 16 13:27:29 CEST 2016" description=""
+        modifiers="public" productVersion="6.3.2 V30 2016-04-28"
+        scalable="true" singleton="true" stateless="false" type="IT"/>
+    <tibex:ProcessInterface context=""
+        input="{http://behaim.com/vectren/bigdata/customer360view/SimpleInput}input" output=""/>
+    <tibex:ProcessTemplateConfigurations/>
+    <notation:Diagram measurementUnit="Pixel" type="BWProcess"
+        xmlns:bwnotation="http://tns.tibco.com/bw/runtime/BWNotation"
+        xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <children type="2001">
+            <children type="5001"/>
+            <children type="3002">
+                <styles xsi:type="notation:SortingStyle"/>
+                <styles xsi:type="notation:FilteringStyle"/>
+            </children>
+            <children type="3003">
+                <styles xsi:type="notation:SortingStyle"/>
+                <styles xsi:type="notation:FilteringStyle"/>
+            </children>
+            <children type="3004">
+                <children type="4018">
+                    <children type="3018">
+                        <children type="4020">
+                            <children type="3020">
+                                <children type="4005">
+                                    <children type="3007">
+                                    <children type="4002">
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.0"/>
+                                    <layoutConstraint x="-78"
+                                    xsi:type="notation:Bounds" y="132"/>
+                                    </children>
+                                    <children type="4002">
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.1"/>
+                                    <layoutConstraint x="473"
+                                    xsi:type="notation:Bounds" y="167"/>
+                                    </children>
+                                    <children type="4002 bw.jdbc.JDBCQuery">
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.2"/>
+                                    <layoutConstraint
+                                    height="40" width="40"
+                                    x="98"
+                                    xsi:type="notation:Bounds" y="32"/>
+                                    </children>
+                                    <children type="4002 bw.asbw.Put">
+                                    <children type="4017">
+                                    <styles lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.3"/>
+                                    <layoutConstraint
+                                    height="40" width="40"
+                                    x="265"
+                                    xsi:type="notation:Bounds" y="32"/>
+                                    </children>
+                                    <children type="4002 bw.jdbc.JDBCQuery">
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.4"/>
+                                    <layoutConstraint
+                                    height="40" width="40"
+                                    x="98"
+                                    xsi:type="notation:Bounds" y="148"/>
+                                    </children>
+                                    <children type="4002 bw.jdbc.JDBCQuery">
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.5"/>
+                                    <layoutConstraint
+                                    height="40" width="40"
+                                    x="98"
+                                    xsi:type="notation:Bounds" y="265"/>
+                                    </children>
+                                    <children type="4002 bw.asbw.Put">
+                                    <children type="4017">
+                                    <styles lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.6"/>
+                                    <layoutConstraint
+                                    height="40" width="40"
+                                    x="228"
+                                    xsi:type="notation:Bounds" y="180"/>
+                                    </children>
+                                    <children type="4002 bw.asbw.Put">
+                                    <children type="4017">
+                                    <styles lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.7"/>
+                                    <layoutConstraint
+                                    height="40" width="40"
+                                    x="285"
+                                    xsi:type="notation:Bounds" y="313"/>
+                                    </children>
+                                    <styles xsi:type="notation:DrawerStyle"/>
+                                    <styles xsi:type="notation:SortingStyle"/>
+                                    <styles xsi:type="notation:FilteringStyle"/>
+                                    <element href="//0/@process/@activity/@activity"/>
+                                    </children>
+                                    <styles fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+                                    <styles xsi:type="bwnotation:ResizingStyle"/>
+                                    <element href="//0/@process/@activity/@activity"/>
+                                    <layoutConstraint height="410"
+                                    width="735" xsi:type="notation:Bounds"/>
+                                </children>
+                                <styles xsi:type="notation:SortingStyle"/>
+                                <styles xsi:type="notation:FilteringStyle"/>
+                            </children>
+                            <styles fontName="Segoe UI" lineColor="0" xsi:type="notation:ShapeStyle"/>
+                            <styles xsi:type="bwnotation:BackgroundStyle"/>
+                            <styles xsi:type="bwnotation:ResizingStyle"/>
+                            <element href="//0/@process/@activity"/>
+                            <layoutConstraint height="410" width="738" xsi:type="notation:Bounds"/>
+                        </children>
+                        <children type="4022">
+                            <children type="3022">
+                                <children type="4029">
+                                    <children type="3031">
+                                    <children type="4033">
+                                    <styles lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@faultHandlers/@catchAll"/>
+                                    <layoutConstraint
+                                    height="34" width="34"
+                                    xsi:type="notation:Bounds" y="68"/>
+                                    </children>
+                                    <styles xsi:type="notation:SortingStyle"/>
+                                    <styles xsi:type="notation:FilteringStyle"/>
+                                    </children>
+                                    <children type="3032">
+                                    <children type="4005">
+                                    <children type="3007">
+                                    <children type="4002 com.tibco.bw.core.design.process.editor.Activity_4002_Rethrow">
+                                    <children type="4017">
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+                                    <element href="//0/@process/@activity/@faultHandlers/@catchAll/@activity/@activity/@activities.0"/>
+                                    <layoutConstraint
+                                    height="40"
+                                    width="40"
+                                    x="262"
+                                    xsi:type="notation:Bounds" y="57"/>
+                                    </children>
+                                    <children type="4002 bw.generalactivities.log">
+                                    <children type="4017">
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+                                    <element href="//0/@process/@activity/@faultHandlers/@catchAll/@activity/@activity/@activities.1"/>
+                                    <layoutConstraint
+                                    height="40"
+                                    width="40"
+                                    x="57"
+                                    xsi:type="notation:Bounds" y="46"/>
+                                    </children>
+                                    <styles xsi:type="notation:DrawerStyle"/>
+                                    <styles xsi:type="notation:SortingStyle"/>
+                                    <styles xsi:type="notation:FilteringStyle"/>
+                                    </children>
+                                    <styles lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+                                    <styles xsi:type="bwnotation:ResizingStyle"/>
+                                    <element href="//0/@process/@activity/@faultHandlers/@catchAll/@activity/@activity"/>
+                                    <layoutConstraint
+                                    height="168" width="461" xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles xsi:type="notation:SortingStyle"/>
+                                    <styles xsi:type="notation:FilteringStyle"/>
+                                    </children>
+                                    <styles lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles xsi:type="bwnotation:BackgroundStyle"/>
+                                    <styles xsi:type="bwnotation:ResizingStyle"/>
+                                    <element href="//0/@process/@activity/@faultHandlers/@catchAll"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                </children>
+                                <styles xsi:type="notation:SortingStyle"/>
+                                <styles xsi:type="notation:FilteringStyle"/>
+                            </children>
+                            <styles lineColor="0" xsi:type="notation:ShapeStyle"/>
+                            <styles xsi:type="bwnotation:BackgroundStyle"/>
+                            <styles xsi:type="bwnotation:ResizingStyle"/>
+                            <element href="//0/@process/@activity/@faultHandlers"/>
+                            <layoutConstraint height="200" width="467" xsi:type="notation:Bounds"/>
+                        </children>
+                        <styles xsi:type="notation:SortingStyle"/>
+                        <styles xsi:type="notation:FilteringStyle"/>
+                        <element href="//0/@process/@activity"/>
+                    </children>
+                    <styles fontName="Segoe UI" lineColor="0" xsi:type="notation:ShapeStyle"/>
+                    <styles xsi:type="bwnotation:BackgroundStyle"/>
+                    <styles xsi:type="bwnotation:ResizingStyle"/>
+                    <element href="//0/@process/@activity"/>
+                    <layoutConstraint height="611" width="738" x="1"
+                        xsi:type="notation:Bounds" y="1"/>
+                </children>
+                <styles xsi:type="notation:SortingStyle"/>
+                <styles xsi:type="notation:FilteringStyle"/>
+                <element href="//0/@process"/>
+            </children>
+            <styles fontName="Segoe UI" lineColor="0" xsi:type="notation:ShapeStyle"/>
+            <element href="//0/@process"/>
+            <layoutConstraint height="663" width="1080" xsi:type="notation:Bounds"/>
+        </children>
+        <styles xsi:type="notation:DiagramStyle"/>
+        <element href="//0"/>
+        <edges
+            source="//@children.0/@children.3/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0"
+            target="//@children.0/@children.3/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.2" type="4006">
+            <children type="6002">
+                <layoutConstraint xsi:type="notation:Location" y="40"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles fontName="Segoe UI" xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@activity/@links/@children.0"/>
+            <bendpoints points="[0, 0, 0, 0]$[0, 0, 0, 0]" xsi:type="notation:RelativeBendpoints"/>
+            <targetAnchor id="(0.4715447154471545,0.17333333333333334)" xsi:type="notation:IdentityAnchor"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.3/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.2"
+            target="//@children.0/@children.3/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.3" type="4006">
+            <children type="6002">
+                <layoutConstraint xsi:type="notation:Location" y="40"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles fontName="Segoe UI" xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@activity/@links/@children.1"/>
+            <bendpoints points="[25, -6, -252, 0]$[253, 0, -24, 6]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.3/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.3"
+            target="//@children.0/@children.3/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.1" type="4006">
+            <children type="6002">
+                <layoutConstraint xsi:type="notation:Location" y="40"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@activity/@links/@children.2"/>
+            <bendpoints
+                points="[25, 0, -183, -135]$[208, 0, 0, -135]$[208, 111, 0, -24]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.3/@children.0/@children.0/@children.1/@children.0/@children.0/@children.1/@children.0/@children.0/@children.1"
+            target="//@children.0/@children.3/@children.0/@children.0/@children.1/@children.0/@children.0/@children.1/@children.0/@children.0/@children.0" type="4006">
+            <children type="6002">
+                <layoutConstraint xsi:type="notation:Location" y="40"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@faultHandlers/@catchAll/@activity/@activity/@links/@children.0"/>
+            <bendpoints points="[25, 1, -180, -10]$[181, 10, -24, -1]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.3/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.2"
+            target="//@children.0/@children.3/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.1" type="4006">
+            <children type="6002">
+                <layoutConstraint xsi:type="notation:Location" y="40"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@activity/@links/@children.3"/>
+            <bendpoints
+                points="[0, 25, -375, -110]$[0, 56, -375, -79]$[359, 56, -16, -79]$[359, 111, -16, -24]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.3/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0"
+            target="//@children.0/@children.3/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.4" type="4006">
+            <children type="6002">
+                <layoutConstraint xsi:type="notation:Location" y="40"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@activity/@links/@children.4"/>
+            <bendpoints points="[25, 2, -151, -14]$[152, 14, -24, -2]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.3/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0"
+            target="//@children.0/@children.3/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.5" type="4006">
+            <children type="6002">
+                <layoutConstraint x="19" xsi:type="notation:Location" y="-6"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@activity/@links/@children.5"/>
+            <bendpoints
+                points="[25, 19, -151, -114]$[152, 114, -24, -19]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.3/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.4"
+            target="//@children.0/@children.3/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.6" type="4006">
+            <children type="6002">
+                <layoutConstraint xsi:type="notation:Location" y="40"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@activity/@links/@children.6"/>
+            <bendpoints points="[25, 0, -142, 0]$[143, 0, -24, 0]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.3/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.6"
+            target="//@children.0/@children.3/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.1" type="4006">
+            <children type="6002">
+                <layoutConstraint xsi:type="notation:Location" y="40"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@activity/@links/@children.7"/>
+            <bendpoints points="[25, 2, -183, -17]$[184, 17, -24, -2]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.3/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.5"
+            target="//@children.0/@children.3/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.7" type="4006">
+            <children type="6002">
+                <layoutConstraint xsi:type="notation:Location" y="40"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@activity/@links/@children.8"/>
+            <bendpoints points="[25, -1, -142, 9]$[143, -9, -24, 1]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.3/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.7"
+            target="//@children.0/@children.3/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.1" type="4006">
+            <children type="6002">
+                <layoutConstraint xsi:type="notation:Location" y="40"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@activity/@links/@children.9"/>
+            <bendpoints
+                points="[25, 0, -183, 88]$[208, 0, 0, 88]$[208, -63, 0, 25]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.3/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.5"
+            target="//@children.0/@children.3/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.1" type="4006">
+            <children type="6002">
+                <layoutConstraint xsi:type="notation:Location" y="40"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@activity/@links/@children.10"/>
+            <bendpoints
+                points="[25, 0, -350, 98]$[188, 0, -187, 98]$[188, -10, -187, 88]$[375, -10, 0, 88]$[375, -73, 0, 25]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.3/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.4"
+            target="//@children.0/@children.3/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.1" type="4006">
+            <children type="6002">
+                <layoutConstraint xsi:type="notation:Location" y="40"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@activity/@links/@children.11"/>
+            <bendpoints points="[25, 0, -350, -19]$[351, 0, -24, -19]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+    </notation:Diagram>
+    <bpws:import importType="http://www.w3.org/2001/XMLSchema" namespace="http://behaim.com/vectren/bigdata/customer360view/SimpleInput"/>
+    <bpws:variables>
+        <bpws:variable element="ns:ProcessContext"
+            name="_processContext" sca-bpel:internal="true"/>
+        <bpws:variable element="ns0:input" name="Start"
+            sca-bpel:internal="true" tibex:parameter="in"/>
+        <bpws:variable element="ns1:jdbcQueryActivityInput"
+            name="Banner3-input" sca-bpel:internal="true"/>
+        <bpws:variable element="ns2:resultSet" name="Banner3" sca-bpel:internal="true"/>
+        <bpws:variable name="jdbcProperty" sca-bpel:hotUpdate="false"
+            sca-bpel:privateProperty="true" sca-bpel:property="yes"
+            sca-bpel:sharedResourceType="{http://xsd.tns.tibco.com/amf/models/sharedresource/jdbc}JdbcDataSource" type="xsd:string">
+            <bpws:from>
+                <bpws:literal>bigdata-customer360-initialload.JDBCConnection_Banner3</bpws:literal>
+            </bpws:from>
+        </bpws:variable>
+        <bpws:variable element="ns17:ActivityInput" name="Put-input" sca-bpel:internal="true"/>
+        <bpws:variable element="ns18:ResultList" name="Put" sca-bpel:internal="true"/>
+        <bpws:variable name="spaceConnectionProperty"
+            sca-bpel:hotUpdate="false" sca-bpel:privateProperty="true"
+            sca-bpel:property="yes"
+            sca-bpel:sharedResourceType="{http://xsd.tns.tibco.com/bw/models/sharedresource/activespace}SpaceConnection" type="xsd:string">
+            <bpws:from>
+                <bpws:literal>bigdata-customer360-initialload.Metaspace/PaymentOverview/PaymentOverview_Leech</bpws:literal>
+            </bpws:from>
+        </bpws:variable>
+        <bpws:variable name="FaultName" sca-bpel:internal="true" type="xsd:string"/>
+        <bpws:variable element="ns:FaultDetail" name="FaultDetails" sca-bpel:internal="true"/>
+        <bpws:variable element="ns5:ActivityInput" name="Log-input" sca-bpel:internal="true"/>
+        <bpws:variable element="ns10:jdbcQueryActivityInput"
+            name="Banner1-input" sca-bpel:internal="true"/>
+        <bpws:variable element="ns11:resultSet" name="Banner1" sca-bpel:internal="true"/>
+        <bpws:variable element="ns12:jdbcQueryActivityInput"
+            name="Banner2-input" sca-bpel:internal="true"/>
+        <bpws:variable element="ns13:resultSet" name="Banner2" sca-bpel:internal="true"/>
+        <bpws:variable name="jdbcProperty1" sca-bpel:hotUpdate="false"
+            sca-bpel:privateProperty="true" sca-bpel:property="yes"
+            sca-bpel:sharedResourceType="{http://xsd.tns.tibco.com/amf/models/sharedresource/jdbc}JdbcDataSource" type="xsd:string">
+            <bpws:from>
+                <bpws:literal>bigdata-customer360-initialload.JDBCConnection_Banner1</bpws:literal>
+            </bpws:from>
+        </bpws:variable>
+        <bpws:variable name="jdbcProperty2" sca-bpel:hotUpdate="false"
+            sca-bpel:privateProperty="true" sca-bpel:property="yes"
+            sca-bpel:sharedResourceType="{http://xsd.tns.tibco.com/amf/models/sharedresource/jdbc}JdbcDataSource" type="xsd:string">
+            <bpws:from>
+                <bpws:literal>bigdata-customer360-initialload.JDBCConnection_Banner2</bpws:literal>
+            </bpws:from>
+        </bpws:variable>
+        <bpws:variable element="ns17:ActivityInput" name="Put1-input" sca-bpel:internal="true"/>
+        <bpws:variable element="ns18:ResultList" name="Put1" sca-bpel:internal="true"/>
+        <bpws:variable element="ns17:ActivityInput" name="Put2-input" sca-bpel:internal="true"/>
+        <bpws:variable element="ns18:ResultList" name="Put2" sca-bpel:internal="true"/>
+    </bpws:variables>
+    <bpws:extensions>
+        <bpws:extension mustUnderstand="no" namespace="http://www.eclipse.org/gmf/runtime/1.0.2/notation"/>
+        <bpws:extension mustUnderstand="no" namespace="http://www.tibco.com/bw/process/info"/>
+        <bpws:extension mustUnderstand="no" namespace="http://docs.oasis-open.org/ns/opencsa/sca-bpel/200801"/>
+        <bpws:extension mustUnderstand="no" namespace="http://docs.oasis-open.org/ns/opencsa/sca/200912"/>
+        <bpws:extension mustUnderstand="no" namespace="http://ns.tibco.com/bw/property"/>
+        <bpws:extension mustUnderstand="no" namespace="http://www.tibco.com/bpel/2007/extensions"/>
+    </bpws:extensions>
+    <bpws:scope name="scope">
+        <bpws:faultHandlers>
+            <bpws:catchAll tibex:faultDetailsVar="FaultDetails"
+                tibex:faultNameVar="FaultName" tibex:xpdlId="cb84629a-27b3-4ee3-ba28-eda21e84d296">
+                <bpws:scope name="scope1">
+                    <bpws:flow name="flow1">
+                        <bpws:links>
+                            <bpws:link name="LogToRethrow" tibex:linkType="SUCCESS"/>
+                        </bpws:links>
+                        <bpws:rethrow name="Rethrow" tibex:xpdlId="b99708f3-ea6d-4b10-9da7-0147727e99e7">
+                            <bpws:targets>
+                                <bpws:target linkName="LogToRethrow"/>
+                            </bpws:targets>
+                        </bpws:rethrow>
+                        <bpws:extensionActivity>
+                            <tibex:activityExtension
+                                expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/pe/WriteToLogActivitySchema&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;FaultDetails&quot;/>&lt;xsl:template name=&quot;Log-input&quot; match=&quot;/&quot;>&lt;tns:ActivityInput>&lt;message>&lt;xsl:value-of select=&quot;$FaultDetails/StackTrace&quot;/>&lt;/message>&lt;/tns:ActivityInput>&lt;/xsl:template>&lt;/xsl:stylesheet>"
+                                expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
+                                inputVariable="Log-input" name="Log"
+                                tibex:xpdlId="57f5b0c2-92a4-4fbb-ba3f-ddc5df0b99e5" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                                <bpws:sources>
+                                    <bpws:source linkName="LogToRethrow"/>
+                                </bpws:sources>
+                                <tibex:inputBindings>
+                                    <tibex:inputBinding
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/pe/WriteToLogActivitySchema&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;FaultDetails&quot;/>&lt;xsl:template name=&quot;Log-input&quot; match=&quot;/&quot;>&lt;tns:ActivityInput>&lt;message>&lt;xsl:value-of select=&quot;$FaultDetails/StackTrace&quot;/>&lt;/message>&lt;/tns:ActivityInput>&lt;/xsl:template>&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                                </tibex:inputBindings>
+                                <tibex:config>
+                                    <bwext:BWActivity
+                                    activityTypeID="bw.generalactivities.log"
+                                    version="6.0.0.001"
+                                    xmlns:activityconfig="http://tns.tibco.com/bw/model/activityconfig"
+                                    xmlns:bwext="http://tns.tibco.com/bw/model/core/bwext"
+                                    xmlns:generalactivities="http://ns.tibco.com/bw/palette/generalactivities" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                                    <activityConfig>
+                                    <properties name="config" xsi:type="activityconfig:EMFProperty">
+                                    <type href="http://ns.tibco.com/bw/palette/generalactivities#//Log"/>
+                                    <value role="Info"
+                                    suppressJobInfo="true" xsi:type="generalactivities:Log"/>
+                                    </properties>
+                                    </activityConfig>
+                                    </bwext:BWActivity>
+                                </tibex:config>
+                            </tibex:activityExtension>
+                        </bpws:extensionActivity>
+                    </bpws:flow>
+                </bpws:scope>
+            </bpws:catchAll>
+        </bpws:faultHandlers>
+        <bpws:flow name="flow">
+            <bpws:links>
+                <bpws:link name="StartToJDBCQuery" tibex:linkType="SUCCESSWITHCONDITION"/>
+                <bpws:link name="JDBCQueryToPut1" tibex:linkType="SUCCESSWITHCONDITION"/>
+                <bpws:link name="PutToEnd" tibex:linkType="SUCCESS"/>
+                <bpws:link name="JDBCQueryToEnd" tibex:linkType="SUCCESSWITHNOCONDITION"/>
+                <bpws:link name="StartToBanner1" tibex:linkType="SUCCESSWITHCONDITION"/>
+                <bpws:link name="StartToBanner2_company02"
+                    tibex:label="company='02'" tibex:linkType="SUCCESSWITHCONDITION"/>
+                <bpws:link name="Banner1ToCopy_1_Put" tibex:linkType="SUCCESSWITHCONDITION"/>
+                <bpws:link name="Copy_1_PutToEnd" tibex:linkType="SUCCESS"/>
+                <bpws:link name="Banner2ToPut2" tibex:linkType="SUCCESSWITHCONDITION"/>
+                <bpws:link name="Copy_2_PutToEnd" tibex:linkType="SUCCESS"/>
+                <bpws:link name="Banner2ToEnd" tibex:linkType="SUCCESSWITHNOCONDITION"/>
+                <bpws:link name="Banner1ToEnd" tibex:linkType="SUCCESSWITHNOCONDITION"/>
+            </bpws:links>
+            <bpws:extensionActivity>
+                <tibex:receiveEvent createInstance="yes"
+                    eventTimeout="0" name="Start"
+                    tibex:xpdlId="eb5faa75-5694-4227-9ea3-d26437851f2b"
+                    variable="Start" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                    <bpws:sources>
+                        <bpws:source linkName="StartToJDBCQuery">
+                            <tibex:DesignExpression>
+                                <tibex:expression
+                                    expression="$Start/ns0:company='03'" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0"/>
+                            </tibex:DesignExpression>
+                            <bpws:transitionCondition><![CDATA[$Start/ns0:company='03']]></bpws:transitionCondition>
+                        </bpws:source>
+                        <bpws:source linkName="StartToBanner1">
+                            <tibex:DesignExpression>
+                                <tibex:expression
+                                    expression="$Start/ns0:company='01'" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0"/>
+                            </tibex:DesignExpression>
+                            <bpws:transitionCondition><![CDATA[$Start/ns0:company='01']]></bpws:transitionCondition>
+                        </bpws:source>
+                        <bpws:source linkName="StartToBanner2_company02">
+                            <tibex:DesignExpression>
+                                <tibex:expression
+                                    expression="$Start/ns0:company='02'" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0"/>
+                            </tibex:DesignExpression>
+                            <bpws:transitionCondition><![CDATA[$Start/ns0:company='02']]></bpws:transitionCondition>
+                        </bpws:source>
+                    </bpws:sources>
+                    <tibex:eventSource>
+                        <tibex:StartEvent xmlns:tibex="http://www.tibco.com/bpel/2007/extensions"/>
+                    </tibex:eventSource>
+                </tibex:receiveEvent>
+            </bpws:extensionActivity>
+            <bpws:extensionActivity>
+                <tibex:activityExtension name="End"
+                    tibex:xpdlId="b66981d9-95ff-43f2-b9a3-bfce69a14b22" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                    <bpws:targets>
+                        <bpws:target linkName="PutToEnd"/>
+                        <bpws:target linkName="JDBCQueryToEnd"/>
+                        <bpws:target linkName="Copy_1_PutToEnd"/>
+                        <bpws:target linkName="Copy_2_PutToEnd"/>
+                        <bpws:target linkName="Banner2ToEnd"/>
+                        <bpws:target linkName="Banner1ToEnd"/>
+                    </bpws:targets>
+                    <tibex:config>
+                        <bwext:BWActivity
+                            activityTypeID="bw.internal.end"
+                            xmlns:activityconfig="http://tns.tibco.com/bw/model/activityconfig"
+                            xmlns:bwext="http://tns.tibco.com/bw/model/core/bwext"
+                            xmlns:internalactivities="http://ns.tibco.com/bw/core/internalactivity" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                            <activityConfig>
+                                <properties name="config" xsi:type="activityconfig:EMFProperty">
+                                    <type href="http://ns.tibco.com/bw/core/internalactivity#//End"/>
+                                    <value xsi:type="internalactivities:End"/>
+                                </properties>
+                            </activityConfig>
+                        </bwext:BWActivity>
+                    </tibex:config>
+                </tibex:activityExtension>
+            </bpws:extensionActivity>
+            <bpws:extensionActivity>
+                <tibex:activityExtension
+                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/namespaces/tnt/plugins/jdbc+b9e166cc-1384-4a74-a4bb-2e9334c0c1d3+input&quot; xmlns:tns1=&quot;http://behaim.com/vectren/bigdata/customer360view/SimpleInput&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;Start&quot;/>&lt;xsl:template name=&quot;JDBCQuery-input&quot; match=&quot;/&quot;>&lt;tns:jdbcQueryActivityInput>&lt;par_cust_code>&lt;xsl:value-of select=&quot;$Start/tns1:customerNumber&quot;/>&lt;/par_cust_code>&lt;par_prem_code>&lt;xsl:value-of select=&quot;$Start/tns1:premiseCode&quot;/>&lt;/par_prem_code>&lt;par_pymt_date>&lt;xsl:choose>&lt;xsl:when test=&quot;exists($Start/tns1:history)&quot;>&lt;xsl:value-of select=&quot;$Start/tns1:history&quot;/>&lt;/xsl:when>&lt;xsl:otherwise>&lt;xsl:attribute name=&quot;xsi:nil&quot;>true&lt;/xsl:attribute>&lt;/xsl:otherwise>&lt;/xsl:choose>&lt;/par_pymt_date>&lt;/tns:jdbcQueryActivityInput>&lt;/xsl:template>&lt;/xsl:stylesheet>"
+                    expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
+                    inputVariable="Banner3-input" name="Banner3"
+                    outputVariable="Banner3"
+                    tibex:xpdlId="b9e166cc-1384-4a74-a4bb-2e9334c0c1d3" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                    <bpws:targets>
+                        <bpws:target linkName="StartToJDBCQuery"/>
+                    </bpws:targets>
+                    <bpws:sources>
+                        <bpws:source linkName="JDBCQueryToPut1">
+                            <tibex:DesignExpression>
+                                <tibex:expression
+                                    expression="count($Banner3/Record) > 0" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0"/>
+                            </tibex:DesignExpression>
+                            <bpws:transitionCondition><![CDATA[count($Banner3/Record) > 0]]></bpws:transitionCondition>
+                        </bpws:source>
+                        <bpws:source linkName="JDBCQueryToEnd">
+                            <tibex:DesignExpression>
+                                <tibex:expression
+                                    expression="##otherwise##" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0"/>
+                            </tibex:DesignExpression>
+                            <bpws:transitionCondition><![CDATA[##otherwise##]]></bpws:transitionCondition>
+                        </bpws:source>
+                    </bpws:sources>
+                    <tibex:inputBindings>
+                        <tibex:inputBinding
+                            expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/namespaces/tnt/plugins/jdbc+b9e166cc-1384-4a74-a4bb-2e9334c0c1d3+input&quot; xmlns:tns1=&quot;http://behaim.com/vectren/bigdata/customer360view/SimpleInput&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;Start&quot;/>&lt;xsl:template name=&quot;JDBCQuery-input&quot; match=&quot;/&quot;>&lt;tns:jdbcQueryActivityInput>&lt;par_cust_code>&lt;xsl:value-of select=&quot;$Start/tns1:customerNumber&quot;/>&lt;/par_cust_code>&lt;par_prem_code>&lt;xsl:value-of select=&quot;$Start/tns1:premiseCode&quot;/>&lt;/par_prem_code>&lt;par_pymt_date>&lt;xsl:choose>&lt;xsl:when test=&quot;exists($Start/tns1:history)&quot;>&lt;xsl:value-of select=&quot;$Start/tns1:history&quot;/>&lt;/xsl:when>&lt;xsl:otherwise>&lt;xsl:attribute name=&quot;xsi:nil&quot;>true&lt;/xsl:attribute>&lt;/xsl:otherwise>&lt;/xsl:choose>&lt;/par_pymt_date>&lt;/tns:jdbcQueryActivityInput>&lt;/xsl:template>&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                    </tibex:inputBindings>
+                    <tibex:config>
+                        <bwext:BWActivity
+                            activityTypeID="bw.jdbc.JDBCQuery"
+                            xmlns:activityconfig="http://tns.tibco.com/bw/model/activityconfig"
+                            xmlns:bwext="http://tns.tibco.com/bw/model/core/bwext"
+                            xmlns:jdbcPalette="http://ns.tibco.com/bw/palette/jdbc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                            <activityConfig>
+                                <properties name="config" xsi:type="activityconfig:EMFProperty">
+                                    <type href="http://ns.tibco.com/bw/palette/jdbc#//JDBCQueryActivity"/>
+                                    <value maxRows="100"
+                                    sharedResourceProperty="jdbcProperty"
+                                    sqlStatement="SELECT AA.UABPYMT_AR_TRANS, AA.uabpymt_cust_code, AA.uabpymt_prem_code , AA.uabpymt_pymt_date, TO_CHAR(TRUNC(AA.uabpymt_pymt_date),'mm/dd/yy') PayDate, AA.uabpymt_amount PayAmount, DECODE(uabpymt_cancel_trans,NULL,'Completed','Reversed') Status,  AA.uabpymt_pycd_code PaySource,  AB.utrpycd_desc PayDesc FROM uabpymt AA,  utrpycd AB WHERE AA.uabpymt_pycd_code = AB.utrpycd_code &#xa;AND AA.uabpymt_cust_code   = ?&#xa;AND AA.uabpymt_prem_code   = ?&#xa;AND AA.uabpymt_pymt_date   > SYSDATE + ?&#xa;ORDER BY AA.uabpymt_pymt_date DESC&#xa;&#xa;"
+                                    timeout="10" xsi:type="jdbcPalette:JDBCQueryActivity">
+                                    <PreparedParameters
+                                    DataType="12"
+                                    DataTypeDisplayValue="VARCHAR" ParameterName="par_cust_code"/>
+                                    <PreparedParameters
+                                    DataType="12"
+                                    DataTypeDisplayValue="VARCHAR" ParameterName="par_prem_code"/>
+                                    <PreparedParameters DataType="2"
+                                    DataTypeDisplayValue="NUMERIC" ParameterName="par_pymt_date"/>
+                                    <columnMetadata
+                                    columnName="UABPYMT_AR_TRANS"
+                                    dataType="2" typeName="NUMBER"/>
+                                    <columnMetadata
+                                    columnName="UABPYMT_CUST_CODE"
+                                    dataType="-5" typeName="NUMBER"/>
+                                    <columnMetadata
+                                    columnName="UABPYMT_PREM_CODE"
+                                    dataType="12" typeName="VARCHAR2"/>
+                                    <columnMetadata
+                                    columnName="UABPYMT_PYMT_DATE"
+                                    dataType="93" typeName="DATE"/>
+                                    <columnMetadata
+                                    columnName="PAYDATE"
+                                    dataType="12"
+                                    status="OptionalElement" typeName="VARCHAR2"/>
+                                    <columnMetadata
+                                    columnName="PAYAMOUNT"
+                                    dataType="2"
+                                    status="OptionalElement" typeName="NUMBER"/>
+                                    <columnMetadata
+                                    columnName="STATUS"
+                                    dataType="12"
+                                    status="OptionalElement" typeName="VARCHAR2"/>
+                                    <columnMetadata
+                                    columnName="PAYSOURCE"
+                                    dataType="12" typeName="VARCHAR2"/>
+                                    <columnMetadata
+                                    columnName="PAYDESC"
+                                    dataType="12" typeName="VARCHAR2"/>
+                                    </value>
+                                </properties>
+                            </activityConfig>
+                        </bwext:BWActivity>
+                    </tibex:config>
+                </tibex:activityExtension>
+            </bpws:extensionActivity>
+            <bpws:extensionActivity>
+                <tibex:activityExtension
+                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:tns2=&quot;http://tns.tibco.com/bw/activity/activespace/xsd/+bigdata-customer360-initialload.Metaspace/PaymentOverview/PaymentOverview_Leech+Put-input&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;Banner3&quot;/>&lt;xsl:template name=&quot;Put-input&quot; match=&quot;/&quot;>&lt;tns2:ActivityInput>&lt;xsl:for-each select=&quot;$Banner3/Record&quot;>&lt;Tuple>&lt;UABPYMT_AR_TRANS>&lt;xsl:value-of select=&quot;UABPYMT_AR_TRANS&quot;/>&lt;/UABPYMT_AR_TRANS>&lt;UABPYMT_CUST_CODE>&lt;xsl:value-of select=&quot;UABPYMT_CUST_CODE&quot;/>&lt;/UABPYMT_CUST_CODE>&lt;UABPYMT_PREM_CODE>&lt;xsl:value-of select=&quot;UABPYMT_PREM_CODE&quot;/>&lt;/UABPYMT_PREM_CODE>&lt;UABPYMT_PYMT_DATE>&lt;xsl:value-of select=&quot;UABPYMT_PYMT_DATE&quot;/>&lt;/UABPYMT_PYMT_DATE>&lt;xsl:if test=&quot;PAYDATE&quot;>&lt;PAYDATE>&lt;xsl:value-of select=&quot;PAYDATE&quot;/>&lt;/PAYDATE>&lt;/xsl:if>&lt;xsl:if test=&quot;PAYAMOUNT&quot;>&lt;PAYAMOUNT>&lt;xsl:value-of select=&quot;PAYAMOUNT&quot;/>&lt;/PAYAMOUNT>&lt;/xsl:if>&lt;xsl:if test=&quot;STATUS&quot;>&lt;STATUS>&lt;xsl:value-of select=&quot;STATUS&quot;/>&lt;/STATUS>&lt;/xsl:if>&lt;PAYSOURCE>&lt;xsl:value-of select=&quot;PAYSOURCE&quot;/>&lt;/PAYSOURCE>&lt;PAYDESC>&lt;xsl:value-of select=&quot;PAYDESC&quot;/>&lt;/PAYDESC>&lt;/Tuple>&lt;/xsl:for-each>&lt;/tns2:ActivityInput>&lt;/xsl:template>&lt;/xsl:stylesheet>"
+                    expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
+                    inputVariable="Put-input" name="Put"
+                    outputVariable="Put"
+                    tibex:xpdlId="5e414d2d-50b9-4e0d-ba37-0e87a45bd0eb" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                    <bpws:targets>
+                        <bpws:target linkName="JDBCQueryToPut1"/>
+                    </bpws:targets>
+                    <bpws:sources>
+                        <bpws:source linkName="PutToEnd"/>
+                    </bpws:sources>
+                    <tibex:inputBindings>
+                        <tibex:inputBinding
+                            expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:tns2=&quot;http://tns.tibco.com/bw/activity/activespace/xsd/+bigdata-customer360-initialload.Metaspace/PaymentOverview/PaymentOverview_Leech+Put-input&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;Banner3&quot;/>&lt;xsl:template name=&quot;Put-input&quot; match=&quot;/&quot;>&lt;tns2:ActivityInput>&lt;xsl:for-each select=&quot;$Banner3/Record&quot;>&lt;Tuple>&lt;UABPYMT_AR_TRANS>&lt;xsl:value-of select=&quot;UABPYMT_AR_TRANS&quot;/>&lt;/UABPYMT_AR_TRANS>&lt;UABPYMT_CUST_CODE>&lt;xsl:value-of select=&quot;UABPYMT_CUST_CODE&quot;/>&lt;/UABPYMT_CUST_CODE>&lt;UABPYMT_PREM_CODE>&lt;xsl:value-of select=&quot;UABPYMT_PREM_CODE&quot;/>&lt;/UABPYMT_PREM_CODE>&lt;UABPYMT_PYMT_DATE>&lt;xsl:value-of select=&quot;UABPYMT_PYMT_DATE&quot;/>&lt;/UABPYMT_PYMT_DATE>&lt;xsl:if test=&quot;PAYDATE&quot;>&lt;PAYDATE>&lt;xsl:value-of select=&quot;PAYDATE&quot;/>&lt;/PAYDATE>&lt;/xsl:if>&lt;xsl:if test=&quot;PAYAMOUNT&quot;>&lt;PAYAMOUNT>&lt;xsl:value-of select=&quot;PAYAMOUNT&quot;/>&lt;/PAYAMOUNT>&lt;/xsl:if>&lt;xsl:if test=&quot;STATUS&quot;>&lt;STATUS>&lt;xsl:value-of select=&quot;STATUS&quot;/>&lt;/STATUS>&lt;/xsl:if>&lt;PAYSOURCE>&lt;xsl:value-of select=&quot;PAYSOURCE&quot;/>&lt;/PAYSOURCE>&lt;PAYDESC>&lt;xsl:value-of select=&quot;PAYDESC&quot;/>&lt;/PAYDESC>&lt;/Tuple>&lt;/xsl:for-each>&lt;/tns2:ActivityInput>&lt;/xsl:template>&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                    </tibex:inputBindings>
+                    <tibex:config>
+                        <bwext:BWActivity activityTypeID="bw.asbw.Put"
+                            xmlns="http://ns.tibco.com/bw/palette/as"
+                            xmlns:activityconfig="http://tns.tibco.com/bw/model/activityconfig"
+                            xmlns:bwext="http://tns.tibco.com/bw/model/core/bwext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                            <activityConfig>
+                                <properties name="config" xsi:type="activityconfig:EMFProperty">
+                                    <type href="http://ns.tibco.com/bw/palette/as#//Put"/>
+                                    <value
+                                    SpaceConnection="spaceConnectionProperty" xsi:type="Put"/>
+                                </properties>
+                            </activityConfig>
+                        </bwext:BWActivity>
+                    </tibex:config>
+                </tibex:activityExtension>
+            </bpws:extensionActivity>
+            <bpws:extensionActivity>
+                <tibex:activityExtension
+                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/namespaces/tnt/plugins/jdbc+2ed55a03-7327-4d37-b288-982fde2c7523+input&quot; xmlns:tns1=&quot;http://behaim.com/vectren/bigdata/customer360view/SimpleInput&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;Start&quot;/>&lt;xsl:template name=&quot;JDBCQuery-input&quot; match=&quot;/&quot;>&lt;tns:jdbcQueryActivityInput>&lt;par_cust_code>&lt;xsl:value-of select=&quot;$Start/tns1:customerNumber&quot;/>&lt;/par_cust_code>&lt;par_prem_code>&lt;xsl:value-of select=&quot;$Start/tns1:premiseCode&quot;/>&lt;/par_prem_code>&lt;par_pymt_date>&lt;xsl:choose>&lt;xsl:when test=&quot;exists($Start/tns1:history)&quot;>&lt;xsl:value-of select=&quot;$Start/tns1:history&quot;/>&lt;/xsl:when>&lt;xsl:otherwise>&lt;xsl:attribute name=&quot;xsi:nil&quot;>true&lt;/xsl:attribute>&lt;/xsl:otherwise>&lt;/xsl:choose>&lt;/par_pymt_date>&lt;/tns:jdbcQueryActivityInput>&lt;/xsl:template>&lt;/xsl:stylesheet>"
+                    expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
+                    inputVariable="Banner1-input" name="Banner1"
+                    outputVariable="Banner1"
+                    tibex:xpdlId="2ed55a03-7327-4d37-b288-982fde2c7523" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                    <bpws:targets>
+                        <bpws:target linkName="StartToBanner1"/>
+                    </bpws:targets>
+                    <bpws:sources>
+                        <bpws:source linkName="Banner1ToCopy_1_Put">
+                            <tibex:DesignExpression>
+                                <tibex:expression
+                                    expression="count($Banner1/Record)>0" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0"/>
+                            </tibex:DesignExpression>
+                            <bpws:transitionCondition><![CDATA[count($Banner1/Record)>0]]></bpws:transitionCondition>
+                        </bpws:source>
+                        <bpws:source linkName="Banner1ToEnd">
+                            <tibex:DesignExpression>
+                                <tibex:expression
+                                    expression="##otherwise##" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0"/>
+                            </tibex:DesignExpression>
+                            <bpws:transitionCondition><![CDATA[##otherwise##]]></bpws:transitionCondition>
+                        </bpws:source>
+                    </bpws:sources>
+                    <tibex:inputBindings>
+                        <tibex:inputBinding
+                            expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/namespaces/tnt/plugins/jdbc+2ed55a03-7327-4d37-b288-982fde2c7523+input&quot; xmlns:tns1=&quot;http://behaim.com/vectren/bigdata/customer360view/SimpleInput&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;Start&quot;/>&lt;xsl:template name=&quot;JDBCQuery-input&quot; match=&quot;/&quot;>&lt;tns:jdbcQueryActivityInput>&lt;par_cust_code>&lt;xsl:value-of select=&quot;$Start/tns1:customerNumber&quot;/>&lt;/par_cust_code>&lt;par_prem_code>&lt;xsl:value-of select=&quot;$Start/tns1:premiseCode&quot;/>&lt;/par_prem_code>&lt;par_pymt_date>&lt;xsl:choose>&lt;xsl:when test=&quot;exists($Start/tns1:history)&quot;>&lt;xsl:value-of select=&quot;$Start/tns1:history&quot;/>&lt;/xsl:when>&lt;xsl:otherwise>&lt;xsl:attribute name=&quot;xsi:nil&quot;>true&lt;/xsl:attribute>&lt;/xsl:otherwise>&lt;/xsl:choose>&lt;/par_pymt_date>&lt;/tns:jdbcQueryActivityInput>&lt;/xsl:template>&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                    </tibex:inputBindings>
+                    <tibex:config>
+                        <bwext:BWActivity
+                            activityTypeID="bw.jdbc.JDBCQuery"
+                            xmlns:activityconfig="http://tns.tibco.com/bw/model/activityconfig"
+                            xmlns:bwext="http://tns.tibco.com/bw/model/core/bwext"
+                            xmlns:jdbcPalette="http://ns.tibco.com/bw/palette/jdbc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                            <activityConfig>
+                                <properties name="config" xsi:type="activityconfig:EMFProperty">
+                                    <type href="http://ns.tibco.com/bw/palette/jdbc#//JDBCQueryActivity"/>
+                                    <value maxRows="100"
+                                    sharedResourceProperty="jdbcProperty1"
+                                    sqlStatement="SELECT AA.UABPYMT_AR_TRANS, AA.uabpymt_cust_code, AA.uabpymt_prem_code , AA.uabpymt_pymt_date, TO_CHAR(TRUNC(AA.uabpymt_pymt_date),'mm/dd/yy') PayDate, AA.uabpymt_amount PayAmount, DECODE(uabpymt_cancel_trans,NULL,'Completed','Reversed') Status,  AA.uabpymt_pycd_code PaySource,  AB.utrpycd_desc PayDesc FROM uabpymt AA,  utrpycd AB WHERE AA.uabpymt_pycd_code = AB.utrpycd_code &#xa;AND AA.uabpymt_cust_code   = ?&#xa;AND AA.uabpymt_prem_code   = ?&#xa;AND AA.uabpymt_pymt_date   > SYSDATE + ?&#xa;ORDER BY AA.uabpymt_pymt_date DESC&#xa;&#xa;"
+                                    timeout="10" xsi:type="jdbcPalette:JDBCQueryActivity">
+                                    <PreparedParameters
+                                    DataType="12"
+                                    DataTypeDisplayValue="VARCHAR" ParameterName="par_cust_code"/>
+                                    <PreparedParameters
+                                    DataType="12"
+                                    DataTypeDisplayValue="VARCHAR" ParameterName="par_prem_code"/>
+                                    <PreparedParameters DataType="2"
+                                    DataTypeDisplayValue="NUMERIC" ParameterName="par_pymt_date"/>
+                                    <columnMetadata
+                                    columnName="UABPYMT_AR_TRANS"
+                                    dataType="2" typeName="NUMBER"/>
+                                    <columnMetadata
+                                    columnName="UABPYMT_CUST_CODE"
+                                    dataType="-5" typeName="NUMBER"/>
+                                    <columnMetadata
+                                    columnName="UABPYMT_PREM_CODE"
+                                    dataType="12" typeName="VARCHAR2"/>
+                                    <columnMetadata
+                                    columnName="UABPYMT_PYMT_DATE"
+                                    dataType="93" typeName="DATE"/>
+                                    <columnMetadata
+                                    columnName="PAYDATE"
+                                    dataType="12"
+                                    status="OptionalElement" typeName="VARCHAR2"/>
+                                    <columnMetadata
+                                    columnName="PAYAMOUNT"
+                                    dataType="2"
+                                    status="OptionalElement" typeName="NUMBER"/>
+                                    <columnMetadata
+                                    columnName="STATUS"
+                                    dataType="12"
+                                    status="OptionalElement" typeName="VARCHAR2"/>
+                                    <columnMetadata
+                                    columnName="PAYSOURCE"
+                                    dataType="12" typeName="VARCHAR2"/>
+                                    <columnMetadata
+                                    columnName="PAYDESC"
+                                    dataType="12" typeName="VARCHAR2"/>
+                                    </value>
+                                </properties>
+                            </activityConfig>
+                        </bwext:BWActivity>
+                    </tibex:config>
+                </tibex:activityExtension>
+            </bpws:extensionActivity>
+            <bpws:extensionActivity>
+                <tibex:activityExtension
+                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/namespaces/tnt/plugins/jdbc+49d1ee49-97a0-4e0a-adbf-42e8363a533d+input&quot; xmlns:tns1=&quot;http://behaim.com/vectren/bigdata/customer360view/SimpleInput&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;Start&quot;/>&lt;xsl:template name=&quot;JDBCQuery-input&quot; match=&quot;/&quot;>&lt;tns:jdbcQueryActivityInput>&lt;par_cust_code>&lt;xsl:value-of select=&quot;$Start/tns1:customerNumber&quot;/>&lt;/par_cust_code>&lt;par_prem_code>&lt;xsl:value-of select=&quot;$Start/tns1:premiseCode&quot;/>&lt;/par_prem_code>&lt;par_pymt_date>&lt;xsl:choose>&lt;xsl:when test=&quot;exists($Start/tns1:history)&quot;>&lt;xsl:value-of select=&quot;$Start/tns1:history&quot;/>&lt;/xsl:when>&lt;xsl:otherwise>&lt;xsl:attribute name=&quot;xsi:nil&quot;>true&lt;/xsl:attribute>&lt;/xsl:otherwise>&lt;/xsl:choose>&lt;/par_pymt_date>&lt;/tns:jdbcQueryActivityInput>&lt;/xsl:template>&lt;/xsl:stylesheet>"
+                    expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
+                    inputVariable="Banner2-input" name="Banner2"
+                    outputVariable="Banner2"
+                    tibex:xpdlId="49d1ee49-97a0-4e0a-adbf-42e8363a533d" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                    <bpws:targets>
+                        <bpws:target linkName="StartToBanner2_company02"/>
+                    </bpws:targets>
+                    <bpws:sources>
+                        <bpws:source linkName="Banner2ToPut2">
+                            <tibex:DesignExpression>
+                                <tibex:expression
+                                    expression="count($Banner2/Record)>0" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0"/>
+                            </tibex:DesignExpression>
+                            <bpws:transitionCondition><![CDATA[count($Banner2/Record)>0]]></bpws:transitionCondition>
+                        </bpws:source>
+                        <bpws:source linkName="Banner2ToEnd">
+                            <tibex:DesignExpression>
+                                <tibex:expression
+                                    expression="##otherwise##" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0"/>
+                            </tibex:DesignExpression>
+                            <bpws:transitionCondition><![CDATA[##otherwise##]]></bpws:transitionCondition>
+                        </bpws:source>
+                    </bpws:sources>
+                    <tibex:inputBindings>
+                        <tibex:inputBinding
+                            expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/namespaces/tnt/plugins/jdbc+49d1ee49-97a0-4e0a-adbf-42e8363a533d+input&quot; xmlns:tns1=&quot;http://behaim.com/vectren/bigdata/customer360view/SimpleInput&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;Start&quot;/>&lt;xsl:template name=&quot;JDBCQuery-input&quot; match=&quot;/&quot;>&lt;tns:jdbcQueryActivityInput>&lt;par_cust_code>&lt;xsl:value-of select=&quot;$Start/tns1:customerNumber&quot;/>&lt;/par_cust_code>&lt;par_prem_code>&lt;xsl:value-of select=&quot;$Start/tns1:premiseCode&quot;/>&lt;/par_prem_code>&lt;par_pymt_date>&lt;xsl:choose>&lt;xsl:when test=&quot;exists($Start/tns1:history)&quot;>&lt;xsl:value-of select=&quot;$Start/tns1:history&quot;/>&lt;/xsl:when>&lt;xsl:otherwise>&lt;xsl:attribute name=&quot;xsi:nil&quot;>true&lt;/xsl:attribute>&lt;/xsl:otherwise>&lt;/xsl:choose>&lt;/par_pymt_date>&lt;/tns:jdbcQueryActivityInput>&lt;/xsl:template>&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                    </tibex:inputBindings>
+                    <tibex:config>
+                        <bwext:BWActivity
+                            activityTypeID="bw.jdbc.JDBCQuery"
+                            xmlns:activityconfig="http://tns.tibco.com/bw/model/activityconfig"
+                            xmlns:bwext="http://tns.tibco.com/bw/model/core/bwext"
+                            xmlns:jdbcPalette="http://ns.tibco.com/bw/palette/jdbc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                            <activityConfig>
+                                <properties name="config" xsi:type="activityconfig:EMFProperty">
+                                    <type href="http://ns.tibco.com/bw/palette/jdbc#//JDBCQueryActivity"/>
+                                    <value maxRows="100"
+                                    sharedResourceProperty="jdbcProperty2"
+                                    sqlStatement="SELECT AA.UABPYMT_AR_TRANS, AA.uabpymt_cust_code, AA.uabpymt_prem_code , AA.uabpymt_pymt_date, TO_CHAR(TRUNC(AA.uabpymt_pymt_date),'mm/dd/yy') PayDate, AA.uabpymt_amount PayAmount, DECODE(uabpymt_cancel_trans,NULL,'Completed','Reversed') Status,  AA.uabpymt_pycd_code PaySource,  AB.utrpycd_desc PayDesc FROM uabpymt AA,  utrpycd AB WHERE AA.uabpymt_pycd_code = AB.utrpycd_code &#xa;AND AA.uabpymt_cust_code   = ?&#xa;AND AA.uabpymt_prem_code   = ?&#xa;AND AA.uabpymt_pymt_date   > SYSDATE + ?&#xa;ORDER BY AA.uabpymt_pymt_date DESC&#xa;&#xa;"
+                                    timeout="10" xsi:type="jdbcPalette:JDBCQueryActivity">
+                                    <PreparedParameters
+                                    DataType="12"
+                                    DataTypeDisplayValue="VARCHAR" ParameterName="par_cust_code"/>
+                                    <PreparedParameters
+                                    DataType="12"
+                                    DataTypeDisplayValue="VARCHAR" ParameterName="par_prem_code"/>
+                                    <PreparedParameters DataType="2"
+                                    DataTypeDisplayValue="NUMERIC" ParameterName="par_pymt_date"/>
+                                    <columnMetadata
+                                    columnName="UABPYMT_AR_TRANS"
+                                    dataType="2" typeName="NUMBER"/>
+                                    <columnMetadata
+                                    columnName="UABPYMT_CUST_CODE"
+                                    dataType="-5" typeName="NUMBER"/>
+                                    <columnMetadata
+                                    columnName="UABPYMT_PREM_CODE"
+                                    dataType="12" typeName="VARCHAR2"/>
+                                    <columnMetadata
+                                    columnName="UABPYMT_PYMT_DATE"
+                                    dataType="93" typeName="DATE"/>
+                                    <columnMetadata
+                                    columnName="PAYDATE"
+                                    dataType="12"
+                                    status="OptionalElement" typeName="VARCHAR2"/>
+                                    <columnMetadata
+                                    columnName="PAYAMOUNT"
+                                    dataType="2"
+                                    status="OptionalElement" typeName="NUMBER"/>
+                                    <columnMetadata
+                                    columnName="STATUS"
+                                    dataType="12"
+                                    status="OptionalElement" typeName="VARCHAR2"/>
+                                    <columnMetadata
+                                    columnName="PAYSOURCE"
+                                    dataType="12" typeName="VARCHAR2"/>
+                                    <columnMetadata
+                                    columnName="PAYDESC"
+                                    dataType="12" typeName="VARCHAR2"/>
+                                    </value>
+                                </properties>
+                            </activityConfig>
+                        </bwext:BWActivity>
+                    </tibex:config>
+                </tibex:activityExtension>
+            </bpws:extensionActivity>
+            <bpws:extensionActivity>
+                <tibex:activityExtension
+                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://tns.tibco.com/bw/activity/activespace/xsd/+bigdata-customer360-initialload.Metaspace/PaymentOverview/PaymentOverview_Seeder+Put-input&quot; xmlns:tns1=&quot;http://behaim.com/vectren/bigdata/customer360view/SimpleInput&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:tns2=&quot;http://tns.tibco.com/bw/activity/activespace/xsd/+bigdata-customer360-initialload.Metaspace/PaymentOverview/PaymentOverview_Leech+Put-input&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;Banner1&quot;/>&lt;xsl:template name=&quot;Put1-input&quot; match=&quot;/&quot;>&lt;tns2:ActivityInput>&lt;xsl:for-each select=&quot;$Banner1/Record&quot;>&lt;Tuple>&lt;UABPYMT_AR_TRANS>&lt;xsl:value-of select=&quot;UABPYMT_AR_TRANS&quot;/>&lt;/UABPYMT_AR_TRANS>&lt;UABPYMT_CUST_CODE>&lt;xsl:value-of select=&quot;UABPYMT_CUST_CODE&quot;/>&lt;/UABPYMT_CUST_CODE>&lt;UABPYMT_PREM_CODE>&lt;xsl:value-of select=&quot;UABPYMT_PREM_CODE&quot;/>&lt;/UABPYMT_PREM_CODE>&lt;UABPYMT_PYMT_DATE>&lt;xsl:value-of select=&quot;UABPYMT_PYMT_DATE&quot;/>&lt;/UABPYMT_PYMT_DATE>&lt;xsl:if test=&quot;PAYDATE&quot;>&lt;PAYDATE>&lt;xsl:value-of select=&quot;PAYDATE&quot;/>&lt;/PAYDATE>&lt;/xsl:if>&lt;xsl:if test=&quot;PAYAMOUNT&quot;>&lt;PAYAMOUNT>&lt;xsl:value-of select=&quot;PAYAMOUNT&quot;/>&lt;/PAYAMOUNT>&lt;/xsl:if>&lt;xsl:if test=&quot;STATUS&quot;>&lt;STATUS>&lt;xsl:value-of select=&quot;STATUS&quot;/>&lt;/STATUS>&lt;/xsl:if>&lt;PAYSOURCE>&lt;xsl:value-of select=&quot;PAYSOURCE&quot;/>&lt;/PAYSOURCE>&lt;PAYDESC>&lt;xsl:value-of select=&quot;PAYDESC&quot;/>&lt;/PAYDESC>&lt;/Tuple>&lt;/xsl:for-each>&lt;/tns2:ActivityInput>&lt;/xsl:template>&lt;/xsl:stylesheet>"
+                    expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
+                    inputVariable="Put1-input" name="Put1"
+                    outputVariable="Put1"
+                    tibex:xpdlId="5abeb518-0188-4cf1-91f1-49201ed43b64" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                    <bpws:targets>
+                        <bpws:target linkName="Banner1ToCopy_1_Put"/>
+                    </bpws:targets>
+                    <bpws:sources>
+                        <bpws:source linkName="Copy_1_PutToEnd"/>
+                    </bpws:sources>
+                    <tibex:inputBindings>
+                        <tibex:inputBinding
+                            expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://tns.tibco.com/bw/activity/activespace/xsd/+bigdata-customer360-initialload.Metaspace/PaymentOverview/PaymentOverview_Seeder+Put-input&quot; xmlns:tns1=&quot;http://behaim.com/vectren/bigdata/customer360view/SimpleInput&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:tns2=&quot;http://tns.tibco.com/bw/activity/activespace/xsd/+bigdata-customer360-initialload.Metaspace/PaymentOverview/PaymentOverview_Leech+Put-input&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;Banner1&quot;/>&lt;xsl:template name=&quot;Put1-input&quot; match=&quot;/&quot;>&lt;tns2:ActivityInput>&lt;xsl:for-each select=&quot;$Banner1/Record&quot;>&lt;Tuple>&lt;UABPYMT_AR_TRANS>&lt;xsl:value-of select=&quot;UABPYMT_AR_TRANS&quot;/>&lt;/UABPYMT_AR_TRANS>&lt;UABPYMT_CUST_CODE>&lt;xsl:value-of select=&quot;UABPYMT_CUST_CODE&quot;/>&lt;/UABPYMT_CUST_CODE>&lt;UABPYMT_PREM_CODE>&lt;xsl:value-of select=&quot;UABPYMT_PREM_CODE&quot;/>&lt;/UABPYMT_PREM_CODE>&lt;UABPYMT_PYMT_DATE>&lt;xsl:value-of select=&quot;UABPYMT_PYMT_DATE&quot;/>&lt;/UABPYMT_PYMT_DATE>&lt;xsl:if test=&quot;PAYDATE&quot;>&lt;PAYDATE>&lt;xsl:value-of select=&quot;PAYDATE&quot;/>&lt;/PAYDATE>&lt;/xsl:if>&lt;xsl:if test=&quot;PAYAMOUNT&quot;>&lt;PAYAMOUNT>&lt;xsl:value-of select=&quot;PAYAMOUNT&quot;/>&lt;/PAYAMOUNT>&lt;/xsl:if>&lt;xsl:if test=&quot;STATUS&quot;>&lt;STATUS>&lt;xsl:value-of select=&quot;STATUS&quot;/>&lt;/STATUS>&lt;/xsl:if>&lt;PAYSOURCE>&lt;xsl:value-of select=&quot;PAYSOURCE&quot;/>&lt;/PAYSOURCE>&lt;PAYDESC>&lt;xsl:value-of select=&quot;PAYDESC&quot;/>&lt;/PAYDESC>&lt;/Tuple>&lt;/xsl:for-each>&lt;/tns2:ActivityInput>&lt;/xsl:template>&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                    </tibex:inputBindings>
+                    <tibex:config>
+                        <bwext:BWActivity activityTypeID="bw.asbw.Put"
+                            xmlns="http://ns.tibco.com/bw/palette/as"
+                            xmlns:activityconfig="http://tns.tibco.com/bw/model/activityconfig"
+                            xmlns:bwext="http://tns.tibco.com/bw/model/core/bwext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                            <activityConfig>
+                                <properties name="config" xsi:type="activityconfig:EMFProperty">
+                                    <type href="http://ns.tibco.com/bw/palette/as#//Put"/>
+                                    <value
+                                    SpaceConnection="spaceConnectionProperty" xsi:type="Put"/>
+                                </properties>
+                            </activityConfig>
+                        </bwext:BWActivity>
+                    </tibex:config>
+                </tibex:activityExtension>
+            </bpws:extensionActivity>
+            <bpws:extensionActivity>
+                <tibex:activityExtension
+                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns1=&quot;http://behaim.com/vectren/bigdata/customer360view/SimpleInput&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:tns=&quot;http://tns.tibco.com/bw/activity/activespace/xsd/+bigdata-customer360-initialload.Metaspace/PaymentOverview/PaymentOverview_Seeder+Put-input&quot; xmlns:tns2=&quot;http://tns.tibco.com/bw/activity/activespace/xsd/+bigdata-customer360-initialload.Metaspace/PaymentOverview/PaymentOverview_Leech+Put-input&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;Banner2&quot;/>&lt;xsl:template name=&quot;Put2-input&quot; match=&quot;/&quot;>&lt;tns2:ActivityInput>&lt;xsl:for-each select=&quot;$Banner2/Record&quot;>&lt;Tuple>&lt;UABPYMT_AR_TRANS>&lt;xsl:value-of select=&quot;UABPYMT_AR_TRANS&quot;/>&lt;/UABPYMT_AR_TRANS>&lt;UABPYMT_CUST_CODE>&lt;xsl:value-of select=&quot;UABPYMT_CUST_CODE&quot;/>&lt;/UABPYMT_CUST_CODE>&lt;UABPYMT_PREM_CODE>&lt;xsl:value-of select=&quot;UABPYMT_PREM_CODE&quot;/>&lt;/UABPYMT_PREM_CODE>&lt;UABPYMT_PYMT_DATE>&lt;xsl:value-of select=&quot;UABPYMT_PYMT_DATE&quot;/>&lt;/UABPYMT_PYMT_DATE>&lt;xsl:if test=&quot;PAYDATE&quot;>&lt;PAYDATE>&lt;xsl:value-of select=&quot;PAYDATE&quot;/>&lt;/PAYDATE>&lt;/xsl:if>&lt;xsl:if test=&quot;PAYAMOUNT&quot;>&lt;PAYAMOUNT>&lt;xsl:value-of select=&quot;PAYAMOUNT&quot;/>&lt;/PAYAMOUNT>&lt;/xsl:if>&lt;xsl:if test=&quot;STATUS&quot;>&lt;STATUS>&lt;xsl:value-of select=&quot;STATUS&quot;/>&lt;/STATUS>&lt;/xsl:if>&lt;PAYSOURCE>&lt;xsl:value-of select=&quot;PAYSOURCE&quot;/>&lt;/PAYSOURCE>&lt;PAYDESC>&lt;xsl:value-of select=&quot;PAYDESC&quot;/>&lt;/PAYDESC>&lt;/Tuple>&lt;/xsl:for-each>&lt;/tns2:ActivityInput>&lt;/xsl:template>&lt;/xsl:stylesheet>"
+                    expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
+                    inputVariable="Put2-input" name="Put2"
+                    outputVariable="Put2"
+                    tibex:xpdlId="5be95557-481b-494f-8b0a-7eb02f264291" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                    <bpws:targets>
+                        <bpws:target linkName="Banner2ToPut2"/>
+                    </bpws:targets>
+                    <bpws:sources>
+                        <bpws:source linkName="Copy_2_PutToEnd"/>
+                    </bpws:sources>
+                    <tibex:inputBindings>
+                        <tibex:inputBinding
+                            expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns1=&quot;http://behaim.com/vectren/bigdata/customer360view/SimpleInput&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:tns=&quot;http://tns.tibco.com/bw/activity/activespace/xsd/+bigdata-customer360-initialload.Metaspace/PaymentOverview/PaymentOverview_Seeder+Put-input&quot; xmlns:tns2=&quot;http://tns.tibco.com/bw/activity/activespace/xsd/+bigdata-customer360-initialload.Metaspace/PaymentOverview/PaymentOverview_Leech+Put-input&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;Banner2&quot;/>&lt;xsl:template name=&quot;Put2-input&quot; match=&quot;/&quot;>&lt;tns2:ActivityInput>&lt;xsl:for-each select=&quot;$Banner2/Record&quot;>&lt;Tuple>&lt;UABPYMT_AR_TRANS>&lt;xsl:value-of select=&quot;UABPYMT_AR_TRANS&quot;/>&lt;/UABPYMT_AR_TRANS>&lt;UABPYMT_CUST_CODE>&lt;xsl:value-of select=&quot;UABPYMT_CUST_CODE&quot;/>&lt;/UABPYMT_CUST_CODE>&lt;UABPYMT_PREM_CODE>&lt;xsl:value-of select=&quot;UABPYMT_PREM_CODE&quot;/>&lt;/UABPYMT_PREM_CODE>&lt;UABPYMT_PYMT_DATE>&lt;xsl:value-of select=&quot;UABPYMT_PYMT_DATE&quot;/>&lt;/UABPYMT_PYMT_DATE>&lt;xsl:if test=&quot;PAYDATE&quot;>&lt;PAYDATE>&lt;xsl:value-of select=&quot;PAYDATE&quot;/>&lt;/PAYDATE>&lt;/xsl:if>&lt;xsl:if test=&quot;PAYAMOUNT&quot;>&lt;PAYAMOUNT>&lt;xsl:value-of select=&quot;PAYAMOUNT&quot;/>&lt;/PAYAMOUNT>&lt;/xsl:if>&lt;xsl:if test=&quot;STATUS&quot;>&lt;STATUS>&lt;xsl:value-of select=&quot;STATUS&quot;/>&lt;/STATUS>&lt;/xsl:if>&lt;PAYSOURCE>&lt;xsl:value-of select=&quot;PAYSOURCE&quot;/>&lt;/PAYSOURCE>&lt;PAYDESC>&lt;xsl:value-of select=&quot;PAYDESC&quot;/>&lt;/PAYDESC>&lt;/Tuple>&lt;/xsl:for-each>&lt;/tns2:ActivityInput>&lt;/xsl:template>&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                    </tibex:inputBindings>
+                    <tibex:config>
+                        <bwext:BWActivity activityTypeID="bw.asbw.Put"
+                            xmlns="http://ns.tibco.com/bw/palette/as"
+                            xmlns:activityconfig="http://tns.tibco.com/bw/model/activityconfig"
+                            xmlns:bwext="http://tns.tibco.com/bw/model/core/bwext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                            <activityConfig>
+                                <properties name="config" xsi:type="activityconfig:EMFProperty">
+                                    <type href="http://ns.tibco.com/bw/palette/as#//Put"/>
+                                    <value
+                                    SpaceConnection="spaceConnectionProperty" xsi:type="Put"/>
+                                </properties>
+                            </activityConfig>
+                        </bwext:BWActivity>
+                    </tibex:config>
+                </tibex:activityExtension>
+            </bpws:extensionActivity>
+        </bpws:flow>
+    </bpws:scope>
+</bpws:process>

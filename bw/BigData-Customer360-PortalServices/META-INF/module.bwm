@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sca:composite xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:BW="http://xsd.tns.tibco.com/amf/models/sca/implementationtype/BW" xmlns:XMLSchema="http://www.w3.org/2001/XMLSchema" xmlns:compositeext="http://schemas.tibco.com/amx/3.0/compositeext" xmlns:parameters="http://xmlns.example.com/GeneralResource/parameters" xmlns:rest="http://xsd.tns.tibco.com/bw/models/binding/rest" xmlns:sca="http://www.osoa.org/xmlns/sca/1.0" xmlns:scact="http://xsd.tns.tibco.com/amf/models/sca/componentType" xmlns:scaext="http://xsd.tns.tibco.com/amf/models/sca/extensions" xmi:id="_WBgXQFiEEean74ACKDjqNg" targetNamespace="http://tns.tibco.com/bw/composite/BigData-Customer360-PortalServices" name="BigData-Customer360-PortalServices" compositeext:version="1.0.0" compositeext:formatVersion="2">
+  <sca:service xmi:id="_9qnF0HaIEeaaJOecQM-K7g" name="bigdata-customer360-all" promote="ComponentFacadeServices/bigdata-customer360-all">
+    <sca:interface.wsdl xmi:id="_9qr-UHaIEeaaJOecQM-K7g" interface="http://xmlns.example.com/20160909121142PLT#wsdl.interface(bigdata-customer360-all)"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_9qxd4HaIEeaaJOecQM-K7g" name="RestService" path="/bigdata/customer360/all" docBasePath="http://localhost:7777/BigData-Customer360-PortalServices" docResourcePath="GeneralResource" basePath="/" connector="bigdata-customer360-portalservices.GeneralResource" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/bigdata-customer360-portalservices.subprocesses.FacadeServices-GeneralResource.json">
+      <operation xmi:id="_9qysAHaIEeaaJOecQM-K7g" operationName="post" nickname="post-bigdata-customer360-all" httpMethod="POST" responseStyle="element" requestStyle="element">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_9rDxwHaIEeaaJOecQM-K7g"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_9qysAXaIEeaaJOecQM-K7g" bindingName="RestService"/>
+  </sca:service>
+  <sca:service xmi:id="_v6NbkHaJEeaaJOecQM-K7g" name="bigdata-customer360-amr" promote="ComponentFacadeServices/bigdata-customer360-amr">
+    <sca:interface.wsdl xmi:id="_v6NblHaJEeaaJOecQM-K7g" interface="http://xmlns.example.com/20160909121142PLT#wsdl.interface(bigdata-customer360-amr)"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_v6P30HaJEeaaJOecQM-K7g" name="RestService1" path="/bigdata/customer360/amr" docBasePath="http://localhost:7777/BigData-Customer360-PortalServices" docResourcePath="GeneralResource" basePath="/" connector="bigdata-customer360-portalservices.GeneralResource" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/bigdata-customer360-portalservices.subprocesses.FacadeServices-GeneralResource.json">
+      <operation xmi:id="_v6Qe4HaJEeaaJOecQM-K7g" operationName="post" nickname="post-bigdata-customer360-amr" httpMethod="POST" responseStyle="element" requestStyle="element">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_v6RtAHaJEeaaJOecQM-K7g"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_v6Qe4XaJEeaaJOecQM-K7g" bindingName="RestService1"/>
+  </sca:service>
+  <sca:service xmi:id="_68by4naJEeaaJOecQM-K7g" name="bigdata-customer360-assistance" promote="ComponentFacadeServices/bigdata-customer360-assistance">
+    <sca:interface.wsdl xmi:id="_68by5naJEeaaJOecQM-K7g" interface="http://xmlns.example.com/20160909121142PLT#wsdl.interface(bigdata-customer360-assistance)" scaext:wsdlLocation="../Processes/bigdata-customer360-portalservices/subprocesses/FacadeServices.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_68e2MHaJEeaaJOecQM-K7g" name="RestService2" path="/bigdata/customer360/assistance" docBasePath="http://localhost:7777/BigData-Customer360-PortalServices" docResourcePath="GeneralResource" basePath="/" connector="bigdata-customer360-portalservices.GeneralResource" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/bigdata-customer360-portalservices.subprocesses.FacadeServices-GeneralResource.json">
+      <operation xmi:id="_68gEUHaJEeaaJOecQM-K7g" operationName="post" nickname="post-bigdata-customer360-assistance" httpMethod="POST" responseStyle="element" requestStyle="element">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_68grYHaJEeaaJOecQM-K7g"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_68gEUXaJEeaaJOecQM-K7g" bindingName="RestService2"/>
+  </sca:service>
+  <sca:service xmi:id="_xLa54HaLEeawRZ5wq_gMgA" name="bigdata-customer360-auto-pay-enroll" promote="ComponentFacadeServices/bigdata-customer360-auto-pay-enroll">
+    <sca:interface.wsdl xmi:id="_xLfLUHaLEeawRZ5wq_gMgA" interface="http://xmlns.example.com/20160909121142PLT#wsdl.interface(bigdata-customer360-auto-pay)"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_xLlR8HaLEeawRZ5wq_gMgA" name="RestService3" path="/bigdata/customer360/auto-pay-enroll" docBasePath="http://localhost:7777/BigData-Customer360-PortalServices" docResourcePath="GeneralResource" basePath="/" connector="bigdata-customer360-portalservices.GeneralResource" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/bigdata-customer360-portalservices.subprocesses.FacadeServices-GeneralResource.json">
+      <operation xmi:id="_xLmgEHaLEeawRZ5wq_gMgA" operationName="post" nickname="post-bigdata-customer360-auto-pay" httpMethod="POST" responseStyle="element" requestStyle="element">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_xLmgEXaLEeawRZ5wq_gMgA" bindingName="RestService3"/>
+  </sca:service>
+  <sca:service xmi:id="_6xjtsnaLEeawRZ5wq_gMgA" name="bigdata-customer360-bill-notif-email-changes" promote="ComponentFacadeServices/bigdata-customer360-bill-notif-email-changes">
+    <sca:interface.wsdl xmi:id="_6xkUwHaLEeawRZ5wq_gMgA" interface="http://xmlns.example.com/20160909121142PLT#wsdl.interface(bigdata-customer360-bill-notif-email-changes)"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_6xomMHaLEeawRZ5wq_gMgA" name="RestService4" path="/bigdata/customer360/bill-notif-email-changes" docBasePath="http://localhost:7777/BigData-Customer360-PortalServices" docResourcePath="GeneralResource" basePath="/" connector="bigdata-customer360-portalservices.GeneralResource" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/bigdata-customer360-portalservices.subprocesses.FacadeServices-GeneralResource.json">
+      <operation xmi:id="_6xp0UHaLEeawRZ5wq_gMgA" operationName="post" nickname="post-bigdata-customer360-bill-notif-email-changes" httpMethod="POST" responseStyle="element" requestStyle="element">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_6xqbYHaLEeawRZ5wq_gMgA"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_6xp0UXaLEeawRZ5wq_gMgA" bindingName="RestService4"/>
+  </sca:service>
+  <sca:service xmi:id="_F5edUnaMEeawRZ5wq_gMgA" name="bigdata-customer360-bill-notif-enrollment-changes" promote="ComponentFacadeServices/bigdata-customer360-bill-notif-enrollment-changes">
+    <sca:interface.wsdl xmi:id="_F5edVnaMEeawRZ5wq_gMgA" interface="http://xmlns.example.com/20160909121142PLT#wsdl.interface(bigdata-customer360-bill-notif-enrollment-changes)"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_F5kj8HaMEeawRZ5wq_gMgA" name="RestService5" path="/bigdata/customer360/bill-notif-enrollment-changes" docBasePath="http://localhost:7777/BigData-Customer360-PortalServices" docResourcePath="GeneralResource" basePath="/" connector="bigdata-customer360-portalservices.GeneralResource" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/bigdata-customer360-portalservices.subprocesses.FacadeServices-GeneralResource.json">
+      <operation xmi:id="_F5lLAHaMEeawRZ5wq_gMgA" operationName="post" nickname="post-bigdata-customer360-bill-notif-enrollment-changes" httpMethod="POST" responseStyle="element" requestStyle="element">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_F5lyEHaMEeawRZ5wq_gMgA"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_F5lLAXaMEeawRZ5wq_gMgA" bindingName="RestService5"/>
+  </sca:service>
+  <sca:service xmi:id="_d2R0snaMEeawRZ5wq_gMgA" name="bigdata-customer360-bsci-replacement" promote="ComponentFacadeServices/bigdata-customer360-bsci-replacement">
+    <sca:interface.wsdl xmi:id="_d2R0tnaMEeawRZ5wq_gMgA" interface="http://xmlns.example.com/20160909121142PLT#wsdl.interface(bigdata-customer360-bsci-replacement)"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_d2YiYHaMEeawRZ5wq_gMgA" name="RestService6" path="/bigdata/customer360/bsci-replacement" docBasePath="http://localhost:7777/BigData-Customer360-PortalServices" docResourcePath="GeneralResource" basePath="/" connector="bigdata-customer360-portalservices.GeneralResource" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/bigdata-customer360-portalservices.subprocesses.FacadeServices-GeneralResource.json">
+      <operation xmi:id="_d2ZwgHaMEeawRZ5wq_gMgA" operationName="post" nickname="post-bigdata-customer360-bsci-replacement" httpMethod="POST" responseStyle="element" requestStyle="element">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_d2aXkHaMEeawRZ5wq_gMgA"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_d2ZwgXaMEeawRZ5wq_gMgA" bindingName="RestService6"/>
+  </sca:service>
+  <sca:service xmi:id="_nI6dsnaMEeawRZ5wq_gMgA" name="bigdata-customer360-budget-bill" promote="ComponentFacadeServices/bigdata-customer360-budget-bill">
+    <sca:interface.wsdl xmi:id="_nI6dtnaMEeawRZ5wq_gMgA" interface="http://xmlns.example.com/20160909121142PLT#wsdl.interface(bigdata-customer360-budget-bill)"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_nJCZgHaMEeawRZ5wq_gMgA" name="RestService7" path="/bigdata/customer360/budget-bill" docBasePath="http://localhost:7777/BigData-Customer360-PortalServices" docResourcePath="GeneralResource" basePath="/" connector="bigdata-customer360-portalservices.GeneralResource" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/bigdata-customer360-portalservices.subprocesses.FacadeServices-GeneralResource.json">
+      <operation xmi:id="_nJDnoHaMEeawRZ5wq_gMgA" operationName="post" nickname="post-bigdata-customer360-budget-bill" httpMethod="POST" responseStyle="element" requestStyle="element">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_nJEOsHaMEeawRZ5wq_gMgA"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_nJDnoXaMEeawRZ5wq_gMgA" bindingName="RestService7"/>
+  </sca:service>
+  <sca:service xmi:id="_yvIS4naMEeawRZ5wq_gMgA" name="bigdata-customer360-electric-outages" promote="ComponentFacadeServices/bigdata-customer360-electric-outages">
+    <sca:interface.wsdl xmi:id="_yvI58naMEeawRZ5wq_gMgA" interface="http://xmlns.example.com/20160909121142PLT#wsdl.interface(bigdata-customer360-outages)"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_yvRc0HaMEeawRZ5wq_gMgA" name="RestService8" path="/bigdata/customer360/outages" docBasePath="http://localhost:7777/BigData-Customer360-PortalServices" docResourcePath="GeneralResource" basePath="/" connector="bigdata-customer360-portalservices.GeneralResource" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/bigdata-customer360-portalservices.subprocesses.FacadeServices-GeneralResource.json">
+      <operation xmi:id="_yvSD4HaMEeawRZ5wq_gMgA" operationName="post" nickname="post-bigdata-customer360-outages" httpMethod="POST" responseStyle="element" requestStyle="element">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_yvSq8HaMEeawRZ5wq_gMgA"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_yvSD4XaMEeawRZ5wq_gMgA" bindingName="RestService8"/>
+  </sca:service>
+  <sca:service xmi:id="_W6w-onaNEeawRZ5wq_gMgA" name="bigdata-customer360-payment-arrangement" promote="ComponentFacadeServices/bigdata-customer360-payment-arrangement">
+    <sca:interface.wsdl xmi:id="_W6w-pnaNEeawRZ5wq_gMgA" interface="http://xmlns.example.com/20160909121142PLT#wsdl.interface(bigdata-customer360-payment-arrangement)"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_W6-aAHaNEeawRZ5wq_gMgA" name="RestService9" path="/bigdata/customer360/payment-arrangement" docBasePath="http://localhost:7777/BigData-Customer360-PortalServices" docResourcePath="GeneralResource" basePath="/" connector="bigdata-customer360-portalservices.GeneralResource" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/bigdata-customer360-portalservices.subprocesses.FacadeServices-GeneralResource.json">
+      <operation xmi:id="_W6_oIHaNEeawRZ5wq_gMgA" operationName="post" nickname="post-bigdata-customer360-payment-arrangement" httpMethod="POST" responseStyle="element" requestStyle="element">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_W7APMHaNEeawRZ5wq_gMgA"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_W6_oIXaNEeawRZ5wq_gMgA" bindingName="RestService9"/>
+  </sca:service>
+  <sca:service xmi:id="_l0S-snaNEeawRZ5wq_gMgA" name="bigdata-customer360-payment-due" promote="ComponentFacadeServices/bigdata-customer360-payment-due">
+    <sca:interface.wsdl xmi:id="_l0TlwHaNEeawRZ5wq_gMgA" interface="http://xmlns.example.com/20160909121142PLT#wsdl.interface(bigdata-customer360-payment-due)"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_l0dWwHaNEeawRZ5wq_gMgA" name="RestService10" path="/bigdata/customer360/payment-due" docBasePath="http://localhost:7777/BigData-Customer360-PortalServices" docResourcePath="GeneralResource" basePath="/" connector="bigdata-customer360-portalservices.GeneralResource" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/bigdata-customer360-portalservices.subprocesses.FacadeServices-GeneralResource.json">
+      <operation xmi:id="_l0ek4HaNEeawRZ5wq_gMgA" operationName="post" nickname="post-bigdata-customer360-payment-due" httpMethod="POST" responseStyle="element" requestStyle="element">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_l0fL8HaNEeawRZ5wq_gMgA"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_l0ek4XaNEeawRZ5wq_gMgA" bindingName="RestService10"/>
+  </sca:service>
+  <sca:service xmi:id="_u03nUnaNEeawRZ5wq_gMgA" name="bigdata-customer360-payments" promote="ComponentFacadeServices/bigdata-customer360-payments">
+    <sca:interface.wsdl xmi:id="_u03nVnaNEeawRZ5wq_gMgA" interface="http://xmlns.example.com/20160909121142PLT#wsdl.interface(bigdata-customer360-payments)"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_u1CmcHaNEeawRZ5wq_gMgA" name="RestService11" path="/bigdata/customer360/payments" docBasePath="http://localhost:7777/BigData-Customer360-PortalServices" docResourcePath="GeneralResource" basePath="/" connector="bigdata-customer360-portalservices.GeneralResource" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/bigdata-customer360-portalservices.subprocesses.FacadeServices-GeneralResource.json">
+      <operation xmi:id="_u1D0kHaNEeawRZ5wq_gMgA" operationName="post" nickname="post-bigdata-customer360-payments" httpMethod="POST" responseStyle="element" requestStyle="element">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_u1EboHaNEeawRZ5wq_gMgA"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_u1D0kXaNEeawRZ5wq_gMgA" bindingName="RestService11"/>
+  </sca:service>
+  <sca:service xmi:id="_FtXpEnaOEeawRZ5wq_gMgA" name="bigdata-customer360-scheduled-payments" promote="ComponentFacadeServices/bigdata-customer360-scheduled-payments">
+    <sca:interface.wsdl xmi:id="_FtXpFnaOEeawRZ5wq_gMgA" interface="http://xmlns.example.com/20160909121142PLT#wsdl.interface(bigdata-customer360-scheduled-payments)"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_Ftm5oHaOEeawRZ5wq_gMgA" name="RestService12" path="/bigdata/customer360/scheduled-payments" docBasePath="http://localhost:7777/BigData-Customer360-PortalServices" docResourcePath="GeneralResource" basePath="/" connector="bigdata-customer360-portalservices.GeneralResource" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/bigdata-customer360-portalservices.subprocesses.FacadeServices-GeneralResource.json">
+      <operation xmi:id="_FtngsHaOEeawRZ5wq_gMgA" operationName="post" nickname="post-bigdata-customer360-scheduled-payments" httpMethod="POST" responseStyle="element" requestStyle="element">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_FtoHwHaOEeawRZ5wq_gMgA"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_FtngsXaOEeawRZ5wq_gMgA" bindingName="RestService12"/>
+  </sca:service>
+  <sca:service xmi:id="_M6-fQnaOEeawRZ5wq_gMgA" name="bigdata-customer360-summer-cycler" promote="ComponentFacadeServices/bigdata-customer360-summer-cycler">
+    <sca:interface.wsdl xmi:id="_M6-fRnaOEeawRZ5wq_gMgA" interface="http://xmlns.example.com/20160909121142PLT#wsdl.interface(bigdata-customer360-summer-cycler)"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_M7LTkHaOEeawRZ5wq_gMgA" name="RestService13" path="/bigdata/customer360/summer-cycler" docBasePath="http://localhost:7777/BigData-Customer360-PortalServices" docResourcePath="GeneralResource" basePath="/" connector="bigdata-customer360-portalservices.GeneralResource" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/bigdata-customer360-portalservices.subprocesses.FacadeServices-GeneralResource.json">
+      <operation xmi:id="_M7MhsHaOEeawRZ5wq_gMgA" operationName="post" nickname="post-bigdata-customer360-summer-cycler" httpMethod="POST" responseStyle="element" requestStyle="element">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_M7NIwHaOEeawRZ5wq_gMgA"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_M7MhsXaOEeawRZ5wq_gMgA" bindingName="RestService13"/>
+  </sca:service>
+  <sca:service xmi:id="_gPOyQIASEeaY2uTnVwp9zg" name="bigdata-customer360-scheduled-e-payments" promote="ComponentFacadeServices/bigdata-customer360-scheduled-e-payments">
+    <sca:interface.wsdl xmi:id="_gPU44IASEeaY2uTnVwp9zg" interface="http://xmlns.example.com/20160909121142PLT#wsdl.interface(bigdata-customer360-scheduled-e-payments)"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_gPcNoIASEeaY2uTnVwp9zg" name="RestService14" path="/bigdata/customer360/scheduled-e-payments" docBasePath="http://localhost:7777/BigData-Customer360-PortalServices" docResourcePath="GeneralResource" basePath="/" connector="bigdata-customer360-portalservices.GeneralResource" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/bigdata-customer360-portalservices.FacadeServices-GeneralResource.json">
+      <operation xmi:id="_gPdbwIASEeaY2uTnVwp9zg" operationName="post" nickname="post-bigdata-customer360-scheduled-e-payments" httpMethod="POST" responseStyle="element" requestStyle="element">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_gPep4IASEeaY2uTnVwp9zg"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_gPdbwYASEeaY2uTnVwp9zg" bindingName="RestService14"/>
+  </sca:service>
+  <sca:service xmi:id="_rOFsgoASEeaY2uTnVwp9zg" name="bigdata-customer360-budget-bill-estimated-amount" promote="ComponentFacadeServices/bigdata-customer360-budget-bill-estimated-amount">
+    <sca:interface.wsdl xmi:id="_rOGTkIASEeaY2uTnVwp9zg" interface="http://xmlns.example.com/20160909121142PLT#wsdl.interface(bigdata-customer360-budget-bill-estimated-amount)"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_rOKlAIASEeaY2uTnVwp9zg" name="RestService15" path="/bigdata/customer360/budget-bill-estimated-amount" docBasePath="http://localhost:7777/BigData-Customer360-PortalServices" docResourcePath="GeneralResource" basePath="/" connector="bigdata-customer360-portalservices.GeneralResource" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/bigdata-customer360-portalservices.FacadeServices-GeneralResource.json">
+      <operation xmi:id="_rOLMEIASEeaY2uTnVwp9zg" operationName="post" nickname="post-bigdata-customer360-budget-bill-estimated-amount" httpMethod="POST" responseStyle="element" requestStyle="element">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_rOLzIIASEeaY2uTnVwp9zg"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_rOLMEYASEeaY2uTnVwp9zg" bindingName="RestService15"/>
+  </sca:service>
+  <sca:service xmi:id="_0IT1goASEeaY2uTnVwp9zg" name="bigdata-customer360-vectren-profile" promote="ComponentFacadeServices/bigdata-customer360-vectren-profile">
+    <sca:interface.wsdl xmi:id="_0IUckoASEeaY2uTnVwp9zg" interface="http://xmlns.example.com/20160909121142PLT#wsdl.interface(bigdata-customer360-vectren-profile)"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_0IYuAIASEeaY2uTnVwp9zg" name="RestService16" path="/bigdata/customer360/vectren-profile" docBasePath="http://localhost:7777/BigData-Customer360-PortalServices" docResourcePath="GeneralResource" basePath="/" connector="bigdata-customer360-portalservices.GeneralResource" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/bigdata-customer360-portalservices.FacadeServices-GeneralResource.json">
+      <operation xmi:id="_0IZVEIASEeaY2uTnVwp9zg" operationName="post" nickname="post-bigdata-customer360-vectren-profile" httpMethod="POST" responseStyle="element" requestStyle="element">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_0IZ8IIASEeaY2uTnVwp9zg"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_0IZVEYASEeaY2uTnVwp9zg" bindingName="RestService16"/>
+  </sca:service>
+  <sca:service xmi:id="_8xDM8oASEeaY2uTnVwp9zg" name="bigdata-customer360-messages" promote="ComponentFacadeServices/bigdata-customer360-messages">
+    <sca:interface.wsdl xmi:id="_8xD0AYASEeaY2uTnVwp9zg" interface="http://xmlns.example.com/20160909121142PLT#wsdl.interface(bigdata-customer360-messages)" scaext:wsdlLocation="../Processes/bigdata-customer360-portalservices/FacadeServices.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_8xIsgIASEeaY2uTnVwp9zg" name="RestService17" path="/bigdata/customer360/messages" docBasePath="http://localhost:7777/BigData-Customer360-PortalServices" docResourcePath="GeneralResource" basePath="/" connector="bigdata-customer360-portalservices.GeneralResource" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/bigdata-customer360-portalservices.FacadeServices-GeneralResource.json">
+      <operation xmi:id="_8xJTkIASEeaY2uTnVwp9zg" operationName="post" nickname="post-bigdata-customer360-messages" httpMethod="POST" responseStyle="element" requestStyle="element">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_8xJ6oIASEeaY2uTnVwp9zg"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_8xJTkYASEeaY2uTnVwp9zg" bindingName="RestService17"/>
+  </sca:service>
+  <sca:property xmi:id="_WZxtUFiEEean74ACKDjqNg" name="BW.DEPLOYMENTUNIT.TYPE" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_WZ3M4FiEEean74ACKDjqNg" name="BW.APPNODE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_WZ6QMFiEEean74ACKDjqNg" name="BW.DEPLOYMENTUNIT.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_WZ8scFiEEean74ACKDjqNg" name="BW.HOST.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_WZ_IsFiEEean74ACKDjqNg" name="BW.DOMAIN.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_WaBk8FiEEean74ACKDjqNg" name="BW.DEPLOYMENTUNIT.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_WaEBMFiEEean74ACKDjqNg" name="BW.APPSPACE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_WaGdcFiEEean74ACKDjqNg" name="BW.MODULE.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_WaI5sFiEEean74ACKDjqNg" name="BW.MODULE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:component xmi:id="_zjm7QHZ1Eeajo8Ka1bAVJQ" name="ComponentFacadeServices" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_zjm7QXZ1Eeajo8Ka1bAVJQ" processName="bigdata-customer360-portalservices.FacadeServices"/>
+    <sca:service xmi:id="_9qjbcHaIEeaaJOecQM-K7g" name="bigdata-customer360-all">
+      <sca:interface.wsdl xmi:id="_9qkpkHaIEeaaJOecQM-K7g" interface="http://xmlns.example.com/20160909121142PLT#wsdl.interface(bigdata-customer360-all)"/>
+    </sca:service>
+    <sca:service xmi:id="_v6M0gHaJEeaaJOecQM-K7g" name="bigdata-customer360-amr">
+      <sca:interface.wsdl xmi:id="_v6M0gXaJEeaaJOecQM-K7g" interface="http://xmlns.example.com/20160909121142PLT#wsdl.interface(bigdata-customer360-amr)"/>
+    </sca:service>
+    <sca:service xmi:id="_68by4HaJEeaaJOecQM-K7g" name="bigdata-customer360-assistance">
+      <sca:interface.wsdl xmi:id="_68by4XaJEeaaJOecQM-K7g" interface="http://xmlns.example.com/20160909121142PLT#wsdl.interface(bigdata-customer360-assistance)" scaext:wsdlLocation="../Processes/bigdata-customer360-portalservices/subprocesses/FacadeServices.bwp"/>
+    </sca:service>
+    <sca:service xmi:id="_xLX2kHaLEeawRZ5wq_gMgA" name="bigdata-customer360-auto-pay-enroll">
+      <sca:interface.wsdl xmi:id="_xLZEsHaLEeawRZ5wq_gMgA" interface="http://xmlns.example.com/20160909121142PLT#wsdl.interface(bigdata-customer360-auto-pay)"/>
+    </sca:service>
+    <sca:service xmi:id="_6xjtsHaLEeawRZ5wq_gMgA" name="bigdata-customer360-bill-notif-email-changes">
+      <sca:interface.wsdl xmi:id="_6xjtsXaLEeawRZ5wq_gMgA" interface="http://xmlns.example.com/20160909121142PLT#wsdl.interface(bigdata-customer360-bill-notif-email-changes)"/>
+    </sca:service>
+    <sca:service xmi:id="_F5edUHaMEeawRZ5wq_gMgA" name="bigdata-customer360-bill-notif-enrollment-changes">
+      <sca:interface.wsdl xmi:id="_F5edUXaMEeawRZ5wq_gMgA" interface="http://xmlns.example.com/20160909121142PLT#wsdl.interface(bigdata-customer360-bill-notif-enrollment-changes)"/>
+    </sca:service>
+    <sca:service xmi:id="_d2R0sHaMEeawRZ5wq_gMgA" name="bigdata-customer360-bsci-replacement">
+      <sca:interface.wsdl xmi:id="_d2R0sXaMEeawRZ5wq_gMgA" interface="http://xmlns.example.com/20160909121142PLT#wsdl.interface(bigdata-customer360-bsci-replacement)"/>
+    </sca:service>
+    <sca:service xmi:id="_nI6dsHaMEeawRZ5wq_gMgA" name="bigdata-customer360-budget-bill">
+      <sca:interface.wsdl xmi:id="_nI6dsXaMEeawRZ5wq_gMgA" interface="http://xmlns.example.com/20160909121142PLT#wsdl.interface(bigdata-customer360-budget-bill)"/>
+    </sca:service>
+    <sca:service xmi:id="_yvIS4HaMEeawRZ5wq_gMgA" name="bigdata-customer360-electric-outages">
+      <sca:interface.wsdl xmi:id="_yvIS4XaMEeawRZ5wq_gMgA" interface="http://xmlns.example.com/20160909121142PLT#wsdl.interface(bigdata-customer360-outages)"/>
+    </sca:service>
+    <sca:service xmi:id="_W6w-oHaNEeawRZ5wq_gMgA" name="bigdata-customer360-payment-arrangement">
+      <sca:interface.wsdl xmi:id="_W6w-oXaNEeawRZ5wq_gMgA" interface="http://xmlns.example.com/20160909121142PLT#wsdl.interface(bigdata-customer360-payment-arrangement)"/>
+    </sca:service>
+    <sca:service xmi:id="_l0S-sHaNEeawRZ5wq_gMgA" name="bigdata-customer360-payment-due">
+      <sca:interface.wsdl xmi:id="_l0S-sXaNEeawRZ5wq_gMgA" interface="http://xmlns.example.com/20160909121142PLT#wsdl.interface(bigdata-customer360-payment-due)"/>
+    </sca:service>
+    <sca:service xmi:id="_u03nUHaNEeawRZ5wq_gMgA" name="bigdata-customer360-payments">
+      <sca:interface.wsdl xmi:id="_u03nUXaNEeawRZ5wq_gMgA" interface="http://xmlns.example.com/20160909121142PLT#wsdl.interface(bigdata-customer360-payments)"/>
+    </sca:service>
+    <sca:service xmi:id="_FtXpEHaOEeawRZ5wq_gMgA" name="bigdata-customer360-scheduled-payments">
+      <sca:interface.wsdl xmi:id="_FtXpEXaOEeawRZ5wq_gMgA" interface="http://xmlns.example.com/20160909121142PLT#wsdl.interface(bigdata-customer360-scheduled-payments)"/>
+    </sca:service>
+    <sca:service xmi:id="_M6-fQHaOEeawRZ5wq_gMgA" name="bigdata-customer360-summer-cycler">
+      <sca:interface.wsdl xmi:id="_M6-fQXaOEeawRZ5wq_gMgA" interface="http://xmlns.example.com/20160909121142PLT#wsdl.interface(bigdata-customer360-summer-cycler)"/>
+    </sca:service>
+    <sca:service xmi:id="_gPLH4IASEeaY2uTnVwp9zg" name="bigdata-customer360-scheduled-e-payments">
+      <sca:interface.wsdl xmi:id="_gPLu8IASEeaY2uTnVwp9zg" interface="http://xmlns.example.com/20160909121142PLT#wsdl.interface(bigdata-customer360-scheduled-e-payments)"/>
+    </sca:service>
+    <sca:service xmi:id="_rOFsgIASEeaY2uTnVwp9zg" name="bigdata-customer360-budget-bill-estimated-amount">
+      <sca:interface.wsdl xmi:id="_rOFsgYASEeaY2uTnVwp9zg" interface="http://xmlns.example.com/20160909121142PLT#wsdl.interface(bigdata-customer360-budget-bill-estimated-amount)"/>
+    </sca:service>
+    <sca:service xmi:id="_0IT1gIASEeaY2uTnVwp9zg" name="bigdata-customer360-vectren-profile">
+      <sca:interface.wsdl xmi:id="_0IT1gYASEeaY2uTnVwp9zg" interface="http://xmlns.example.com/20160909121142PLT#wsdl.interface(bigdata-customer360-vectren-profile)"/>
+    </sca:service>
+    <sca:service xmi:id="_8xDM8IASEeaY2uTnVwp9zg" name="bigdata-customer360-messages">
+      <sca:interface.wsdl xmi:id="_8xDM8YASEeaY2uTnVwp9zg" interface="http://xmlns.example.com/20160909121142PLT#wsdl.interface(bigdata-customer360-messages)" scaext:wsdlLocation="../Processes/bigdata-customer360-portalservices/FacadeServices.bwp"/>
+    </sca:service>
+  </sca:component>
+</sca:composite>

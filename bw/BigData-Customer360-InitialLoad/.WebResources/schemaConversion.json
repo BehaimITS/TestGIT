@@ -1,0 +1,12 @@
+{"records": [
+    {
+        "jsonSchemaLocation": "/BigData-Customer360-InitialLoad/Service Descriptors/bigdata-customer360-initialload.ReloadASDataByAccount-ReloadASDataByAccount.json",
+        "conversionType": "linked",
+        "xsdSchemaTargetNamespace": "http://behaim.com/vectren/bigdata/customer360view/SimpleInput"
+    },
+    {
+        "jsonSchemaLocation": "/BigData-Customer360-InitialLoad/Service Descriptors/bigdata-customer360-initialload.ReloadASDataByAccount-ReloadASDataByAccount.json",
+        "conversionType": "linked",
+        "xsdSchemaTargetNamespace": "http://tns.tibco.com/bw/REST"
+    }
+]}

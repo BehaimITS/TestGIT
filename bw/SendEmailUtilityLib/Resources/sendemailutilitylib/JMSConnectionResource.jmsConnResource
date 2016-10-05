@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jndi:namedResource xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jms="http://xsd.tns.tibco.com/bw/models/sharedresource/jms" xmlns:jndi="http://xsd.tns.tibco.com/amf/models/sharedresource/jndi" xmi:id="_MPTjUAYEEeaeIZVaaUHP3Q" name="sendemailutilitylib.JMSConnectionResource" type="jms:JMSConnectionFactory">
+  <jndi:reference xmi:id="_MPVYgAYEEeaeIZVaaUHP3Q" key="jndiConnectionJNDIName" type="jms:JNDIConnection" value="sendemailutilitylib.JndiConfForEMS"/>
+  <jndi:configuration xsi:type="jms:JNDIConnectionFactory" xmi:id="_MPVYgQYEEeaeIZVaaUHP3Q" factoryType="Queue/Topic" jndiName="QueueConnectionFactory" topicFactoryJNDIName="TopicConnectionFactory">
+    <substitutionBindings xmi:id="_HrgLgAYFEeaeIZVaaUHP3Q" template="jndiName" propName="/SendEmailUtilityLib/JMSFactoryName"/>
+    <userCredentials xmi:id="_D6CsEAYFEeaeIZVaaUHP3Q">
+      <substitutionBindings xmi:id="_ESPwsAYFEeaeIZVaaUHP3Q" template="password" propName="/SendEmailUtilityLib/EMS/Password"/>
+      <substitutionBindings xmi:id="_FK0XcAYFEeaeIZVaaUHP3Q" template="username" propName="/SendEmailUtilityLib/EMS/Username"/>
+    </userCredentials>
+  </jndi:configuration>
+</jndi:namedResource>

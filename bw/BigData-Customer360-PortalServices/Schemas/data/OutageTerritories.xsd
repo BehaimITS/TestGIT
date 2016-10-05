@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" ?><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://behaimits.com/vectren/bigdata/customer360view/OutageTerritories" xmlns="http://behaimits.com/vectren/bigdata/customer360view/OutageTerritories" elementFormDefault="qualified">
+<xs:complexType name="OutageTerritoriesItemType"><xs:sequence>
+<xs:element name="LKUP_TERRITORY_ID" type="xs:float" />
+<xs:element name="CREW_AREA" type="xs:string" minOccurs="0" />
+<xs:element name="TERRITORY_NAME" type="xs:string" minOccurs="0" />
+</xs:sequence></xs:complexType><xs:element name="OutageTerritoriesItem" type="OutageTerritoriesItemType" /></xs:schema>

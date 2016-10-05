@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Repository:repository xmlns:AESchema="http://www.tibco.com/xmlns/aemeta/types/2002" xmlns:Repository="http://www.tibco.com/xmlns/repo/types/2002" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <AESchema:sequence name="sequence[string]">
+        <AESchema:maxLength>0</AESchema:maxLength>
+        <AESchema:elementType isRef="true">/AESchemas/ae.aeschema#scalar.string</AESchema:elementType>
+    </AESchema:sequence>
+    <AESchema:sequence name="sequence[any]">
+        <AESchema:maxLength>0</AESchema:maxLength>
+        <AESchema:elementType isRef="true">/AESchemas/ae.aeschema#scalar.any</AESchema:elementType>
+    </AESchema:sequence>
+</Repository:repository>

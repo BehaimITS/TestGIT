@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sca:composite xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:XMLSchema="http://www.w3.org/2001/XMLSchema" xmlns:compositeext="http://schemas.tibco.com/amx/3.0/compositeext" xmlns:sca="http://www.osoa.org/xmlns/sca/1.0" xmlns:scaext="http://xsd.tns.tibco.com/amf/models/sca/extensions" xmi:id="_IEpsABEhEeaL3_V-qJ53Ag" targetNamespace="http://tns.tibco.com/bw/composite/ErrorHandlingLib" name="ErrorHandlingLib" compositeext:version="1.0.0" compositeext:description="Shared Module for Error Handling." compositeext:formatVersion="2">
+  <sca:property xmi:id="_IMpKYBEhEeaL3_V-qJ53Ag" name="BW.DEPLOYMENTUNIT.TYPE" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_IMy7YBEhEeaL3_V-qJ53Ag" name="BW.APPNODE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_IM0JgBEhEeaL3_V-qJ53Ag" name="BW.DEPLOYMENTUNIT.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_IM0wkBEhEeaL3_V-qJ53Ag" name="BW.HOST.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_IM7eQBEhEeaL3_V-qJ53Ag" name="BW.DOMAIN.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_IM8sYBEhEeaL3_V-qJ53Ag" name="BW.DEPLOYMENTUNIT.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_IM-hkBEhEeaL3_V-qJ53Ag" name="BW.APPSPACE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_IM_vsBEhEeaL3_V-qJ53Ag" name="BW.MODULE.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_INA90BEhEeaL3_V-qJ53Ag" name="BW.MODULE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_x0F3MBEkEeaL3_V-qJ53Ag" name="/ErrorHandlingLib/SendEmail" type="XMLSchema:boolean" scaext:simpleValue="false" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_EVk1YBElEeaL3_V-qJ53Ag" name="/ErrorHandlingLib/SendEmailTo" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+</sca:composite>

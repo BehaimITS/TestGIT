@@ -1,0 +1,19 @@
+INDEX VERSION 1.127+C:\TestGIT\aa\.metadata\.plugins\org.eclipse.jdt.core
+1942006335.index
+3786190857.index
+2121966333.index
+1519565198.index
+4155393028.index
+852104741.index
+3454293667.index
+1671522856.index
+2580896248.index
+1977809128.index
+3717902700.index
+3435907150.index
+2710361220.index
+2204780824.index
+893762405.index
+620006265.index
+317774990.index
+3695117932.index

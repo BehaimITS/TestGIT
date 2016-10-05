@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:extns="http://Vectren.mail.com" xmlns:tns="http://www.example.org/wsdl/1462520551804" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="SendMessage" targetNamespace="http://www.example.org/wsdl/1462520551804">
+  <wsdl:import namespace="http://Vectren.mail.com"/>
+  <wsdl:message name="MailBox">
+    <wsdl:part element="extns:MailBox" name="parameters"/>
+  </wsdl:message>
+  <wsdl:portType name="SendMessage">
+    <wsdl:operation name="sendMessage">
+      <wsdl:input message="tns:MailBox" name="sendMessageinput"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

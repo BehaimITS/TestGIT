@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="ASCII"?>
+<adadbmodel:ADBRuntimeConnectionConfiguration xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:adadbmodel="http://xsd.tns.tibco.com/adadb/models/adadbmodel" name="AdapterForDatabase" vendor="Oracle" runtimeDriver="tibcosoftwareinc.jdbc.oracle.OracleDriver" runtimeUrl="jdbc:tibcosoftwareinc:oracle://fedora23tib:1521;SID=DB11G" runtimeUser="scott" runtimePassword="#!7+fLpIbvE/l+18grAegSy1vAha9kF3O4">
+  <JDBCProperties/>
+</adadbmodel:ADBRuntimeConnectionConfiguration>

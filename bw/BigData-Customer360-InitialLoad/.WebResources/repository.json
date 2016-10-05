@@ -1,0 +1,29 @@
+{
+    "records": [{
+        "name": "Cloud",
+        "items": [],
+        "url": "http://192.168.59.103:8888"
+    }],
+    "resources": [
+        {
+            "location": "Service Descriptors/bigdata-customer360-initialload.Process-ReloadPaymentOverview.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/bigdata-customer360-initialload.LoadPaymentOverview-Resource.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/bigdata-customer360-initialload.LoadPaymentAch-Resource.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/bigdata-customer360-initialload.LoadPaymentAch-PaymentAchRestResource.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/bigdata-customer360-initialload.ReloadASDataByAccount-ReloadASDataByAccount.json",
+            "type": "generated"
+        }
+    ]
+}

@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:adadbmodel="http://xsd.tns.tibco.com/adadb/models/adadbmodel" xmlns:common="http://xsd.tns.tibco.com/amf/models/adapter/common" xmlns:gac="http://xsd.tns.tibco.com/amf/models/adapter/gac">
+  <adadbmodel:ADBAdapterConfiguration name="AdapterForDatabase" instanceId="AdapterForDatabase" services="#/9 #/11 #/13 #/15 #/17 #/19" reporting="#/4" logging="#/5" monitoring="#/6" transports="#/3 #/7 #/8" channels="#/10 #/12 #/14 #/16 #/18 #/20" vendor="16" runTimeConnection="#/1" convertOracleNumberToString="true" deployOperations="true">
+    <startup active="true" showBanner="true">
+      <components active="true" componentName="ADBHawkDefault"/>
+      <components active="true" componentName="ADBAgentJmsSession"/>
+      <components active="true" componentName="adb_uabpymt"/>
+      <components active="true" componentName="JMSTopic"/>
+      <components active="true" componentName="adb_uardrft"/>
+      <components active="true" componentName="adb_uarpyar"/>
+      <components active="true" componentName="adb_ucbprem"/>
+      <components active="true" componentName="adb_ucracct"/>
+      <components active="true" componentName="adb_ucrserv"/>
+    </startup>
+    <hawk help="TIB/Adapter for ActiveDatabase MicroAgent" microAgentName="COM.TIBCO.adb.custom.%%Deployment%%.%%InstanceId%%" transport="#/3">
+      <methods name="setDebugLevel" help="Sets the debug level for the agent (possible values 0-3)">
+        <inputParameters name="DebugLevel" help="The debug level" type="integer"/>
+      </methods>
+      <methods name="showConfiguration" help="Retrieve configuration information for the agent.">
+        <outputParameters name="VerboseInfo" help="Verbose flag information" type="string"/>
+        <outputParameters name="DebugLevelInfo" help="Debug level information" type="string"/>
+        <outputParameters name="PollIntervalInfo" help="Poll interval information" type="string"/>
+      </methods>
+      <methods name="terminateADBagent" help="Terminates the agent"/>
+      <methods name="toggleVerboseFlag" help="Toggles the value of the verbose flag."/>
+      <methods name="getEventQueueSize" help="Gets number of messages waiting in the event queue.">
+        <inputParameters name="Session" help="Specify subscriber or request/reply listener" type="string" valueChoices="Subscriber,RequestReply"/>
+        <outputParameters name="QueueCount" help="Number of events in the queue" type="integer"/>
+        <outputParameters name="QueueLimit" help="Maximum number of events in queue (0 = unlimited)" type="integer"/>
+      </methods>
+      <methods name="getActivityStatistics" help="Get statistics about the data handled by the adapter instance" index="Name">
+        <inputParameters name="Get Subtotal By" help="Get statistics by either service or operation" type="string" valueChoices="Service,Operation"/>
+        <outputParameters name="Name" help="Service Name" type="string"/>
+        <outputParameters name="Total" help="Total number of objects processed" type="integer"/>
+        <outputParameters name="Success" help="Total number of objects successfully processed" type="integer"/>
+        <outputParameters name="Failure" help="Total number of objects that caused an error during processing" type="integer"/>
+      </methods>
+      <methods name="getActivityStatisticsByService" help="Get statistics about the data handled by a particular adapter service" index="Operation">
+        <inputParameters name="Service Name" help="Name of which service to get the statistic for" type="string"/>
+        <outputParameters name="Operation" help="The type of operation this service provides" type="string"/>
+        <outputParameters name="SchemaName" help="Name of the top level schema processed by this service, or the subject of a request/response service" type="string"/>
+        <outputParameters name="Total" help="Total number of objects processed" type="integer"/>
+        <outputParameters name="Success" help="Total number of objects successfully processed" type="integer"/>
+        <outputParameters name="Failure" help="Total number of objects that caused an error during processing" type="integer"/>
+      </methods>
+      <methods name="getActivityStatisticsByOperation" help="Get statistics about one operation" index="ServiceName">
+        <inputParameters name="Operation" help="Name of the operation" type="string" valueChoices="fetch,insert,update,delete,request/reply,standard_operation,custom_operation"/>
+        <outputParameters name="ServiceName" help="Name of the Service" type="string"/>
+        <outputParameters name="Total" help="Total number of objects processed" type="integer"/>
+        <outputParameters name="Success" help="Total number of objects successfully processed" type="integer"/>
+        <outputParameters name="Failure" help="Total number of objects that caused an error during processing" type="integer"/>
+      </methods>
+      <methods name="getThreadStatistics" help="Get operation counts of the current threads" index="TaskType">
+        <outputParameters name="ThreadID" help="A unique identification of a particular thread" type="string"/>
+        <outputParameters name="ThreadType" help="A type that tells what part of the adapter this thread belongs to" type="string"/>
+        <outputParameters name="TaskType" help="Description of the tasks this thread processes" type="string"/>
+        <outputParameters name="TaskCount" help="Number of tasks processed by this thread" type="integer"/>
+      </methods>
+      <methods name="getQueueStatistics" help="Get statistics about current count of elements in any internal queue" index="QueueID">
+        <outputParameters name="QueueID" help="A unique identification of a particular queue" type="string"/>
+        <outputParameters name="QueueType" help="A type that will match this queue to a thread or connection" type="string"/>
+        <outputParameters name="QueueCount" help="Current number of elements in the queue" type="integer"/>
+        <outputParameters name="MaxQueueSize" help="Maximum number of elements that can be held in this queue" type="integer"/>
+      </methods>
+      <methods name="getConnectionStatistics" help="Return the state and statistics for all the curent connections used by the adapter" index="ConnectionID">
+        <outputParameters name="ConnectionID" help="A unique identification of a particular connection" type="string"/>
+        <outputParameters name="ConnectionType" help="Describe the purpose of this connection serves to the adapter" type="string"/>
+        <outputParameters name="State" help="Current state of the connection" type="string"/>
+        <outputParameters name="NumRetries" help="Total number of times this connection had been re-established" type="integer"/>
+        <outputParameters name="TotalNumOperations" help="Total number of operations processed by this connection" type="integer"/>
+        <outputParameters name="CurrentNumOperations" help="Total number of operations processed by this connection since the last reconnection" type="integer"/>
+      </methods>
+      <methods name="resetActivityStatistics" help="Reset all the counts for the activity statistics"/>
+      <methods name="resetThreadStatistics" help="Reset all the counts for the thread statistics"/>
+      <methods name="resetConnectionStatistics" help="Reset all the counts for the connection statistics"/>
+      <methods name="setPollingInterval" help="Set the polling interval setting">
+        <inputParameters name="PollingInterval" help="Polling interval in milliseconds" type="integer"/>
+      </methods>
+      <methods name="getPollingInterval" help="Get the current polling interval setting">
+        <outputParameters name="PollingInterval" help="Polling interval in milliseconds" type="integer"/>
+      </methods>
+      <methods name="setPollingBatchSize" help="Set the polling polling batch size setting">
+        <inputParameters name="PollingBatchSize" help="Polling batch size" type="integer"/>
+      </methods>
+      <methods name="getPollingBatchSize" help="Get the current polling batch size setting">
+        <outputParameters name="PollingBatchSize" help="Polling batch size" type="integer"/>
+      </methods>
+      <methods name="getPerfMonSetting" help="Get the setting of the perfMon option">
+        <outputParameters name="Setting" help="Value of PerfMon option" type="string"/>
+      </methods>
+    </hawk>
+    <metadata>
+      <loadUrl url="/AESchemas/ae/ADB/adbmetadata.aeschema"/>
+      <loadUrl url="/AESchemas/ae/ADB/AdapterForDatabase.schema"/>
+      <loadUrl url="/AESchemas/ae/ADB/AdapterForDatabase.aeschema"/>
+    </metadata>
+    <serviceOptions>
+      <allPublicationServices/>
+      <allSubscriptionServices/>
+      <allRequestResponseServices/>
+    </serviceOptions>
+    <adminOptions languageEncoding="ASCII" useTraceFile="" scriptFileName="%%ADBScriptFileDir%%\AdapterForDatabase.sql">
+      <substitutionBindings template="%%Domain%%.%%Deployment%%.adb.%%InstanceId%%.exit" propName="terminationSubjectorTopic"/>
+      <substitutionBindings template="%%Domain%%.%%Deployment%%.adb.%%InstanceId%%" propName="jmsDestinationPrefix"/>
+    </adminOptions>
+    <asOptions invocationThreadCount="32" connectionTimeout="30000"/>
+  </adadbmodel:ADBAdapterConfiguration>
+  <adadbmodel:ADBRuntimeConnection retryInterval="10000" retryAttempts="3" reconnectionAttemptsBeforeSuspend="1" adbConnectionConfiguration="ADBConnections/AdapterForDatabase.sharedadbc#/"/>
+  <adadbmodel:ADBRuntimeConnectionConfiguration>
+    <JDBCProperties/>
+    <password/>
+  </adadbmodel:ADBRuntimeConnectionConfiguration>
+  <common:RVConfiguration name="ADBHawkDefault">
+    <substitutionBindings template="%%TIBHawkService%%" propName="service"/>
+    <substitutionBindings template="%%TIBHawkNetwork%%" propName="network"/>
+    <substitutionBindings template="%%TIBHawkDaemon%%" propName="daemon"/>
+  </common:RVConfiguration>
+  <gac:Reporting name="adb_Reporting">
+    <sinks xsi:type="gac:FileSink" name="fileSink" fileLimit="30000" fileCount="3" appendMode="true">
+      <substitutionBindings template="%%DirTrace%%/%%Deployment%%.%%InstanceId%%.log" propName="fileName"/>
+      <roles name="infoRole"/>
+      <roles name="debugRole"/>
+      <roles name="errorRole"/>
+      <roles name="warnRole"/>
+    </sinks>
+    <sinks xsi:type="gac:StdioSink" name="stdioSink">
+      <roles name="infoRole"/>
+      <roles name="debugRole"/>
+      <roles name="errorRole"/>
+      <roles name="warnRole"/>
+    </sinks>
+  </gac:Reporting>
+  <gac:Logging name="adb_Logging" logDebugMessages="true">
+    <substitutionBindings template="%%DirTrace%%/%%Deployment%%.%%InstanceId%%.log" propName="logfileName"/>
+  </gac:Logging>
+  <gac:Monitoring name="adb_Monitoring" standardMicroAgentName="COM.TIBCO.ADAPTER.adb.%%Deployment%%.%%InstanceId%%" standardMicroAgentTimeout="10000" classMicroAgentName="COM.TIBCO.adb.%%Deployment%%.%%InstanceId%%" classMicroAgentTimeout="10000" defaultMicroAgentTransport="#/3">
+    <substitutionBindings template="%%HawkEnabled%%" propName="enableClassMicroAgent"/>
+    <substitutionBindings template="COM.TIBCO.ADAPTER.adb.%%Deployment%%.%%InstanceId%%" propName="standardMicroAgentName"/>
+    <substitutionBindings template="COM.TIBCO.adb.%%Deployment%%.%%InstanceId%%" propName="classMicroAgentName"/>
+  </gac:Monitoring>
+  <common:JMSConnectionConfiguration name="JMSTopic" useJNDI="false" factoryName="TopicConnectionFactory">
+    <substitutionBindings template="%%JmsProviderUrl%%" propName="providerURL"/>
+  </common:JMSConnectionConfiguration>
+  <common:JMSConnectionConfiguration name="ADBAgentJmsSession" useJNDI="false" providerURL="%%JmsProviderUrl%%" factoryName="TopicConnectionFactory"/>
+  <adadbmodel:ADBPublisher name="adb_uabpymt" transportConfiguration="#/7" classReference="AESchemas/ae/ADB/AdapterForDatabase.schema#P_UABPYMT" channel="#/10" transportType="jms" qualityOfService="ae.sessions.jmssession" publishingTable="P_UABPYMT" sourceTable="UABPYMT" streamsOutputQueue="ADB_UABPYMT_OUT" streamsSchema="SCOTT" outputQPayloadType="ADB_UABPYMT_OBJ" captureProName="ADB_UABPYMT_CAP" dbInstanceID="DB11G" inputQueue="ADB_UABPYMT_IN" dmlHandlerName="ADB_UABPYMT_DM_HANDLE" applyProcessName="ADB_UABPYMT_APPLY" pubFlag="0">
+    <dbOptions/>
+    <columnsToPublish>UABPYMT_AR_TRANS</columnsToPublish>
+    <columnsToPublish>UABPYMT_ORIGIN</columnsToPublish>
+    <columnsToPublish>UABPYMT_SOURCE</columnsToPublish>
+    <columnsToPublish>UABPYMT_CUST_CODE</columnsToPublish>
+    <columnsToPublish>UABPYMT_PREM_CODE</columnsToPublish>
+    <columnsToPublish>UABPYMT_PYMT_DATE</columnsToPublish>
+    <columnsToPublish>UABPYMT_ACTIVITY_DATE</columnsToPublish>
+    <columnsToPublish>UABPYMT_USER_ID</columnsToPublish>
+    <columnsToPublish>UABPYMT_PRINTED_IND</columnsToPublish>
+    <columnsToPublish>UABPYMT_PYCD_CODE</columnsToPublish>
+    <columnsToPublish>UABPYMT_APPL_IND</columnsToPublish>
+    <columnsToPublish>UABPYMT_GL_IND</columnsToPublish>
+    <columnsToPublish>UABPYMT_APPROVED_IND</columnsToPublish>
+    <columnsToPublish>UABPYMT_AMOUNT</columnsToPublish>
+    <columnsToPublish>UABPYMT_BALANCE</columnsToPublish>
+    <columnsToPublish>UABPYMT_PRINTED_DATE</columnsToPublish>
+    <columnsToPublish>UABPYMT_BHST_TRAN_NUM</columnsToPublish>
+    <columnsToPublish>UABPYMT_PAYMENT_REF</columnsToPublish>
+    <columnsToPublish>UABPYMT_ASVC_CODE</columnsToPublish>
+    <columnsToPublish>UABPYMT_RESP_ID</columnsToPublish>
+    <columnsToPublish>UABPYMT_CANCEL_TRANS</columnsToPublish>
+    <columnsToPublish>UABPYMT_FEED_DOC_CODE</columnsToPublish>
+    <columnsToPublish>UABPYMT_FEED_SEQ_NUM</columnsToPublish>
+    <columnsToPublish>UABPYMT_CUST_CODE_THIRD_PRTY</columnsToPublish>
+    <columnsToPublish>UABPYMT_RESV_CODE</columnsToPublish>
+    <columnsToPublish>UABPYMT_MBIL_NUM</columnsToPublish>
+    <columnsToPublish>UABPYMT_PAYMENT_REF_B</columnsToPublish>
+    <columnsToPublish>UABPYMT_TRANS_NUM</columnsToPublish>
+    <columnsToPublish>UABPYMT_BUSINESS_POST_DATE</columnsToPublish>
+    <columnsToPublish>UABPYMT_APGP_CODE_PURGABLE</columnsToPublish>
+    <dbOperProperties isDefault="false" sourceTableSchema="SCOTT" sourceTable="UABPYMT" publishingTableSchema="SCOTT" publishingTable="P_UABPYMT" updateMode="Update" storageMode="Publish by Value" loopDetection="false" noTriggers="false" columnsToPublish="UABPYMT_AR_TRANS, UABPYMT_ORIGIN, UABPYMT_SOURCE, UABPYMT_CUST_CODE, UABPYMT_PREM_CODE, UABPYMT_PYMT_DATE, UABPYMT_ACTIVITY_DATE, UABPYMT_USER_ID, UABPYMT_PRINTED_IND, UABPYMT_PYCD_CODE, UABPYMT_APPL_IND, UABPYMT_GL_IND, UABPYMT_APPROVED_IND, UABPYMT_AMOUNT, UABPYMT_BALANCE, UABPYMT_PRINTED_DATE, UABPYMT_BHST_TRAN_NUM, UABPYMT_PAYMENT_REF, UABPYMT_ASVC_CODE, UABPYMT_RESP_ID, UABPYMT_CANCEL_TRANS, UABPYMT_FEED_DOC_CODE, UABPYMT_FEED_SEQ_NUM, UABPYMT_CUST_CODE_THIRD_PRTY, UABPYMT_RESV_CODE, UABPYMT_MBIL_NUM, UABPYMT_PAYMENT_REF_B, UABPYMT_TRANS_NUM, UABPYMT_BUSINESS_POST_DATE, UABPYMT_APGP_CODE_PURGABLE" columnsToFireUpdateTrigger="" userDefinedKey="UABPYMT_CUST_CODE, UABPYMT_PREM_CODE" captureProType="Synchronous" streamsOutputQueue="ADB_UABPYMT_OUT" streamsSchema="SCOTT" outputQPayloadType="ADB_UABPYMT_OBJ" captureProName="ADB_UABPYMT_CAP" dbInstanceID="DB11G" inputQueue="ADB_UABPYMT_IN" dmlHandlerName="ADB_UABPYMT_DM_HANDLE" applyProcessName="ADB_UABPYMT_APPLY"/>
+  </adadbmodel:ADBPublisher>
+  <gac:ProducerChannel name="adb_uabpymt" transportConfiguration="#/7" wireFormat="aeXml" destination="%%Domain%%.%%Deployment%%.Banner.BD.Topic.Cust360.Uabpymt" endpointType="endpoint.JMSPublisher" channelType="jmsProducer"/>
+  <adadbmodel:ADBPublisher name="adb_uardrft" transportConfiguration="#/7" classReference="AESchemas/ae/ADB/AdapterForDatabase.schema#P_UARDRFT" channel="#/12" transportType="jms" qualityOfService="ae.sessions.jmssession" publishingTable="P_UARDRFT" sourceTable="UARDRFT" streamsOutputQueue="ADB_UARDRFT_OUT" streamsSchema="SCOTT" outputQPayloadType="ADB_UARDRFT_OBJ" captureProName="ADB_UARDRFT_CAP" dbInstanceID="DB11G" inputQueue="ADB_UARDRFT_IN" dmlHandlerName="ADB_UARDRFT_DM_HANDLE" applyProcessName="ADB_UARDRFT_APPLY" pubFlag="0">
+    <dbOptions/>
+    <columnsToPublish>UARDRFT_CUST_CODE</columnsToPublish>
+    <columnsToPublish>UARDRFT_PREM_CODE</columnsToPublish>
+    <columnsToPublish>UARDRFT_FILE_DATE</columnsToPublish>
+    <columnsToPublish>UARDRFT_HOLD_UNTIL_DATE</columnsToPublish>
+    <columnsToPublish>UARDRFT_ACTIVITY_DATE</columnsToPublish>
+    <columnsToPublish>UARDRFT_TRANS_CODE</columnsToPublish>
+    <columnsToPublish>UARDRFT_CUST_BANK_TRANS</columnsToPublish>
+    <columnsToPublish>UARDRFT_CUST_BANK_ABA</columnsToPublish>
+    <columnsToPublish>UARDRFT_CUST_BANK_CKDGT</columnsToPublish>
+    <columnsToPublish>UARDRFT_CUST_BANK_ACCT_NO</columnsToPublish>
+    <columnsToPublish>UARDRFT_AMOUNT</columnsToPublish>
+    <columnsToPublish>UARDRFT_USER_ID</columnsToPublish>
+    <columnsToPublish>UARDRFT_DRAFT_NUMBER</columnsToPublish>
+    <columnsToPublish>UARDRFT_HOLD_IND</columnsToPublish>
+    <columnsToPublish>UARDRFT_MBIL_NUM</columnsToPublish>
+    <columnsToPublish>UARDRFT_CUST_BANK_ACCT_NO_ENC</columnsToPublish>
+    <dbOperProperties isDefault="false" sourceTableSchema="SCOTT" sourceTable="UARDRFT" publishingTableSchema="SCOTT" publishingTable="P_UARDRFT" updateMode="Update" storageMode="Publish by Value" loopDetection="false" noTriggers="false" columnsToPublish="UARDRFT_CUST_CODE, UARDRFT_PREM_CODE, UARDRFT_FILE_DATE, UARDRFT_HOLD_UNTIL_DATE, UARDRFT_ACTIVITY_DATE, UARDRFT_TRANS_CODE, UARDRFT_CUST_BANK_TRANS, UARDRFT_CUST_BANK_ABA, UARDRFT_CUST_BANK_CKDGT, UARDRFT_CUST_BANK_ACCT_NO, UARDRFT_AMOUNT, UARDRFT_USER_ID, UARDRFT_DRAFT_NUMBER, UARDRFT_HOLD_IND, UARDRFT_MBIL_NUM, UARDRFT_CUST_BANK_ACCT_NO_ENC" columnsToFireUpdateTrigger="" userDefinedKey="UARDRFT_CUST_CODE, UARDRFT_PREM_CODE" captureProType="Synchronous" streamsOutputQueue="ADB_UARDRFT_OUT" streamsSchema="SCOTT" outputQPayloadType="ADB_UARDRFT_OBJ" captureProName="ADB_UARDRFT_CAP" dbInstanceID="DB11G" inputQueue="ADB_UARDRFT_IN" dmlHandlerName="ADB_UARDRFT_DM_HANDLE" applyProcessName="ADB_UARDRFT_APPLY"/>
+  </adadbmodel:ADBPublisher>
+  <gac:ProducerChannel name="adb_uardrft" transportConfiguration="#/7" wireFormat="aeXml" destination="%%Domain%%.%%Deployment%%.Banner.BD.Topic.Cust360.Uardrft" endpointType="endpoint.JMSPublisher" channelType="jmsProducer"/>
+  <adadbmodel:ADBPublisher name="adb_uarpyar" transportConfiguration="#/7" classReference="AESchemas/ae/ADB/AdapterForDatabase.schema#P_UARPYAR" channel="#/14" transportType="jms" qualityOfService="ae.sessions.jmssession" publishingTable="P_UARPYAR" sourceTable="UARPYAR" streamsOutputQueue="ADB_UARPYAR_OUT" streamsSchema="SCOTT" outputQPayloadType="ADB_UARPYAR_OBJ" captureProName="ADB_UARPYAR_CAP" dbInstanceID="DB11G" inputQueue="ADB_UARPYAR_IN" dmlHandlerName="ADB_UARPYAR_DM_HANDLE" applyProcessName="ADB_UARPYAR_APPLY" pubFlag="0">
+    <dbOptions/>
+    <columnsToPublish>UARPYAR_CUST_CODE</columnsToPublish>
+    <columnsToPublish>UARPYAR_PREM_CODE</columnsToPublish>
+    <columnsToPublish>UARPYAR_ARRNG_NUM</columnsToPublish>
+    <columnsToPublish>UARPYAR_ENTRY_TYPE</columnsToPublish>
+    <columnsToPublish>UARPYAR_AMT_DUE</columnsToPublish>
+    <columnsToPublish>UARPYAR_BALANCE</columnsToPublish>
+    <columnsToPublish>UARPYAR_DATE_DUE</columnsToPublish>
+    <columnsToPublish>UARPYAR_ACTIVITY_DATE</columnsToPublish>
+    <columnsToPublish>UARPYAR_USER_ID</columnsToPublish>
+    <columnsToPublish>UARPYAR_DATE_PAID_IN_FULL</columnsToPublish>
+    <columnsToPublish>UARPYAR_OPEN_AR_TRANS</columnsToPublish>
+    <columnsToPublish>UARPYAR_MBIL_NUM</columnsToPublish>
+    <columnsToPublish>UARPYAR_INSTALLMENT_IND</columnsToPublish>
+    <columnsToPublish>UARPYAR_SEQ_NUM</columnsToPublish>
+    <columnsToPublish>UARPYAR_BILLED_INST_AMT</columnsToPublish>
+    <columnsToPublish>UARPYAR_PRINTED_DATE</columnsToPublish>
+    <columnsToPublish>UARPYAR_FIXED_AMT</columnsToPublish>
+    <columnsToPublish>UARPYAR_OTHER_CHARGES</columnsToPublish>
+    <columnsToPublish>UARPYAR_ACTUAL_AMT</columnsToPublish>
+    <dbOperProperties isDefault="false" sourceTableSchema="SCOTT" sourceTable="UARPYAR" publishingTableSchema="SCOTT" publishingTable="P_UARPYAR" updateMode="Update" storageMode="Publish by Value" loopDetection="false" noTriggers="false" columnsToPublish="UARPYAR_CUST_CODE, UARPYAR_PREM_CODE, UARPYAR_ARRNG_NUM, UARPYAR_ENTRY_TYPE, UARPYAR_AMT_DUE, UARPYAR_BALANCE, UARPYAR_DATE_DUE, UARPYAR_ACTIVITY_DATE, UARPYAR_USER_ID, UARPYAR_DATE_PAID_IN_FULL, UARPYAR_OPEN_AR_TRANS, UARPYAR_MBIL_NUM, UARPYAR_INSTALLMENT_IND, UARPYAR_SEQ_NUM, UARPYAR_BILLED_INST_AMT, UARPYAR_PRINTED_DATE, UARPYAR_FIXED_AMT, UARPYAR_OTHER_CHARGES, UARPYAR_ACTUAL_AMT" columnsToFireUpdateTrigger="" userDefinedKey="UARPYAR_CUST_CODE, UARPYAR_PREM_CODE" captureProType="Synchronous" streamsOutputQueue="ADB_UARPYAR_OUT" streamsSchema="SCOTT" outputQPayloadType="ADB_UARPYAR_OBJ" captureProName="ADB_UARPYAR_CAP" dbInstanceID="DB11G" inputQueue="ADB_UARPYAR_IN" dmlHandlerName="ADB_UARPYAR_DM_HANDLE" applyProcessName="ADB_UARPYAR_APPLY"/>
+  </adadbmodel:ADBPublisher>
+  <gac:ProducerChannel name="adb_uarpyar" transportConfiguration="#/7" wireFormat="aeXml" destination="%%Domain%%.%%Deployment%%.Banner.BD.Topic.Cust360.uarpyar" endpointType="endpoint.JMSPublisher" channelType="jmsProducer"/>
+  <adadbmodel:ADBPublisher name="adb_ucbprem" transportConfiguration="#/7" classReference="AESchemas/ae/ADB/AdapterForDatabase.schema#P_UCBPREM" channel="#/16" transportType="jms" qualityOfService="ae.sessions.jmssession" publishingTable="P_UCBPREM" sourceTable="UCBPREM" streamsOutputQueue="ADB_UCBPREM_OUT" streamsSchema="SCOTT" outputQPayloadType="ADB_UCBPREM_OBJ" captureProName="ADB_UCBPREM_CAP" dbInstanceID="DB11G" inputQueue="ADB_UCBPREM_IN" dmlHandlerName="ADB_UCBPREM_DM_HANDLE" applyProcessName="ADB_UCBPREM_APPLY" pubFlag="0">
+    <dbOptions/>
+    <columnsToPublish>UCBPREM_CODE</columnsToPublish>
+    <columnsToPublish>UCBPREM_STREET_NAME</columnsToPublish>
+    <columnsToPublish>UCBPREM_DATE_CREATED</columnsToPublish>
+    <columnsToPublish>UCBPREM_ACTIVITY_DATE</columnsToPublish>
+    <columnsToPublish>UCBPREM_USER_ID</columnsToPublish>
+    <columnsToPublish>UCBPREM_ALTERNATE_LOCATION</columnsToPublish>
+    <columnsToPublish>UCBPREM_PARCEL_ID</columnsToPublish>
+    <columnsToPublish>UCBPREM_CENSUS_TRACT</columnsToPublish>
+    <columnsToPublish>UCBPREM_GRID</columnsToPublish>
+    <columnsToPublish>UCBPREM_MAP</columnsToPublish>
+    <columnsToPublish>UCBPREM_BLOCK</columnsToPublish>
+    <columnsToPublish>UCBPREM_LOT</columnsToPublish>
+    <columnsToPublish>UCBPREM_STREET_NUMBER</columnsToPublish>
+    <columnsToPublish>UCBPREM_PDIR_CODE_PRE</columnsToPublish>
+    <columnsToPublish>UCBPREM_SSFX_CODE</columnsToPublish>
+    <columnsToPublish>UCBPREM_PDIR_CODE_POST</columnsToPublish>
+    <columnsToPublish>UCBPREM_UTYP_CODE</columnsToPublish>
+    <columnsToPublish>UCBPREM_UNIT</columnsToPublish>
+    <columnsToPublish>UCBPREM_CITY</columnsToPublish>
+    <columnsToPublish>UCBPREM_STAT_CODE_ADDR</columnsToPublish>
+    <columnsToPublish>UCBPREM_ZIPC_CODE</columnsToPublish>
+    <columnsToPublish>UCBPREM_DELIVERY_POINT</columnsToPublish>
+    <columnsToPublish>UCBPREM_CAR_RT</columnsToPublish>
+    <columnsToPublish>UCBPREM_I_O_CITY_IND</columnsToPublish>
+    <columnsToPublish>UCBPREM_PERMIT_CODE</columnsToPublish>
+    <columnsToPublish>UCBPREM_CUST_CODE_DEVELOPER</columnsToPublish>
+    <columnsToPublish>UCBPREM_CUST_CODE_OWNER</columnsToPublish>
+    <columnsToPublish>UCBPREM_MUNI_CODE</columnsToPublish>
+    <columnsToPublish>UCBPREM_STAT_CODE_REV</columnsToPublish>
+    <columnsToPublish>UCBPREM_CNTY_CODE</columnsToPublish>
+    <columnsToPublish>UCBPREM_NATN_CODE</columnsToPublish>
+    <columnsToPublish>UCBPREM_SDIS_CODE</columnsToPublish>
+    <columnsToPublish>UCBPREM_BDIS_CODE</columnsToPublish>
+    <columnsToPublish>UCBPREM_SDIV_CODE</columnsToPublish>
+    <columnsToPublish>UCBPREM_DATE_RETIRED</columnsToPublish>
+    <columnsToPublish>UCBPREM_AREA_IMPERV</columnsToPublish>
+    <columnsToPublish>UCBPREM_HAZARD_IND</columnsToPublish>
+    <columnsToPublish>UCBPREM_DWTP_CODE</columnsToPublish>
+    <columnsToPublish>UCBPREM_STREET_NAME_SDX</columnsToPublish>
+    <columnsToPublish>UCBPREM_CYCL_CODE</columnsToPublish>
+    <columnsToPublish>UCBPREM_DISPATCH_AREA</columnsToPublish>
+    <columnsToPublish>UCBPREM_ROUTE_CODE</columnsToPublish>
+    <columnsToPublish>UCBPREM_LATITUDE</columnsToPublish>
+    <columnsToPublish>UCBPREM_LONGITUDE</columnsToPublish>
+    <columnsToPublish>UCBPREM_RJUR_CODE</columnsToPublish>
+    <columnsToPublish>UCBPREM_TJUR_CODE</columnsToPublish>
+    <columnsToPublish>UCBPREM_DFLT_SPRO_CODE</columnsToPublish>
+    <columnsToPublish>UCBPREM_HIGHOCCUPANCY_IND</columnsToPublish>
+    <columnsToPublish>UCBPREM_DWELL_OWN_RENT</columnsToPublish>
+    <columnsToPublish>UCBPREM_DWELL_LOC_TYPE</columnsToPublish>
+    <columnsToPublish>UCBPREM_DWELL_UNIT_TYPE</columnsToPublish>
+    <columnsToPublish>UCBPREM_DWELL_PROP_TYPE</columnsToPublish>
+    <dbOperProperties isDefault="false" sourceTableSchema="SCOTT" sourceTable="UCBPREM" publishingTableSchema="SCOTT" publishingTable="P_UCBPREM" updateMode="Update" storageMode="Publish by Value" loopDetection="false" noTriggers="false" columnsToPublish="UCBPREM_CODE, UCBPREM_STREET_NAME, UCBPREM_DATE_CREATED, UCBPREM_ACTIVITY_DATE, UCBPREM_USER_ID, UCBPREM_ALTERNATE_LOCATION, UCBPREM_PARCEL_ID, UCBPREM_CENSUS_TRACT, UCBPREM_GRID, UCBPREM_MAP, UCBPREM_BLOCK, UCBPREM_LOT, UCBPREM_STREET_NUMBER, UCBPREM_PDIR_CODE_PRE, UCBPREM_SSFX_CODE, UCBPREM_PDIR_CODE_POST, UCBPREM_UTYP_CODE, UCBPREM_UNIT, UCBPREM_CITY, UCBPREM_STAT_CODE_ADDR, UCBPREM_ZIPC_CODE, UCBPREM_DELIVERY_POINT, UCBPREM_CAR_RT, UCBPREM_I_O_CITY_IND, UCBPREM_PERMIT_CODE, UCBPREM_CUST_CODE_DEVELOPER, UCBPREM_CUST_CODE_OWNER, UCBPREM_MUNI_CODE, UCBPREM_STAT_CODE_REV, UCBPREM_CNTY_CODE, UCBPREM_NATN_CODE, UCBPREM_SDIS_CODE, UCBPREM_BDIS_CODE, UCBPREM_SDIV_CODE, UCBPREM_DATE_RETIRED, UCBPREM_AREA_IMPERV, UCBPREM_HAZARD_IND, UCBPREM_DWTP_CODE, UCBPREM_STREET_NAME_SDX, UCBPREM_CYCL_CODE, UCBPREM_DISPATCH_AREA, UCBPREM_ROUTE_CODE, UCBPREM_LATITUDE, UCBPREM_LONGITUDE, UCBPREM_RJUR_CODE, UCBPREM_TJUR_CODE, UCBPREM_DFLT_SPRO_CODE, UCBPREM_HIGHOCCUPANCY_IND, UCBPREM_DWELL_OWN_RENT, UCBPREM_DWELL_LOC_TYPE, UCBPREM_DWELL_UNIT_TYPE, UCBPREM_DWELL_PROP_TYPE" columnsToFireUpdateTrigger="" userDefinedKey="UCBPREM_CODE, UCBPREM_USER_ID" captureProType="Synchronous" streamsOutputQueue="ADB_UCBPREM_OUT" streamsSchema="SCOTT" outputQPayloadType="ADB_UCBPREM_OBJ" captureProName="ADB_UCBPREM_CAP" dbInstanceID="DB11G" inputQueue="ADB_UCBPREM_IN" dmlHandlerName="ADB_UCBPREM_DM_HANDLE" applyProcessName="ADB_UCBPREM_APPLY"/>
+  </adadbmodel:ADBPublisher>
+  <gac:ProducerChannel name="adb_ucbprem" transportConfiguration="#/7" classReference="AESchemas/ae/ADB/AdapterForDatabase.schema#P_UCBPREM" wireFormat="aeXml" destination="%%Domain%%.%%Deployment%%.Banner.BD.Topic.Cust360.Ucbprem" endpointType="endpoint.JMSPublisher" channelType="jmsProducer"/>
+  <adadbmodel:ADBPublisher name="adb_ucracct" transportConfiguration="#/7" classReference="AESchemas/ae/ADB/AdapterForDatabase.schema#P_UCRACCT" channel="#/18" transportType="jms" qualityOfService="ae.sessions.jmssession" publishingTable="P_UCRACCT" sourceTable="UCRACCT" streamsOutputQueue="ADB_UCRACCT_OUT" streamsSchema="SCOTT" outputQPayloadType="ADB_UCRACCT_OBJ" captureProName="ADB_UCRACCT_CAP" dbInstanceID="DB11G" inputQueue="ADB_UCRACCT_IN" dmlHandlerName="ADB_UCRACCT_DM_HANDLE" applyProcessName="ADB_UCRACCT_APPLY" pubFlag="0">
+    <dbOptions/>
+    <columnsToPublish>UCRACCT_PREM_CODE</columnsToPublish>
+    <columnsToPublish>UCRACCT_CUST_CODE</columnsToPublish>
+    <columnsToPublish>UCRACCT_STATUS_IND</columnsToPublish>
+    <columnsToPublish>UCRACCT_CYCL_CODE</columnsToPublish>
+    <columnsToPublish>UCRACCT_ESTABLISHED_DATE</columnsToPublish>
+    <columnsToPublish>UCRACCT_ACTIVITY_DATE</columnsToPublish>
+    <columnsToPublish>UCRACCT_USER_ID</columnsToPublish>
+    <columnsToPublish>UCRACCT_DBA</columnsToPublish>
+    <columnsToPublish>UCRACCT_ACCT_CODE</columnsToPublish>
+    <columnsToPublish>UCRACCT_CUST_CODE_RESP</columnsToPublish>
+    <columnsToPublish>UCRACCT_NUM_COPIES</columnsToPublish>
+    <columnsToPublish>UCRACCT_PENALTY_EXEMPT_IND</columnsToPublish>
+    <columnsToPublish>UCRACCT_DQNT_CODE</columnsToPublish>
+    <columnsToPublish>UCRACCT_LSUP_CODE</columnsToPublish>
+    <columnsToPublish>UCRACCT_MAIL_IND</columnsToPublish>
+    <columnsToPublish>UCRACCT_BUNCH_CODE</columnsToPublish>
+    <columnsToPublish>UCRACCT_BMSG_CODE</columnsToPublish>
+    <columnsToPublish>UCRACCT_SICC_CODE</columnsToPublish>
+    <columnsToPublish>UCRACCT_SS_CHECK_DAY</columnsToPublish>
+    <columnsToPublish>UCRACCT_PMNT_ARR</columnsToPublish>
+    <columnsToPublish>UCRACCT_ARRNG_NUM</columnsToPublish>
+    <columnsToPublish>UCRACCT_ENAS_CODE</columnsToPublish>
+    <columnsToPublish>UCRACCT_BANK_CODE</columnsToPublish>
+    <columnsToPublish>UCRACCT_BANK_ACCT</columnsToPublish>
+    <columnsToPublish>UCRACCT_CHECK_SAVING_IND</columnsToPublish>
+    <columnsToPublish>UCRACCT_DRAFT_ACCT_STATUS</columnsToPublish>
+    <columnsToPublish>UCRACCT_DRAFT_MAX</columnsToPublish>
+    <columnsToPublish>UCRACCT_CUST_CODE_MASTER</columnsToPublish>
+    <columnsToPublish>UCRACCT_OLD_ACCOUNT</columnsToPublish>
+    <columnsToPublish>UCRACCT_WRITE_OFF_IND</columnsToPublish>
+    <columnsToPublish>UCRACCT_PREM_CODE_BILL_ADDR</columnsToPublish>
+    <columnsToPublish>UCRACCT_BAD_DEBT_EXEMPT_IND</columnsToPublish>
+    <columnsToPublish>UCRACCT_RDUP_IND</columnsToPublish>
+    <columnsToPublish>UCRACCT_RDUP_AMT</columnsToPublish>
+    <columnsToPublish>UCRACCT_RDUP_START_DATE</columnsToPublish>
+    <columnsToPublish>UCRACCT_RDUP_END_DATE</columnsToPublish>
+    <columnsToPublish>UCRACCT_DRAFT_START_DATE</columnsToPublish>
+    <columnsToPublish>UCRACCT_DRAFT_END_DATE</columnsToPublish>
+    <columnsToPublish>UCRACCT_REAS_CODE_END_DRAFT</columnsToPublish>
+    <columnsToPublish>UCRACCT_MBIL_NUM</columnsToPublish>
+    <columnsToPublish>UCRACCT_NOBILL_CTR</columnsToPublish>
+    <columnsToPublish>UCRACCT_MMBR_TYPE_IND</columnsToPublish>
+    <columnsToPublish>UCRACCT_MMBR_CODE</columnsToPublish>
+    <columnsToPublish>UCRACCT_ADDR_ATYP_CODE</columnsToPublish>
+    <columnsToPublish>UCRACCT_COMPANY_CODE</columnsToPublish>
+    <columnsToPublish>UCRACCT_HOLD_DQNT_CODE</columnsToPublish>
+    <columnsToPublish>UCRACCT_HOLD_RDUP_START_DATE</columnsToPublish>
+    <columnsToPublish>UCRACCT_HOLD_RDUP_END_DATE</columnsToPublish>
+    <columnsToPublish>UCRACCT_HOLD_RDUP_AMT</columnsToPublish>
+    <columnsToPublish>UCRACCT_ATYP_CODE</columnsToPublish>
+    <columnsToPublish>UCRACCT_H2O_PROGRAM_IND</columnsToPublish>
+    <columnsToPublish>UCRACCT_THIRD_START_DATE</columnsToPublish>
+    <columnsToPublish>UCRACCT_THIRD_END_DATE</columnsToPublish>
+    <columnsToPublish>UCRACCT_LARGE_FONT_IND</columnsToPublish>
+    <columnsToPublish>UCRACCT_PURGE_EXEMPT_IND</columnsToPublish>
+    <columnsToPublish>UCRACCT_NONR_IND</columnsToPublish>
+    <columnsToPublish>UCRACCT_NONR_DATE</columnsToPublish>
+    <columnsToPublish>UCRACCT_WMS_WO_NUM</columnsToPublish>
+    <columnsToPublish>UCRACCT_CONS_EST_1_IND</columnsToPublish>
+    <columnsToPublish>UCRACCT_CONS_EST_1_DATE</columnsToPublish>
+    <columnsToPublish>UCRACCT_CONS_EST_2_IND</columnsToPublish>
+    <columnsToPublish>UCRACCT_CONS_EST_2_DATE</columnsToPublish>
+    <columnsToPublish>UCRACCT_TAX_EXEMPT_IND</columnsToPublish>
+    <columnsToPublish>UCRACCT_BDGT_AUTO_EX_IND</columnsToPublish>
+    <columnsToPublish>UCRACCT_OLD_DQNT_CODE</columnsToPublish>
+    <columnsToPublish>UCRACCT_BANK_ACCT_ENC</columnsToPublish>
+    <columnsToPublish>UCRACCT_CYCLE_SYNC</columnsToPublish>
+    <columnsToPublish>UCRACCT_CHECK_DIGIT</columnsToPublish>
+    <columnsToPublish>UCRACCT_ACTIVE_POST_PIPP_IND</columnsToPublish>
+    <columnsToPublish>UCRACCT_PIPP_INST_AMT</columnsToPublish>
+    <columnsToPublish>UCRACCT_PIPP_INCENT_CR_AMT</columnsToPublish>
+    <columnsToPublish>UCRACCT_EXPIRATION_DATE</columnsToPublish>
+    <dbOperProperties isDefault="false" sourceTableSchema="SCOTT" sourceTable="UCRACCT" publishingTableSchema="SCOTT" publishingTable="P_UCRACCT" updateMode="Update" storageMode="Publish by Value" loopDetection="false" noTriggers="false" columnsToPublish="UCRACCT_PREM_CODE, UCRACCT_CUST_CODE, UCRACCT_STATUS_IND, UCRACCT_CYCL_CODE, UCRACCT_ESTABLISHED_DATE, UCRACCT_ACTIVITY_DATE, UCRACCT_USER_ID, UCRACCT_DBA, UCRACCT_ACCT_CODE, UCRACCT_CUST_CODE_RESP, UCRACCT_NUM_COPIES, UCRACCT_PENALTY_EXEMPT_IND, UCRACCT_DQNT_CODE, UCRACCT_LSUP_CODE, UCRACCT_MAIL_IND, UCRACCT_BUNCH_CODE, UCRACCT_BMSG_CODE, UCRACCT_SICC_CODE, UCRACCT_SS_CHECK_DAY, UCRACCT_PMNT_ARR, UCRACCT_ARRNG_NUM, UCRACCT_ENAS_CODE, UCRACCT_BANK_CODE, UCRACCT_BANK_ACCT, UCRACCT_CHECK_SAVING_IND, UCRACCT_DRAFT_ACCT_STATUS, UCRACCT_DRAFT_MAX, UCRACCT_CUST_CODE_MASTER, UCRACCT_OLD_ACCOUNT, UCRACCT_WRITE_OFF_IND, UCRACCT_PREM_CODE_BILL_ADDR, UCRACCT_BAD_DEBT_EXEMPT_IND, UCRACCT_RDUP_IND, UCRACCT_RDUP_AMT, UCRACCT_RDUP_START_DATE, UCRACCT_RDUP_END_DATE, UCRACCT_DRAFT_START_DATE, UCRACCT_DRAFT_END_DATE, UCRACCT_REAS_CODE_END_DRAFT, UCRACCT_MBIL_NUM, UCRACCT_NOBILL_CTR, UCRACCT_MMBR_TYPE_IND, UCRACCT_MMBR_CODE, UCRACCT_ADDR_ATYP_CODE, UCRACCT_COMPANY_CODE, UCRACCT_HOLD_DQNT_CODE, UCRACCT_HOLD_RDUP_START_DATE, UCRACCT_HOLD_RDUP_END_DATE, UCRACCT_HOLD_RDUP_AMT, UCRACCT_ATYP_CODE, UCRACCT_H2O_PROGRAM_IND, UCRACCT_THIRD_START_DATE, UCRACCT_THIRD_END_DATE, UCRACCT_LARGE_FONT_IND, UCRACCT_PURGE_EXEMPT_IND, UCRACCT_NONR_IND, UCRACCT_NONR_DATE, UCRACCT_WMS_WO_NUM, UCRACCT_CONS_EST_1_IND, UCRACCT_CONS_EST_1_DATE, UCRACCT_CONS_EST_2_IND, UCRACCT_CONS_EST_2_DATE, UCRACCT_TAX_EXEMPT_IND, UCRACCT_BDGT_AUTO_EX_IND, UCRACCT_OLD_DQNT_CODE, UCRACCT_BANK_ACCT_ENC, UCRACCT_CYCLE_SYNC, UCRACCT_CHECK_DIGIT, UCRACCT_ACTIVE_POST_PIPP_IND, UCRACCT_PIPP_INST_AMT, UCRACCT_PIPP_INCENT_CR_AMT, UCRACCT_EXPIRATION_DATE" columnsToFireUpdateTrigger="" userDefinedKey="UCRACCT_CUST_CODE, UCRACCT_PREM_CODE" captureProType="Synchronous" streamsOutputQueue="ADB_UCRACCT_OUT" streamsSchema="SCOTT" outputQPayloadType="ADB_UCRACCT_OBJ" captureProName="ADB_UCRACCT_CAP" dbInstanceID="DB11G" inputQueue="ADB_UCRACCT_IN" dmlHandlerName="ADB_UCRACCT_DM_HANDLE" applyProcessName="ADB_UCRACCT_APPLY"/>
+  </adadbmodel:ADBPublisher>
+  <gac:ProducerChannel name="adb_ucracct" transportConfiguration="#/7" wireFormat="aeXml" destination="%%Domain%%.%%Deployment%%.Banner.BD.Topic.Cust360.ucracct" endpointType="endpoint.JMSPublisher" channelType="jmsProducer"/>
+  <adadbmodel:ADBPublisher name="adb_ucrserv" transportConfiguration="#/7" classReference="AESchemas/ae/ADB/AdapterForDatabase.schema#P_UCRSERV" channel="#/20" transportType="jms" qualityOfService="ae.sessions.jmssession" publishingTable="P_UCRSERV" sourceTable="UCRSERV" streamsOutputQueue="ADB_UCRSERV_OUT" streamsSchema="SCOTT" outputQPayloadType="ADB_UCRSERV_OBJ" captureProName="ADB_UCRSERV_CAP" dbInstanceID="DB11G" inputQueue="ADB_UCRSERV_IN" dmlHandlerName="ADB_UCRSERV_DM_HANDLE" applyProcessName="ADB_UCRSERV_APPLY" pubFlag="0">
+    <dbOptions/>
+    <columnsToPublish>UCRSERV_PREM_CODE</columnsToPublish>
+    <columnsToPublish>UCRSERV_NUM</columnsToPublish>
+    <columnsToPublish>UCRSERV_STYP_CODE</columnsToPublish>
+    <columnsToPublish>UCRSERV_DATE_INSTALLED</columnsToPublish>
+    <columnsToPublish>UCRSERV_ACTIVITY_DATE</columnsToPublish>
+    <columnsToPublish>UCRSERV_USER_ID</columnsToPublish>
+    <columnsToPublish>UCRSERV_STATUS_IND</columnsToPublish>
+    <columnsToPublish>UCRSERV_UTYP_CODE</columnsToPublish>
+    <columnsToPublish>UCRSERV_UNIT</columnsToPublish>
+    <columnsToPublish>UCRSERV_DPOT_CODE_NEAREST</columnsToPublish>
+    <columnsToPublish>UCRSERV_SERVICE_LOCATION</columnsToPublish>
+    <columnsToPublish>UCRSERV_SCLS_CODE</columnsToPublish>
+    <columnsToPublish>UCRSERV_REAC_CODE</columnsToPublish>
+    <columnsToPublish>UCRSERV_TVAC_CODE</columnsToPublish>
+    <columnsToPublish>UCRSERV_NUM_UNITS</columnsToPublish>
+    <columnsToPublish>UCRSERV_SRAT_CODE</columnsToPublish>
+    <columnsToPublish>UCRSERV_DISC_PCT</columnsToPublish>
+    <columnsToPublish>UCRSERV_DATE_RETIRED</columnsToPublish>
+    <columnsToPublish>UCRSERV_RRTR_CODE</columnsToPublish>
+    <columnsToPublish>UCRSERV_DATE_ACTIVATED</columnsToPublish>
+    <columnsToPublish>UCRSERV_DATE_INACTIVE</columnsToPublish>
+    <columnsToPublish>UCRSERV_INVN_CODE</columnsToPublish>
+    <columnsToPublish>UCRSERV_I_O_BUILDING_IND</columnsToPublish>
+    <columnsToPublish>UCRSERV_REMOTE_PHONE</columnsToPublish>
+    <columnsToPublish>UCRSERV_RADIO_FREQ</columnsToPublish>
+    <columnsToPublish>UCRSERV_RMTH_CODE</columnsToPublish>
+    <columnsToPublish>UCRSERV_KEY_ID</columnsToPublish>
+    <columnsToPublish>UCRSERV_CUST_CODE</columnsToPublish>
+    <columnsToPublish>UCRSERV_SEAL_NUM</columnsToPublish>
+    <columnsToPublish>UCRSERV_CHARGE_FREQUENCY</columnsToPublish>
+    <columnsToPublish>UCRSERV_CHARGE_START_MONTH</columnsToPublish>
+    <columnsToPublish>UCRSERV_CLOR_CODE</columnsToPublish>
+    <columnsToPublish>UCRSERV_ROUTE</columnsToPublish>
+    <columnsToPublish>UCRSERV_READING_SEQ</columnsToPublish>
+    <columnsToPublish>UCRSERV_DEPOSIT_AMT</columnsToPublish>
+    <columnsToPublish>UCRSERV_OVER_UNDER_IND</columnsToPublish>
+    <columnsToPublish>UCRSERV_LOCK_BOX_IND</columnsToPublish>
+    <columnsToPublish>UCRSERV_PHASE_IND</columnsToPublish>
+    <columnsToPublish>UCRSERV_PREPAID_IND</columnsToPublish>
+    <columnsToPublish>UCRSERV_CUST_CODE_REVERT</columnsToPublish>
+    <columnsToPublish>UCRSERV_MAP_LOCATION</columnsToPublish>
+    <columnsToPublish>UCRSERV_DIST_CODE</columnsToPublish>
+    <columnsToPublish>UCRSERV_READ_START_MONTH</columnsToPublish>
+    <columnsToPublish>UCRSERV_READ_FREQUENCY</columnsToPublish>
+    <columnsToPublish>UCRSERV_LF_PERCENT</columnsToPublish>
+    <columnsToPublish>UCRSERV_PREM_CODE_ASRV_XFER_TO</columnsToPublish>
+    <columnsToPublish>UCRSERV_NUM_ASRV_XFER_TO</columnsToPublish>
+    <columnsToPublish>UCRSERV_UTVPRSZ_CODE</columnsToPublish>
+    <columnsToPublish>UCRSERV_UTVQLTZ_CODE</columnsToPublish>
+    <columnsToPublish>UCRSERV_UTVTMPZ_CODE</columnsToPublish>
+    <columnsToPublish>UCRSERV_PRESSURE_FACTOR</columnsToPublish>
+    <columnsToPublish>UCRSERV_BASE_EXEMPT_UNTIL_DATE</columnsToPublish>
+    <columnsToPublish>UCRSERV_DDF_EXEMPT_UNTIL_DATE</columnsToPublish>
+    <columnsToPublish>UCRSERV_WNA_EXEMPT_UNTIL_DATE</columnsToPublish>
+    <columnsToPublish>UCRSERV_TEMP_ZONE_IND_OVERRIDE</columnsToPublish>
+    <columnsToPublish>UCRSERV_RTP_CNFG_CODE</columnsToPublish>
+    <columnsToPublish>UCRSERV_OVERRIDE_DEFAULT_IND</columnsToPublish>
+    <columnsToPublish>UCRSERV_REVERSION_TYPE_IND</columnsToPublish>
+    <columnsToPublish>UCRSERV_NUM_MONTHS</columnsToPublish>
+    <columnsToPublish>UCRSERV_BILL_COUNTER_NUM</columnsToPublish>
+    <columnsToPublish>UCRSERV_LAST_CHG_DATE</columnsToPublish>
+    <columnsToPublish>UCRSERV_CONNECTED_LOAD</columnsToPublish>
+    <columnsToPublish>UCRSERV_WMS_WO_NUM</columnsToPublish>
+    <columnsToPublish>UCRSERV_MLOC_CODE</columnsToPublish>
+    <columnsToPublish>UCRSERV_DISC_LOC</columnsToPublish>
+    <columnsToPublish>UCRSERV_HDDP_EXEMPT_UNTIL_DATE</columnsToPublish>
+    <columnsToPublish>UCRSERV_FIRST_DATE</columnsToPublish>
+    <columnsToPublish>UCRSERV_FIRST_CUST_CODE</columnsToPublish>
+    <columnsToPublish>UCRSERV_FIRST_METER</columnsToPublish>
+    <columnsToPublish>UCRSERV_FIRST_IND</columnsToPublish>
+    <columnsToPublish>UCRSERV_LATITUDE</columnsToPublish>
+    <columnsToPublish>UCRSERV_LONGITUDE</columnsToPublish>
+    <columnsToPublish>UCRSERV_GPS_ORIGIN</columnsToPublish>
+    <dbOperProperties isDefault="false" sourceTableSchema="SCOTT" sourceTable="UCRSERV" publishingTableSchema="SCOTT" publishingTable="P_UCRSERV" updateMode="Update" storageMode="Publish by Value" loopDetection="false" noTriggers="false" columnsToPublish="UCRSERV_PREM_CODE, UCRSERV_NUM, UCRSERV_STYP_CODE, UCRSERV_DATE_INSTALLED, UCRSERV_ACTIVITY_DATE, UCRSERV_USER_ID, UCRSERV_STATUS_IND, UCRSERV_UTYP_CODE, UCRSERV_UNIT, UCRSERV_DPOT_CODE_NEAREST, UCRSERV_SERVICE_LOCATION, UCRSERV_SCLS_CODE, UCRSERV_REAC_CODE, UCRSERV_TVAC_CODE, UCRSERV_NUM_UNITS, UCRSERV_SRAT_CODE, UCRSERV_DISC_PCT, UCRSERV_DATE_RETIRED, UCRSERV_RRTR_CODE, UCRSERV_DATE_ACTIVATED, UCRSERV_DATE_INACTIVE, UCRSERV_INVN_CODE, UCRSERV_I_O_BUILDING_IND, UCRSERV_REMOTE_PHONE, UCRSERV_RADIO_FREQ, UCRSERV_RMTH_CODE, UCRSERV_KEY_ID, UCRSERV_CUST_CODE, UCRSERV_SEAL_NUM, UCRSERV_CHARGE_FREQUENCY, UCRSERV_CHARGE_START_MONTH, UCRSERV_CLOR_CODE, UCRSERV_ROUTE, UCRSERV_READING_SEQ, UCRSERV_DEPOSIT_AMT, UCRSERV_OVER_UNDER_IND, UCRSERV_LOCK_BOX_IND, UCRSERV_PHASE_IND, UCRSERV_PREPAID_IND, UCRSERV_CUST_CODE_REVERT, UCRSERV_MAP_LOCATION, UCRSERV_DIST_CODE, UCRSERV_READ_START_MONTH, UCRSERV_READ_FREQUENCY, UCRSERV_LF_PERCENT, UCRSERV_PREM_CODE_ASRV_XFER_TO, UCRSERV_NUM_ASRV_XFER_TO, UCRSERV_UTVPRSZ_CODE, UCRSERV_UTVQLTZ_CODE, UCRSERV_UTVTMPZ_CODE, UCRSERV_PRESSURE_FACTOR, UCRSERV_BASE_EXEMPT_UNTIL_DATE, UCRSERV_DDF_EXEMPT_UNTIL_DATE, UCRSERV_WNA_EXEMPT_UNTIL_DATE, UCRSERV_TEMP_ZONE_IND_OVERRIDE, UCRSERV_RTP_CNFG_CODE, UCRSERV_OVERRIDE_DEFAULT_IND, UCRSERV_REVERSION_TYPE_IND, UCRSERV_NUM_MONTHS, UCRSERV_BILL_COUNTER_NUM, UCRSERV_LAST_CHG_DATE, UCRSERV_CONNECTED_LOAD, UCRSERV_WMS_WO_NUM, UCRSERV_MLOC_CODE, UCRSERV_DISC_LOC, UCRSERV_HDDP_EXEMPT_UNTIL_DATE, UCRSERV_FIRST_DATE, UCRSERV_FIRST_CUST_CODE, UCRSERV_FIRST_METER, UCRSERV_FIRST_IND, UCRSERV_LATITUDE, UCRSERV_LONGITUDE, UCRSERV_GPS_ORIGIN" columnsToFireUpdateTrigger="" userDefinedKey="UCRSERV_NUM, UCRSERV_PREM_CODE" captureProType="Synchronous" streamsOutputQueue="ADB_UCRSERV_OUT" streamsSchema="SCOTT" outputQPayloadType="ADB_UCRSERV_OBJ" captureProName="ADB_UCRSERV_CAP" dbInstanceID="DB11G" inputQueue="ADB_UCRSERV_IN" dmlHandlerName="ADB_UCRSERV_DM_HANDLE" applyProcessName="ADB_UCRSERV_APPLY"/>
+  </adadbmodel:ADBPublisher>
+  <gac:ProducerChannel name="adb_ucrserv" transportConfiguration="#/7" wireFormat="aeXml" destination="%%Domain%%.%%Deployment%%.Vectren.BD.Topic.Cust360.ucrserv" endpointType="endpoint.JMSPublisher" channelType="jmsProducer"/>
+</xmi:XMI>
